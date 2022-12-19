@@ -1,7 +1,7 @@
 # 木易跟打器
 Easy Typer
 
-<img width="100" src="client/img/logo.png"/>
+<img width="100" src="client/public/img/logo.png"/>
 
 ## 一、由来
 自己是个五笔爱好者，也一直在使用五笔，曾经也做过跟打器；从 `Windows` 转到 `Mac` 之后，没有可用的跟打器，一直想有个能在 `macOS` 上运行的跟打器。
