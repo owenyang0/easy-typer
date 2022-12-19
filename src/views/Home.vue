@@ -145,6 +145,15 @@ export default class Home extends Vue {
     // 监听快捷键
     document.addEventListener('keydown', this.handleShortCut)
 
+    window.electronAPI.handlePaste((evt: any, val: any) => {
+      if (val) {
+        try {
+          this.loadText(val)
+        } catch (error) {
+          this.$message.error(error.message)
+        }
+      }
+    })
     // 监听粘贴事件
     document.addEventListener('paste', this.paste)
 

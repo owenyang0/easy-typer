@@ -271,7 +271,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
       ['hash', `哈希${getters.hash}`],
       ['inputMethod', `输入法:${inputMethodName}`],
       ['signature', `个性签名:${signatureText}`],
-      ['version', `QuickTyping-${process.env.VUE_APP_VERSION}`]
+      ['version', `易v${process.env.VUE_APP_VERSION}`]
     ])
 
     const options = setting.resultOptions.slice(0)

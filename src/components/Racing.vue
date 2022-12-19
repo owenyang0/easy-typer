@@ -76,7 +76,9 @@ export default class Racing extends Vue {
         break
       case 'finished': {
         const text = this.result
-        Clipboard.copy(text, () => null, () => {
+        Clipboard.copy(text, () => {
+          window.electronAPI.setGrade('typing finished!')
+        }, () => {
           this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
         })
         this.$message.success(text)

@@ -105,7 +105,7 @@ app.whenReady().then(() => {
         console.log('err', err)
       }
 
-      win.webContents.send('paste', clipboard.readText())
+      win.webContents.send('update-paste', clipboard.readText())
 
       app.focus({ steal: true })
     })
