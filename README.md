@@ -8,3 +8,30 @@ Easy Typer
 偶然看到了[玫枫跟打器](https://github.com/owenyang0/easy-typer)，[QT](https://gitee.com/hotleave/quick-typing)基于他们的代码做一个`macOS`上可用的跟打器，然后便有了这个项目。
 
 
+
+[版本变更历史](src/docs/changelog.md)
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Run your unit tests
+```
+yarn test:unit
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
