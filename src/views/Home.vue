@@ -1,11 +1,11 @@
 <template>
   <div id="home">
     <el-container>
-      <el-aside>
+      <el-aside width="200px">
         <Indicator/>
       </el-aside>
       <el-main id="home-main" :style="styles">
-        <el-row id="toolbar">
+        <!-- <el-row id="toolbar">
           <el-col :span="9" id="groups">
             <el-select v-model="group" placeholder="请选择" @change="onGroupChange">
               <el-option v-for="item in groups"
@@ -23,8 +23,8 @@
               <el-button icon="el-icon-refresh" @click="retry">重打</el-button>
             </el-button-group>
           </el-col>
-        </el-row>
-        <el-divider/>
+        </el-row> -->
+        <!-- <el-divider/> -->
         <div>
           <el-row>
             <el-col :span="24">

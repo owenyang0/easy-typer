@@ -1,7 +1,7 @@
 <template>
   <div id="indicator">
     <el-card class="time" shadow="never">
-      <el-progress type="dashboard" :percentage="percentage" :width="200" :status="progressStatus"/>
+      <el-progress type="dashboard" :percentage="percentage" :width="100" :status="progressStatus"/>
       <span>{{ passTime }}</span>
     </el-card>
     <el-card shadow="never">

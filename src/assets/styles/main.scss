@@ -105,9 +105,9 @@ html, body {
 }
 
 #app {
-  width: 80%;
-  max-width: 1440px;
-  min-width: 960px;
+  // width: 80%;
+  // max-width: 1440px;
+  min-width: 300px;
   margin: 0 auto;
   @include shadow-border(var(--level1-border-color));
   // background-color: var(--level4-border-color);
@@ -182,8 +182,8 @@ html, body {
 
     span {
       position: relative;
-      left: 78px;
-      top: -50px;
+      left: 28px;
+      top: -10px;
       float: left;
     }
   }

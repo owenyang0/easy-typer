@@ -1,6 +1,8 @@
-# Quick Typing {{ version }}
+# 木易跟打器 {{ version }}
 
-QuickTyping，中式英语，直译快打，快来打，打得快，越来越快……
+自己是个五笔爱好者，也一直在使用五笔，曾经(差不多10年前了)也做过Windows平台的跟打器[易跟打](https://github.com/owenyang0/FollowTyperAndSender)；从 `Windows` 转到 `Mac` 之后，没有可用的跟打器，一直想有个能在 `macOS` 上运行的跟打器。
+偶然看到了[QT](https://gitee.com/hotleave/quick-typing)基于他们的代码做一个`macOS`上可用的跟打器，然后便有了这个项目。
+
 
 程序设计上借鉴了以下产品，在此表示感谢（排名不分先后）：
 

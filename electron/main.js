@@ -26,6 +26,7 @@ tell application "System Events" to tell application process "QQ"
     keystroke "a" using command down
     click menu item "粘贴" of menu "编辑" of menu bar item "编辑" of menu bar 1
     delay 0.1
+    key code 36
 end tell
 `
 // key code 36
