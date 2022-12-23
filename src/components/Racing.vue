@@ -21,6 +21,7 @@ import { namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 
 const racing = namespace('racing')
+const setting = namespace('setting')
 
 @Component
 export default class Racing extends Vue {
@@ -47,6 +48,9 @@ export default class Racing extends Vue {
 
   @racing.Action('checkFinished')
   private checkFinished!: Function
+
+  @setting.Getter('cloak')
+  private cloak!: boolean
 
   /**
    * 输入的内容
@@ -77,6 +81,10 @@ export default class Racing extends Vue {
       case 'finished': {
         const text = this.result
         Clipboard.copy(text, () => {
+          if (this.cloak) {
+            console.log('当前处于潜水状态')
+            return
+          }
           window.electronAPI.setGrade('typing finished!')
         }, () => {
           this.$message.warning('你的浏览器不支持自动复制，需要手动操作')

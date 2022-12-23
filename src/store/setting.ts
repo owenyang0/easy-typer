@@ -1,5 +1,6 @@
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { InterfaceStyle, QuickTypingState, SettingState } from './types'
+import db from './util/Database'
 
 const state = new SettingState()
 
@@ -10,6 +11,10 @@ const getters: GetterTree<SettingState, QuickTypingState> = {
 
   hint (): boolean {
     return state.hint
+  },
+
+  cloak (): boolean {
+    return state.cloak
   },
 
   replaceSpace (): boolean {
@@ -68,6 +73,11 @@ const mutations: MutationTree<SettingState> = {
 
   toggleHint (state, hint) {
     state.hint = hint
+  },
+
+  toggleCloak (state, cloak) {
+    state.cloak = cloak
+    db.configs.put(state, 'setting')
   },
 
   toggleReplaceSpace (state, replaceSpace) {

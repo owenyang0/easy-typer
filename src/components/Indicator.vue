@@ -77,6 +77,12 @@
     </el-card>
     <el-card shadow="never">
       <div class="key-value">
+        <span>潜水</span>
+        <span>
+          <el-switch v-model="tempCloak" @change="toggleCloak(tempCloak)"/>
+        </span>
+      </div>
+      <div class="key-value">
         <span>词提</span>
         <span>
           <el-switch v-model="tempHint" @change="toggleHint(tempHint)"/>
@@ -169,11 +175,17 @@ export default class Indicator extends Vue {
   @setting.Getter('hint')
   private hint!: boolean
 
+  @setting.Getter('cloak')
+  private cloak!: boolean
+
   @setting.Getter('replaceSpace')
   private replaceSpace!: boolean
 
   @setting.Getter('getSelectChar')
   private getSelectChar!: Function
+
+  @setting.Mutation('toggleCloak')
+  private toggleCloak!: Function
 
   @setting.Mutation('toggleHint')
   private toggleHint!: Function
@@ -192,6 +204,8 @@ export default class Indicator extends Vue {
 
   @summary.Getter('totalDays')
   private totalDays!: number
+
+  private tempCloak = false
 
   private tempHint = false
 
@@ -221,6 +235,13 @@ export default class Indicator extends Vue {
     }
   }
 
+  @Watch('cloak')
+  cloakChange (cloak: boolean) {
+    if (this.tempCloak !== cloak) {
+      this.tempCloak = cloak
+    }
+  }
+
   @Watch('replaceSpace')
   replaceSpaceChange (replaceSpace: boolean) {
     if (this.tempReplaceSpace !== replaceSpace) {
@@ -245,6 +266,7 @@ export default class Indicator extends Vue {
   }
 
   created () {
+    this.cloakChange(this.cloak)
     this.hintChange(this.hint)
     this.replaceSpaceChange(this.replaceSpace)
   }

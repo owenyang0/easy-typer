@@ -455,6 +455,10 @@ export class SettingState {
    * 将标点加入码表中
    */
   addPunctuationToCodings = false
+  /**
+   * 潜水-不发送成绩
+   */
+   cloak = false
 }
 
 export interface LoginUser {
