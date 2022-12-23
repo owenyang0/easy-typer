@@ -89,10 +89,6 @@
         </span>
       </div>
     </el-card>
-    <el-card class="contribute" shadow="never">
-      <p><i class="el-icon-info"/><a href="https://gitee.com/hotleave/quick-typing/issues">提Issue</a></p>
-      <p><i class="el-icon-chat-dot-round"/><a href="tencent://Message/?Uin=81493192&websiteName=hotleave.gitee.io&Menu=yes">或QQ联系我</a></p>
-    </el-card>
 
     <el-drawer
       :title="drawer.title"

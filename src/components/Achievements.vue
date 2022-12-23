@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table :data="achievements" stripe="stripe" style="width:100%;">
-      <el-table-column prop="title" type="expand" label="标题">
+      <el-table-column prop="title" type="expand" label="成绩">
         <template slot-scope="props">
           第{{ props.row.identity }}段 速度{{ props.row.typeSpeed }} 击键{{ props.row.hitSpeed }} 码长{{ props.row.codeLength }} 字数{{ props.row.contentLength }} 错字{{ props.row.error }}
           用时{{ formatTime(props.row.usedTime) }}秒 暂停{{ props.row.pauseCount }}次{{ formatTime(props.row.pauseTime) }}秒 键准{{ props.row.accuracy }}% 键法{{ props.row.balance }}% 左{{ props.row.leftHand }}
@@ -16,18 +16,35 @@
       <el-table-column prop="idealCodeLength" label="理想" width="60"/>
       <el-table-column prop="finishedTime" label="结束时间" :formatter="timeFormatter" width="180"/>
     </el-table>
+    <div class="pagination-wrapper">
+      <el-pagination
+        background
+        layout="total, prev, pager, next"
+        @current-change="handleCurrentChange"
+        :total="totalAchievement">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Achievement } from '@/store/types'
 import { Component, Vue } from 'vue-property-decorator'
-import { State } from 'vuex-class'
+import { Mutation, State } from 'vuex-class'
+import db from '../store/util/Database'
+
+const PAGE_SIZE = 10
 
 @Component
 export default class Achievements extends Vue {
   @State('achievements')
   private achievements!: Array<Achievement>
+
+  @State('totalAchievements')
+  totalAchievement!: number
+
+  @Mutation('updateAchievements')
+  private updateAchievements!: Function
 
   titleFormatter (row: Achievement, column: number, value: number) {
     return value || '未知'
@@ -46,6 +63,15 @@ export default class Achievements extends Vue {
     const seconds = total % 60
     const minutes = (total - seconds) / 60
     return `${minutes.toFixed(0)}:${seconds.toFixed(mill)}`
+  }
+
+  handleCurrentChange (currentPage: number) {
+    const offset = (currentPage - 1) * PAGE_SIZE
+    db.achievement.reverse().offset(offset).limit(10).toArray().then(achievements => {
+      this.updateAchievements(achievements)
+    }, (error) => {
+      console.log(error)
+    })
   }
 }
 </script>

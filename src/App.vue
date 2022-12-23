@@ -18,13 +18,20 @@
               <span slot="title">词库练习</span>
             </el-menu-item>
           </el-submenu>
+          <el-submenu index="/stat">
+            <template slot="title"><i class="el-icon-s-data"></i>跟打统计</template>
+            <el-menu-item index="/history">
+              <i class="el-icon-data-line"></i>
+              <span slot="title">跟打历史</span>
+            </el-menu-item>
+            <el-menu-item index="/summary">
+              <i class="el-icon-s-data"></i>
+              <span slot="title">键盘统计</span>
+            </el-menu-item>
+          </el-submenu>
           <el-menu-item index="/setting">
             <i class="el-icon-setting"></i>
             <span slot="title">设置</span>
-          </el-menu-item>
-          <el-menu-item index="/summary">
-            <i class="el-icon-s-data"></i>
-            <span slot="title">统计</span>
           </el-menu-item>
           <el-menu-item index="/changelog">
             <i class="el-icon-time"></i>
@@ -113,6 +120,9 @@ export default class Setting extends Vue {
   @Mutation('updateAchievements')
   private updateAchievements!: Function
 
+  @Mutation('updateTotalAchievements')
+  private updateTotalAchievements!: Function
+
   private auth = {
     username: '',
     password: ''
@@ -176,6 +186,11 @@ export default class Setting extends Vue {
         this.wordCountLoaded(wordCount)
       }
     })
+
+    db.achievement.count().then(count => {
+      this.updateTotalAchievements(count)
+    })
+
     // 读取比赛成绩
     db.achievement.reverse().limit(10).toArray().then(achievements => {
       this.updateAchievements(achievements)

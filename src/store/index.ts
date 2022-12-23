@@ -40,6 +40,14 @@ const store: StoreOptions<QuickTypingState> = {
 
     addAchievements (state, achievement): void {
       state.achievements.unshift(achievement)
+    },
+
+    updateTotalAchievements (state, total): void {
+      state.totalAchievements = total
+    },
+
+    increaseTotalAchievements (state) {
+      state.totalAchievements += 1
     }
   },
 
@@ -54,6 +62,7 @@ const store: StoreOptions<QuickTypingState> = {
     },
     addAchievements ({ commit }, achievement) {
       commit('addAchievements', achievement)
+      commit('increaseTotalAchievements')
     }
   }
 }

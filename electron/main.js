@@ -57,7 +57,7 @@ const createWindow = () => {
   })
 
   // 加载 index.html
-  // mainWindow.loadFile('index.html')
+  // mainWindow.loadFile('dist/index.html')
   mainWindow.loadURL('http://127.0.0.1:8080')
 
   // 在此示例中，将仅创建具有 `about:blank` url 的窗口。
@@ -97,7 +97,7 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 
-  // 注册一个'F1' 快捷键监听器
+  // 注册一个'F4' 快捷键监听器
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
     applescript.execString(retrivingScript, (err) => {
@@ -111,19 +111,19 @@ app.whenReady().then(() => {
       app.focus({ steal: true })
     })
   })
-  // 注册一个'F1' 快捷键监听器
-  globalShortcut.register('F2', () => {
-    console.log('F2 is pressed')
-    applescript.execString(sendingScript, (err) => {
-      if (err) {
-        // Something went wrong!
-        console.log('sendingScript err', err)
-      }
-      console.log('sendingScript done')
+  // // 注册一个'F2' 快捷键监听器
+  // globalShortcut.register('F2', () => {
+  //   console.log('F2 is pressed')
+  //   applescript.execString(sendingScript, (err) => {
+  //     if (err) {
+  //       // Something went wrong!
+  //       console.log('sendingScript err', err)
+  //     }
+  //     console.log('sendingScript done')
 
-      app.focus({ steal: true })
-    })
-  })
+  //     app.focus({ steal: true })
+  //   })
+  // })
 
   if (!ret) {
     console.log('registration failed')

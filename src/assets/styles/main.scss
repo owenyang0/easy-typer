@@ -383,3 +383,12 @@ html, body {
 .markdown-body {
   padding: 1rem;
 }
+
+.pagination-wrapper {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.el-table__expanded-cell[class*=cell] {
+  padding: 20px 50px;
+}

@@ -5,37 +5,7 @@
         <Indicator/>
       </el-aside>
       <el-main id="home-main" :style="styles">
-        <!-- <el-row id="toolbar">
-          <el-col :span="9" id="groups">
-            <el-select v-model="group" placeholder="请选择" @change="onGroupChange">
-              <el-option v-for="item in groups"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-col>
-          <el-col :span="15">
-            <el-button-group>
-              <el-button icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
-              <el-button icon="el-icon-document" @click="loadFromClipboard">载文</el-button>
-              <el-button :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
-              <el-button icon="el-icon-refresh" @click="retry">重打</el-button>
-            </el-button-group>
-          </el-col>
-        </el-row> -->
-        <!-- <el-divider/> -->
         <div>
-          <el-row>
-            <el-col :span="24">
-              <Article ref="article"/>
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="24">
-              <Racing ref="racing"/>
-            </el-col>
-          </el-row>
           <el-row>
             <el-col :span="24">
               <Achievements/>
@@ -44,14 +14,6 @@
         </div>
       </el-main>
     </el-container>
-
-    <el-dialog :visible.sync="showLoadDialog" title="手动载文">
-      <el-input type="textarea" v-model="articleText" :rows="5" placeholder="请输入内容"/>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="showLoadDialog = false">取 消</el-button>
-        <el-button type="primary" @click="manuallyLoadArticle">确 定</el-button>
-      </div>
-    </el-dialog>
   </div>
 </template>
 
