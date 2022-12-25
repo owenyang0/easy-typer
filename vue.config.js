@@ -5,7 +5,10 @@ const name = '木易跟打器'
 
 module.exports = {
   pwa: { name },
-
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/easy-typer/'
+    : '/',
+  outputDir: 'docs',
   chainWebpack: config => {
     config.plugin('html').tap(args => {
       args[0].title = name
