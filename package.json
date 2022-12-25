@@ -8,7 +8,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "package-mac": "npx electron-packager . --overwrite --platform=darwin --arch=x64 --out=target  --icon=public/img/icons/logo-large.icns",
+    "package-mac": "npx electron-packager . 木易跟打器 --overwrite --platform=darwin --arch=x64 --out=target --icon=public/img/icons/logo-large.icns",
     "dmg": "npx electron-installer-dmg ./target/easy-typer-darwin-x64/easy-typer.app/ 木易跟打器",
     "lint": "vue-cli-service lint"
   },
@@ -67,7 +67,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
+    "./src/*.{js,jsx,vue,ts,tsx}": [
       "vue-cli-service lint",
       "git add"
     ]
