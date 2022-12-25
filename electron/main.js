@@ -1,7 +1,7 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, globalShortcut, ipcMain, BrowserWindow, clipboard } = require('electron')
+const { app, globalShortcut, ipcMain, BrowserWindow, clipboard, Notification } = require('electron')
 const path = require('path')
 
 const applescript = require('applescript')
@@ -30,11 +30,15 @@ tell application "System Events" to tell application process "QQ"
 end tell
 `
 
+function showNotification (body = '', title = '木易跟打器') {
+  new Notification({ title, body }).show()
+}
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 700,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
       // nodeIntegration: true,
@@ -51,18 +55,17 @@ const createWindow = () => {
     applescript.execString(sendingScript, (err) => {
       if (err) {
         // Something went wrong!
-        console.log('sendingScript err', err)
+        console.error('sendingScript err', err)
+        showNotification(err?.msg || 'Fail', '发送成绩失败')
       }
-      console.log('sendingScript done')
-
       app.focus({ steal: true })
     })
   })
 
   // 加载 index.html
-  mainWindow.loadFile('docs/index.html')
+  // mainWindow.loadFile('docs/index.html')
   // mainWindow.loadURL('http://127.0.0.1:8080')
-  // mainWindow.loadURL('https://owenyang0.github.io/easy-typer/')
+  mainWindow.loadURL('https://owenyang0.github.io/easy-typer/')
 
   // 在此示例中，将仅创建具有 `about:blank` url 的窗口。
   // 其他 url 将被阻止。
@@ -108,8 +111,8 @@ app.whenReady().then(() => {
       if (err) {
         // Something went wrong!
         console.log('err', err)
+        showNotification(err?.msg || 'Fail', '获取文本失败')
       }
-
       win.webContents.send('update-paste', clipboard.readText())
 
       app.focus({ steal: true })
