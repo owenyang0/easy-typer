@@ -61,8 +61,8 @@ const createWindow = () => {
 
   // 加载 index.html
   // mainWindow.loadFile('dist/index.html')
-  mainWindow.loadURL('http://127.0.0.1:8080')
-  // mainWindow.loadURL('https://owenyang0.github.io/easy-typer/')
+  // mainWindow.loadURL('http://127.0.0.1:8080')
+  mainWindow.loadURL('https://owenyang0.github.io/easy-typer/')
 
   // 在此示例中，将仅创建具有 `about:blank` url 的窗口。
   // 其他 url 将被阻止。
