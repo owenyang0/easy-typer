@@ -9,7 +9,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "package-mac": "npx electron-packager . 木易跟打器 --overwrite --platform=darwin --arch=x64 --out=target --icon=public/img/icons/logo-large.icns",
-    "dmg": "npx electron-installer-dmg ./target/easy-typer-darwin-x64/木易跟打器.app",
+    "dmg": "npx electron-installer-dmg ./target/木易跟打器-darwin-x64/木易跟打器.app 木易跟打器",
     "lint": "vue-cli-service lint"
   },
   "author": "owenyang",
