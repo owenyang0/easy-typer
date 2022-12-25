@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <el-progress type="line" :percentage="percentage" :width="100" :color="customColors"
+      :stroke-width="4" :show-text="false" define-back-color="#ffffff"/>
     <el-row>
       <el-col :span="24">
         <el-menu
@@ -86,6 +88,7 @@ import xcapi from './api/xc.cool'
 const setting = namespace('setting')
 const login = namespace('login')
 const summary = namespace('summary')
+const racing = namespace('racing')
 
 @Component
 export default class Setting extends Vue {
@@ -127,6 +130,23 @@ export default class Setting extends Vue {
     username: '',
     password: ''
   }
+
+  @racing.Getter('progress')
+  private progress!: number
+
+  get percentage (): number {
+    const percentage = Math.min(this.progress || 0, 1) * 100
+    console.log('per', this.progress)
+    return parseFloat(percentage.toFixed(2))
+  }
+
+  customColors = [
+    { color: '#f56c6c', percentage: 20 },
+    { color: '#e6a23c', percentage: 40 },
+    { color: '#5cb87a', percentage: 60 },
+    { color: '#1989fa', percentage: 80 },
+    { color: '#6f7ad3', percentage: 100 }
+  ]
 
   doLogin () {
     xcapi.login(this.auth).then(data => {

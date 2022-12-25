@@ -109,7 +109,7 @@ html, body {
   // max-width: 1440px;
   min-width: 300px;
   margin: 0 auto;
-  @include shadow-border(var(--level1-border-color));
+  // @include shadow-border(var(--level1-border-color));
   // background-color: var(--level4-border-color);
   // 头像
   #profile {
@@ -119,6 +119,18 @@ html, body {
   }
   .el-main {
     padding: 0;
+  }
+  .el-card__body, .el-main {
+    padding: 10px;
+  }
+
+  .el-progress-bar__outer,
+  .el-progress-bar__inner {
+    border-radius: 0;
+  }
+
+  .el-progress-bar__outer {
+    background-color: #E6A23C;
   }
 }
 
@@ -193,7 +205,7 @@ html, body {
     font-size: 4rem;
     text-align: center;
     border-bottom: 1px dashed var(--level2-border-color);
-    padding: 1rem;
+    padding: 0 1rem;
   }
 
   .hint-block {
@@ -218,7 +230,8 @@ html, body {
   .code-hint {
     text-align: left;
     font-size: 1.2rem;
-    height: 150px;
+    // height: 150px;
+    height: 60px;
     div {
       margin: .5rem auto 0 auto;
       &:first-child {

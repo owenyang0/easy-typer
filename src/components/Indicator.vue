@@ -1,9 +1,9 @@
 <template>
   <div id="indicator">
-    <el-card class="time" shadow="never">
+    <!-- <el-card class="time" shadow="never">
       <el-progress type="dashboard" :percentage="percentage" :width="100" :status="progressStatus"/>
       <span>{{ passTime }}</span>
-    </el-card>
+    </el-card> -->
     <el-card shadow="never">
       <el-row>
         <el-col :span="24" class="speed">
