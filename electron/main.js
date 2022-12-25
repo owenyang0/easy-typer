@@ -11,7 +11,7 @@ const applescript = require('applescript')
 const retrivingScript = `tell application "QQ" to activate --QQ
 tell application "System Events"
   tell process "QQ"
-    do shell script "./electron/bin/cliclick c:."   
+    do shell script "/usr/local/opt/cliclick c:." 
     keystroke "a" using command down
     keystroke "c" using command down
     delay 0.1
