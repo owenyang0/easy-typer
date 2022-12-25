@@ -33,14 +33,18 @@ end tell
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 800,
+    height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
       // nodeIntegration: true,
       // contextIsolation: false,
     }
   })
+
+  if (process.platform === 'darwin') {
+    app.dock.setIcon(path.join(__dirname, '../public/img/icons/logo-large.png'))
+  }
 
   ipcMain.on('set-grade', (event, msg) => {
     console.log(msg)

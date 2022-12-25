@@ -323,7 +323,7 @@ export class SettingState {
   /**
    * 对照区行数
    */
-  articleRows = 6
+  articleRows = 4
 
   /**
    * 输入区行数
@@ -425,7 +425,8 @@ export class SettingState {
   /**
    * 结果选项
    */
-  resultOptions = ['identity', 'typeSpeed', 'hitSpeed', 'codeLength', 'version']
+
+  resultOptions = ['identity', 'typeSpeed', 'hitSpeed', 'codeLength', 'version', 'accuracy', 'phraseRate', 'selective', 'keys', 'replace', 'hash', 'backspace']
 
   /**
    * 输入法
@@ -458,7 +459,7 @@ export class SettingState {
   /**
    * 潜水-不发送成绩
    */
-   cloak = false
+   cloak = true
 }
 
 export interface LoginUser {

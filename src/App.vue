@@ -44,7 +44,7 @@
             <span slot="title">关于</span>
           </el-menu-item>
         </el-menu>
-        <div id="profile">
+        <!-- <div id="profile">
           <el-button v-if="!authenticated" type="text" @click="loginFormVisible = true">登录</el-button>
           <el-dialog title="用户登录" :visible.sync="loginFormVisible">
             <el-form :model="auth" label-width="80">
@@ -66,7 +66,7 @@
               <el-dropdown-item icon="el-icon-lock" @click.native="doLogout">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-        </div>
+        </div> -->
       </el-col>
     </el-row>
     <el-row>
@@ -136,7 +136,6 @@ export default class Setting extends Vue {
 
   get percentage (): number {
     const percentage = Math.min(this.progress || 0, 1) * 100
-    console.log('per', this.progress)
     return parseFloat(percentage.toFixed(2))
   }
 
