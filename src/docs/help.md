@@ -31,7 +31,7 @@ macOS上可直接载文的跟打器
 ## 四、快速上手
 因为需要载文，在`系统偏好设置-安全性与隐私-辅助功能`中，允许木易跟打器控制电脑
 
-<img width="500" alt="木易跟打器macOS版" src="/img/setting.png">
+<img width="500" alt="木易跟打器macOS版" src="img/setting.png">
 
 同时由于QQ macOS版本的限制，无法全文获取，可通过以下方式载文
 - 鼠标移至聊天窗口对应消息位置
