@@ -1,10 +1,12 @@
-<img width="200" alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/icons/logo-large.png">
+<img style="max-height:400px;" alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/logo-lanscape%402x.png">
+
 # 木易跟打器macOS版 {{ version }}
-macOS上可直接载文的跟打器
 
-> 本人是个五笔爱好者，也一直在使用五笔，曾经(差不多10年前了)也做过Windows平台的跟打器[易跟打Windows版](https://github.com/owenyang0/FollowTyperAndSender)。
+> macOS上可直接载文的跟打器
 
-> 从 `Windows` 转到 `Mac` 之后，苦于`macOS`没有可用的跟打器，偶然看到了[QT](https://gitee.com/hotleave/quick-typing)基于他们的代码做一个`macOS`上可直接载文用的跟打器，外理了一些macOS系统的兼容，于是便有了这个项目。
+本人是个五笔爱好者，也一直在使用五笔，曾经(差不多10年前了)也做过Windows平台的跟打器[易跟打Windows版](https://github.com/owenyang0/FollowTyperAndSender)。
+
+从 `Windows` 转到 `Mac` 之后，苦于`macOS`没有可用的跟打器，偶然看到了[QT](https://gitee.com/hotleave/quick-typing)基于他们的代码做一个`macOS`上可直接载文用的跟打器，外理了一些macOS系统的兼容，于是便有了这个项目。
 
 ## 一、Contributing
 
