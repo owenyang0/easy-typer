@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3e83ebaaecc4fd69bd74",
+    "revision": "c0dfd7139f55cc930e20",
     "url": "css/app.de6b0c71.css"
   },
   {
@@ -28,24 +28,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/layouts/QWERTY.png"
   },
   {
+    "revision": "2a05742a1968ecea77d81b7b44b80766",
+    "url": "img/logo-landscape-white@2x.png"
+  },
+  {
+    "revision": "0244ce5dadb1dc256d7dd5086ccd1d12",
+    "url": "img/logo-lanscape@2x.png"
+  },
+  {
     "revision": "3ee07ddac08e38420ccf43a9a5ba7d6e",
     "url": "img/setting.png"
   },
   {
-    "revision": "13640243270e2eb19bb188e3b61485ab",
+    "revision": "ae1084294370751f82728e12317d64a6",
     "url": "index.html"
   },
   {
-    "revision": "ecb006b861749c59fcb8",
-    "url": "js/about.0aa12207.js"
+    "revision": "fd7b70361c4602703045",
+    "url": "js/about.ee5d7acf.js"
   },
   {
     "revision": "5cab8e12a4d3f35a2a50",
     "url": "js/about~changelog.45d01fc0.js"
   },
   {
-    "revision": "3e83ebaaecc4fd69bd74",
-    "url": "js/app.6d1c1702.js"
+    "revision": "c0dfd7139f55cc930e20",
+    "url": "js/app.2719d9da.js"
   },
   {
     "revision": "8305c856dfe4f8261104",
