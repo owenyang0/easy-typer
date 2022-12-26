@@ -18,5 +18,19 @@ export default class Setting extends Vue {
   get html (): string {
     return converter.makeHtml(help.replace('{{ version }}', this.version))
   }
+
+  created () {
+    document.addEventListener('click', (e: Event) => {
+      const target = e.target as HTMLLinkElement
+      if (target && target?.tagName === 'A') {
+        e.preventDefault()
+        window.open(target.href, '_blank')
+      }
+    })
+  }
+
+  destroyed () {
+    document.removeEventListener('click', () => null)
+  }
 }
 </script>

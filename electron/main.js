@@ -77,7 +77,8 @@ const createWindow = () => {
       return {
         action: 'allow',
         overrideBrowserWindowOptions: {
-        //   frame: false,
+          width: 800,
+          height: 600,
         //   fullscreenable: false,
         //   backgroundColor: 'black',
           webPreferences: {
