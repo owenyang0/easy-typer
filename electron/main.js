@@ -8,10 +8,13 @@ const applescript = require('applescript')
 
 // Very basic AppleScript command. Returns the song name of each
 // currently selected track in iTunes as an 'Array' of 'String's.
+// do shell script "/usr/local/opt/cliclick c:." 
+
+const clickShell = `do shell script "${__dirname}/bin/cliclick c:."`
 const retrivingScript = `tell application "QQ" to activate --QQ
 tell application "System Events"
   tell process "QQ"
-    do shell script "/usr/local/opt/cliclick c:." 
+    ${clickShell}
     keystroke "a" using command down
     keystroke "c" using command down
     delay 0.1
@@ -56,7 +59,7 @@ const createWindow = () => {
       if (err) {
         // Something went wrong!
         console.error('sendingScript err', err)
-        showNotification(err?.msg || 'Fail', '发送成绩失败')
+        showNotification(err?.message || 'Fail', '发送成绩失败')
       }
       app.focus({ steal: true })
     })
@@ -64,8 +67,8 @@ const createWindow = () => {
 
   // 加载 index.html
   // mainWindow.loadFile('docs/index.html')
-  // mainWindow.loadURL('http://127.0.0.1:8080')
-  mainWindow.loadURL('https://owenyang0.github.io/easy-typer/')
+  mainWindow.loadURL('http://127.0.0.1:8080')
+  // mainWindow.loadURL('https://owenyang0.github.io/easy-typer/')
 
   // 在此示例中，将仅创建具有 `about:blank` url 的窗口。
   // 其他 url 将被阻止。
@@ -108,14 +111,14 @@ app.whenReady().then(() => {
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
     applescript.execString(retrivingScript, (err) => {
+      app.focus({ steal: true })
+
       if (err) {
         // Something went wrong!
-        console.log('err', err)
-        showNotification(err?.msg || 'Fail', '获取文本失败')
+        console.error('loading script err', err)
+        showNotification(err?.message || 'Fail', '获取文本失败')
       }
       win.webContents.send('update-paste', clipboard.readText())
-
-      app.focus({ steal: true })
     })
   })
   // // 注册一个'F2' 快捷键监听器
