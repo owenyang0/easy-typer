@@ -1,5 +1,7 @@
 <img width="200" alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/icons/logo-large.png">
+
 # 木易跟打器macOS版
+
 macOS上可直接载文的跟打器
 
 > 本人是个五笔爱好者，也一直在使用五笔，曾经(差不多10年前了)也做过Windows平台的跟打器[易跟打Windows版](https://github.com/owenyang0/FollowTyperAndSender)。
@@ -31,7 +33,7 @@ macOS上可直接载文的跟打器
 ## 四、快速上手
 因为需要载文，在`系统偏好设置-安全性与隐私-辅助功能`中，允许木易跟打器控制电脑
 
-<img width="500" alt="木易跟打器macOS版" src="img/setting.png">
+<img width="500" alt="木易跟打器macOS版" src="https://user-images.githubusercontent.com/2222167/209472113-ff21ed12-66bc-442a-a6bc-3fde22f9afdf.png">
 
 同时由于QQ macOS版本的限制，无法全文获取，可通过以下方式载文
 - 鼠标移至聊天窗口对应消息位置
