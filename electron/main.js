@@ -40,7 +40,7 @@ function showNotification (body = '', title = '木易跟打器') {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 900,
     height: 700,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
@@ -77,7 +77,7 @@ const createWindow = () => {
       return {
         action: 'allow',
         overrideBrowserWindowOptions: {
-          width: 800,
+          width: 900,
           height: 600,
         //   fullscreenable: false,
         //   backgroundColor: 'black',
