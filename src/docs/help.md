@@ -1,4 +1,4 @@
-<img style="max-height:400px;" alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/logo-lanscape%402x.png">
+<img style="max-height:400px;" alt="木易跟打器macOS版" src="img/logo-lanscape%402x.png">
 
 # 木易跟打器macOS版 {{ version }}
 
