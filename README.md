@@ -1,7 +1,9 @@
-# 木易跟打器
+# 木易跟打器macOS版
 Easy Typer
 
-<img width="100" src="client/public/img/logo.png"/>
+<img width="200" alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/icons/logo-large.png">
+
+macOS上可直接载文的跟打器
 
 ## 一、由来
 自己是个五笔爱好者，也一直在使用五笔，曾经也做过跟打器；从 `Windows` 转到 `Mac` 之后，没有可用的跟打器，一直想有个能在 `macOS` 上运行的跟打器。
