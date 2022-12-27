@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-typer/img/setting.png"
   },
   {
-    "revision": "f225bb4f63af8ea00deadfc85f94e5e7",
+    "revision": "36e9d8ccd603b23f84b37a7c0e3fa23c",
     "url": "/easy-typer/index.html"
   },
   {
