@@ -1,10 +1,9 @@
 process.env.VUE_APP_VERSION = require('./package.json').version
 
-// const name = 'Quick Typing'
 const name = '木易跟打器'
 
 module.exports = {
-  // pwa: { name },
+  pwa: { name },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/easy-typer'
     : '/',
