@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f08096a383f17d75a8c9",
+    "revision": "1da8019e0ee5d0dff921",
     "url": "/easy-typer/css/app.de6b0c71.css"
   },
   {
@@ -28,24 +28,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-typer/img/layouts/QWERTY.png"
   },
   {
+    "revision": "2a05742a1968ecea77d81b7b44b80766",
+    "url": "/easy-typer/img/logo-landscape-white@2x.png"
+  },
+  {
+    "revision": "0244ce5dadb1dc256d7dd5086ccd1d12",
+    "url": "/easy-typer/img/logo-lanscape@2x.png"
+  },
+  {
     "revision": "3ee07ddac08e38420ccf43a9a5ba7d6e",
     "url": "/easy-typer/img/setting.png"
   },
   {
-    "revision": "ef80adee997a8e32a1b295e146aad54a",
+    "revision": "f225bb4f63af8ea00deadfc85f94e5e7",
     "url": "/easy-typer/index.html"
   },
   {
-    "revision": "baa110d5ba04ddb904a5",
-    "url": "/easy-typer/js/about.9436cd0c.js"
+    "revision": "fd7b70361c4602703045",
+    "url": "/easy-typer/js/about.ee5d7acf.js"
   },
   {
     "revision": "5cab8e12a4d3f35a2a50",
     "url": "/easy-typer/js/about~changelog.45d01fc0.js"
   },
   {
-    "revision": "f08096a383f17d75a8c9",
-    "url": "/easy-typer/js/app.9fdf23fa.js"
+    "revision": "1da8019e0ee5d0dff921",
+    "url": "/easy-typer/js/app.a427447a.js"
   },
   {
     "revision": "8305c856dfe4f8261104",
