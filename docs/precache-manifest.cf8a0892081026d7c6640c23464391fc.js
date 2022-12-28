@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a5e22e4b5249ab7282c5",
-    "url": "/easy-typer/css/app.a25ad26c.css"
+    "revision": "6c1daf357512c9272dc6",
+    "url": "/easy-typer/css/app.b0aadb67.css"
   },
   {
-    "revision": "c8100746fcaee5c5715c",
-    "url": "/easy-typer/css/chunk-vendors.532634c1.css"
+    "revision": "85702d9f894fb5ea15ad",
+    "url": "/easy-typer/css/chunk-vendors.cc5f3adf.css"
   },
   {
     "revision": "d68560c03bdf737742d9",
@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-typer/img/setting.png"
   },
   {
-    "revision": "126d4aa318e52fb11583e83acb94baaa",
+    "revision": "f23c020bb5ee5fa9ac5906cd09bfb12e",
     "url": "/easy-typer/index.html"
   },
   {
@@ -52,16 +52,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-typer/js/about~changelog.45d01fc0.js"
   },
   {
-    "revision": "a5e22e4b5249ab7282c5",
-    "url": "/easy-typer/js/app.80ab6fd8.js"
+    "revision": "6c1daf357512c9272dc6",
+    "url": "/easy-typer/js/app.7bac6757.js"
   },
   {
     "revision": "8305c856dfe4f8261104",
     "url": "/easy-typer/js/changelog.405501f6.js"
   },
   {
-    "revision": "c8100746fcaee5c5715c",
-    "url": "/easy-typer/js/chunk-vendors.8e6c4d5a.js"
+    "revision": "85702d9f894fb5ea15ad",
+    "url": "/easy-typer/js/chunk-vendors.01a6f279.js"
   },
   {
     "revision": "d68560c03bdf737742d9",
