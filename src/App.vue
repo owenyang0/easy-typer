@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <el-progress type="line" :percentage="percentage" :width="100" :color="customColors"
-      :stroke-width="4" :show-text="false" define-back-color="#ffffff"/>
+      :stroke-width="4" :show-text="false" define-back-color="#1c1f24"/>
     <el-row>
       <el-col :span="24">
         <el-menu
           :router="true"
           :default-active="pathname"
-          active-text-color="#409EFF"
+          active-text-color="#eb9010"
           mode="horizontal">
           <el-submenu index="0">
             <template slot="title"><i class="el-icon-s-home"></i>功能</template>
@@ -141,10 +141,10 @@ export default class Setting extends Vue {
 
   customColors = [
     { color: '#f56c6c', percentage: 20 },
-    { color: '#e6a23c', percentage: 40 },
+    { color: '#cc7700', percentage: 40 },
     { color: '#5cb87a', percentage: 60 },
     { color: '#1989fa', percentage: 80 },
-    { color: '#6f7ad3', percentage: 100 }
+    { color: '#015a4f', percentage: 100 }
   ]
 
   doLogin () {
@@ -216,8 +216,11 @@ export default class Setting extends Vue {
     }, (error) => {
       console.log(error)
     })
+
+    const isDarkMode = true
+    if (isDarkMode) {
+      require('./assets/styles/main-dark.scss')
+    }
   }
 }
 </script>
-
-<style lang="scss" src="./assets/styles/main.scss"></style>
