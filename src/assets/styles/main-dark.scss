@@ -1,4 +1,4 @@
-@import "./rewrite.scss";
+@import "./rewrite-dark.scss";
 
 @font-face {
   font-family: "Digital7 mono";
@@ -72,20 +72,26 @@
   font-variant-ligatures: none;
 
   --racing-font: "Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-  --background-color: #FFF;
+  // --background-color: #FFF;
+  // --background-color: #0f0f13;
+  --background-color: #1c1f24;
   --level1-border-color: #DCDFE6;
-  --level2-border-color: #E4E7ED;
-  --level3-border-color: #EBEEF5;
-  --level4-border-color: #F2F6FC;
+  // --level2-border-color: #E4E7ED;
+  --level2-border-color: #3d444f;
+  // --level3-border-color: #EBEEF5;
+  --level3-border-color: #272b32;
+  // --level4-border-color: #F2F6FC;
+  --level4-border-color: #272b32;
   --main-color: #303133;
   --normal-color: #606266;
   --secondary-color: #909399;
-  --placeholder-color: #C0C4CC;
+  // --placeholder-color: #C0C4CC;
+  --placeholder-color: #909399;
 
   --pending: var(--secondary-color);
   --code1: #F56C6C;
-  --code2: #E6A23C;
-  --code3: #409EFF;
+  --code2: #409EFF;
+  --code3: #E6A23C;
   --code4: var(--secondary-color);
   --correct: var(--placeholder-color);
   --error: #F56C6C;
@@ -406,3 +412,4 @@ html, body {
 .el-table__expanded-cell[class*=cell] {
   padding: 20px 50px;
 }
+
