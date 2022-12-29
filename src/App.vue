@@ -9,17 +9,18 @@
           :default-active="pathname"
           active-text-color="#eb9010"
           mode="horizontal">
-          <el-submenu index="0">
-            <template slot="title"><i class="el-icon-s-home"></i>功能</template>
-            <el-menu-item index="/">
-              <i class="el-icon-medal-1"></i>
-              <span slot="title">赛文跟打</span>
-            </el-menu-item>
-            <el-menu-item index="/practice">
-              <i class="el-icon-aim"></i>
-              <span slot="title">词库练习</span>
-            </el-menu-item>
-          </el-submenu>
+          <el-menu-item index="/">
+            <i class="el-icon-medal-1"></i>
+            <span slot="title">赛文跟打</span>
+          </el-menu-item>
+          <el-menu-item index="/practice">
+            <i class="el-icon-aim"></i>
+            <span slot="title">词库练习</span>
+          </el-menu-item>
+          <el-menu-item index="/setting">
+            <i class="el-icon-setting"></i>
+            <span slot="title">设置</span>
+          </el-menu-item>
           <el-submenu index="/stat">
             <template slot="title"><i class="el-icon-s-data"></i>跟打统计</template>
             <el-menu-item index="/history">
@@ -31,18 +32,18 @@
               <span slot="title">键盘统计</span>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item index="/setting">
-            <i class="el-icon-setting"></i>
-            <span slot="title">设置</span>
-          </el-menu-item>
-          <el-menu-item index="/changelog">
-            <i class="el-icon-time"></i>
-            <span slot="title">版本历史</span>
-          </el-menu-item>
-          <el-menu-item index="/about">
-            <i class="el-icon-question"></i>
-            <span slot="title">关于</span>
-          </el-menu-item>
+          <el-submenu index="/help">
+            <template slot="title"><i class="el-icon-info
+"></i>帮助</template>
+            <el-menu-item index="/about">
+              <i class="el-icon-question"></i>
+              <span slot="title">关于</span>
+            </el-menu-item>
+            <el-menu-item index="/changelog">
+              <i class="el-icon-time"></i>
+              <span slot="title">版本记录</span>
+            </el-menu-item>
+          </el-submenu>
         </el-menu>
         <!-- <div id="profile">
           <el-button v-if="!authenticated" type="text" @click="loginFormVisible = true">登录</el-button>
