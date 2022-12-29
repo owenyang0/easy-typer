@@ -39,6 +39,11 @@ const routes: Array<RouteConfig> = [
     path: '/history',
     name: 'History',
     component: () => import(/* webpackChunkName: "about" */ '../views/History.vue')
+  },
+  {
+    path: '/download',
+    name: 'Download',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Download.vue')
   }
 ]
 

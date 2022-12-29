@@ -37,11 +37,15 @@
 "></i>帮助</template>
             <el-menu-item index="/about">
               <i class="el-icon-question"></i>
-              <span slot="title">关于</span>
+              <span slot="title">帮助/关于</span>
             </el-menu-item>
             <el-menu-item index="/changelog">
               <i class="el-icon-time"></i>
               <span slot="title">版本记录</span>
+            </el-menu-item>
+            <el-menu-item index="/download">
+              <i class="el-icon-download"></i>
+              <span slot="title">程序下载</span>
             </el-menu-item>
           </el-submenu>
         </el-menu>

@@ -158,9 +158,9 @@ const parseArticle = (content: string, setting: SettingState): ArticleState => {
 }
 
 const state: ArticleState = {
-  title: '',
-  identity: '',
-  content: '',
+  title: '马上可用',
+  identity: '1',
+  content: '1.点击『帮助』-『关于』-『快速开始』完成初始设置；2.按下F4快捷键，即刻开始你的跟打之旅~',
   shortest: null
 }
 

@@ -108,6 +108,22 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 
+  // 打包后禁用快捷键
+  if (app.isPackaged) {
+    globalShortcut.register('F5', function() {
+      console.log('f5 is pressed')
+      // mainWindow.reload()
+    })
+    globalShortcut.register('CommandOrControl+R', function() {
+      console.log('CommandOrControl+R is pressed')
+      // mainWindow.reload()
+    })
+
+    globalShortcut.register('CommandOrControl+Alt+I', function() {
+      console.log('CommandOrControl+Alt+I')
+    })
+  }
+
   // 注册一个'F4' 快捷键监听器
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
@@ -141,7 +157,7 @@ app.whenReady().then(() => {
   }
 
   // 检查快捷键是否注册成功
-  console.log(globalShortcut.isRegistered('F1'))
+  console.log('is F4 registered: ' + globalShortcut.isRegistered('F4'))
 })
 
 // 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 There, it's common
