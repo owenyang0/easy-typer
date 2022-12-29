@@ -1,6 +1,6 @@
 {
   "name": "easy-typer",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "macOS平台可直接载文的跟打器",
   "main": "electron/main.js",
   "scripts": {
