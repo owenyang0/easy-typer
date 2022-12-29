@@ -43,7 +43,8 @@ const createWindow = () => {
     width: 940,
     height: 820,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      devTools: !app.isPackaged,
       // nodeIntegration: true,
       // contextIsolation: false,
     }
@@ -108,22 +109,6 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 
-  // 打包后禁用快捷键
-  if (app.isPackaged) {
-    globalShortcut.register('F5', function() {
-      console.log('f5 is pressed')
-      // mainWindow.reload()
-    })
-    globalShortcut.register('CommandOrControl+R', function() {
-      console.log('CommandOrControl+R is pressed')
-      // mainWindow.reload()
-    })
-
-    globalShortcut.register('CommandOrControl+Alt+I', function() {
-      console.log('CommandOrControl+Alt+I')
-    })
-  }
-
   // 注册一个'F4' 快捷键监听器
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
@@ -176,5 +161,20 @@ app.on('will-quit', () => {
   globalShortcut.unregisterAll()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. 也可以拆分成几个文件，然后用 require 导入。
+app.on('browser-window-focus', function () {
+  globalShortcut.register("CommandOrControl+R", () => {
+      console.log("CommandOrControl+R is pressed: Shortcut Disabled");
+  });
+  globalShortcut.register("CommandOrControl+Shift+R", () => {
+    console.log("CommandOrControl+Shift+R is pressed: Shortcut Disabled");
+});
+  globalShortcut.register("F5", () => {
+      console.log("F5 is pressed: Shortcut Disabled");
+  });
+});
+
+app.on('browser-window-blur', function () {
+  globalShortcut.unregister('CommandOrControl+R');
+  globalShortcut.unregister('CommandOrControl+Shift+R');
+  globalShortcut.unregister('F5');
+});
