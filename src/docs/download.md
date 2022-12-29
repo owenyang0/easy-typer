@@ -6,4 +6,4 @@
 > 群号 `787343469` 群文件下载
 
 ### 百度网盘
-* [木易跟打器0.1.20] - [https://pan.baidu.com/s/1x3IsaYbxq-Ypri8_qZc4Zw?pwd=8888](https://pan.baidu.com/s/1x3IsaYbxq-Ypri8_qZc4Zw?pwd=8888) 提取码: 8888
+* [木易跟打器发布记录] - [https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888](https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888) 提取码
