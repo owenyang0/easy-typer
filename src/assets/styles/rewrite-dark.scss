@@ -992,6 +992,36 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
 
+
+// Colors
+$green          : #26c57d;
+$dark-green     : #009652;
+$cyan           : #00afff;
+$blue           : #007AFF;
+$purple         : #5856D6;
+$roseo          : #ff2d70;
+$red            : #FF3B30;
+$orange         : #FF9500;
+$yellow         : #FFCC00;
+$gray           : #8E8E93;
+$black          : #000000;
+
+
+$speed-levels: (
+        '6' :$roseo,
+        '5' :$orange,
+        '4' :$green,
+        '3' :$blue,
+        '2': $purple,
+        '1' :$gray,
+);
+
+@each $level, $color in $speed-levels {
+  .speed-lv-#{$level}{
+    color: $color !important;
+  }
+}
+
 .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
   background-color: #20242a;
 }
@@ -1036,4 +1066,9 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
   .markdown-body {
     color: $--color-text-primary;
   }
+}
+
+.achievements-table .el-table__body-wrapper {
+  max-height: 200px;
+  overflow-y: auto;
 }
