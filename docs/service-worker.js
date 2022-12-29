@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/easy-typer/precache-manifest.156573ca53eb573ff4bdd891e2b47612.js"
+  "/easy-typer/precache-manifest.45ca47961f3a2caf292b64eb4e752373.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "easy-typer"});
