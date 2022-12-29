@@ -46,13 +46,13 @@ $--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
 $--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
 $--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
 /// color|1|Font Color|2
-$--color-text-primary: #C0C4CC !default;
+$--color-text-primary: #9ca0a9 !default;
 /// color|1|Font Color|2
-$--color-text-regular: #606266 !default;
+$--color-text-regular: #828895 !default;
 /// color|1|Font Color|2
 $--color-text-secondary: #909399 !default;
 /// color|1|Font Color|2
-$--color-text-placeholder: #C0C4CC !default;
+$--color-text-placeholder: 9ca0a9 !default;
 /// color|1|Border Color|3
 // $--border-color-base: #DCDFE6 !default;
 $--border-color-base: #3d444f;
@@ -63,7 +63,7 @@ $--border-color-light: #272b32;
 // $--border-color-lighter: #EBEEF5 !default;
 $--border-color-lighter: #272b32;
 /// color|1|Border Color|3
-$--border-color-extra-light: #F2F6FC !default;
+$--border-color-extra-light: #3d444f;
 
 // Background
 /// color|1|Background Color|4
@@ -166,7 +166,7 @@ $--checkbox-input-border: $--border-base !default;
 
 /// color||Color|0
 $--checkbox-disabled-border-color: $--border-color-base !default;
-$--checkbox-disabled-input-fill: #edf2fc !default;
+$--checkbox-disabled-input-fill: #3d444f !default;
 $--checkbox-disabled-icon-color: $--color-text-placeholder !default;
 
 $--checkbox-disabled-checked-input-fill: $--border-color-extra-light !default;
@@ -1028,8 +1028,8 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 }
 
 @include b(upload-dragger) {
-  background-color: $--border-color-base;
-  border: 1px dashed $--border-color-light;
+  background-color: $--color-white;
+  border: 1px solid $--border-color-base;
 }
 
 #app {
