@@ -4,7 +4,7 @@
       <el-aside width="200px">
         <IndicatorSimple />
       </el-aside>
-      <el-main id="home-main" :style="styles">
+      <el-main class="page-history" :style="styles">
         <div>
           <el-row>
             <el-col :span="24">
