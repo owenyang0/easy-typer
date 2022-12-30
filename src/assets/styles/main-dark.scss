@@ -93,9 +93,10 @@
   --code2: #409EFF;
   --code3: #E6A23C;
   --code4: var(--secondary-color);
-  --correct: var(--placeholder-color);
+  --correct: var(--level2-border-color);
   --error: #F56C6C;
-  --typed: #FFFFFF;
+  // --typed: #FFFFFF;
+  --typed: var(--secondary-color);
   --hint: var(--secondary-color);
   --font-size: 2.4rem;
   --article-rows: 4;
@@ -373,6 +374,7 @@ html, body {
     .error {
       @extend .correct;
       background-color: var(--error);
+      color: #fefefe;
     }
   }
   .article-info {

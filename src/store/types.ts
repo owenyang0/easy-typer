@@ -337,12 +337,12 @@ export class SettingState {
   /**
    * 已打文字颜色
    */
-  typed = '#FFFFFF'
+  typed = '#909399'
 
   /**
    * 正确文字背景颜色
    */
-  correct = '#C0C4CC'
+  correct = '#3d444f'
   /**
    * 错误文字背景颜色
    */
