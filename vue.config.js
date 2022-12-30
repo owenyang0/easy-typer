@@ -8,7 +8,7 @@ module.exports = {
     themeColor: '#1c1f24'
   },
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/easy-typer'
+    ? '/'
     : '/',
   outputDir: 'docs',
   chainWebpack: config => {
