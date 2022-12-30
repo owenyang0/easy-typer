@@ -156,7 +156,7 @@
           </el-form-item>
           <el-form-item label="个性签名">
             <el-switch v-model="form.signature"/>
-            <el-input maxlength="20" v-if="form.signature" v-model="form.signatureText"/>
+            <el-input maxlength="100" v-if="form.signature" v-model="form.signatureText"/>
           </el-form-item>
         </el-tab-pane>
         <el-tab-pane label="载文设置" name="load">
