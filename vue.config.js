@@ -3,7 +3,10 @@ process.env.VUE_APP_VERSION = require('./package.json').version
 const name = '木易跟打器'
 
 module.exports = {
-  pwa: { name },
+  pwa: {
+    name,
+    themeColor: '#1c1f24'
+  },
   publicPath: process.env.NODE_ENV === 'production'
     ? '/easy-typer'
     : '/',
