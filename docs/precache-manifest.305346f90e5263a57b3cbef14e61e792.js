@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-typer/img/setting.png"
   },
   {
-    "revision": "892566b236cc5c09adcf78a706d24a0e",
+    "revision": "74cf93133db04ae57dcdfc448c059739",
     "url": "/easy-typer/index.html"
   },
   {
@@ -76,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-typer/js/summary.c7b4fd88.js"
   },
   {
-    "revision": "7f3be8dcb2172491a8b0a606cd563597",
+    "revision": "4956be72e79253714a896744f1c6549f",
     "url": "/easy-typer/manifest.json"
   },
   {
