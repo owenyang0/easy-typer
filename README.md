@@ -1,5 +1,7 @@
 <img alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/logo-lanscape%402x.png">
 
+<img alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/ui%402x.png">
+
 > macOS上可直接载文的跟打器
 
 本人是个五笔爱好者，也一直在使用五笔，曾经(差不多10年前了)也做过Windows平台的跟打器[易跟打Windows版](https://github.com/owenyang0/FollowTyperAndSender)。
