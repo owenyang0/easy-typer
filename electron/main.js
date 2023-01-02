@@ -162,7 +162,8 @@ app.on('will-quit', () => {
   globalShortcut.unregisterAll()
 })
 
-if (app.isPackaged) {
+const FALSE = false
+if (FALSE) {
   app.on('browser-window-focus', function () {
     globalShortcut.register('CommandOrControl+R', () => {
       console.log('CommandOrControl+R is pressed: Shortcut Disabled')

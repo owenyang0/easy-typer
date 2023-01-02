@@ -2,7 +2,7 @@
   "name": "easy-typer",
   "version": "0.2.3",
   "description": "macOS平台可直接载文的跟打器",
-  "main": "electron/main-min.js",
+  "main": "electron/main.js",
   "scripts": {
     "start": "electron .",
     "serve": "vue-cli-service serve",
