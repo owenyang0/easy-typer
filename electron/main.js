@@ -60,7 +60,7 @@ const createWindow = () => {
       if (err) {
         // Something went wrong!
         console.error('sendingScript err', err)
-        showNotification(err?.message || 'Fail', '发送成绩失败')
+        showNotification(err.message || 'Fail', '发送成绩失败')
       }
       app.focus({ steal: true })
     })
@@ -164,20 +164,20 @@ app.on('will-quit', () => {
 
 if (app.isPackaged) {
   app.on('browser-window-focus', function () {
-    globalShortcut.register("CommandOrControl+R", () => {
-        console.log("CommandOrControl+R is pressed: Shortcut Disabled");
-    });
-    globalShortcut.register("CommandOrControl+Shift+R", () => {
-      console.log("CommandOrControl+Shift+R is pressed: Shortcut Disabled");
-  });
-    globalShortcut.register("F5", () => {
-        console.log("F5 is pressed: Shortcut Disabled");
-    });
-  });
-  
+    globalShortcut.register('CommandOrControl+R', () => {
+      console.log('CommandOrControl+R is pressed: Shortcut Disabled')
+    })
+    globalShortcut.register('CommandOrControl+Shift+R', () => {
+      console.log('CommandOrControl+Shift+R is pressed: Shortcut Disabled')
+    })
+    globalShortcut.register('F5', () => {
+      console.log('F5 is pressed: Shortcut Disabled')
+    })
+  })
+
   app.on('browser-window-blur', function () {
-    globalShortcut.unregister('CommandOrControl+R');
-    globalShortcut.unregister('CommandOrControl+Shift+R');
-    globalShortcut.unregister('F5');
-  });
+    globalShortcut.unregister('CommandOrControl+R')
+    globalShortcut.unregister('CommandOrControl+Shift+R')
+    globalShortcut.unregister('F5')
+  })
 }
