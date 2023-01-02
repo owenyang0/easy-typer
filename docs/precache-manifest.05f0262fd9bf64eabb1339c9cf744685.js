@@ -4,15 +4,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/CNAME"
   },
   {
-    "revision": "bd4efb02e5944417e6fa",
+    "revision": "c87e4b901e681e33f1dd",
     "url": "/css/app.df0bd8c1.css"
   },
   {
-    "revision": "85702d9f894fb5ea15ad",
+    "revision": "b79651e934e65181281a",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "d68560c03bdf737742d9",
+    "revision": "50ef9f70066e5daeb268",
     "url": "/css/practice.691b3b29.css"
   },
   {
@@ -48,40 +48,40 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/ui@2x.png"
   },
   {
-    "revision": "125ad316c8ccb12bcfc04b758c6810d9",
+    "revision": "978f2976b06f311f3b46c6711a9b6950",
     "url": "/index.html"
   },
   {
-    "revision": "4da0e2d196e0c4efc106",
-    "url": "/js/about.8f33919e.js"
+    "revision": "9b6f492c86a072a90791",
+    "url": "/js/about.b7e65813.js"
   },
   {
     "revision": "5cab8e12a4d3f35a2a50",
     "url": "/js/about~changelog.45d01fc0.js"
   },
   {
-    "revision": "bd4efb02e5944417e6fa",
-    "url": "/js/app.ce708f7a.js"
+    "revision": "c87e4b901e681e33f1dd",
+    "url": "/js/app.0c147bc9.js"
   },
   {
-    "revision": "8305c856dfe4f8261104",
-    "url": "/js/changelog.405501f6.js"
+    "revision": "f9bceaa6e202608a79aa",
+    "url": "/js/changelog.c77196df.js"
   },
   {
-    "revision": "85702d9f894fb5ea15ad",
-    "url": "/js/chunk-vendors.01a6f279.js"
+    "revision": "b79651e934e65181281a",
+    "url": "/js/chunk-vendors.247c5d9d.js"
   },
   {
-    "revision": "d68560c03bdf737742d9",
-    "url": "/js/practice.cbc24fff.js"
+    "revision": "50ef9f70066e5daeb268",
+    "url": "/js/practice.90772bad.js"
   },
   {
-    "revision": "e146f8ae93e332680391",
-    "url": "/js/setting.80c4d02a.js"
+    "revision": "2c380dd7d6fe74130d7f",
+    "url": "/js/setting.8f020b4b.js"
   },
   {
-    "revision": "f2da300f1a0679b21fce",
-    "url": "/js/summary.c7b4fd88.js"
+    "revision": "3a857a3c3374fff4ba44",
+    "url": "/js/summary.087c369b.js"
   },
   {
     "revision": "4956be72e79253714a896744f1c6549f",
