@@ -76,9 +76,6 @@
       "identity": null,
       "icon": "public/img/icons/logo-large.icns"
     },
-    "files": [
-      "!node_modules"
-    ],
     "productName": "木易跟打器",
     "copyright": "Copyright © 2023 ${author} build.20230102",
     "asar": false
