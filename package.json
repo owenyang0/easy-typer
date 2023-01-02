@@ -1,6 +1,6 @@
 {
   "name": "easy-typer",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "macOS平台可直接载文的跟打器",
   "main": "electron/main-min.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "lint": "vue-cli-service lint",
     "webpack-main": "webpack"
   },
-  "author": "owenyang, 木易",
+  "author": "owenyang/木易",
   "license": "ISC",
   "devDependencies": {
     "@types/echarts": "^4.9.4",
@@ -80,8 +80,8 @@
       "!node_modules"
     ],
     "productName": "木易跟打器",
-    "copyright": "Copyright © 2023 ${author}",
-    "asar": true
+    "copyright": "Copyright © 2023 ${author} build.20230102",
+    "asar": false
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
