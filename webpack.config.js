@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = {
   entry: './electron/main.js',
   mode: 'production',
-  devtool: 'hidden-source-map',
+  devtool: false,
   output: {
     path: path.resolve(__dirname, './electron'),
     filename: 'main-min.js'
