@@ -14,6 +14,8 @@
       <el-table-column prop="contentLength" label="字数" width="60"/>
       <el-table-column prop="hitSpeed" label="击键" width="60"/>
       <el-table-column prop="codeLength" label="码长" width="60"/>
+      <el-table-column prop="accuracy" label="键准(%)" width="80"/>
+      <el-table-column prop="phraseRate" label="打词率(%)" width="90"/>
       <el-table-column prop="replace" label="回改" width="60"/>
       <el-table-column prop="finishedTime" label="结束时间" :formatter="timeFormatter" width="160"/>
     </el-table>
@@ -59,6 +61,16 @@ export default class Achievements extends Vue {
       const level = rawLevel > 6 ? 6 : rawLevel // 速度等级为 6+ 时按 6 处理
 
       return `speed-lv-${level}`
+    }
+
+    if (column.property === 'accuracy') {
+      if (row.accuracy === 100) {
+        return 'accuracy-lv-perfect'
+      }
+
+      if (row.accuracy < 90) {
+        return 'accuracy-lv-warn'
+      }
     }
 
     return ''

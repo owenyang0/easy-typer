@@ -1,9 +1,7 @@
 <template>
-  <div id="home">
+  <div class="history-page">
     <el-container>
-      <el-aside width="200px">
-        <IndicatorSimple />
-      </el-aside>
+      <IndicatorSimple />
       <el-main class="page-history" :style="styles">
         <div>
           <el-row>

@@ -13,7 +13,8 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 -------------------------- */
 /// color|1|Brand Color|0
 // $--color-primary: #0f0f13;
-$--color-primary: #cc7700;
+// $--color-primary: #cc7700;
+$--color-primary: #ff804b;
 /// color|1|Background Color|4
 $--color-white: #1c1f24;
 /// color|1|Background Color|4
@@ -1001,7 +1002,7 @@ $blue           : #007AFF;
 $purple         : #5856D6;
 $roseo          : #ff2d70;
 $red            : #FF3B30;
-$orange         : #FF9500;
+$orange         : #ff804b;
 $yellow         : #FFCC00;
 $gray           : #8E8E93;
 $black          : #000000;
@@ -1020,6 +1021,14 @@ $speed-levels: (
   .speed-lv-#{$level}{
     color: $color !important;
   }
+}
+
+.accuracy-lv-perfect {
+  color: $green !important;
+}
+
+.accuracy-lv-warn {
+  color: $orange !important;
 }
 
 .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
@@ -1071,4 +1080,26 @@ $speed-levels: (
 #home-main .achievements-table .el-table__body-wrapper {
   max-height: 200px;
   overflow-y: auto;
+}
+
+.indicator-horizontal {
+  display: none;
+}
+
+@media only screen and (max-width: 680px) {
+  .el-container {
+    flex-direction: column;
+  }
+
+  .indicator-container {
+    display: none;
+  }
+
+  .indicator-horizontal {
+    display: block;
+  }
+
+  .aside-history {
+    width: 100% !important;
+  }
 }

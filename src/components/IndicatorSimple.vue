@@ -1,24 +1,26 @@
 <template>
-  <div id="indicator">
-    <el-card shadow="never">
-      <div class="key-value">
-        <span>今日字数</span>
-        <span>{{ todayWords }}</span>
-      </div>
-      <div class="key-value">
-        <span>总字数</span>
-        <span>{{ totalWords }}</span>
-      </div>
-      <div class="key-value">
-        <span>连续天数</span>
-        <span>{{ consecutiveDays }}</span>
-      </div>
-      <div class="key-value">
-        <span>总天数</span>
-        <span>{{ consecutiveDays }}</span>
-      </div>
-    </el-card>
-  </div>
+  <el-aside width="180px" class="aside-history">
+    <div class="indicator">
+      <el-card shadow="never">
+        <div class="key-value">
+          <span>今日字数</span>
+          <span>{{ todayWords }}</span>
+        </div>
+        <div class="key-value">
+          <span>总字数</span>
+          <span>{{ totalWords }}</span>
+        </div>
+        <div class="key-value">
+          <span>连续天数</span>
+          <span>{{ consecutiveDays }}</span>
+        </div>
+        <div class="key-value">
+          <span>总天数</span>
+          <span>{{ consecutiveDays }}</span>
+        </div>
+      </el-card>
+    </div>
+  </el-aside>
 </template>
 
 <script lang="ts">

@@ -106,7 +106,7 @@ export default class Setting extends Vue {
   @setting.Action('load')
   private loadSetting!: Function
 
-  private pathname = location.pathname
+  private pathname = location.hash.replace('#', '')
 
   private loginFormVisible = false
 
@@ -146,7 +146,7 @@ export default class Setting extends Vue {
 
   customColors = [
     { color: '#f56c6c', percentage: 20 },
-    { color: '#cc7700', percentage: 40 },
+    { color: '#ff804b', percentage: 40 },
     { color: '#5cb87a', percentage: 60 },
     { color: '#1989fa', percentage: 80 },
     { color: '#015a4f', percentage: 100 }
