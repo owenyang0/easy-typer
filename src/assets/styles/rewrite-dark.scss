@@ -1002,7 +1002,7 @@ $blue           : #007AFF;
 $purple         : #5856D6;
 $roseo          : #ff2d70;
 $red            : #FF3B30;
-$orange         : #FF9500;
+$orange         : #ff804b;
 $yellow         : #FFCC00;
 $gray           : #8E8E93;
 $black          : #000000;
@@ -1021,6 +1021,14 @@ $speed-levels: (
   .speed-lv-#{$level}{
     color: $color !important;
   }
+}
+
+.accuracy-lv-perfect {
+  color: $green !important;
+}
+
+.accuracy-lv-warn {
+  color: $orange !important;
 }
 
 .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
