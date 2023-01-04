@@ -1,9 +1,7 @@
 <template>
   <div id="home">
     <el-container>
-      <el-aside width="200px">
-        <Indicator/>
-      </el-aside>
+      <Indicator/>
       <el-main id="home-main" :style="styles">
         <!-- <el-row id="toolbar">
           <el-col :span="9" id="groups">

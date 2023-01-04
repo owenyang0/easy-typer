@@ -1073,3 +1073,21 @@ $speed-levels: (
   max-height: 200px;
   overflow-y: auto;
 }
+
+.indicator-horizontal {
+  display: none;
+}
+
+@media only screen and (max-width: 680px) {
+  .el-container {
+    flex-direction: column;
+  }
+
+  .indicator-container {
+    display: none;
+  }
+
+  .indicator-horizontal {
+    display: block;
+  }
+}
