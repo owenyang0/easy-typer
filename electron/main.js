@@ -37,11 +37,14 @@ function showNotification (body = '', title = '木易跟打器') {
   new Notification({ title, body }).show()
 }
 
+let mainWindow
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
+    show: false,
     width: 940,
     height: 820,
+    backgroundColor:"#1c1f24",
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       devTools: !app.isPackaged,
@@ -95,34 +98,60 @@ const createWindow = () => {
   // 打开开发工具
   // mainWindow.webContents.openDevTools()
 
+
+  mainWindow.on('ready-to-show', function () {
+    mainWindow.show()
+  })
+
   return mainWindow
+}
+
+function hasWindow() {
+  return BrowserWindow.getAllWindows().length !== 0
 }
 
 // 这段程序将会在 Electron 结束初始化
 // 和创建浏览器窗口的时候调用
 // 部分 API 在 ready 事件触发后才能使用。
 app.whenReady().then(() => {
-  const win = createWindow()
+  createWindow()
 
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    if (!hasWindow()) {
+      createWindow()
+    }
   })
 
   // 注册一个'F4' 快捷键监听器
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
+
     applescript.execString(retrivingScript, (err) => {
       app.focus({ steal: true })
 
+      const errmsg = '暂时无法获取QQ赛文！！！请参考『帮助-关于-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅~'
       if (err) {
-        const errmsg = '暂时无法获取QQ赛文！！！请参考『帮助-关于-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅~'
         showNotification(err.message, '获取文本失败')
-        win.webContents.send('update-paste', errmsg)
+      }
+
+      if (!hasWindow()) {
+        const win = createWindow()
+
+        win.on('show', function () {
+          win.webContents.send('update-paste', err ? errmsg : clipboard.readText())
+        })
+
         return
       }
-      win.webContents.send('update-paste', clipboard.readText())
+
+      if (err) {
+        mainWindow.webContents.send('update-paste', errmsg)
+        return
+      }
+      
+      mainWindow.webContents.send('update-paste', clipboard.readText())
     })
   })
   // // 注册一个'F2' 快捷键监听器
@@ -145,25 +174,30 @@ app.whenReady().then(() => {
 
   // 检查快捷键是否注册成功
   console.log('is F4 registered: ' + globalShortcut.isRegistered('F4'))
+
+  mainWindow.on('closed', _ => {
+    console.log('closed')
+    mainWindow = null
+  })
 })
 
 // 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
+  console.log('window-all-closed')
   if (process.platform !== 'darwin') app.quit()
 })
 
 app.on('will-quit', () => {
-  // 注销快捷键
-  globalShortcut.unregister('F1')
+  // // 注销快捷键
+  // globalShortcut.unregister('F1')
 
   // 注销所有快捷键
   globalShortcut.unregisterAll()
 })
 
-const FALSE = false
-if (FALSE) {
+if (app.isPackaged) {
   app.on('browser-window-focus', function () {
     globalShortcut.register('CommandOrControl+R', () => {
       console.log('CommandOrControl+R is pressed: Shortcut Disabled')
