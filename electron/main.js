@@ -136,7 +136,7 @@ app.whenReady().then(() => {
         showNotification(err.message, '获取文本失败')
       }
 
-      if (!hasWindow() && !err) {
+      if (!hasWindow()) {
         const win = createWindow()
 
         win.on('show', function () {
