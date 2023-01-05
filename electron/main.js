@@ -37,9 +37,10 @@ function showNotification (body = '', title = '木易跟打器') {
   new Notification({ title, body }).show()
 }
 
+let mainWindow
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 940,
     height: 820,
     webPreferences: {
@@ -102,7 +103,7 @@ const createWindow = () => {
 // 和创建浏览器窗口的时候调用
 // 部分 API 在 ready 事件触发后才能使用。
 app.whenReady().then(() => {
-  const win = createWindow()
+  createWindow()
 
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
@@ -119,10 +120,10 @@ app.whenReady().then(() => {
       if (err) {
         const errmsg = '暂时无法获取QQ赛文！！！请参考『帮助-关于-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅~'
         showNotification(err.message, '获取文本失败')
-        win.webContents.send('update-paste', errmsg)
+        mainWindow.webContents.send('update-paste', errmsg)
         return
       }
-      win.webContents.send('update-paste', clipboard.readText())
+      mainWindow.webContents.send('update-paste', clipboard.readText())
     })
   })
   // // 注册一个'F2' 快捷键监听器
@@ -145,6 +146,11 @@ app.whenReady().then(() => {
 
   // 检查快捷键是否注册成功
   console.log('is F4 registered: ' + globalShortcut.isRegistered('F4'))
+
+  mainWindow.on('closed', _ => {
+    console.log('closed')
+    mainWindow = null
+  })
 })
 
 // 除了 macOS 外，当所有窗口都被关闭的时候退出程序。 There, it's common
@@ -162,8 +168,7 @@ app.on('will-quit', () => {
   globalShortcut.unregisterAll()
 })
 
-const FALSE = false
-if (FALSE) {
+if (app.isPackaged) {
   app.on('browser-window-focus', function () {
     globalShortcut.register('CommandOrControl+R', () => {
       console.log('CommandOrControl+R is pressed: Shortcut Disabled')

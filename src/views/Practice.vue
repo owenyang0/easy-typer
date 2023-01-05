@@ -2,7 +2,7 @@
   <div id="practice">
     <el-container>
       <el-aside>
-        <div id="indicator">
+        <div class="indicator">
           <el-card class="time" shadow="never">
             <el-progress type="dashboard" :percentage="percentage" :width="200"/>
           </el-card>

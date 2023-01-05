@@ -82,10 +82,6 @@
           <span>{{ backspace }}</span>
         </div>
         <div class="key-value">
-          <span>退格</span>
-          <span>{{ backspace }}</span>
-        </div>
-        <div class="key-value">
           <span>回车</span>
           <span>{{ enter }}</span>
         </div>
