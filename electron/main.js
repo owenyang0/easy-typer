@@ -41,8 +41,10 @@ let mainWindow
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+    show: false,
     width: 940,
     height: 820,
+    backgroundColor:"#1c1f24",
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       devTools: !app.isPackaged,
@@ -96,6 +98,11 @@ const createWindow = () => {
   // 打开开发工具
   // mainWindow.webContents.openDevTools()
 
+
+  mainWindow.on('ready-to-show', function () {
+    mainWindow.show()
+  })
+
   return mainWindow
 }
 
@@ -120,21 +127,30 @@ app.whenReady().then(() => {
   // 注册一个'F4' 快捷键监听器
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
-    if (!hasWindow()) {
-      console.log('skip for no widow')
-      return
-    }
 
-    app.show()
     applescript.execString(retrivingScript, (err) => {
       app.focus({ steal: true })
 
+      const errmsg = '暂时无法获取QQ赛文！！！请参考『帮助-关于-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅~'
       if (err) {
-        const errmsg = '暂时无法获取QQ赛文！！！请参考『帮助-关于-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅~'
         showNotification(err.message, '获取文本失败')
+      }
+
+      if (!hasWindow() && !err) {
+        const win = createWindow()
+
+        win.on('show', function () {
+          win.webContents.send('update-paste', err ? errmsg : clipboard.readText())
+        })
+
+        return
+      }
+
+      if (err) {
         mainWindow.webContents.send('update-paste', errmsg)
         return
       }
+      
       mainWindow.webContents.send('update-paste', clipboard.readText())
     })
   })
