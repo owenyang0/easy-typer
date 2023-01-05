@@ -99,6 +99,10 @@ const createWindow = () => {
   return mainWindow
 }
 
+function hasWindow() {
+  return BrowserWindow.getAllWindows().length !== 0
+}
+
 // 这段程序将会在 Electron 结束初始化
 // 和创建浏览器窗口的时候调用
 // 部分 API 在 ready 事件触发后才能使用。
@@ -108,12 +112,20 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    if (!hasWindow()) {
+      createWindow()
+    }
   })
 
   // 注册一个'F4' 快捷键监听器
   const ret = globalShortcut.register('F4', () => {
     console.log('F4 is pressed')
+    if (!hasWindow()) {
+      console.log('skip for no widow')
+      return
+    }
+
+    app.show()
     applescript.execString(retrivingScript, (err) => {
       app.focus({ steal: true })
 
@@ -157,12 +169,13 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
+  console.log('window-all-closed')
   if (process.platform !== 'darwin') app.quit()
 })
 
 app.on('will-quit', () => {
-  // 注销快捷键
-  globalShortcut.unregister('F1')
+  // // 注销快捷键
+  // globalShortcut.unregister('F1')
 
   // 注销所有快捷键
   globalShortcut.unregisterAll()
