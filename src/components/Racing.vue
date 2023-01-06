@@ -85,7 +85,7 @@ export default class Racing extends Vue {
             console.log('当前处于潜水状态')
             return
           }
-          window.electronAPI.setGrade('typing finished!')
+          window.electronAPI && window.electronAPI.setGrade('typing finished!')
         }, () => {
           this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
         })

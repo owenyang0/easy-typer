@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="achievements" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
+    <el-table :data="achievements.slice(0, 10)" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
       <el-table-column prop="title" type="expand" label="成绩">
         <template slot-scope="props">
           第{{ props.row.identity }}段 速度{{ props.row.typeSpeed }} 击键{{ props.row.hitSpeed }} 码长{{ props.row.codeLength }} 字数{{ props.row.contentLength }} 错字{{ props.row.error }}

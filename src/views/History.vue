@@ -2,14 +2,12 @@
   <div class="history-page">
     <el-container>
       <IndicatorSimple />
-      <el-main class="page-history" :style="styles">
-        <div>
-          <el-row>
-            <el-col :span="24">
-              <Achievements />
-            </el-col>
-          </el-row>
-        </div>
+      <el-main class="page-history">
+        <el-row>
+          <el-col :span="24">
+            <Achievements />
+          </el-col>
+        </el-row>
       </el-main>
     </el-container>
   </div>
