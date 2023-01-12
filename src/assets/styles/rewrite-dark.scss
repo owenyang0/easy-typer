@@ -690,9 +690,11 @@ $--popover-title-font-color: $--color-text-primary !default;
 /* Tooltip
 -------------------------- */
 /// color|1|Color|0
-$--tooltip-fill: $--color-text-primary !default;
+// $--tooltip-fill: $--color-text-primary !default;
+$--tooltip-fill: #1c1f24;
 /// color|1|Color|0
-$--tooltip-color: $--color-white !default;
+// $--tooltip-color: $--color-white !default;
+$--tooltip-color: $--color-text-primary !default;
 /// fontSize||Font|1
 $--tooltip-font-size: 12px !default;
 /// color||Color|0
@@ -1102,4 +1104,8 @@ $speed-levels: (
   .aside-history {
     width: 100% !important;
   }
+}
+
+.el-tooltip__popper.is-dark {
+  border: 1px solid $--color-text-primary;
 }

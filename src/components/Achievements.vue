@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="achievements.slice(0, 10)" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
+    <el-table border :data="achievements.slice(0, 10)" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
       <el-table-column prop="title" type="expand" label="成绩">
         <template slot-scope="props">
           第{{ props.row.identity }}段 速度{{ props.row.typeSpeed }} 击键{{ props.row.hitSpeed }} 码长{{ props.row.codeLength }} 字数{{ props.row.contentLength }} 错字{{ props.row.error }}
@@ -9,14 +9,21 @@
           键数{{ props.row.keys }} 退格{{ props.row.backspace }} 回车{{ props.row.enter }} 第{{ props.row.retry }}次跟打
         </template>
       </el-table-column>
-      <el-table-column prop="typeSpeed" label="速度" width="70"/>
-      <el-table-column prop="title" label="标题" :formatter="titleFormatter"/>
-      <el-table-column prop="contentLength" label="字数" width="60"/>
-      <el-table-column prop="hitSpeed" label="击键" width="60"/>
-      <el-table-column prop="codeLength" label="码长" width="60"/>
-      <el-table-column prop="accuracy" label="键准(%)" width="80"/>
-      <el-table-column prop="phraseRate" label="打词率(%)" width="90"/>
-      <el-table-column prop="replace" label="回改" width="60"/>
+      <el-table-column prop="identity" label="段号" min-width="80"/>
+      <el-table-column prop="typeSpeed" label="速度" min-width="70"/>
+      <el-table-column prop="hitSpeed" label="击键" min-width="60"/>
+      <el-table-column prop="codeLength" label="码长" min-width="60"/>
+      <el-table-column prop="contentLength" label="字数" min-width="60"/>
+      <el-table-column prop="replace" label="回改" min-width="60"/>
+      <el-table-column prop="accuracy" label="键准(%)" min-width="80"/>
+      <el-table-column prop="phraseRate" label="打词率(%)" min-width="90"/>
+      <el-table-column prop="title" label="标题" min-width="110">
+        <template slot-scope="props">
+          <el-tooltip class="item" effect="dark" :content="props.row.title" placement="top-end">
+            <span>{{(props.row.title || '未知').slice(0, 12)}}</span>
+          </el-tooltip>
+        </template>
+      </el-table-column>
       <el-table-column prop="finishedTime" label="结束时间" :formatter="timeFormatter" width="160"/>
     </el-table>
     <div class="pagination-wrapper">
@@ -51,8 +58,8 @@ export default class Achievements extends Vue {
   private updateAchievements!: Function
 
   titleFormatter (row: Achievement, column: number, value: string) {
-    // return (value || '未知').slice(0, 16)
-    return value || '未知'
+    return (value || '未知').slice(0, 16)
+    // return value || '未知'
   }
 
   tableCellClassName ({ row, column, rowIndex, columnIndex }: any) {
