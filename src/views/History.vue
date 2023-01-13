@@ -1,14 +1,8 @@
 <template>
   <div class="history-page">
-    <el-container>
+    <el-container direction="vertical">
       <IndicatorSimple />
-      <el-main class="page-history">
-        <el-row>
-          <el-col :span="24">
-            <Achievements />
-          </el-col>
-        </el-row>
-      </el-main>
+      <Achievements />
     </el-container>
   </div>
 </template>
@@ -29,3 +23,9 @@ import Achievements from '@/components/Achievements.vue'
 })
 export default class History extends Vue {}
 </script>
+
+<style lang="scss">
+  .history-page {
+    padding: 20px;
+  }
+</style>
