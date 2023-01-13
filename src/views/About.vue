@@ -13,7 +13,7 @@ converter.setOption('tasklists', true)
 
 @Component
 export default class Setting extends Vue {
-  private version = process.env.VUE_APP_VERSION
+  private version = process.env.VUE_APP_WEB_VERSION
 
   get html (): string {
     return converter.makeHtml(help.replace('{{ version }}', this.version))

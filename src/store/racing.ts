@@ -444,11 +444,9 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
       let errorWords = 0
       if (delta) {
         const index = state.input.length
-        input.slice(index).split('').forEach((newWord, idx) => {
-          if (newWord !== article.content[index + idx]) {
-            errorWords++
-          }
-        })
+        const deltaInput = input.slice(index).split('')
+        const deltaArticle = article.content.slice(index).split('')
+        errorWords = deltaInput.filter((current, idx) => current !== deltaArticle[idx]).length
       }
 
       this.dispatch('summary/typeWords', {
