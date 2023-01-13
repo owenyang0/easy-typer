@@ -20,7 +20,7 @@
                 </div>
                 <div class="total">
                   <span
-                    >{{ todayWords }}<span class="total-label">字</span></span
+                    >{{ todayWords | numberWithCommas }}<span class="total-label"> 字</span></span
                   >
                 </div>
               </div>
@@ -29,16 +29,12 @@
               <div class="contentFixed">
                 <div class="trendItem" style="margin-right: 20px">
                   <span
-                    >正确字数<span class="trendText">{{
-                      todayWords - todayErrorWords
-                    }}</span></span
+                    >正确字数<span class="trendText">{{ (todayWords - todayErrorWords) | numberWithCommas }}</span></span
                   ><span class="down"><i class="el-icon-check"></i> </span>
                 </div>
                 <div class="trendItem" title="">
                   <span
-                    >错误字数<span class="trendText">{{
-                      todayErrorWords
-                    }}</span></span
+                    >错误字数<span class="trendText">{{ todayErrorWords | numberWithCommas}}</span></span
                   ><span class="up"><i class="el-icon-close"></i></span>
                 </div>
               </div>
@@ -71,7 +67,7 @@
                 </div>
                 <div class="total">
                   <span
-                    >{{ totalWords }}<span class="total-label">字</span></span
+                    >{{ totalWords | numberWithCommas }}<span class="total-label"> 字</span></span
                   >
                 </div>
               </div>
@@ -80,16 +76,12 @@
               <div class="contentFixed">
                 <div class="trendItem" style="margin-right: 20px">
                   <span
-                    >正确字数<span class="trendText">{{
-                      totalWords - totalErrorWords
-                    }}</span></span
+                    >正确字数<span class="trendText">{{ (totalWords - totalErrorWords) | numberWithCommas }}</span></span
                   ><span class="down"><i class="el-icon-check"></i> </span>
                 </div>
                 <div class="trendItem" title="">
                   <span
-                    >错误字数<span class="trendText">{{
-                      totalErrorWords
-                    }}</span></span
+                    >错误字数<span class="trendText">{{ totalErrorWords | numberWithCommas }}</span></span
                   ><span class="up"><i class="el-icon-close"></i></span>
                 </div>
               </div>

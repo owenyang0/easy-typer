@@ -11,6 +11,11 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+Vue.filter('numberWithCommas', function (num: number) {
+  if (!num) return ''
+  return num.toLocaleString('en-US')
+})
+
 new Vue({
   router,
   store,
