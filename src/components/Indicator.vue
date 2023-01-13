@@ -29,7 +29,7 @@
       </el-row>
     </el-card>
   </div>
-  <el-aside width="180px" class="indicator-container">
+  <el-aside width="200px" class="indicator-container">
     <div class="indicator">
       <!-- <el-card class="time" shadow="never">
         <el-progress type="dashboard" :percentage="percentage" :width="100" :status="progressStatus"/>
