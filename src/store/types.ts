@@ -194,6 +194,14 @@ export class SummaryState {
    */
   totalWords = 0;
   /**
+   * 今日打字错误数
+   */
+  todayErrorWords = 0;
+  /**
+  * 累计打字错误数
+  */
+  totalErrorWords = 0;
+  /**
    * 连续天数
    */
   consecutiveDays = 0;
