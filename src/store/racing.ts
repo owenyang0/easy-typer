@@ -432,14 +432,27 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
   },
 
   accept ({ commit, state, rootState }, input: string): void {
-    if (input.length === 0 && rootState.setting.retryWhenEmpty) {
+    const { article, setting } = rootState
+    if (input.length === 0 && setting.retryWhenEmpty) {
       this.dispatch('racing/retry')
       return
     }
 
     if (state.input !== input) {
       const delta = input.length - state.input.length
-      this.dispatch('summary/typeWords', delta, { root: true })
+
+      let errorWords = 0
+      if (delta) {
+        const index = state.input.length
+        const deltaInput = input.slice(index).split('')
+        const deltaArticle = article.content.slice(index).split('')
+        errorWords = deltaInput.filter((current, idx) => current !== deltaArticle[idx]).length
+      }
+
+      this.dispatch('summary/typeWords', {
+        delta,
+        errorWords
+      }, { root: true })
       if (delta < 0) {
         // 字数变少，回改
         commit('replace', -delta)

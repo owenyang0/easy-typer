@@ -8,6 +8,8 @@ const state = new SummaryState()
 const getters: GetterTree<SummaryState, QuickTypingState> = {
   todayWords: state => state.todayWords,
   totalWords: state => state.totalWords,
+  todayErrorWords: state => state.todayErrorWords,
+  totalErrorWords: state => state.totalErrorWords,
   consecutiveDays: state => state.consecutiveDays,
   totalDays: state => state.totalDays
 }
@@ -15,6 +17,7 @@ const getters: GetterTree<SummaryState, QuickTypingState> = {
 const mutations: MutationTree<SummaryState> = {
   newDay: (state, today: Date) => {
     state.todayWords = 0
+    state.todayErrorWords = 0
     state.consecutiveDays += 1
     state.totalDays += 1
     state.date = today.getDate()
@@ -24,6 +27,11 @@ const mutations: MutationTree<SummaryState> = {
   words: (state, delta: number) => {
     state.todayWords += delta
     state.totalWords += delta
+  },
+
+  errorWords: (state, errorWords: number) => {
+    state.todayErrorWords += errorWords
+    state.totalErrorWords += errorWords
   },
 
   loaded: (state, payload: SummaryState) => {
@@ -36,7 +44,7 @@ const mutations: MutationTree<SummaryState> = {
 }
 
 const actions: ActionTree<SummaryState, QuickTypingState> = {
-  typeWords: ({ commit, state }, delta: number) => {
+  typeWords: ({ commit, state }, { delta, errorWords }) => {
     if (delta <= 0) {
       return
     }
@@ -47,6 +55,7 @@ const actions: ActionTree<SummaryState, QuickTypingState> = {
       commit('newDay', now)
     }
     commit('words', delta)
+    commit('errorWords', errorWords)
   },
 
   loaded: ({ commit }, data: SummaryState) => {

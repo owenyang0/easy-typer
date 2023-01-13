@@ -70,12 +70,16 @@
       </el-card>
       <el-card shadow="never">
         <div class="key-value">
-          <span>字数</span>
-          <span>{{ todayWords }} / {{ totalWords }}</span>
+          <span>对/错/今</span>
+          <span>{{ todayWords - todayErrorWords }}/{{ todayErrorWords }}/{{ todayWords }}</span>
+        </div>
+        <div class="key-value">
+          <span>对/错/总</span>
+          <span>{{ totalWords - totalErrorWords }}/{{ totalErrorWords }}/{{ totalWords }}</span>
         </div>
         <div class="key-value">
           <span>天数</span>
-          <span>{{ consecutiveDays }} / {{ totalDays }}</span>
+          <span>{{ consecutiveDays }}/{{ totalDays }}</span>
         </div>
         <div class="key-value">
           <span>退格</span>
@@ -225,8 +229,14 @@ export default class Indicator extends Vue {
   @summary.Getter('todayWords')
   private todayWords!: number
 
+  @summary.Getter('todayErrorWords')
+  private todayErrorWords!: number
+
   @summary.Getter('totalWords')
   private totalWords!: string
+
+  @summary.Getter('totalErrorWords')
+  private totalErrorWords!: string
 
   @summary.Getter('consecutiveDays')
   private consecutiveDays!: number
