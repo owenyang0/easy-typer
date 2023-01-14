@@ -4,6 +4,7 @@ declare global {
   interface Window {
     electronAPI: {
       handlePaste: any;
+      removePasteHanlder: any;
       setGrade: (val: string) => void;
     };
   }

@@ -5,6 +5,7 @@ import { racing } from './racing'
 import { setting } from './setting'
 import { login } from './login'
 import { summary } from './summary'
+import { kata } from './kata'
 import { LooseObject, QuickTypingState } from './types'
 import db from './util/Database'
 import { TrieNode } from './util/TrieTree'
@@ -20,7 +21,8 @@ const store: StoreOptions<QuickTypingState> = {
     racing,
     setting,
     login,
-    summary
+    summary,
+    kata
   },
   mutations: {
     codings (state, codings: TrieNode) {

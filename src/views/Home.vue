@@ -26,17 +26,17 @@
         <div>
           <el-row>
             <el-col :span="24">
-              <Article ref="article"/>
+              <Article ref="article" />
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="24">
-              <Racing ref="racing"/>
+              <Racing ref="racing" />
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="24">
-              <Achievements/>
+              <Achievements />
             </el-col>
           </el-row>
         </div>
@@ -67,6 +67,7 @@ const article = namespace('article')
 const racing = namespace('racing')
 const login = namespace('login')
 const setting = namespace('setting')
+const kata = namespace('kata')
 
 @Component({
   components: {
@@ -95,31 +96,49 @@ export default class Home extends Vue {
   @article.Action('loadMatch')
   private loadMatch!: Function
 
+  @article.Action('random')
+  private random!: Function
+
   @login.State('authenticated')
   private authenticated!: boolean
 
   @setting.Getter('styles')
   private styles!: InterfaceStyle
 
+  @kata.State('mode')
+  private mode!: number
+
+  @kata.State('hasTipWarning')
+  private hasTipWarning!: boolean
+
+  @kata.Action('updateTipWarning')
+  private updateTipWarning!: Function
+
+  @kata.Action('next')
+  private next!: Function
+
   private groups: Array<{ value: number; label: string }> = []
   private group = ''
   private showLoadDialog = false
   private articleText = ''
+  private shouldKataDialog = false
 
   get triggerText (): string {
     return this.status === 'pause' ? '继续' : '暂停'
   }
 
   get triggerIcon (): string {
-    return this.status === 'pause' ? 'el-icon-video-play' : 'el-icon-video-pause'
+    return this.status === 'pause'
+      ? 'el-icon-video-play'
+      : 'el-icon-video-pause'
   }
 
   @Watch('authenticated')
   authChange (authenticated: boolean) {
     if (authenticated) {
-      xcapi.groups().then(data => {
+      xcapi.groups().then((data) => {
         if (data) {
-          this.groups = data.map(v => {
+          this.groups = data.map((v) => {
             return { value: v.guid, label: v.name }
           })
         }
@@ -143,15 +162,16 @@ export default class Home extends Vue {
     // 监听快捷键
     document.addEventListener('keydown', this.handleShortCut)
 
-    window.electronAPI && window.electronAPI.handlePaste((evt: any, val: any) => {
-      if (val) {
-        try {
-          this.loadText(val)
-        } catch (error) {
-          this.$message.error(error.message)
+    window.electronAPI &&
+      window.electronAPI.handlePaste((evt: any, val: any) => {
+        if (val && this.mode !== 1) { // 发文状态禁止载文
+          try {
+            this.loadText(val)
+          } catch (error) {
+            this.$message.error(error.message)
+          }
         }
-      }
-    })
+      })
     // 监听粘贴事件
     document.addEventListener('paste', this.paste)
 
@@ -162,13 +182,15 @@ export default class Home extends Vue {
   destroyed () {
     document.removeEventListener('keydown', this.handleShortCut)
     document.removeEventListener('paste', this.paste)
+
+    window.electronAPI && window.electronAPI.removePasteHanlder()
   }
 
   /**
    * 粘贴监听
    */
   paste (e: ClipboardEvent) {
-    if (this.showLoadDialog) {
+    if (this.showLoadDialog || this.mode === 1) {
       // 手动载文时禁用
       return
     }
@@ -192,20 +214,25 @@ export default class Home extends Vue {
       return
     }
 
-    xcapi.matches(this.group).then(match => {
-      if (!match) {
-        return
-      }
+    xcapi.matches(this.group).then(
+      (match) => {
+        if (!match) {
+          return
+        }
 
-      this.loadMatch(match)
-    }, error => {
-      this.$message.warning(error.message)
-    })
+        this.loadMatch(match)
+      },
+      (error) => {
+        this.$message.warning(error.message)
+      }
+    )
   }
 
   loadFromClipboard () {
     try {
-      navigator.clipboard.readText().then(text => { this.loadText(text) })
+      navigator.clipboard.readText().then((text) => {
+        this.loadText(text)
+      })
     } catch (err) {
       console.error('Failed to read clipboard contents: ', err)
     }
@@ -235,6 +262,41 @@ export default class Home extends Vue {
         e.preventDefault()
         // 恢复
         this.resume()
+        break
+      case 'F2':
+        e.preventDefault()
+        if (this.hasTipWarning) {
+          return
+        }
+        if (this.mode === 1) {
+          this.updateTipWarning(true)
+
+          this.$confirm('正在发文，是否结束发文？', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.updateTipWarning(false)
+
+            this.$router.push('/kata')
+          }).catch(() => {
+            this.updateTipWarning(false)
+          })
+        } else {
+          this.$router.push('/kata')
+        }
+        break
+      case 'p': // 下一段
+        if (e.ctrlKey) {
+          e.preventDefault()
+          this.next()
+        }
+        break
+      case 'l': // 乱序
+        if (e.ctrlKey) {
+          e.preventDefault()
+          this.random()
+        }
         break
     }
   }

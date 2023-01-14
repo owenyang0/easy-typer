@@ -18,5 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 contextBridge.exposeInMainWorld('electronAPI', {
     handlePaste: (callback) => ipcRenderer.on('update-paste', callback),
+    removePasteHanlder: () => ipcRenderer.removeAllListeners('update-paste'),
     setGrade: (grade) => ipcRenderer.send('set-grade', grade)
 })

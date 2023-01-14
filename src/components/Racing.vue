@@ -22,6 +22,7 @@ import Clipboard from '@/store/util/Clipboard'
 
 const racing = namespace('racing')
 const setting = namespace('setting')
+const kata = namespace('kata')
 
 @Component
 export default class Racing extends Vue {
@@ -51,6 +52,9 @@ export default class Racing extends Vue {
 
   @setting.Getter('cloak')
   private cloak!: boolean
+
+  @kata.State('mode')
+  private mode!: number
 
   /**
    * 输入的内容
@@ -92,6 +96,14 @@ export default class Racing extends Vue {
         this.$message.success(text)
         break
       }
+    }
+  }
+
+  @Watch('mode')
+  modeUpdate (mode: number) {
+    console.log('mode update', mode)
+    if (mode === 2) {
+      this.$message.warning('当前发文已结束~')
     }
   }
 

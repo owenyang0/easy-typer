@@ -211,9 +211,57 @@ export class SummaryState {
   totalDays = 0;
 }
 
+export class KataState {
+  /**
+   * 跟打文本标题
+   */
+  articleTitle = '';
+  /**
+   * 跟打文本
+   */
+  articleText = '';
+  /**
+   * 当前段号
+   */
+  currentParagraphNo = 1;
+  /**
+   * 当前跟打文本 - 可能乱序
+   */
+  currentContent = '';
+  /**
+   * 每段文字数
+   */
+  paragraphSize = 10;
+  /**
+   * 当前kata模式 0未开始 1进行中 2已结束
+   */
+  mode = 0;
+  /**
+   * 是否提示正在发文
+   */
+  hasTipWarning = false;
+  /**
+  * 指标校验-开关
+  */
+  criteriaOpen = false;
+  /**
+   * 指标校验-击键
+   */
+  criteriaHitSpeed = 1;
+  /**
+   * 指标校验-键准
+   */
+  criteriaAccuracy = 80;
+  /**
+   * 指标校验-操作 random乱序 retry重打 noop不处理
+   */
+  criteriaAction: 'noop' | 'random' | 'retry' = 'random';
+}
+
 export class QuickTypingState {
   article!: ArticleState;
   racing!: RacingState;
+  kata!: KataState;
   /**
    * 编码
    */

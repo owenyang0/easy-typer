@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-table border :data="achievements.slice(0, 10)" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
-      <el-table-column prop="title" type="expand" label="成绩">
+      <el-table-column prop="title" type="expand" label="">
         <template slot-scope="props">
           第{{ props.row.identity }}段 速度{{ props.row.typeSpeed }} 击键{{ props.row.hitSpeed }} 码长{{ props.row.codeLength }} 字数{{ props.row.contentLength }} 错字{{ props.row.error }}
           用时{{ formatTime(props.row.usedTime) }}秒 暂停{{ props.row.pauseCount }}次{{ formatTime(props.row.pauseTime) }}秒 键准{{ props.row.accuracy }}% 键法{{ props.row.balance }}% 左{{ props.row.leftHand }}
