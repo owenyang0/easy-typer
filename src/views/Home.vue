@@ -96,6 +96,9 @@ export default class Home extends Vue {
   @article.Action('loadMatch')
   private loadMatch!: Function
 
+  @article.Action('random')
+  private random!: Function
+
   @login.State('authenticated')
   private authenticated!: boolean
 
@@ -104,6 +107,15 @@ export default class Home extends Vue {
 
   @kata.State('mode')
   private mode!: number
+
+  @kata.State('hasTipWarning')
+  private hasTipWarning!: boolean
+
+  @kata.Action('updateTipWarning')
+  private updateTipWarning!: Function
+
+  @kata.Action('next')
+  private next!: Function
 
   private groups: Array<{ value: number; label: string }> = []
   private group = ''
@@ -253,23 +265,37 @@ export default class Home extends Vue {
         break
       case 'F2':
         e.preventDefault()
-        if (this.shouldKataDialog) {
+        if (this.hasTipWarning) {
           return
         }
         if (this.mode === 1) {
-          this.shouldKataDialog = true
+          this.updateTipWarning(true)
+
           this.$confirm('正在发文，是否结束发文？', '提示', {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            this.shouldKataDialog = false
+            this.updateTipWarning(false)
+
             this.$router.push('/kata')
           }).catch(() => {
-            this.shouldKataDialog = false
+            this.updateTipWarning(false)
           })
         } else {
           this.$router.push('/kata')
+        }
+        break
+      case 'p': // 下一段
+        if (e.ctrlKey) {
+          e.preventDefault()
+          this.next()
+        }
+        break
+      case 'l': // 乱序
+        if (e.ctrlKey) {
+          e.preventDefault()
+          this.random()
         }
         break
     }

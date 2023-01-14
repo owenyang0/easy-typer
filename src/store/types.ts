@@ -237,9 +237,9 @@ export class KataState {
    */
   mode = 0;
   /**
-   * 是否进入下一段
+   * 是否提示正在发文
    */
-  canNext = true;
+  hasTipWarning = false;
   /**
   * 指标校验-开关
   */

@@ -58,6 +58,10 @@ const mutations: MutationTree<KataState> = {
     if (criteria) {
       Object.assign(state, criteria)
     }
+  },
+
+  updateTipWarning: (state, isShow: boolean) => {
+    state.hasTipWarning = isShow
   }
 }
 
@@ -73,6 +77,9 @@ const actions: ActionTree<KataState, QuickTypingState> = {
     if (criteria) {
       commit('updateCriteria', criteria)
     }
+  },
+  updateTipWarning ({ commit }, isShow: boolean): void {
+    commit('updateTipWarning', isShow)
   },
   next ({ commit, state, getters }): void {
     if (state.mode === 1) {

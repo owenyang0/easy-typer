@@ -1,6 +1,7 @@
 import { xcapi, Match } from '@/api/xc.cool'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { ArticleState, Coding, QuickTypingState, SettingState, Word } from './types'
+import { shuffleText } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 
@@ -160,7 +161,7 @@ const parseArticle = (content: string, setting: SettingState): ArticleState => {
 const state: ArticleState = {
   title: '马上可用',
   identity: '1',
-  content: '1.点击『帮助』-『关于』-『快速开始』完成初始设置；2.按下F4快捷键，即刻开始你的跟打之旅~',
+  content: '1）点击『帮助』-『关于』-『快速开始』完成初始设置；2）按下F4快捷键，即刻开始载文；3）F2发文 可设定组合指标；4）CTRL+L 当前段乱序，CTRL+P 进入下一段',
   shortest: null
 }
 
@@ -195,6 +196,13 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
       content,
       identity: number,
       shortest: null
+    }
+    this.dispatch('article/loadArticle', article)
+  },
+
+  random ({ state }): void {
+    const article = {
+      content: shuffleText(state.content)
     }
     this.dispatch('article/loadArticle', article)
   },
