@@ -11,18 +11,25 @@
           mode="horizontal">
           <el-menu-item index="/">
             <i class="el-icon-medal-1"></i>
-            <span slot="title">赛文跟打</span>
+            <span slot="title">跟打</span>
           </el-menu-item>
-          <el-menu-item index="/practice">
-            <i class="el-icon-aim"></i>
-            <span slot="title">词库练习</span>
-          </el-menu-item>
-          <el-menu-item index="/setting">
-            <i class="el-icon-setting"></i>
-            <span slot="title">设置</span>
-          </el-menu-item>
+          <el-submenu index="/func">
+            <template slot="title"><i class="el-icon-s-data"></i>功能</template>
+            <el-menu-item index="/kata" disabled>
+              <i class="el-icon-date"></i>
+              <span slot="title">发文（F2）</span>
+            </el-menu-item>
+            <el-menu-item index="/practice">
+              <i class="el-icon-aim"></i>
+              <span slot="title">词库练习</span>
+            </el-menu-item>
+            <el-menu-item index="/setting">
+              <i class="el-icon-setting"></i>
+              <span slot="title">设置</span>
+            </el-menu-item>
+          </el-submenu>
           <el-submenu index="/stat">
-            <template slot="title"><i class="el-icon-s-data"></i>跟打统计</template>
+            <template slot="title"><i class="el-icon-s-data"></i>统计</template>
             <el-menu-item index="/history">
               <i class="el-icon-data-line"></i>
               <span slot="title">跟打历史</span>

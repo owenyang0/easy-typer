@@ -26,17 +26,17 @@
         <div>
           <el-row>
             <el-col :span="24">
-              <Article ref="article"/>
+              <Article ref="article" />
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="24">
-              <Racing ref="racing"/>
+              <Racing ref="racing" />
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="24">
-              <Achievements/>
+              <Achievements />
             </el-col>
           </el-row>
         </div>
@@ -111,15 +111,17 @@ export default class Home extends Vue {
   }
 
   get triggerIcon (): string {
-    return this.status === 'pause' ? 'el-icon-video-play' : 'el-icon-video-pause'
+    return this.status === 'pause'
+      ? 'el-icon-video-play'
+      : 'el-icon-video-pause'
   }
 
   @Watch('authenticated')
   authChange (authenticated: boolean) {
     if (authenticated) {
-      xcapi.groups().then(data => {
+      xcapi.groups().then((data) => {
         if (data) {
-          this.groups = data.map(v => {
+          this.groups = data.map((v) => {
             return { value: v.guid, label: v.name }
           })
         }
@@ -143,15 +145,16 @@ export default class Home extends Vue {
     // 监听快捷键
     document.addEventListener('keydown', this.handleShortCut)
 
-    window.electronAPI && window.electronAPI.handlePaste((evt: any, val: any) => {
-      if (val) {
-        try {
-          this.loadText(val)
-        } catch (error) {
-          this.$message.error(error.message)
+    window.electronAPI &&
+      window.electronAPI.handlePaste((evt: any, val: any) => {
+        if (val) {
+          try {
+            this.loadText(val)
+          } catch (error) {
+            this.$message.error(error.message)
+          }
         }
-      }
-    })
+      })
     // 监听粘贴事件
     document.addEventListener('paste', this.paste)
 
@@ -192,20 +195,25 @@ export default class Home extends Vue {
       return
     }
 
-    xcapi.matches(this.group).then(match => {
-      if (!match) {
-        return
-      }
+    xcapi.matches(this.group).then(
+      (match) => {
+        if (!match) {
+          return
+        }
 
-      this.loadMatch(match)
-    }, error => {
-      this.$message.warning(error.message)
-    })
+        this.loadMatch(match)
+      },
+      (error) => {
+        this.$message.warning(error.message)
+      }
+    )
   }
 
   loadFromClipboard () {
     try {
-      navigator.clipboard.readText().then(text => { this.loadText(text) })
+      navigator.clipboard.readText().then((text) => {
+        this.loadText(text)
+      })
     } catch (err) {
       console.error('Failed to read clipboard contents: ', err)
     }
@@ -235,6 +243,10 @@ export default class Home extends Vue {
         e.preventDefault()
         // 恢复
         this.resume()
+        break
+      case 'F2':
+        e.preventDefault()
+        this.$router.push('/kata')
         break
     }
   }

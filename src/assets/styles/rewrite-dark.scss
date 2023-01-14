@@ -1109,3 +1109,53 @@ $speed-levels: (
 .el-tooltip__popper.is-dark {
   border: 1px solid $--color-text-primary;
 }
+
+.pro-module {
+  // background-color: #20242a;
+  border-radius: 3px;
+  border: 1px solid var(--level3-border-color);
+}
+
+.pro-module-hd {
+  border-bottom: 1px solid $--border-color-base;
+  padding: 15px 20px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.pro-module-bd {
+  padding: 20px;
+  font-size: 14px;
+
+  .right {
+    text-align: right;
+  }
+}
+
+.pro-module-ft {
+  padding: 20px;
+  padding-top: 0;
+  white-space: nowrap;
+}
+
+.pro-module-ft:after {
+  content: "";
+  clear: both;
+  overflow: hidden;
+}
+
+.pro-module-ft .info {
+  color: #666;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pro-module-ft .time {
+  float: right;
+}

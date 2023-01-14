@@ -22,6 +22,14 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "practice" */ '../views/Practice.vue')
   },
   {
+    path: '/kata',
+    name: 'Kata',
+    meta: {
+      title: '木易跟打器 - 词库练习'
+    },
+    component: () => import(/* webpackChunkName: "kata" */ '../views/Kata.vue')
+  },
+  {
     path: '/setting',
     name: 'Setting',
     meta: {
