@@ -475,13 +475,14 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
   },
 
   checkFinished ({ commit, state, rootState, getters }, last) {
-    const { article, setting } = rootState
+    const { article, setting, kata } = rootState
     const { input } = state
 
     const finishState = finished(setting.finishStrategy, input, article.content, last)
     if (finishState.finished) {
       clearInterval(state.timer)
       commit('finish', finishState)
+
       setTimeout(() => {
         // TODO move to summary module
         this.dispatch('summaryKeyCount', state.keyCount)
@@ -489,6 +490,20 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
         const achievement = getters.achievement
         this.dispatch('addAchievements', achievement, { root: true })
         db.achievement.add(achievement)
+
+        if (kata.criteriaOpen) {
+          if (getters.hitSpeed >= kata.criteriaHitSpeed && getters.accuracy >= kata.criteriaAccuracy) {
+            this.dispatch('kata/next')
+          } else {
+            if (kata.criteriaAction === 'retry') {
+              this.dispatch('racing/retry')
+            } else if (kata.criteriaAction === 'random') {
+              this.dispatch('kata/random')
+            }
+          }
+        } else {
+          this.dispatch('kata/next')
+        }
       })
     }
   },

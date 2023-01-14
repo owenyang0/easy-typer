@@ -15,7 +15,7 @@
           </el-menu-item>
           <el-submenu index="/func">
             <template slot="title"><i class="el-icon-s-data"></i>功能</template>
-            <el-menu-item index="/kata" disabled>
+            <el-menu-item index="/kata">
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
             </el-menu-item>

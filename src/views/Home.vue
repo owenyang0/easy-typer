@@ -67,6 +67,7 @@ const article = namespace('article')
 const racing = namespace('racing')
 const login = namespace('login')
 const setting = namespace('setting')
+const kata = namespace('kata')
 
 @Component({
   components: {
@@ -101,10 +102,14 @@ export default class Home extends Vue {
   @setting.Getter('styles')
   private styles!: InterfaceStyle
 
+  @kata.State('mode')
+  private mode!: number
+
   private groups: Array<{ value: number; label: string }> = []
   private group = ''
   private showLoadDialog = false
   private articleText = ''
+  private shouldKataDialog = false
 
   get triggerText (): string {
     return this.status === 'pause' ? '继续' : '暂停'
@@ -246,7 +251,24 @@ export default class Home extends Vue {
         break
       case 'F2':
         e.preventDefault()
-        this.$router.push('/kata')
+        if (this.shouldKataDialog) {
+          return
+        }
+        if (this.mode === 1) {
+          this.shouldKataDialog = true
+          this.$confirm('正在发文，是否结束发文？', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.shouldKataDialog = false
+            this.$router.push('/kata')
+          }).catch(() => {
+            this.shouldKataDialog = false
+          })
+        } else {
+          this.$router.push('/kata')
+        }
         break
     }
   }

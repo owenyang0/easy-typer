@@ -1,7 +1,7 @@
 <template>
   <div class="page-kata pro-module">
     <div class="pro-module-hd clearfix">
-      <h2>{{dialogTitle}}</h2>
+      <h2>发文：{{dialogTitle}}</h2>
     </div>
     <div class="pro-module-bd">
     <el-input
@@ -31,43 +31,61 @@
             size="small"
             v-model="formContent.paragraphSize"
             :min="1"
-            :step="5"
+            :step="1"
             class="form-field"
           ></el-input-number>
         </el-form-item>
-        <el-form-item label="段数">
+        <el-form-item label="开始段数">
+          <el-input-number
+            size="small"
+            v-model="formContent.currentParagraphNo"
+            :min="1"
+            :max="formContent.paragraphCount"
+            class="form-field"
+          ></el-input-number>
+        </el-form-item>
+        <el-form-item label="总段数">
           <el-input v-model="formContent.paragraphCount" size="small" disabled class="form-field-mini"/>
         </el-form-item>
       </el-form>
       <el-divider />
-      <el-form :inline="true" :model="formCriteria" class="form-content">
+      <el-form :inline="true" class="form-content">
         <el-form-item label="开启指标">
-          <el-switch v-model="formCriteria.open"></el-switch>
+          <el-switch :value="criteriaOpen" @change="handleCriteriaOpenChange"></el-switch>
         </el-form-item>
         <el-form-item label="击键≥">
           <el-input-number
             size="small"
-            v-model="formCriteria.hitSpeed"
+            :value="criteriaHitSpeed"
             :min="0"
             :max="30"
             :step="0.5"
             :disabled="isCriteriaDisabled"
+            @change="handleHitSpeedChange"
             class="form-field"
           ></el-input-number>
         </el-form-item>
         <el-form-item label="键准≥">
           <el-input-number
             size="small"
-            v-model="formCriteria.accuracy"
+            :value="criteriaAccuracy"
             :min="0"
             :max="100"
-            :step="10"
+            :step="1"
             :disabled="isCriteriaDisabled"
+            @change="handleAccuracyChange"
             class="form-field"
           ></el-input-number>
         </el-form-item>
         <el-form-item label="未达标时">
-          <el-select v-model="formCriteria.action" size="small" placeholder="请选择类型" :disabled="isCriteriaDisabled" class="form-field">
+          <el-select
+            size="small"
+            placeholder="请选择类型"
+            :disabled="isCriteriaDisabled"
+            class="form-field"
+            :value="criteriaAction"
+            @change="handleActionChange"
+          >
             <el-option label="乱序" value="random"></el-option>
             <el-option label="重打" value="retry"></el-option>
             <el-option label="不处理" value="noop"></el-option>
@@ -77,7 +95,7 @@
       <el-divider />
       <div class="right">
         <el-button @click="handleCancel">取 消</el-button>
-        <el-button :disabled="!hasArticleText" @click="handleRandom">全局乱序</el-button>
+        <el-button :disabled="!hasArticleText" @click="handleShuffle">全局乱序</el-button>
         <el-button :disabled="!hasArticleText" @click="startFullKata">发送全文</el-button>
         <el-button type="primary" :disabled="!hasArticleText" @click="startKata">发文</el-button>
       </div>
@@ -87,86 +105,88 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import Indicator from '@/components/Indicator.vue'
-import Article from '@/components/Article.vue'
-import Racing from '@/components/Racing.vue'
-import Achievements from '@/components/Achievements.vue'
 import { namespace } from 'vuex-class'
-import xcapi from '@/api/xc.cool'
-import { InterfaceStyle } from '@/store/types'
+import { KataState } from '@/store/types'
 import { contentList } from '../common/contentList'
+import { KataArticle } from '@/store/kata'
+import { shuffle } from '@/store/util/common'
 
 const article = namespace('article')
-const racing = namespace('racing')
-const login = namespace('login')
-const setting = namespace('setting')
+const kata = namespace('kata')
 
 @Component({
   components: {
-    Article,
-    Indicator,
-    Racing,
-    Achievements
   }
 })
 export default class Home extends Vue {
-  @racing.State('status')
-  private status!: string
-
-  @racing.Action('pause')
-  private pause!: Function
-
-  @racing.Action('resume')
-  private resume!: Function
-
-  @racing.Action('retry')
-  private retry!: Function
-
-  @article.Action('loadText')
-  private loadText!: Function
-
   @article.Action('loadMatch')
   private loadMatch!: Function
 
-  @login.State('authenticated')
-  private authenticated!: boolean
+  // @kata.State('currentParagraphNo')
+  // private currentParagraphNo!: number
 
-  @setting.Getter('styles')
-  private styles!: InterfaceStyle
+  @kata.State('criteriaOpen')
+  private criteriaOpen!: boolean
+
+  @kata.State('criteriaHitSpeed')
+  private criteriaHitSpeed!: number
+
+  @kata.State('criteriaAccuracy')
+  private criteriaAccuracy!: number
+
+  @kata.State('criteriaAction')
+  private criteriaAction!: string
+
+  @kata.Action('init')
+  private init!: Function
+
+  @kata.Action('loadArticle')
+  private loadArticle!: Function
+
+  @kata.Action('updateCriteria')
+  private updateCriteria!: Function
+
+  @kata.Action('next')
+  private next!: Function
+
+  @kata.Action('getNextParagraph')
+  private getNextParagraph!: Function
+
+  @kata.Getter('nextParagraph')
+  private nextParagraph!: KataArticle
 
   get isTextDisabled (): boolean {
     return this.formContent.contentName[1] !== 'freeText'
   }
 
   get isCriteriaDisabled (): boolean {
-    return !this.formCriteria.open
+    return !this.criteriaOpen
   }
 
   get hasArticleText (): boolean {
     return this.articleText.length > 0
   }
 
-  private groups: Array<{ value: number; label: string }> = []
-  private group = ''
-  private showLoadDialog = false
   private articleText = ''
+  // private articleText = contentList.word001.content
 
-  private dialogTitle = '发文：自由发文'
+  private dialogTitle = '自由发文'
   private formContent = {
     contentName: ['free', 'freeText'],
     contentLength: 0,
+    currentParagraphNo: 1,
     paragraphSize: 10,
-    paragraphCount: 8
+    paragraphCount: 1
   }
 
-  private formCriteria = {
-    open: false,
-    hitSpeed: 1,
-    accuracy: 80,
-    action: 'noop'
-  }
+  // private formCriteria = {
+  //   open: false,
+  //   hitSpeed: 1,
+  //   accuracy: 80,
+  //   action: 'noop'
+  // }
 
-  private contentOptions = [{
+  private contentOptions: Array<{ value: string; label: string; children: Array<{ value: string; label: string }> }> = [{
     value: 'free',
     label: '自由',
     children: [{
@@ -191,31 +211,6 @@ export default class Home extends Vue {
     }]
   }]
 
-  get triggerText (): string {
-    return this.status === 'pause' ? '继续' : '暂停'
-  }
-
-  get triggerIcon (): string {
-    return this.status === 'pause'
-      ? 'el-icon-video-play'
-      : 'el-icon-video-pause'
-  }
-
-  @Watch('authenticated')
-  authChange (authenticated: boolean) {
-    if (authenticated) {
-      xcapi.groups().then((data) => {
-        if (data) {
-          this.groups = data.map((v) => {
-            return { value: v.guid, label: v.name }
-          })
-        }
-      })
-    } else {
-      this.groups = []
-    }
-  }
-
   @Watch('formContent.paragraphSize')
   paragraphSizeChange (size: number) {
     this.formContent.paragraphCount = Math.ceil(this.articleText.length / size)
@@ -227,12 +222,12 @@ export default class Home extends Vue {
 
     if (name === 'freeText') {
       this.articleText = ''
-      this.dialogTitle = '发文：自由发文'
+      this.dialogTitle = '自由发文'
       return
     }
 
     this.articleText = contentList[name].content
-    this.dialogTitle = `发文：${contentList[name].title}`
+    this.dialogTitle = `${contentList[name].title}`
   }
 
   @Watch('articleText')
@@ -241,135 +236,62 @@ export default class Home extends Vue {
     this.formContent.paragraphCount = Math.ceil(articleText.length / this.formContent.paragraphSize)
   }
 
+  handleCriteriaOpenChange (criteriaOpen: boolean) {
+    this.updateCriteria({
+      criteriaOpen
+    })
+  }
+
+  handleHitSpeedChange (criteriaHitSpeed: number) {
+    this.updateCriteria({
+      criteriaHitSpeed
+    })
+  }
+
+  handleAccuracyChange (criteriaAccuracy: number) {
+    this.updateCriteria({
+      criteriaAccuracy
+    })
+  }
+
+  handleActionChange (criteriaAction: string) {
+    this.updateCriteria({
+      criteriaAction
+    })
+  }
+
   handleCancel () {
-    this.$router.push('/home')
-  }
-
-  handleRandom () {
-    // this.$router.push('/home')
-  }
-
-  startFullKata () {
     this.$router.push('/')
   }
 
-  startKata () {
+  handleShuffle () {
+    this.articleText = shuffle(this.articleText.split('')).join('')
+  }
+
+  startFullKata () {
+    this.startKata(this.articleText.length)
+  }
+
+  startKata (paragraphSize = 0) {
+    const article: Partial<KataState> = {
+      articleTitle: this.dialogTitle,
+      articleText: this.articleText,
+      currentParagraphNo: this.formContent.currentParagraphNo,
+      paragraphSize: paragraphSize > 0 ? paragraphSize : this.formContent.paragraphSize
+    }
+
+    this.loadArticle(article)
+    this.loadMatch(this.nextParagraph)
+
     this.$router.push('/')
   }
 
   created () {
-    this.authChange(this.authenticated)
-
-    // 监听快捷键
-    document.addEventListener('keydown', this.handleShortCut)
-
-    window.electronAPI &&
-      window.electronAPI.handlePaste((evt: any, val: any) => {
-        if (val) {
-          try {
-            this.loadText(val)
-          } catch (error) {
-            this.$message.error(error.message)
-          }
-        }
-      })
-    // 监听粘贴事件
-    document.addEventListener('paste', this.paste)
-
-    // 切换页面自动暂停
-    window.addEventListener('blur', () => this.pause())
+    this.init()
   }
 
   destroyed () {
-    document.removeEventListener('keydown', this.handleShortCut)
-    document.removeEventListener('paste', this.paste)
-  }
-
-  /**
-   * 粘贴监听
-   */
-  paste (e: ClipboardEvent) {
-    if (this.showLoadDialog) {
-      // 手动载文时禁用
-      return
-    }
-
-    e.preventDefault()
-    const { clipboardData } = e
-    if (clipboardData) {
-      const pasteContent = clipboardData.getData('text/plain')
-      if (pasteContent) {
-        try {
-          this.loadText(pasteContent)
-        } catch (error) {
-          this.$message.error(error.message)
-        }
-      }
-    }
-  }
-
-  onGroupChange () {
-    if (!this.group) {
-      return
-    }
-
-    xcapi.matches(this.group).then(
-      (match) => {
-        if (!match) {
-          return
-        }
-
-        this.loadMatch(match)
-      },
-      (error) => {
-        this.$message.warning(error.message)
-      }
-    )
-  }
-
-  loadFromClipboard () {
-    try {
-      navigator.clipboard.readText().then((text) => {
-        this.loadText(text)
-      })
-    } catch (err) {
-      console.error('Failed to read clipboard contents: ', err)
-    }
-  }
-
-  trigger () {
-    if (this.status === 'pause') {
-      this.resume()
-    } else {
-      this.pause()
-    }
-  }
-
-  handleShortCut (e: KeyboardEvent) {
-    // document.dispatchEvent(new KeyboardEvent('keydown', {key: 'F2'}))
-    switch (e.key) {
-      case 'F3':
-        e.preventDefault()
-        // 重打
-        this.retry()
-        break
-      case 'Escape':
-        e.preventDefault()
-        // 暂停
-        this.pause()
-        break
-      case 'Enter':
-        e.preventDefault()
-        // 恢复
-        this.resume()
-        break
-      case 'F2':
-        e.preventDefault()
-        if (!this.showLoadDialog) {
-          this.showLoadDialog = true
-        }
-        break
-    }
+    // document.removeEventListener('keydown', this.handleShortCut)
   }
 }
 </script>
