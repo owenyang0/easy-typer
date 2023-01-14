@@ -176,7 +176,7 @@ export default class Home extends Vue {
    * 粘贴监听
    */
   paste (e: ClipboardEvent) {
-    if (this.showLoadDialog) {
+    if (this.showLoadDialog || this.mode === 1) {
       // 手动载文时禁用
       return
     }
