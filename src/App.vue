@@ -1,14 +1,23 @@
 <template>
   <div id="app">
-    <el-progress type="line" :percentage="percentage" :width="100" :color="customColors"
-      :stroke-width="4" :show-text="false" define-back-color="#1c1f24"/>
+    <el-progress
+      type="line"
+      :percentage="percentage"
+      :width="100"
+      :color="customColors"
+      :stroke-width="4"
+      :show-text="false"
+      define-back-color="#1c1f24"
+    />
     <el-row>
       <el-col :span="24">
         <el-menu
-          :router="true"
+          :router="false"
           :default-active="pathname"
+          @select="handleSelect"
           active-text-color="#eb9010"
-          mode="horizontal">
+          mode="horizontal"
+        >
           <el-menu-item index="/">
             <i class="el-icon-medal-1"></i>
             <span slot="title">跟打</span>
@@ -40,8 +49,7 @@
             </el-menu-item>
           </el-submenu>
           <el-submenu index="/help">
-            <template slot="title"><i class="el-icon-info
-"></i>帮助</template>
+            <template slot="title"><i class="el-icon-info"></i>帮助</template>
             <el-menu-item index="/about">
               <i class="el-icon-question"></i>
               <span slot="title">帮助/关于</span>
@@ -83,7 +91,7 @@
     </el-row>
     <el-row>
       <el-col :span="24">
-        <router-view/>
+        <router-view />
       </el-col>
     </el-row>
   </div>
@@ -96,11 +104,13 @@ import db from './store/util/Database'
 import { Action, Mutation, namespace } from 'vuex-class'
 import { LoginUser, LooseObject } from './store/types'
 import xcapi from './api/xc.cool'
+import { Route } from 'vue-router'
 
 const setting = namespace('setting')
 const login = namespace('login')
 const summary = namespace('summary')
 const racing = namespace('racing')
+const kata = namespace('kata')
 
 @Component
 export default class Setting extends Vue {
@@ -146,6 +156,15 @@ export default class Setting extends Vue {
   @racing.Getter('progress')
   private progress!: number
 
+  @kata.State('mode')
+  private mode!: number
+
+  @kata.State('hasTipWarning')
+  private hasTipWarning!: boolean
+
+  @kata.Action('updateTipWarning')
+  private updateTipWarning!: Function
+
   get percentage (): number {
     const percentage = Math.min(this.progress || 0, 1) * 100
     return parseFloat(percentage.toFixed(2))
@@ -158,6 +177,35 @@ export default class Setting extends Vue {
     { color: '#1989fa', percentage: 80 },
     { color: '#015a4f', percentage: 100 }
   ]
+
+  handleSelect (key: string, keyPath: string[]) {
+    if (key === '/kata') {
+      if (this.hasTipWarning) {
+        return
+      }
+      if (this.mode === 1) {
+        this.updateTipWarning(true)
+
+        this.$confirm('正在发文，是否结束发文？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.updateTipWarning(false)
+
+          this.$router.push(key).catch(err => err)
+        }).catch(() => {
+          this.updateTipWarning(false)
+        })
+      } else {
+        this.$router.push(key).catch(err => err)
+      }
+
+      return
+    }
+
+    this.$router.push(key).catch(err => err)
+  }
 
   doLogin () {
     xcapi.login(this.auth).then(data => {
@@ -182,6 +230,11 @@ export default class Setting extends Vue {
   }
 
   created () {
+    this.$router.beforeEach((to: Route, from: Route, next) => {
+      this.pathname = to.fullPath
+      next()
+    })
+
     if (localStorage.user && localStorage.token) {
       const { token, user } = localStorage
       this.login({ token, user: JSON.parse(user) })
