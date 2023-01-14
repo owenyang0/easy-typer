@@ -152,7 +152,7 @@ export default class Home extends Vue {
 
     window.electronAPI &&
       window.electronAPI.handlePaste((evt: any, val: any) => {
-        if (val) {
+        if (val && this.mode !== 1) { // 发文状态禁止载文
           try {
             this.loadText(val)
           } catch (error) {
@@ -170,6 +170,8 @@ export default class Home extends Vue {
   destroyed () {
     document.removeEventListener('keydown', this.handleShortCut)
     document.removeEventListener('paste', this.paste)
+
+    window.electronAPI && window.electronAPI.removePasteHanlder()
   }
 
   /**
