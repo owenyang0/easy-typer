@@ -208,6 +208,15 @@ export default class Home extends Vue {
     }, {
       value: 'wordAll1500',
       label: '前1500'
+    }, {
+      value: 'word1501',
+      label: '常用1501-2000'
+    }, {
+      value: 'word2001',
+      label: '常用2001-2500'
+    }, {
+      value: 'word5501',
+      label: '常用2501-3000'
     }]
   }]
 
