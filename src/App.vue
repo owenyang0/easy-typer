@@ -311,10 +311,8 @@ export default class Setting extends Vue {
       console.log(error)
     })
 
-    const isDarkMode = true
-    if (isDarkMode) {
-      require('./assets/styles/main-dark.scss')
-    }
+    require('./assets/styles/theme-dark.scss')
+    // require('./assets/styles/theme-day.scss')
   }
 }
 </script>
