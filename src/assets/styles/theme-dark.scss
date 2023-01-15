@@ -1038,7 +1038,10 @@ $--svg-monochrome-grey: #DCDDE0 !default;
 
   #app {
     .markdown-body {
-      color: $--color-text-primary;
+      color: #c9d1d9;
+      code {
+        background-color: rgba(110,118,129,0.4);
+      }
     }
   }
 
@@ -1108,5 +1111,11 @@ $--svg-monochrome-grey: #DCDDE0 !default;
   }
   .el-tabs__nav-wrap::after {
     background-color: #272b32;
+  }
+
+  @media only screen and (max-width: 680px) {
+    .el-container {
+      flex-direction: column;
+    }
   }
 }

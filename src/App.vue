@@ -9,8 +9,8 @@
       :show-text="false"
       define-back-color="#1c1f24"
     />
-    <el-row>
-      <el-col :span="24">
+    <el-row class="menu-row">
+      <el-col :span="24" class="menu-col">
         <el-menu
           :router="false"
           :default-active="pathname"
@@ -27,6 +27,10 @@
             <el-menu-item index="/kata">
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
+            </el-menu-item>
+            <el-menu-item index="/retry">
+              <i class="el-icon-edit-outline"></i>
+              <span slot="title">重打（F3）</span>
             </el-menu-item>
             <el-menu-item index="/random">
               <i class="el-icon-document"></i>
@@ -166,6 +170,9 @@ export default class Setting extends Vue {
     password: ''
   }
 
+  @racing.Action('retry')
+  private retry!: Function
+
   @racing.Getter('progress')
   private progress!: number
 
@@ -230,6 +237,11 @@ export default class Setting extends Vue {
 
     if (key === '/next') {
       this.next()
+      return
+    }
+
+    if (key === '/retry') {
+      this.retry()
       return
     }
 
@@ -316,3 +328,12 @@ export default class Setting extends Vue {
   }
 }
 </script>
+
+<style scoped>
+  .menu-row {
+    overflow-x: auto;
+  }
+  .menu-col {
+    min-width: 500px;
+  }
+</style>
