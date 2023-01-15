@@ -80,6 +80,11 @@ const mutations: MutationTree<SettingState> = {
     db.configs.put(state, 'setting')
   },
 
+  toggleDarkMode (state, darkMode) {
+    state.darkMode = darkMode
+    db.configs.put(state, 'setting')
+  },
+
   toggleReplaceSpace (state, replaceSpace) {
     state.replaceSpace = replaceSpace
   }

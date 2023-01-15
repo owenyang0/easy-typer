@@ -125,6 +125,12 @@
             <el-switch v-model="tempReplaceSpace" @change="toggleReplaceSpace(tempReplaceSpace)"/>
           </span>
         </div>
+        <div class="key-value">
+          <span>暗黑模式</span>
+          <span>
+            <el-switch v-model="tempDarkMode" @change="toggleDarkMode(tempDarkMode)"/>
+          </span>
+        </div>
       </el-card>
 
       <el-drawer
@@ -220,6 +226,9 @@ export default class Indicator extends Vue {
   @setting.Mutation('toggleCloak')
   private toggleCloak!: Function
 
+  @setting.Mutation('toggleDarkMode')
+  private toggleDarkMode!: Function
+
   @setting.Mutation('toggleHint')
   private toggleHint!: Function
 
@@ -250,6 +259,8 @@ export default class Indicator extends Vue {
 
   private tempReplaceSpace = false
 
+  private tempDarkMode = false
+
   private drawerVisiable = false
 
   private drawer = { title: '', text: '' }
@@ -278,6 +289,13 @@ export default class Indicator extends Vue {
   cloakChange (cloak: boolean) {
     if (this.tempCloak !== cloak) {
       this.tempCloak = cloak
+    }
+  }
+
+  @Watch('darkMode')
+  darkModeChange (darkMode: boolean) {
+    if (this.tempDarkMode !== darkMode) {
+      this.tempCloak = darkMode
     }
   }
 
