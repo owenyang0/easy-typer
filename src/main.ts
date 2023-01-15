@@ -7,6 +7,9 @@ import router from './router'
 import store from './store'
 import 'github-markdown-css'
 
+import './assets/styles/main.scss'
+import './assets/styles/main-dark.scss'
+
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false

@@ -1,56 +1,9 @@
-@import "./rewrite.scss";
+@import './chat-card';
 
 @font-face {
   font-family: "Digital7 mono";
   src: url("../font/digital-7-mono.ttf") format("truetype");
 }
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --background-color: #212324;
-//     --level1-border-color: #C0C4CC;
-//     --level2-border-color: #909399;
-//     --level3-border-color: #606266;
-//     --level4-border-color: #303133;
-//     --main-color: #F2F6FC;
-//     --normal-color: #EBEEF5;
-//     --secondary-color: #E4E7ED;
-//     --placeholder-color: #DCDFE6;
-//   }
-//   .el-menu {
-//     background-color: var(--background-color);
-//   }
-//   .el-menu.el-menu--horizontal {
-//     border-bottom-color: var(--level3-border-color);
-//   }
-//   .el-menu--horizontal>.el-menu-item:not(.is-disabled):focus,.el-menu--horizontal>.el-menu-item:not(.is-disabled):hover,.el-menu--horizontal>.el-submenu .el-submenu__title:hover{
-//     background-color: var(--level4-border-color);
-//     color: var(--normal-color)
-//   }
-//   .el-dropdown-menu {
-//     background-color: var(--background-color);
-//   }
-//   .el-card {
-//     background-color: var(--background-color);
-//     border-color: var(--level2-border-color)
-//   }
-//   .el-input__inner {
-//     background-color: var(--background-color);
-//   }
-//   .el-button {
-//     background-color: var(--background-color);
-//     border-color: var(--level2-border-color);
-//     &:hover {
-//       background-color: var(--level4-border-color);
-//       border-color: var(--level2-border-color);
-//     }
-//   }
-//   .el-tag {
-//     background-color: var(--background-color);
-//   }
-// }
-// @media (prefers-color-scheme: light) {
-// }
 
 @mixin radius-border($color: var(--level3-border-color), $width: 1px) {
   border: $width solid $color;
@@ -73,8 +26,9 @@
 
   --racing-font: "Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   --background-color: #FFF;
-  --level1-border-color: #DCDFE6;
-  --level2-border-color: #E4E7ED;
+  // --level1-border-color: #DCDFE6;
+  --level1-border-color: #fefefe;
+  --level2-border-color: #DCDFE6;
   --level3-border-color: #EBEEF5;
   --level4-border-color: #F2F6FC;
   --main-color: #303133;
@@ -367,6 +321,7 @@ html, body {
     .error {
       @extend .correct;
       background-color: var(--error);
+      color: var(--level1-border-color);
     }
   }
   .article-info {
@@ -405,4 +360,115 @@ html, body {
 
 .el-table__expanded-cell[class*=cell] {
   padding: 20px 50px;
+}
+
+
+.indicator-horizontal {
+  display: none;
+}
+
+@media only screen and (max-width: 680px) {
+  .el-container {
+    flex-direction: column;
+  }
+
+  .indicator-container {
+    display: none;
+  }
+
+  .indicator-horizontal {
+    display: block;
+  }
+
+  .aside-history {
+    width: 100% !important;
+  }
+}
+
+
+.pro-module {
+  // background-color: #20242a;
+  border-radius: 3px;
+  border: 1px solid var(--level3-border-color);
+}
+
+.pro-module-hd {
+  border-bottom: 1px solid var(--level2-border-color);
+  padding: 15px 20px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.pro-module-bd {
+  padding: 20px;
+  font-size: 14px;
+
+  .right {
+    text-align: right;
+  }
+}
+
+.pro-module-ft {
+  padding: 20px;
+  padding-top: 0;
+  white-space: nowrap;
+}
+
+.pro-module-ft:after {
+  content: "";
+  clear: both;
+  overflow: hidden;
+}
+
+.pro-module-ft .info {
+  color: #666;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pro-module-ft .time {
+  float: right;
+}
+
+// Colors
+$green          : #26c57d;
+$dark-green     : #009652;
+$cyan           : #00afff;
+$blue           : #007AFF;
+$purple         : #5856D6;
+$roseo          : #ff2d70;
+$red            : #FF3B30;
+$orange         : #ff804b;
+$yellow         : #FFCC00;
+$gray           : #8E8E93;
+$black          : #000000;
+
+
+$speed-levels: (
+        '6' :$roseo,
+        '5' :$orange,
+        '4' :$green,
+        '3' :$blue,
+        '2': $purple,
+        '1' :$gray,
+);
+
+@each $level, $color in $speed-levels {
+  .speed-lv-#{$level}{
+    color: $color !important;
+  }
+}
+
+.accuracy-lv-perfect {
+  color: $green !important;
+}
+
+.accuracy-lv-warn {
+  color: $orange !important;
 }
