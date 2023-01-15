@@ -217,6 +217,9 @@ export default class Indicator extends Vue {
   @setting.Getter('cloak')
   private cloak!: boolean
 
+  @setting.Getter('darkMode')
+  private darkMode!: boolean
+
   @setting.Getter('replaceSpace')
   private replaceSpace!: boolean
 
@@ -295,7 +298,7 @@ export default class Indicator extends Vue {
   @Watch('darkMode')
   darkModeChange (darkMode: boolean) {
     if (this.tempDarkMode !== darkMode) {
-      this.tempCloak = darkMode
+      this.tempDarkMode = darkMode
     }
   }
 

@@ -17,6 +17,10 @@ const getters: GetterTree<SettingState, QuickTypingState> = {
     return state.cloak
   },
 
+  darkMode (): boolean {
+    return state.darkMode
+  },
+
   replaceSpace (): boolean {
     return state.replaceSpace
   },
