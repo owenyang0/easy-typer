@@ -358,8 +358,8 @@ html, body {
   text-align: right;
 }
 
-.el-table__expanded-cell[class*=cell] {
-  padding: 20px 50px;
+.el-table .el-table__expanded-cell[class*=cell] {
+  padding: 10px 40px;
 }
 
 
@@ -471,4 +471,9 @@ $speed-levels: (
 
 .accuracy-lv-warn {
   color: $orange !important;
+}
+
+#home-main .achievements-table .el-table__body-wrapper {
+  max-height: 200px;
+  overflow-y: auto;
 }

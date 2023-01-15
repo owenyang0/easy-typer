@@ -1,4 +1,4 @@
-export function shuffle (arr: any[]) {
+export function shuffle (arr: string[]) {
   let m = arr.length
   while (m > 1) {
     const index = Math.floor(Math.random() * m--)
@@ -15,4 +15,10 @@ export function shuffleText (text: string) {
     ;[arr[m], arr[index]] = [arr[index], arr[m]]
   }
   return arr.join('')
+}
+
+export function initColorMode (mode = '', initial = false) {
+  const html = document.getElementsByTagName('html')[0]
+  const colorMode = !initial ? mode : localStorage.getItem('colorMode') as string
+  html.setAttribute('class', colorMode)
 }

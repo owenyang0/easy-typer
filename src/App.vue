@@ -312,7 +312,7 @@ export default class Setting extends Vue {
     })
 
     require('./assets/styles/theme-dark.scss')
-    // require('./assets/styles/theme-day.scss')
+    require('./assets/styles/theme-day.scss')
   }
 }
 </script>

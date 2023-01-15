@@ -990,100 +990,110 @@ $--skeleton-to-color: #e6e6e6 !default;
 --------------- */
 $--svg-monochrome-grey: #DCDDE0 !default;
 
-/* 改变 icon 字体路径变量，必需 */
-$--font-path: '~element-ui/lib/theme-chalk/fonts';
+.dark {
+  /* 改变 icon 字体路径变量，必需 */
+  $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-@import "~element-ui/packages/theme-chalk/src/index";
+  @import "~element-ui/packages/theme-chalk/src/index";
 
-// // Colors
-// $green          : #26c57d;
-// $dark-green     : #009652;
-// $cyan           : #00afff;
-// $blue           : #007AFF;
-// $purple         : #5856D6;
-// $roseo          : #ff2d70;
-// $red            : #FF3B30;
-// $orange         : #ff804b;
-// $yellow         : #FFCC00;
-// $gray           : #8E8E93;
-// $black          : #000000;
-
-
-// $speed-levels: (
-//         '6' :$roseo,
-//         '5' :$orange,
-//         '4' :$green,
-//         '3' :$blue,
-//         '2': $purple,
-//         '1' :$gray,
-// );
-
-// @each $level, $color in $speed-levels {
-//   .speed-lv-#{$level}{
-//     color: $color !important;
-//   }
-// }
-
-// .accuracy-lv-perfect {
-//   color: $green !important;
-// }
-
-// .accuracy-lv-warn {
-//   color: $orange !important;
-// }
-
-.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
-  background-color: #20242a;
-}
-
-.el-menu.el-menu--horizontal {
-  border-bottom-color: $--border-color-base;
-}
-
-@include b(menu) {
-  border-right: solid 1px $--border-color-light;
-  @include utils-clearfix;
-  &.el-menu--horizontal {
-    border-bottom: solid 1px $--border-color-light;
+  .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+    background-color: #20242a;
   }
 
-  @include m(horizontal) {
-    & > .el-menu-item {
+  .el-menu.el-menu--horizontal {
+    border-bottom-color: $--border-color-base;
+  }
 
-      &:not(.is-disabled):hover,
-      &:not(.is-disabled):focus{
-        background-color: #20242a;
-        color: #666;
-      }
+  @include b(menu) {
+    border-right: solid 1px $--border-color-light;
+    @include utils-clearfix;
+    &.el-menu--horizontal {
+      border-bottom: solid 1px $--border-color-light;
     }
-    
-    & > .el-submenu {
-      & .el-submenu__title {
-        &:hover {
+
+    @include m(horizontal) {
+      & > .el-menu-item {
+
+        &:not(.is-disabled):hover,
+        &:not(.is-disabled):focus{
           background-color: #20242a;
+          color: #666;
+        }
+      }
+      
+      & > .el-submenu {
+        & .el-submenu__title {
+          &:hover {
+            background-color: #20242a;
+          }
         }
       }
     }
   }
-}
 
-@include b(upload-dragger) {
-  background-color: $--color-white;
-  border: 1px solid $--border-color-base;
-}
+  @include b(upload-dragger) {
+    background-color: $--color-white;
+    border: 1px solid $--border-color-base;
+  }
 
-#app {
-  .markdown-body {
-    color: $--color-text-primary;
+  #app {
+    .markdown-body {
+      color: $--color-text-primary;
+    }
+  }
+
+  .el-tooltip__popper.is-dark {
+    border: 1px solid $--color-text-primary;
+  }
+
+  .el-divider__text {
+    background-color: #1c1f24;
+    color: #9ca0a9;
+  }
+
+  .el-switch__core {
+    border: 1px solid #3d444f;
+    background: #3d444f;
+
+    &::after {
+      background-color: #1c1f24;
+    }
+  }
+
+  .el-table__expanded-cell {
+    background-color: #1c1f24;
+  }
+
+  .el-table__expanded-cell[class*=cell] {
+    padding: 10px 40px;
+  }
+
+  .el-input__inner {
+    background-color: #1c1f24;
+    border: 1px solid #3d444f;
+    color: #828895;
+  }
+
+  .el-textarea__inner {
+    color: #828895;
+    background-color: #1c1f24;
+    border: 1px solid #3d444f;
+  }
+
+  .el-input-number__increase, .el-input-number__decrease {
+    background: #20242a;
+    color: #828895;
+  }
+  .el-input-number__increase {
+    border-left: 1px solid #3d444f;
+  }
+  .el-input-number__decrease {
+    border-right: 1px solid #3d444f;
+  }
+
+  .el-cascader__dropdown {
+    background: #1c1f24;
+    border: solid 1px #272b32;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   }
 }
-
-#home-main .achievements-table .el-table__body-wrapper {
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.el-tooltip__popper.is-dark {
-  border: 1px solid $--color-text-primary;
-}
-

@@ -9,6 +9,7 @@ import 'github-markdown-css'
 
 import './assets/styles/main.scss'
 import './assets/styles/main-dark.scss'
+import { initColorMode } from './store/util/common'
 
 Vue.use(ElementUI)
 
@@ -18,6 +19,8 @@ Vue.filter('numberWithCommas', function (num: number) {
   if (!num) return ''
   return num.toLocaleString('en-US')
 })
+
+initColorMode('', true)
 
 new Vue({
   router,

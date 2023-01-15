@@ -147,6 +147,7 @@
 </template>
 
 <script lang="ts">
+import { initColorMode } from '@/store/util/common'
 import { keyboard } from '@/store/util/keyboard'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
@@ -217,8 +218,8 @@ export default class Indicator extends Vue {
   @setting.Getter('cloak')
   private cloak!: boolean
 
-  @setting.Getter('darkMode')
-  private darkMode!: boolean
+  // @setting.Getter('darkMode')
+  // private darkMode!: boolean
 
   @setting.Getter('replaceSpace')
   private replaceSpace!: boolean
@@ -229,8 +230,8 @@ export default class Indicator extends Vue {
   @setting.Mutation('toggleCloak')
   private toggleCloak!: Function
 
-  @setting.Mutation('toggleDarkMode')
-  private toggleDarkMode!: Function
+  // @setting.Mutation('toggleDarkMode')
+  // private toggleDarkMode!: Function
 
   @setting.Mutation('toggleHint')
   private toggleHint!: Function
@@ -295,18 +296,18 @@ export default class Indicator extends Vue {
     }
   }
 
-  @Watch('darkMode')
-  darkModeChange (darkMode: boolean) {
-    if (this.tempDarkMode !== darkMode) {
-      this.tempDarkMode = darkMode
-    }
-  }
-
   @Watch('replaceSpace')
   replaceSpaceChange (replaceSpace: boolean) {
     if (this.tempReplaceSpace !== replaceSpace) {
       this.tempReplaceSpace = replaceSpace
     }
+  }
+
+  toggleDarkMode (isDarkMode: boolean) {
+    this.tempDarkMode = isDarkMode
+    const newMode = isDarkMode ? 'dark' : ''
+    initColorMode(newMode)
+    localStorage.setItem('colorMode', newMode)
   }
 
   showIdealCodes () {
@@ -329,6 +330,8 @@ export default class Indicator extends Vue {
     this.cloakChange(this.cloak)
     this.hintChange(this.hint)
     this.replaceSpaceChange(this.replaceSpace)
+
+    this.tempDarkMode = localStorage.getItem('colorMode') as string === 'dark'
   }
 }
 </script>
