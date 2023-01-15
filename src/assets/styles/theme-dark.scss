@@ -1096,4 +1096,17 @@ $--svg-monochrome-grey: #DCDDE0 !default;
     border: solid 1px #272b32;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   }
+
+  .el-tabs__item {
+    color: #9ca0a9;
+  }
+  .el-tabs__item.is-active {
+    color: #ff804b;
+  }
+  .el-tabs__active-bar {
+    background-color: #ff804b;
+  }
+  .el-tabs__nav-wrap::after {
+    background-color: #272b32;
+  }
 }
