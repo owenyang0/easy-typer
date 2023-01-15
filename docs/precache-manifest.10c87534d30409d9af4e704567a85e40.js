@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d178e5b004dd07fe57cc",
+    "revision": "6413409eb483184e52d9",
     "url": "/css/about.4da75a73.css"
   },
   {
-    "revision": "17e07bc52b1cdb2eb57d",
-    "url": "/css/app.e04d79e9.css"
+    "revision": "f470ca03ea922521b001",
+    "url": "/css/app.c4a199b2.css"
   },
   {
-    "revision": "b79651e934e65181281a",
+    "revision": "285a09ee11eff9a6b9b7",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "4b6bec0ab3199cedc071",
+    "revision": "9b1d205b4f41923979e1",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -52,40 +52,44 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/ui@2x.png"
   },
   {
-    "revision": "0747017cd0a653aeabd2ed85174a3522",
+    "revision": "6a3783fad190bfb91cef3678905ce6d3",
     "url": "/index.html"
   },
   {
-    "revision": "d178e5b004dd07fe57cc",
-    "url": "/js/about.7444d250.js"
+    "revision": "6413409eb483184e52d9",
+    "url": "/js/about.cecdce8f.js"
   },
   {
-    "revision": "5cab8e12a4d3f35a2a50",
-    "url": "/js/about~changelog.45d01fc0.js"
+    "revision": "1e867c2af607dc83291e",
+    "url": "/js/about~changelog~help.42f13bb9.js"
   },
   {
-    "revision": "17e07bc52b1cdb2eb57d",
-    "url": "/js/app.d8df5591.js"
+    "revision": "f470ca03ea922521b001",
+    "url": "/js/app.094b1596.js"
   },
   {
-    "revision": "fe0902ad51a893b290e3",
-    "url": "/js/changelog.d175cd7c.js"
+    "revision": "132537578c6a874140c6",
+    "url": "/js/changelog.ff415c78.js"
   },
   {
-    "revision": "b79651e934e65181281a",
-    "url": "/js/chunk-vendors.247c5d9d.js"
+    "revision": "285a09ee11eff9a6b9b7",
+    "url": "/js/chunk-vendors.22d5c2c1.js"
   },
   {
-    "revision": "4b6bec0ab3199cedc071",
-    "url": "/js/kata.131e9dde.js"
+    "revision": "397e1d5a9be323395b34",
+    "url": "/js/help.c646ae2e.js"
+  },
+  {
+    "revision": "9b1d205b4f41923979e1",
+    "url": "/js/kata.ea64525e.js"
   },
   {
     "revision": "a2e929076a9213154a9a",
     "url": "/js/practice.3a759939.js"
   },
   {
-    "revision": "6a6da4a307a738ee3776",
-    "url": "/js/setting.bd65df91.js"
+    "revision": "55ae9e04e3421b2b772f",
+    "url": "/js/setting.713c1745.js"
   },
   {
     "revision": "3a857a3c3374fff4ba44",
