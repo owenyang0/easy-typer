@@ -463,11 +463,13 @@ export class SettingState {
   /**
    * 二码颜色
    */
-  code2 = '#409EFF'
+  // code2 = '#409EFF'
+  code2 = '#148EBB'
   /**
    * 三码颜色
    */
-  code3 = '#E6A23C'
+  // code3 = '#E6A23C'
+  code3 = '#D98E15'
   /**
    * 全码颜色
    */

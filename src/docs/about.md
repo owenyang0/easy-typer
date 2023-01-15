@@ -1,6 +1,6 @@
-<img alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/logo-lanscape%402x.png">
+<img style="max-height:400px;" alt="木易跟打器macOS版" src="img/logo-lanscape%402x.png">
 
-<img alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/img/ui%402x.png">
+# 木易跟打器macOS版 {{ version }}
 
 > macOS上可直接载文的跟打器
 
@@ -8,22 +8,19 @@
 
 从 `Windows` 转到 `Mac` 之后，苦于`macOS`没有可用的跟打器，偶然看到了[QT](https://gitee.com/hotleave/quick-typing)基于他们的代码做一个`macOS`上可直接载文用的跟打器，外理了一些macOS系统的兼容，于是便有了这个项目。
 
-## 一、Contributing
+<img style="max-height:400px;" alt="木易跟打器macOS版" src="img/ui%402x.png">
 
-- 有问题，提个[Issue](https://github.com/owenyang0/easy-typer/issues)
-- 有想法，提个[Issue](https://github.com/owenyang0/easy-typer/issues)
-- 或通过QQ群联系我：**木易跟打器** `787343469`
-- 有能力，提个[PR](https://github.com/owenyang0/easy-typer/pulls)
+## 一、快速上手
+因为需要载文，在`系统偏好设置-安全性与隐私-辅助功能`中，允许木易跟打器控制电脑
 
-## 二、声明
+<img width="500" alt="木易跟打器macOS版" src="img/setting.png">
 
-1. 本程序系私人用途，非商业产品，即不提供相应的服务
-1. 本程序所有数据均保存在用户浏览器的[IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)中，**不会上传到任何服务器**
-1. 如果有侵权行为，请联系：`songallica@gmail.com`，会在看到后第一时间取消
-1. 用户使用本程序所引发的一切问题，由用户自己承担，本程序概不负责
-1. **使用本程序则旨在接受本条及以上条款**
+同时由于QQ macOS版本的限制，无法全文获取，可通过以下方式载文
+- 鼠标移至聊天窗口对应消息位置
+- 按`F4`载入文本
+- 开始打字
 
-## 三、主要功能
+## 二、主要功能
 
 - [x] QQ群直接载文
 - [x] 赛文跟打
@@ -31,15 +28,20 @@
 - [x] 本地发文-复合指标
 - [x] 成绩发送
 
-## 四、快速上手
-因为需要载文，在`系统偏好设置-安全性与隐私-辅助功能`中，允许木易跟打器控制电脑
+## 三、Contributing
 
-<img width="500" alt="木易跟打器macOS版" src="https://user-images.githubusercontent.com/2222167/209472113-ff21ed12-66bc-442a-a6bc-3fde22f9afdf.png">
+- 有问题，提个[Issue](https://github.com/owenyang0/easy-typer/issues)
+- 有想法，提个[Issue](https://github.com/owenyang0/easy-typer/issues)
+- 或通过QQ群联系我：**木易跟打器** `787343469`
+- 有能力，提个[PR](https://github.com/owenyang0/easy-typer/pulls)
 
-同时由于QQ macOS版本的限制，无法全文获取，可通过以下方式载文
-- 鼠标移至聊天窗口对应消息位置
-- 按`F4`载入文本
-- 开始打字
+## 四、声明
+
+1. 本程序系私人用途，非商业产品，即不提供相应的服务
+1. 本程序所有数据均保存在用户浏览器的[IndexedDB](https://developer.mozilla.org/zh-CN/docs/Web/API/IndexedDB_API)中，**不会上传到任何服务器**
+1. 如果有侵权行为，请联系：`songallica@gmail.com`，会在看到后第一时间取消
+1. 用户使用本程序所引发的一切问题，由用户自己承担，本程序概不负责
+1. **使用本程序则旨在接受本条及以上条款**
 
 ## 五、操作说明
 
@@ -176,32 +178,3 @@
 
 - `去除空格`: 移除文章中的所有空白字符，包括：空格、回车、换行、制表符等
 
-
-
-
-[版本变更历史](src/docs/changelog.md)
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```

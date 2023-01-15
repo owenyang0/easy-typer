@@ -54,6 +54,14 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "changelog" */'../views/Changelog.vue')
   },
   {
+    path: '/help',
+    name: 'Help',
+    meta: {
+      title: '木易跟打器 - 使用帮助'
+    },
+    component: () => import(/* webpackChunkName: "help" */ '../views/Help.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     meta: {

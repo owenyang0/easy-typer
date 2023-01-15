@@ -2,6 +2,7 @@
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { QuickTypingState, KataState } from './types'
 import { shuffle } from './util/common'
+import { Message } from 'element-ui'
 
 export interface KataArticle {
   content: string;
@@ -39,7 +40,7 @@ const mutations: MutationTree<KataState> = {
     state.mode = 1
   },
 
-  next: (state, canNext: boolean) => {
+  next: (state) => {
     state.currentParagraphNo += 1
     const startIndex = (state.currentParagraphNo - 1) * state.paragraphSize
 
@@ -69,9 +70,8 @@ const actions: ActionTree<KataState, QuickTypingState> = {
   init ({ commit }): void {
     commit('init')
   },
-  loadArticle ({ commit, state, getters }, article: KataState): void {
+  loadArticle ({ commit }, article: KataState): void {
     commit('article', article)
-    // this.dispatch('article/loadMatch', getters.nextParagraph)
   },
   updateCriteria ({ commit, state, getters }, criteria): void {
     if (criteria) {
@@ -90,6 +90,10 @@ const actions: ActionTree<KataState, QuickTypingState> = {
         commit('next')
         this.dispatch('article/loadMatch', getters.nextParagraph)
       }
+    } else {
+      Message.warning({
+        message: '当前不在发文状态，无法进入下一段'
+      })
     }
   },
   random ({ commit, getters }): void {
