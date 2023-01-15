@@ -517,7 +517,11 @@ export class SettingState {
   /**
    * 潜水-不发送成绩
    */
-   cloak = true
+  cloak = true
+  /**
+   * 暗黑模式
+   */
+  darkMode = false
 }
 
 export interface LoginUser {
