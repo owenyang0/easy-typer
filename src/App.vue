@@ -28,6 +28,14 @@
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
             </el-menu-item>
+            <el-menu-item index="/random">
+              <i class="el-icon-document"></i>
+              <span slot="title">乱序（Ctrl+L）</span>
+            </el-menu-item>
+            <el-menu-item index="/next">
+              <i class="el-icon-d-arrow-right"></i>
+              <span slot="title">下一段（Ctrl+P）</span>
+            </el-menu-item>
             <el-menu-item index="/practice">
               <i class="el-icon-aim"></i>
               <span slot="title">词库练习</span>
@@ -115,6 +123,7 @@ const login = namespace('login')
 const summary = namespace('summary')
 const racing = namespace('racing')
 const kata = namespace('kata')
+const article = namespace('article')
 
 @Component
 export default class Setting extends Vue {
@@ -169,6 +178,12 @@ export default class Setting extends Vue {
   @kata.Action('updateTipWarning')
   private updateTipWarning!: Function
 
+  @article.Action('random')
+  private random!: Function
+
+  @kata.Action('next')
+  private next!: Function
+
   get percentage (): number {
     const percentage = Math.min(this.progress || 0, 1) * 100
     return parseFloat(percentage.toFixed(2))
@@ -205,6 +220,16 @@ export default class Setting extends Vue {
         this.$router.push(key).catch(err => err)
       }
 
+      return
+    }
+
+    if (key === '/random') {
+      this.random()
+      return
+    }
+
+    if (key === '/next') {
+      this.next()
       return
     }
 
