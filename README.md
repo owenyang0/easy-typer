@@ -1,6 +1,6 @@
-<img alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/logo-lanscape%402x.png">
+<img alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/logo-lanscape%402x.png">
 
-<img alt="木易跟打器macOS版" src="https://raw.githubusercontent.com/owenyang0/easy-typer/main/public/img/ui%402x.png">
+<img alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/img/ui%402x.png">
 
 > macOS上可直接载文的跟打器
 
@@ -28,6 +28,7 @@
 - [x] QQ群直接载文
 - [x] 赛文跟打
 - [x] 词语提示
+- [x] 本地发文-复合指标
 - [x] 成绩发送
 
 ## 四、快速上手
