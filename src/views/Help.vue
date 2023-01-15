@@ -14,7 +14,7 @@ converter.setOption('tasklists', true)
 @Component
 export default class Setting extends Vue {
   get html (): string {
-    return converter.makeHtml(help.replace('{{ version }}', this.version))
+    return converter.makeHtml(help)
   }
 }
 </script>
