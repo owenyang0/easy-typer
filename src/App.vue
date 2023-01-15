@@ -28,6 +28,10 @@
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
             </el-menu-item>
+            <el-menu-item index="/retry">
+              <i class="el-icon-edit-outline"></i>
+              <span slot="title">重打（F3）</span>
+            </el-menu-item>
             <el-menu-item index="/random">
               <i class="el-icon-document"></i>
               <span slot="title">乱序（Ctrl+L）</span>
@@ -166,6 +170,9 @@ export default class Setting extends Vue {
     password: ''
   }
 
+  @racing.Action('retry')
+  private retry!: Function
+
   @racing.Getter('progress')
   private progress!: number
 
@@ -230,6 +237,11 @@ export default class Setting extends Vue {
 
     if (key === '/next') {
       this.next()
+      return
+    }
+
+    if (key === '/retry') {
+      this.retry()
       return
     }
 
