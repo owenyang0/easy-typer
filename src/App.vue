@@ -9,8 +9,8 @@
       :show-text="false"
       define-back-color="#1c1f24"
     />
-    <el-row>
-      <el-col :span="24">
+    <el-row class="menu-row">
+      <el-col :span="24" class="menu-col">
         <el-menu
           :router="false"
           :default-active="pathname"
@@ -316,3 +316,12 @@ export default class Setting extends Vue {
   }
 }
 </script>
+
+<style scoped>
+  .menu-row {
+    overflow-x: auto;
+  }
+  .menu-col {
+    min-width: 500px;
+  }
+</style>

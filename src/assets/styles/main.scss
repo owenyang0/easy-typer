@@ -368,7 +368,7 @@ html, body {
 }
 
 @media only screen and (max-width: 680px) {
-  .el-container {
+  #home .el-container {
     flex-direction: column;
   }
 
@@ -382,6 +382,10 @@ html, body {
 
   .aside-history {
     width: 100% !important;
+  }
+
+  #app .el-card__body {
+    padding: 0 0 10px 0;
   }
 }
 
