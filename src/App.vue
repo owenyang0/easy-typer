@@ -49,10 +49,10 @@
             </el-menu-item>
           </el-submenu>
           <el-submenu index="/help">
-            <template slot="title"><i class="el-icon-info"></i>帮助</template>
-            <el-menu-item index="/about">
+            <template slot="title"><i class="el-icon-warning"></i>帮助</template>
+            <el-menu-item index="/help">
               <i class="el-icon-question"></i>
-              <span slot="title">帮助/关于</span>
+              <span slot="title">使用帮助</span>
             </el-menu-item>
             <el-menu-item index="/changelog">
               <i class="el-icon-time"></i>
@@ -61,6 +61,10 @@
             <el-menu-item index="/download">
               <i class="el-icon-download"></i>
               <span slot="title">程序下载</span>
+            </el-menu-item>
+            <el-menu-item index="/about">
+              <i class="el-icon-warning"></i>
+              <span slot="title">关于</span>
             </el-menu-item>
           </el-submenu>
         </el-menu>

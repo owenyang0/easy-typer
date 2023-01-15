@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import help from '@/docs/help.md'
+import about from '@/docs/about.md'
 import showdown from 'showdown'
 
 const converter = new showdown.Converter()
@@ -16,7 +16,7 @@ export default class Setting extends Vue {
   private version = process.env.VUE_APP_WEB_VERSION
 
   get html (): string {
-    return converter.makeHtml(help.replace('{{ version }}', this.version))
+    return converter.makeHtml(about.replace('{{ version }}', this.version))
   }
 
   created () {
