@@ -1042,6 +1042,16 @@ $--svg-monochrome-grey: #DCDDE0 !default;
       code {
         background-color: rgba(110,118,129,0.4);
       }
+
+      .highlight pre, pre {
+        background-color: #434548;
+      }
+
+      pre {
+        code {
+          background-color: transparent;
+        }
+      }
     }
   }
 

@@ -75,9 +75,9 @@ html, body {
   .el-main {
     padding: 0;
   }
-  .el-card__body, .el-main {
-    padding: 10px;
-  }
+  // .el-card__body, .el-main {
+  //   padding: 10px;
+  // }
 
   .el-progress-bar__outer,
   .el-progress-bar__inner {
@@ -384,7 +384,7 @@ html, body {
     width: 100% !important;
   }
 
-  #app .el-card__body {
+  #home .el-card__body {
     padding: 0 0 10px 0;
   }
 }
