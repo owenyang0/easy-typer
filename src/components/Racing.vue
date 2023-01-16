@@ -101,7 +101,6 @@ export default class Racing extends Vue {
 
   @Watch('mode')
   modeUpdate (mode: number) {
-    console.log('mode update', mode)
     if (mode === 2) {
       this.$message.warning('当前发文已结束~')
     }

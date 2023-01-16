@@ -167,6 +167,7 @@ export default class Home extends Vue {
         if (val && this.mode !== 1) { // 发文状态禁止载文
           try {
             this.loadText(val)
+            this.$router.push('/')
           } catch (error) {
             this.$message.error(error.message)
           }
@@ -265,7 +266,7 @@ export default class Home extends Vue {
         break
       case 'F2':
         e.preventDefault()
-        if (this.hasTipWarning) {
+        if (this.hasTipWarning || this.status === 'typing') {
           return
         }
         if (this.mode === 1) {
