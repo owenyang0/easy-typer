@@ -56,7 +56,8 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
-  color: var(--normal-color)
+  color: var(--normal-color);
+  user-select: none;
 }
 
 #app {
