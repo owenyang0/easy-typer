@@ -91,9 +91,10 @@ export default class Racing extends Vue {
           }
           window.electronAPI && window.electronAPI.setGrade('typing finished!')
         }, () => {
-          this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
+          // this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
+          this.$notify.warning('你的浏览器不支持自动复制，需要手动操作')
         })
-        this.$message.success(text)
+        this.$notify.success(text)
         break
       }
     }
@@ -102,7 +103,8 @@ export default class Racing extends Vue {
   @Watch('mode')
   modeUpdate (mode: number) {
     if (mode === 2) {
-      this.$message.warning('当前发文已结束~')
+      // this.$message.warning('当前发文已结束~')
+      this.$notify.info('当前发文已结束~')
     }
   }
 
