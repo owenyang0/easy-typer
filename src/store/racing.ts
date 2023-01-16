@@ -502,7 +502,7 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
             }
           }
         } else {
-          this.dispatch('kata/next')
+          this.dispatch('kata/next', true)
         }
       })
     }

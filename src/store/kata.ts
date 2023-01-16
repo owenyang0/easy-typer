@@ -81,7 +81,7 @@ const actions: ActionTree<KataState, QuickTypingState> = {
   updateTipWarning ({ commit }, isShow: boolean): void {
     commit('updateTipWarning', isShow)
   },
-  next ({ commit, state, getters }): void {
+  next ({ commit, state, getters }, hideWanring = false): void {
     if (state.mode === 1) {
       const mode = state.currentParagraphNo >= getters.paragraphCount ? 2 : 1
       commit('mode', mode)
@@ -90,7 +90,8 @@ const actions: ActionTree<KataState, QuickTypingState> = {
         commit('next')
         this.dispatch('article/loadMatch', getters.nextParagraph)
       }
-    } else {
+    } else if (!hideWanring) {
+      commit('init')
       Message.warning({
         message: '当前不在发文状态，无法进入下一段'
       })
