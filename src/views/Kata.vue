@@ -218,7 +218,33 @@ export default class Home extends Vue {
       value: 'word5501',
       label: '常用2501-3000'
     }]
-  }]
+  }, {
+    value: 'tiger',
+    label: '虎码',
+    children: [{
+      value: 'tigerHell4500',
+      label: '要你命4500',
+    }, {
+      value: 'tigerCertainly632',
+      label: '必拆字632',
+    }]
+  }, {
+    value: 'article',
+    label: '文章',
+    children: [{
+      value: 'articleXDCK',
+      label: '心的出口',
+    }, {
+      value: 'articleBD',
+      label: '冰灯',
+    }, {
+      value: 'articleZGXW',
+      label: '曾广贤文',
+    }, {
+      value: 'articleAPGF',
+      label: '阿房宫赋',
+    }]
+}]
 
   @Watch('formContent.paragraphSize')
   paragraphSizeChange (size: number) {
