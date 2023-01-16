@@ -65,16 +65,16 @@
         </el-card>
         <el-card shadow="never">
           <div class="key-value">
-            <span>对/错/今</span>
-            <span>{{ todayWords - todayErrorWords }}/{{ todayErrorWords }}/{{ todayWords }}</span>
+            <span>错/今对</span>
+            <span>{{ (todayWords - todayErrorWords) | numberWithCommas }}/{{ todayErrorWords | numberWithCommas}}</span>
           </div>
           <div class="key-value">
-            <span>对/错/总</span>
-            <span>{{ totalWords - totalErrorWords }}/{{ totalErrorWords }}/{{ totalWords }}</span>
+            <span>总字数</span>
+            <span>{{ totalWords | numberWithCommas}}</span>
           </div>
           <div class="key-value">
             <span>天数</span>
-            <span>{{ consecutiveDays }}/{{ totalDays }}</span>
+            <span>{{ consecutiveDays }}/{{ totalDays | numberWithCommas}}</span>
           </div>
           <div class="key-value">
             <span>退格</span>
