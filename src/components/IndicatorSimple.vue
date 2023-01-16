@@ -1,7 +1,7 @@
 <template>
   <div class="history-indicator">
     <el-row :gutter="10">
-      <el-col :xs="24" :sm="12" :lg="8" :md="8" :xl="6">
+      <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
           <div class="chartCard">
             <div class="chartTop">
@@ -30,7 +30,7 @@
                 <div class="trendItem" style="margin-right: 20px">
                   <span
                     >正确字数<span class="trendText">{{ (todayWords - todayErrorWords) | numberWithCommas }}</span></span
-                  ><span class="down"><i class="el-icon-check"></i> </span>
+                  ><span class="down"><i class="el-icon-check"></i>(正确率{{ todayCorrectRatio }}%)</span>
                 </div>
                 <div class="trendItem" title="">
                   <span
@@ -48,7 +48,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="12" :lg="8" :md="8" :xl="6">
+      <el-col :xs="24" :sm="12" :lg="8">
         <el-card class="box-card">
           <div class="chartCard">
             <div class="chartTop">
@@ -77,7 +77,7 @@
                 <div class="trendItem" style="margin-right: 20px">
                   <span
                     >正确字数<span class="trendText">{{ (totalWords - totalErrorWords) | numberWithCommas }}</span></span
-                  ><span class="down"><i class="el-icon-check"></i> </span>
+                  ><span class="down"><i class="el-icon-check"></i>(正确率{{ totalCorrectRatio }}%)</span>
                 </div>
                 <div class="trendItem" title="">
                   <span
@@ -114,10 +114,10 @@ export default class Indicator extends Vue {
   private todayErrorWords!: number
 
   @summary.Getter('totalWords')
-  private totalWords!: string
+  private totalWords!: number
 
   @summary.Getter('totalErrorWords')
-  private totalErrorWords!: string
+  private totalErrorWords!: number
 
   @summary.Getter('consecutiveDays')
   private consecutiveDays!: number
@@ -127,6 +127,14 @@ export default class Indicator extends Vue {
 
   get version (): string | undefined {
     return process.env.VUE_APP_VERSION
+  }
+
+  get todayCorrectRatio (): string {
+    return this.todayWords ? (((this.todayWords - this.todayErrorWords) / this.todayWords) * 100).toFixed(2) : '-'
+  }
+
+  get totalCorrectRatio (): string {
+    return this.totalWords ? (((this.totalWords - this.totalErrorWords) / this.totalWords) * 100).toFixed(2) : '-'
   }
 }
 </script>
