@@ -94,7 +94,7 @@ export default class Racing extends Vue {
           // this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
           this.$notify.warning('你的浏览器不支持自动复制，需要手动操作')
         })
-        this.$notify.success(text)
+        // this.$notify.success(text)
         break
       }
     }
