@@ -247,11 +247,11 @@ export class KataState {
   /**
    * 指标校验-击键
    */
-  criteriaHitSpeed = 1;
+  criteriaHitSpeed = 3;
   /**
    * 指标校验-键准
    */
-  criteriaAccuracy = 80;
+  criteriaAccuracy = 100;
   /**
    * 指标校验-操作 random乱序 retry重打 noop不处理
    */

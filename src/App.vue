@@ -332,6 +332,7 @@ export default class Setting extends Vue {
 <style scoped>
   .menu-row {
     overflow-x: auto;
+    overflow-y: hidden;
   }
   .menu-col {
     min-width: 500px;
