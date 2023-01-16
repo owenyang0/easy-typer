@@ -1,4 +1,4 @@
-<img style="max-height:400px;" alt="木易跟打器macOS版" src="img/logo-lanscape%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/logo-lanscape%402x.png">
 
 # 木易跟打器macOS版 {{ version }}
 
@@ -8,7 +8,9 @@
 
 从 `Windows` 转到 `Mac` 之后，苦于`macOS`没有可用的跟打器，偶然看到了[QT](https://gitee.com/hotleave/quick-typing)基于他们的代码做一个`macOS`上可直接载文用的跟打器，外理了一些macOS系统的兼容，于是便有了这个项目。
 
-<img style="max-height:400px;" alt="木易跟打器macOS版" src="img/ui%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/ui%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/kata.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/history.png">
 
 ## 一、快速上手
 因为需要载文，在`系统偏好设置-安全性与隐私-辅助功能`中，允许木易跟打器控制电脑
