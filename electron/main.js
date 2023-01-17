@@ -36,7 +36,7 @@ end tell
 function showNotification (body = '', title = '木易跟打器') {
   new Notification({ title, body }).show()
 }
-
+const isProduction = app.isPackaged
 let mainWindow
 const createWindow = () => {
   // Create the browser window.
@@ -47,7 +47,7 @@ const createWindow = () => {
     backgroundColor:"#1c1f24",
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      devTools: !app.isPackaged,
+      devTools: !isProduction,
       // nodeIntegration: true,
       // contextIsolation: false,
     }
@@ -199,7 +199,7 @@ app.on('will-quit', () => {
   globalShortcut.unregisterAll()
 })
 
-if (app.isPackaged) {
+if (isProduction) {
   app.on('browser-window-focus', function () {
     globalShortcut.register('CommandOrControl+R', () => {
       console.log('CommandOrControl+R is pressed: Shortcut Disabled')
