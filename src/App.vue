@@ -134,6 +134,9 @@ export default class Setting extends Vue {
   @Action('updateCodings')
   private updateCodings!: Function
 
+  @Action('setAppVersion')
+  private setAppVersion!: Function
+
   @Action('summaryKeyCount')
   private summaryKeyCount!: Function
 
@@ -274,6 +277,10 @@ export default class Setting extends Vue {
     this.$router.beforeEach((to: Route, from: Route, next) => {
       this.pathname = to.fullPath
       next()
+    })
+
+    window.electronAPI && window.electronAPI.getAppVersion((evt: any, appVersion: string) => {
+      this.setAppVersion(appVersion)
     })
 
     if (localStorage.user && localStorage.token) {

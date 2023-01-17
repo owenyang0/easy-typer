@@ -244,8 +244,10 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
   },
 
   // 比赛结果
-  result (state, getters, { article, setting }): string {
+  result (state, getters, { article, setting }, rootGetters): string {
     const { inputMethod, inputMethodName, signature, signatureText } = setting
+    const finalVersion = `易跟打macOS版${rootGetters.version}`
+
     const statistics: Map<string, string> = new Map([
       ['identity', `第${article.identity || 1}段`],
       ['typeSpeed', `速度${getters.typeSpeed}`],
@@ -272,7 +274,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
       ['inputMethod', `输入法:${inputMethodName}`],
       ['signature', `个性签名:${signatureText}`],
       // ['version', `易v${process.env.VUE_APP_VERSION}`]
-      ['version', `易跟打macOS版v${process.env.VUE_APP_VERSION}`]
+      ['version', finalVersion]
     ])
 
     const options = setting.resultOptions.slice(0)

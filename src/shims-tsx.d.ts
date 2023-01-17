@@ -6,6 +6,7 @@ declare global {
       handlePaste: any;
       removePasteHanlder: any;
       setGrade: (val: string) => void;
+      getAppVersion: any;
     };
   }
   namespace JSX {
