@@ -26,6 +26,7 @@ const getters: GetterTree<KataState, QuickTypingState> = {
 const mutations: MutationTree<KataState> = {
   init: (state) => {
     state.mode = 0
+    state.criteriaOpen = false
   },
 
   article: (state, article: KataState) => {
