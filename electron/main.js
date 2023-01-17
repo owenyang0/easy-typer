@@ -186,6 +186,8 @@ app.whenReady().then(() => {
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
   console.log('window-all-closed')
+  ipcMain.removeAllListeners()
+
   if (process.platform !== 'darwin') app.quit()
 })
 
