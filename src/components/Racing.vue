@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { namespace } from 'vuex-class'
+import { Action, namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 
 const racing = namespace('racing')
@@ -26,6 +26,9 @@ const kata = namespace('kata')
 
 @Component
 export default class Racing extends Vue {
+  @Action('setAppVersion')
+  private setAppVersion!: Function
+
   @racing.State('status')
   private status!: string
 
@@ -89,7 +92,11 @@ export default class Racing extends Vue {
             console.log('当前处于潜水状态')
             return
           }
-          window.electronAPI && window.electronAPI.setGrade('typing finished!')
+          if (window.electronAPI) {
+            // 设置上一版本的默认值
+            this.setAppVersion('0.2.4')
+            window.electronAPI.setGrade('typing finished!')
+          }
         }, () => {
           // this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
           this.$notify.warning('你的浏览器不支持自动复制，需要手动操作')
