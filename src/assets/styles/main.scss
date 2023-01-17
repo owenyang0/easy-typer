@@ -482,3 +482,7 @@ $speed-levels: (
   max-height: 200px;
   overflow-y: auto;
 }
+
+.el-table .el-table__cell {
+  padding: 8px 0;
+}

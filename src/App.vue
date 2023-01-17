@@ -322,9 +322,6 @@ export default class Setting extends Vue {
     }, (error) => {
       console.log(error)
     })
-
-    require('./assets/styles/theme-dark.scss')
-    require('./assets/styles/theme-day.scss')
   }
 }
 </script>
