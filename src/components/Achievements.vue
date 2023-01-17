@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { Achievement } from '@/store/types'
+import { Achievement, RacingState } from '@/store/types'
 import { Component, Vue } from 'vue-property-decorator'
 import { Mutation, State } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
@@ -54,7 +54,7 @@ export default class Achievements extends Vue {
     // return value || '未知'
   }
 
-  tableCellClassName ({ row, column, rowIndex, columnIndex }: any) {
+  tableCellClassName ({ row, column }: any) {
     if (column.property === 'typeSpeed') {
       const rawLevel = Math.floor(row.typeSpeed / SPEED_GAP)
       const level = rawLevel > 6 ? 6 : rawLevel // 速度等级为 6+ 时按 6 处理
@@ -99,13 +99,13 @@ export default class Achievements extends Vue {
     })
   }
 
-  generateRecord (row: Achievement) {
-    return `第${ row.identity }段 速度${ row.typeSpeed } 击键${ row.hitSpeed } 码长${ row.codeLength } 字数${ row.contentLength } 错字${ row.error } 用时${ this.formatTime(row.usedTime) }秒 暂停${ row.pauseCount }次${ this.formatTime(row.pauseTime) }秒 键准${ row.accuracy }% 键法${ row.balance }% 左${ row.leftHand } 右${ row.rightHand } 理论码长${ row.idealCodeLength } 打词${ row.phrase } 打词率${ row.phraseRate }% 选重${ row.selective } 回改${ row.replace } 键数${ row.keys } 退格${ row.backspace } 回车${ row.enter } 第${ row.retry }次跟打`
+  generateRecord (row: Achievement & RacingState) {
+    return `第${row.identity}段 速度${row.typeSpeed} 击键${row.hitSpeed} 码长${row.codeLength} 字数${row.contentLength} 错字${row.error} 用时${this.formatTime(row.usedTime)}秒 暂停${row.pauseCount}次${this.formatTime(row.pauseTime)}秒 键准${row.accuracy}% 键法${row.balance}% 左${row.leftHand} 右${row.rightHand} 理论码长${row.idealCodeLength} 打词${row.phrase} 打词率${row.phraseRate}% 选重${row.selective} 回改${row.replace} 键数${row.keys} 退格${row.backspace} 回车${row.enter} 第${row.retry}次跟打`
   }
 
-  handleCopy (row: Achievement) {
+  handleCopy (row: Achievement & RacingState) {
     Clipboard.copy(this.generateRecord(row), () => {
-      this.$message.success(`已复制第${ row.identity }段`)
+      this.$message.success(`已复制第${row.identity}段`)
     }, () => {
       this.$message.warning('你的浏览器暂不支持自动复制')
     })
