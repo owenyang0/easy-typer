@@ -24,6 +24,12 @@ const store: StoreOptions<QuickTypingState> = {
     summary,
     kata
   },
+  getters: {
+    version (state) {
+      const webVersion = process.env.VUE_APP_WEB_VERSION
+      return state.appVersion ? `v${state.appVersion}${webVersion}` : `web${webVersion}`
+    }
+  },
   mutations: {
     codings (state, codings: TrieNode) {
       state.codings = codings
@@ -50,6 +56,10 @@ const store: StoreOptions<QuickTypingState> = {
 
     increaseTotalAchievements (state) {
       state.totalAchievements += 1
+    },
+
+    appVersion (state, appVersion: string) {
+      state.appVersion = appVersion
     }
   },
 
@@ -65,6 +75,9 @@ const store: StoreOptions<QuickTypingState> = {
     addAchievements ({ commit }, achievement) {
       commit('addAchievements', achievement)
       commit('increaseTotalAchievements')
+    },
+    setAppVersion ({ commit }, appVersion: string) {
+      commit('appVersion', appVersion)
     }
   }
 }

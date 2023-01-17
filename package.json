@@ -1,6 +1,6 @@
 {
   "name": "easy-typer",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "macOS平台可直接载文的跟打器",
   "main": "electron/main.js",
   "scripts": {
@@ -77,7 +77,7 @@
       "icon": "public/img/icons/logo-large.icns"
     },
     "productName": "木易跟打器",
-    "copyright": "Copyright © 2023 ${author} build(20230105)",
+    "copyright": "Copyright © 2023 ${author} build(20230117)",
     "asar": false
   },
   "gitHooks": {

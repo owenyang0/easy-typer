@@ -272,10 +272,6 @@ export default class Indicator extends Vue {
     return this.status === 'finished' ? 'success' : null
   }
 
-  get version (): string | undefined {
-    return process.env.VUE_APP_VERSION
-  }
-
   @Watch('hint')
   hintChange (hint: boolean) {
     if (this.tempHint !== hint) {

@@ -125,10 +125,6 @@ export default class Indicator extends Vue {
   @summary.Getter('totalDays')
   private totalDays!: number
 
-  get version (): string | undefined {
-    return process.env.VUE_APP_VERSION
-  }
-
   get todayCorrectRatio (): string {
     return this.todayWords ? (((this.todayWords - this.todayErrorWords) / this.todayWords) * 100).toFixed(2) : '-'
   }

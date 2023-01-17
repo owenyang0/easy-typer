@@ -286,9 +286,14 @@ export class QuickTypingState {
    * 成绩
    */
   achievements: Array<Achievement> = [];
-
-  // 成绩总条数
+  /**
+   * 成绩总条数
+   */
   totalAchievements = 0;
+  /**
+   * appVersion
+   */
+  appVersion = '';
 }
 
 export interface InterfaceStyle {
