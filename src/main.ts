@@ -7,6 +7,8 @@ import router from './router'
 import store from './store'
 import 'github-markdown-css'
 
+import './assets/styles/theme-dark.scss'
+import './assets/styles/theme-day.scss'
 import './assets/styles/main.scss'
 import './assets/styles/main-dark.scss'
 import { initColorMode } from './store/util/common'

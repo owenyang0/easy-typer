@@ -3,10 +3,7 @@
     <el-table border :data="achievements.slice(0, 10)" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
       <el-table-column prop="title" type="expand" label="">
         <template slot-scope="props">
-          第{{ props.row.identity }}段 速度{{ props.row.typeSpeed }} 击键{{ props.row.hitSpeed }} 码长{{ props.row.codeLength }} 字数{{ props.row.contentLength }} 错字{{ props.row.error }}
-          用时{{ formatTime(props.row.usedTime) }}秒 暂停{{ props.row.pauseCount }}次{{ formatTime(props.row.pauseTime) }}秒 键准{{ props.row.accuracy }}% 键法{{ props.row.balance }}% 左{{ props.row.leftHand }}
-          右{{ props.row.rightHand }} 理论码长{{ props.row.idealCodeLength }} 打词{{ props.row.phrase }} 打词率{{ props.row.phraseRate }}% 选重{{ props.row.selective }} 回改{{ props.row.replace }}
-          键数{{ props.row.keys }} 退格{{ props.row.backspace }} 回车{{ props.row.enter }} 第{{ props.row.retry }}次跟打
+          <el-button @click="handleCopy(props.row)" type="text" size="medium">复制</el-button> {{ generateRecord(props.row) }}
         </template>
       </el-table-column>
       <el-table-column prop="identity" label="段号" min-width="80"/>
@@ -35,6 +32,7 @@
 import { Achievement } from '@/store/types'
 import { Component, Vue } from 'vue-property-decorator'
 import { Mutation, State } from 'vuex-class'
+import Clipboard from '@/store/util/Clipboard'
 import db from '../store/util/Database'
 
 const PAGE_SIZE = 10
@@ -98,6 +96,18 @@ export default class Achievements extends Vue {
       this.updateAchievements(achievements)
     }, (error) => {
       console.log(error)
+    })
+  }
+
+  generateRecord (row: Achievement) {
+    return `第${ row.identity }段 速度${ row.typeSpeed } 击键${ row.hitSpeed } 码长${ row.codeLength } 字数${ row.contentLength } 错字${ row.error } 用时${ this.formatTime(row.usedTime) }秒 暂停${ row.pauseCount }次${ this.formatTime(row.pauseTime) }秒 键准${ row.accuracy }% 键法${ row.balance }% 左${ row.leftHand } 右${ row.rightHand } 理论码长${ row.idealCodeLength } 打词${ row.phrase } 打词率${ row.phraseRate }% 选重${ row.selective } 回改${ row.replace } 键数${ row.keys } 退格${ row.backspace } 回车${ row.enter } 第${ row.retry }次跟打`
+  }
+
+  handleCopy (row: Achievement) {
+    Clipboard.copy(this.generateRecord(row), () => {
+      this.$message.success(`已复制第${ row.identity }段`)
+    }, () => {
+      this.$message.warning('你的浏览器暂不支持自动复制')
     })
   }
 }
