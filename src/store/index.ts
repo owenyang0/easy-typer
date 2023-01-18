@@ -6,6 +6,7 @@ import { setting } from './setting'
 import { login } from './login'
 import { summary } from './summary'
 import { kata } from './kata'
+import { record } from './record'
 import { LooseObject, QuickTypingState } from './types'
 import db from './util/Database'
 import { TrieNode } from './util/TrieTree'
@@ -22,7 +23,8 @@ const store: StoreOptions<QuickTypingState> = {
     setting,
     login,
     summary,
-    kata
+    kata,
+    record
   },
   getters: {
     version (state) {

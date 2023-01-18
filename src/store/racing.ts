@@ -490,8 +490,10 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
         this.dispatch('summaryKeyCount', state.keyCount)
         this.dispatch('summary/saveWordCount')
         const achievement = getters.achievement
-        this.dispatch('addAchievements', achievement, { root: true })
-        db.achievement.add(achievement)
+        if (achievement.typeSpeed > 0) {
+          this.dispatch('addAchievements', achievement, { root: true })
+          db.achievement.add(achievement)
+        }
 
         if (kata.criteriaOpen) {
           if (getters.hitSpeed >= kata.criteriaHitSpeed && getters.accuracy >= kata.criteriaAccuracy) {
