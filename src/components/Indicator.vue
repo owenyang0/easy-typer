@@ -66,7 +66,7 @@
         <el-card shadow="never">
           <div class="key-value">
             <span>错/今对</span>
-            <span>{{ (todayWords - todayErrorWords) | numberWithCommas }}/{{ todayErrorWords | numberWithCommas}}</span>
+            <span>{{ todayErrorWords | numberWithCommas}}/{{ (todayWords - todayErrorWords) | numberWithCommas }}</span>
           </div>
           <div class="key-value">
             <span>总字数</span>
