@@ -279,9 +279,11 @@ export default class Setting extends Vue {
       next()
     })
 
-    window.electronAPI && window.electronAPI.getAppVersion((evt: any, appVersion: string) => {
-      this.setAppVersion(appVersion)
-    })
+    if (window.electronAPI && window.electronAPI.getAppVersion) {
+      window.electronAPI && window.electronAPI.getAppVersion((evt: any, appVersion: string) => {
+        this.setAppVersion(appVersion)
+      })
+    }
 
     if (localStorage.user && localStorage.token) {
       const { token, user } = localStorage
