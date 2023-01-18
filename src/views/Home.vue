@@ -59,7 +59,7 @@ import Indicator from '@/components/Indicator.vue'
 import Article from '@/components/Article.vue'
 import Racing from '@/components/Racing.vue'
 import Achievements from '@/components/Achievements.vue'
-import { namespace } from 'vuex-class'
+import { Action, namespace, State } from 'vuex-class'
 import xcapi from '@/api/xc.cool'
 import { InterfaceStyle } from '@/store/types'
 
@@ -78,6 +78,12 @@ const kata = namespace('kata')
   }
 })
 export default class Home extends Vue {
+  @Action('setAppVersion')
+  private setAppVersion!: Function
+
+  @State('appVersion')
+  private appVersion!: string
+
   @racing.State('status')
   private status!: string
 
@@ -164,6 +170,9 @@ export default class Home extends Vue {
 
     window.electronAPI &&
       window.electronAPI.handlePaste((evt: any, val: any) => {
+        if (!this.appVersion) {
+          this.setAppVersion('0.2.4') // 上一版本号
+        }
         if (val && this.mode !== 1) { // 发文状态禁止载文
           try {
             this.loadText(val)

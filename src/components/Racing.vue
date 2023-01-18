@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { Action, namespace } from 'vuex-class'
+import { namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 
 const racing = namespace('racing')
@@ -26,9 +26,6 @@ const kata = namespace('kata')
 
 @Component
 export default class Racing extends Vue {
-  @Action('setAppVersion')
-  private setAppVersion!: Function
-
   @racing.State('status')
   private status!: string
 
@@ -93,8 +90,6 @@ export default class Racing extends Vue {
             return
           }
           if (window.electronAPI) {
-            // 设置上一版本的默认值
-            this.setAppVersion('0.2.4')
             window.electronAPI.setGrade('typing finished!')
           }
         }, () => {
