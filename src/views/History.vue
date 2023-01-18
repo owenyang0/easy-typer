@@ -52,7 +52,6 @@ export default class History extends Vue {
   private recordLoaded!: Function
 
   created () {
-    console.log('cr')
     db.achievement.toArray().then(achievements => {
       this.recordLoaded(achievements)
     }, (error) => {
@@ -60,20 +59,8 @@ export default class History extends Vue {
     })
   }
 
-  destroyed () {
-    console.log('des')
-  }
-
-  mounted () {
-    console.log('mou')
-    // setTimeout(() => {
-    //   this.buildCharts()
-    // }, 1000)
-  }
-
   @Watch('dates')
   datesChange () {
-    console.log('change')
     this.buildCharts()
   }
 
@@ -81,7 +68,7 @@ export default class History extends Vue {
     const recordOption: ECOption = {
       title: {
         text: '跟打历史记录',
-        subtext: `当有有效数${this.dates.length}条（移除字数小于5或码长为1的数据）`,
+        subtext: `当有有效数${this.dates.length}条（过滤字数小于5或码长小于1.1的数据）`,
         left: 'left'
       },
       toolbox: {
