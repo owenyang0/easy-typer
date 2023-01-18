@@ -131,6 +131,21 @@ html, body {
     width: 100%;
     height: 400px;
   }
+
+  #record-chart {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+.history-page {
+  .record-chart {
+    margin-bottom: 20px;
+  }
+  #record-chart {
+    width: 100%;
+    height: 300px;
+  }
 }
 
 // 左侧面板

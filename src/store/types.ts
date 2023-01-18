@@ -258,6 +258,25 @@ export class KataState {
   criteriaAction: 'noop' | 'random' | 'retry' = 'random';
 }
 
+export class RecordState {
+  /**
+   * 日期
+   */
+  dates = [];
+  /**
+   * 速度
+   */
+  speeds = [];
+  /**
+   * 击键
+   */
+  hitSpeeds = [];
+  /**
+   * 码长
+   */
+  codeLengthList = [];
+}
+
 export class QuickTypingState {
   article!: ArticleState;
   racing!: RacingState;
@@ -294,6 +313,10 @@ export class QuickTypingState {
    * appVersion
    */
   appVersion = '';
+  /**
+   * 跟打记录
+   */
+  records!: RecordState;
 }
 
 export interface InterfaceStyle {
