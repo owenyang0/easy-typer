@@ -1,5 +1,5 @@
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_WEB_VERSION = '(0.6)'
+process.env.VUE_APP_WEB_VERSION = '(0.7)'
 
 const name = '木易跟打器'
 
