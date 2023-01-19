@@ -8,10 +8,13 @@ module.exports = {
     name,
     themeColor: '#1c1f24'
   },
+
   publicPath: process.env.NODE_ENV === 'production'
     ? '/'
     : '/',
+
   outputDir: 'docs',
+
   chainWebpack: config => {
     config.plugin('html').tap(args => {
       args[0].title = name
@@ -24,5 +27,26 @@ module.exports = {
       .end()
   },
 
-  productionSourceMap: false
+  productionSourceMap: false,
+
+  pluginOptions: {
+    prerenderSpa: {
+      registry: undefined,
+      renderRoutes: [
+        '/',
+        '/practice',
+        '/kata',
+        '/setting',
+        '/summary',
+        '/changelog',
+        '/help',
+        '/about',
+        '/history',
+        '/download'
+      ],
+      useRenderEvent: true,
+      headless: true,
+      onlyProduction: true
+    }
+  }
 }

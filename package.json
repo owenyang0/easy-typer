@@ -2,21 +2,23 @@
   "name": "easy-typer",
   "version": "0.3.0",
   "description": "macOS平台可直接载文的跟打器",
-  "main": "electron/main.js",
+  "author": "owenyang/木易",
   "scripts": {
-    "start": "electron .",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "package-mac": "npx electron-packager . 木易跟打器 --overwrite --platform=darwin --arch=x64 --out=target --icon=public/img/icons/logo-large.icns",
+    "lint": "vue-cli-service lint",
+    "dist": "electron-builder",
     "dmg": "npx electron-installer-dmg ./target/木易跟打器-darwin-x64/木易跟打器.app 木易跟打器",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "lint": "vue-cli-service lint",
+    "package-mac": "npx electron-packager . 木易跟打器 --overwrite --platform=darwin --arch=x64 --out=target --icon=public/img/icons/logo-large.icns",
+    "start": "electron .",
     "webpack-main": "webpack"
   },
-  "author": "owenyang/木易",
-  "license": "ISC",
+  "main": "electron/main.js",
+  "dependencies": {
+    "applescript": "^1.0.0"
+  },
   "devDependencies": {
     "@types/echarts": "^4.9.4",
     "@types/jest": "^24.0.19",
@@ -51,6 +53,7 @@
     "heatmap.js": "^2.0.5",
     "lint-staged": "^9.5.0",
     "node-sass": "^8.0.0",
+    "prerender-spa-plugin": "^3.2.1",
     "raw-loader": "^4.0.2",
     "register-service-worker": "^1.7.1",
     "sass-loader": "^10.4.1",
@@ -58,6 +61,7 @@
     "typescript": "~3.9.3",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-cli-plugin-prerender-spa": "~1.1.6",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vue-template-compiler": "^2.6.11",
@@ -65,9 +69,6 @@
     "vuex-class": "^0.3.2",
     "webpack": "^4.36.0",
     "webpack-cli": "^4.10.0"
-  },
-  "dependencies": {
-    "applescript": "^1.0.0"
   },
   "build": {
     "appId": "com.owenyang.easy-typer",
@@ -83,6 +84,7 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "license": "ISC",
   "lint-staged": {
     "./src/*.{js,jsx,vue,ts,tsx}": [
       "vue-cli-service lint",
