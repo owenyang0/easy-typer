@@ -279,6 +279,12 @@ export default class Setting extends Vue {
       next()
     })
 
+    const hasHash = location.hash.replace('#', '')
+    if (hasHash) {
+      this.pathname = hasHash
+      this.$router.push(hasHash)
+    }
+
     if (window.electronAPI && window.electronAPI.getAppVersion) {
       window.electronAPI && window.electronAPI.getAppVersion((evt: any, appVersion: string) => {
         this.setAppVersion(appVersion)
