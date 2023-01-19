@@ -143,7 +143,7 @@ export default class Setting extends Vue {
   @setting.Action('load')
   private loadSetting!: Function
 
-  private pathname = location.hash.replace('#', '')
+  private pathname = location.pathname
 
   private loginFormVisible = false
 
