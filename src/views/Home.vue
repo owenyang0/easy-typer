@@ -62,6 +62,7 @@ import Achievements from '@/components/Achievements.vue'
 import { Action, namespace, State } from 'vuex-class'
 import xcapi from '@/api/xc.cool'
 import { InterfaceStyle } from '@/store/types'
+import { noop } from 'vue-class-component/lib/util'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -176,7 +177,7 @@ export default class Home extends Vue {
         if (val && this.mode !== 1) { // 发文状态禁止载文
           try {
             this.loadText(val)
-            this.$router.push('/')
+            this.$router.push('/').catch(noop)
           } catch (error) {
             this.$message.error(error.message)
           }
@@ -288,12 +289,12 @@ export default class Home extends Vue {
           }).then(() => {
             this.updateTipWarning(false)
 
-            this.$router.push('/kata')
+            this.$router.push('/kata').catch(noop)
           }).catch(() => {
             this.updateTipWarning(false)
           })
         } else {
-          this.$router.push('/kata')
+          this.$router.push('/kata').catch(noop)
         }
         break
       case 'p': // 下一段

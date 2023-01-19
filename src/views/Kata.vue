@@ -110,6 +110,7 @@ import { KataState } from '@/store/types'
 import { contentList } from '../common/contentList'
 import { KataArticle } from '@/store/kata'
 import { shuffle } from '@/store/util/common'
+import { noop } from 'vue-class-component/lib/util'
 
 const article = namespace('article')
 const kata = namespace('kata')
@@ -296,7 +297,7 @@ export default class Home extends Vue {
   }
 
   handleCancel () {
-    this.$router.push('/')
+    this.$router.push('/').catch(noop)
   }
 
   handleShuffle () {
@@ -318,7 +319,7 @@ export default class Home extends Vue {
     this.loadArticle(article)
     this.loadMatch(this.nextParagraph)
 
-    this.$router.push('/')
+    this.$router.push('/').catch(noop)
   }
 
   created () {
