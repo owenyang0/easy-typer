@@ -58,6 +58,7 @@
     "register-service-worker": "^1.7.1",
     "sass-loader": "^10.4.1",
     "showdown": "^1.9.1",
+    "sitemap-webpack-plugin": "^1.1.1",
     "typescript": "~3.9.3",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
