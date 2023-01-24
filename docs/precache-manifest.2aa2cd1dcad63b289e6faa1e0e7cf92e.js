@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c0722c5ae235695304031b12740d2f89",
+    "revision": "8262f4152f0f18abe0e73e235d97c494",
     "url": "/app.html"
   },
   {
@@ -8,11 +8,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baidu_verify_codeva-27b8eJ5KJd.html"
   },
   {
-    "revision": "e9124b62d29de5e849fc",
+    "revision": "30bbf957feba8fe35e02",
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "277114261d31d8b3fa45",
+    "revision": "16f9d313529831ddea91",
     "url": "/css/app.b5d61736.css"
   },
   {
@@ -20,11 +20,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "7829e796f3c0fa6dbc9b",
+    "revision": "e506df6f8a2dcefb0e75",
     "url": "/css/kata.abbe4c21.css"
   },
   {
-    "revision": "e4321b2f05a8addd5427",
+    "revision": "6c1b1d8c023f6d47ec93",
     "url": "/css/practice.691b3b29.css"
   },
   {
@@ -68,8 +68,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/ui@2x.png"
   },
   {
-    "revision": "e9124b62d29de5e849fc",
-    "url": "/js/about.156ac6dd.js"
+    "revision": "30bbf957feba8fe35e02",
+    "url": "/js/about.ee21ce6f.js"
   },
   {
     "revision": "1e867c2af607dc83291e",
@@ -80,43 +80,39 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "277114261d31d8b3fa45",
-    "url": "/js/app.e9b993a5.js"
+    "revision": "16f9d313529831ddea91",
+    "url": "/js/app.4a472d22.js"
   },
   {
-    "revision": "5d1b35b7bcdaa75929ad",
-    "url": "/js/changelog.a80fdae8.js"
+    "revision": "eb6adc09562806e8db5e",
+    "url": "/js/changelog.a85e989b.js"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
     "url": "/js/chunk-vendors.2e4d1906.js"
   },
   {
-    "revision": "e8513d515bb680e60f16",
-    "url": "/js/help.d006caf1.js"
+    "revision": "cf5588317d7ccfb1465d",
+    "url": "/js/help.efe2df22.js"
   },
   {
-    "revision": "7829e796f3c0fa6dbc9b",
-    "url": "/js/kata.a0a0e0e3.js"
+    "revision": "e506df6f8a2dcefb0e75",
+    "url": "/js/kata.ceff844f.js"
   },
   {
-    "revision": "e4321b2f05a8addd5427",
-    "url": "/js/practice.8ca99b49.js"
+    "revision": "6c1b1d8c023f6d47ec93",
+    "url": "/js/practice.603d6f94.js"
   },
   {
-    "revision": "a703824deb67684926d6",
-    "url": "/js/setting.f545a4cf.js"
+    "revision": "4e749c21cb15f5f11d66",
+    "url": "/js/setting.7307dd9a.js"
   },
   {
-    "revision": "cc9dd4f631d520fbe888",
-    "url": "/js/summary.2e78896c.js"
+    "revision": "49b2b8355a0cae004a32",
+    "url": "/js/summary.ed58b21e.js"
   },
   {
     "revision": "4956be72e79253714a896744f1c6549f",
     "url": "/manifest.json"
-  },
-  {
-    "revision": "f77c87f977e0fcce05a6df46c885a129",
-    "url": "/robots.txt"
   }
 ]);
