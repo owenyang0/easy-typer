@@ -452,7 +452,7 @@ export default class Practice extends Vue {
       if (phrases) {
         this.phrases = phrases as Array<Phrase>
       } else {
-        this.drawer = true
+        // this.drawer = true
       }
     })
   }
