@@ -1,9 +1,12 @@
 name: Tencent CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - domain
 
 jobs:
-  build:
+  deploy:
 
     runs-on: ubuntu-latest
 
