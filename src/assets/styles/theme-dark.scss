@@ -1123,6 +1123,10 @@ $--svg-monochrome-grey: #DCDDE0 !default;
     background-color: #272b32;
   }
 
+  .el-divider {
+    background-color: $--border-color-light;
+  }
+
   @media only screen and (max-width: 680px) {
     .el-container {
       flex-direction: column;

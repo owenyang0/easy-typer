@@ -3,26 +3,28 @@
     <el-container>
       <Indicator/>
       <el-main id="home-main" :style="styles">
-        <!-- <el-row id="toolbar">
-          <el-col :span="9" id="groups">
-            <el-select v-model="group" placeholder="请选择" @change="onGroupChange">
-              <el-option v-for="item in groups"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-col>
-          <el-col :span="15">
-            <el-button-group>
-              <el-button icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
-              <el-button icon="el-icon-document" @click="loadFromClipboard">载文</el-button>
-              <el-button :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
-              <el-button icon="el-icon-refresh" @click="retry">重打</el-button>
-            </el-button-group>
-          </el-col>
-        </el-row> -->
-        <!-- <el-divider/> -->
+        <div class="toolbar-wrapper">
+          <el-row class="toolbar">
+            <!-- <el-col :span="9" id="groups">
+              <el-select v-model="group" placeholder="请选择" @change="onGroupChange">
+                <el-option v-for="item in groups"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-col> -->
+            <el-col :span="24">
+              <el-button-group>
+                <el-button icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
+                <el-button icon="el-icon-document" @click="loadFromClipboard">载文</el-button>
+                <el-button :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
+                <el-button icon="el-icon-refresh" @click="retry">重打</el-button>
+              </el-button-group>
+            </el-col>
+          </el-row>
+          <el-divider class="mini"/>
+        </div>
         <div>
           <el-row>
             <el-col :span="24">
