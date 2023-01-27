@@ -62,10 +62,10 @@ html, body {
 
 #app {
   // width: 80%;
-  // max-width: 1440px;
+  max-width: 1200px;
   min-width: 300px;
   margin: 0 auto;
-  // @include shadow-border(var(--level1-border-color));
+  @include shadow-border(var(--level3-border-color));
   // background-color: var(--level4-border-color);
   // 头像
   #profile {
