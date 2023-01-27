@@ -22,3 +22,5 @@ export function initColorMode (mode = '', initial = false) {
   const colorMode = !initial ? mode : localStorage.getItem('colorMode') as string
   html.setAttribute('class', colorMode)
 }
+
+export const isNative = !!window.electronAPI
