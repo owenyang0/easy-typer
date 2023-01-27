@@ -62,10 +62,10 @@ html, body {
 
 #app {
   // width: 80%;
-  // max-width: 1440px;
+  max-width: 1200px;
   min-width: 300px;
   margin: 0 auto;
-  // @include shadow-border(var(--level1-border-color));
+  @include shadow-border(var(--level3-border-color));
   // background-color: var(--level4-border-color);
   // 头像
   #profile {
@@ -94,12 +94,6 @@ html, body {
   // 群组
   #groups {
     text-align: left;
-  }
-
-  // 工具条
-  #toolbar {
-    text-align: right;
-    padding: 8px;
   }
 
   // 文章看板
@@ -500,4 +494,22 @@ $speed-levels: (
 
 .el-table .el-table__cell {
   padding: 8px 0;
+}
+
+.el-divider--horizontal.mini {
+  margin: 14px 0;
+}
+
+
+  // 工具条
+.toolbar-wrapper {
+  text-align: right;
+
+  .toolbar {
+    padding: 8px;
+  }
+}
+
+[data-is-native] .toolbar-wrapper {
+  display: none;
 }

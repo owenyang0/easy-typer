@@ -7,7 +7,7 @@
       :color="customColors"
       :stroke-width="4"
       :show-text="false"
-      define-back-color="#1c1f24"
+      define-back-color="transparent"
     />
     <el-row class="menu-row">
       <el-col :span="24" class="menu-col">
@@ -105,7 +105,7 @@
         </div> -->
       </el-col>
     </el-row>
-    <el-row>
+    <el-row class="content-row">
       <el-col :span="24">
         <router-view />
       </el-col>
