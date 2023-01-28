@@ -115,7 +115,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { TrieNode } from './store/util/TrieTree'
+import { parseTrieNodeByCodinds, TrieNode } from './store/util/TrieTree'
 import db from './store/util/Database'
 import { Action, Mutation, namespace } from 'vuex-class'
 import { LoginUser, LooseObject } from './store/types'
@@ -309,6 +309,21 @@ export default class Setting extends Vue {
         const node = TrieNode.convert(root as TrieNode)
         this.updateCodings(node)
         console.log('Trie tree loaded')
+      } else {
+        // 首次默认加载虎码表
+        console.log('initial codings')
+        fetch('/static/codings.txt')
+          .then(res => res.text())
+          .then(ret => {
+            const trie = parseTrieNodeByCodinds(ret)
+            // 将同一个字的多个编码排序
+            trie.sort()
+
+            db.configs.put(trie.root, 'codings').then(() => {
+              this.updateCodings(trie.root)
+              this.$message({ message: '默认『虎码』码表处理完成', type: 'success', showClose: true })
+            })
+          })
       }
     })
     // 读取按键统计信息

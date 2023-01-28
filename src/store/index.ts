@@ -29,7 +29,7 @@ const store: StoreOptions<QuickTypingState> = {
   getters: {
     version (state) {
       const webVersion = process.env.VUE_APP_WEB_VERSION
-      return state.appVersion ? `v${state.appVersion}${webVersion}` : `web${webVersion}`
+      return state.appVersion ? `macOS版v${state.appVersion}${webVersion}` : `web${webVersion}`
     }
   },
   mutations: {

@@ -1,6 +1,6 @@
 <img style="max-width:600px;" alt="木易跟打器macOS版" src="img/logo-lanscape%402x.png">
 
-## 木易跟打器(mac跟打器)-{{ version }}
+## 木易跟打器-{{ version }}
 
 > macOS上可直接载文的跟打器
 

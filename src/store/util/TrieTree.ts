@@ -110,3 +110,81 @@ export class TrieTree {
     }
   }
 }
+
+/**
+ * 将ascii字符加入词库
+ */
+const addAscii = (trie: TrieTree, from: number, to: number) => {
+  for (let i = from; i <= to; i++) {
+    const char = String.fromCharCode(i)
+    trie.put(char, char, -1)
+  }
+}
+
+class Duplicate {
+  text: string;
+  count = 1;
+
+  constructor (text: string) {
+    this.text = text
+  }
+
+  increase (): void {
+    this.count += 1
+  }
+}
+
+export function parseTrieNodeByCodinds (codings: string): TrieTree {
+  const trie = new TrieTree()
+  const lines = codings.split(/[\r\n]/)
+  const fullCodeMap = new Map<string, Duplicate>()
+  let index = 0
+  let lastCode = ''
+  lines.map(line => line.split('\t'))
+    .filter(line => line.length === 2)
+    .forEach(line => {
+      const text = line[0]
+      const code = line[1]
+
+      if (code.length === 4) {
+        const duplicate = fullCodeMap.get(code)
+        if (!duplicate) {
+          fullCodeMap.set(code, new Duplicate(text))
+        } else {
+          duplicate.increase()
+        }
+      }
+
+      if (code === lastCode) {
+        ++index
+      } else {
+        index = 0
+        lastCode = code
+      }
+
+      trie.put(text, code, index)
+    })
+
+  // 记录四码唯一词
+  for (const [code, duplicate] of fullCodeMap.entries()) {
+    if (duplicate.count > 1) {
+      continue
+    }
+    const phrase = trie.get(duplicate.text)
+    if (phrase) {
+      phrase.codings.filter(v => v.code === code).every(v => {
+        v.fourthSingle = true
+        // 四码唯一时，权重减0.2: 3码首选=40，4码唯一=40.3， 4码首选=40.5
+        v.weight -= 0.2
+      })
+    }
+  }
+  // 0-9
+  addAscii(trie, 48, 57)
+  // a-z
+  addAscii(trie, 65, 90)
+  // A-Z
+  addAscii(trie, 97, 122)
+
+  return trie
+}

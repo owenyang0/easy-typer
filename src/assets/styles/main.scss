@@ -62,7 +62,7 @@ html, body {
 
 #app {
   // width: 80%;
-  max-width: 1200px;
+  max-width: 1100px;
   min-width: 300px;
   margin: 0 auto;
   @include shadow-border(var(--level3-border-color));
@@ -388,6 +388,10 @@ html, body {
 
   .indicator-horizontal {
     display: block;
+
+    .el-card {
+      margin-bottom: 0;
+    }
   }
 
   .aside-history {
@@ -497,7 +501,7 @@ $speed-levels: (
 }
 
 .el-divider--horizontal.mini {
-  margin: 14px 0;
+  margin: 0 0 14px 0;
 }
 
 

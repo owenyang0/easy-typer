@@ -16,10 +16,10 @@
             </el-col> -->
             <el-col :span="24">
               <el-button-group>
-                <el-button icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
-                <el-button icon="el-icon-document" @click="loadFromClipboard">载文</el-button>
-                <el-button :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
-                <el-button icon="el-icon-refresh" @click="retry">重打</el-button>
+                <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
+                <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">剪切板载文</el-button>
+                <el-button size="mini" :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
+                <el-button size="mini" icon="el-icon-refresh" @click="retry">重打</el-button>
               </el-button-group>
             </el-col>
           </el-row>
