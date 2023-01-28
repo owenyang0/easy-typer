@@ -190,24 +190,11 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { TrieTree } from '../store/util/TrieTree'
+import { parseTrieNodeByCodinds } from '../store/util/TrieTree'
 import db from '../store/util/Database'
 import { SettingState } from '../store/types'
 import { Action, namespace } from 'vuex-class'
 import { Form, Loading, Table } from 'element-ui'
-
-class Duplicate {
-  text: string;
-  count = 1;
-
-  constructor (text: string) {
-    this.text = text
-  }
-
-  increase (): void {
-    this.count += 1
-  }
-}
 
 interface KeyValue {
   key: string;
@@ -249,16 +236,6 @@ const RESULT_OPTIONS = [
   { value: 'hash', text: '哈希码' },
   { value: 'version', text: '版本' }
 ]
-
-/**
- * 将ascii字符加入词库
- */
-const addAscii = (trie: TrieTree, from: number, to: number) => {
-  for (let i = from; i <= to; i++) {
-    const char = String.fromCharCode(i)
-    trie.put(char, char, -1)
-  }
-}
 
 @Component
 export default class Setting extends Vue {
@@ -361,56 +338,7 @@ export default class Setting extends Vue {
     const reader = new FileReader()
     // Fixme 候选词条数限制，需要将所有编码加入， 如：叁 -> df5, lnd, lndb
     reader.onload = () => {
-      const trie = new TrieTree()
-      const lines = (reader.result as string).split(/[\r\n]/)
-      const fullCodeMap = new Map<string, Duplicate>()
-      let index = 0
-      let lastCode = ''
-      lines.map(line => line.split('\t'))
-        .filter(line => line.length === 2)
-        .forEach(line => {
-          const text = line[0]
-          const code = line[1]
-
-          if (code.length === 4) {
-            const duplicate = fullCodeMap.get(code)
-            if (!duplicate) {
-              fullCodeMap.set(code, new Duplicate(text))
-            } else {
-              duplicate.increase()
-            }
-          }
-
-          if (code === lastCode) {
-            ++index
-          } else {
-            index = 0
-            lastCode = code
-          }
-
-          trie.put(text, code, index)
-        })
-
-      // 记录四码唯一词
-      for (const [code, duplicate] of fullCodeMap.entries()) {
-        if (duplicate.count > 1) {
-          continue
-        }
-        const phrase = trie.get(duplicate.text)
-        if (phrase) {
-          phrase.codings.filter(v => v.code === code).every(v => {
-            v.fourthSingle = true
-            // 四码唯一时，权重减0.2: 3码首选=40，4码唯一=40.3， 4码首选=40.5
-            v.weight -= 0.2
-          })
-        }
-      }
-      // 0-9
-      addAscii(trie, 48, 57)
-      // a-z
-      addAscii(trie, 65, 90)
-      // A-Z
-      addAscii(trie, 97, 122)
+      const trie = parseTrieNodeByCodinds(reader.result as string)
 
       // 将中文标点加入词库
       if (this.form.addToCodings) {
