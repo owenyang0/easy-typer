@@ -435,7 +435,7 @@ export class SettingState {
   /**
    * 词语提示
    */
-  hint = false
+  hint = true
   /**
    * 候选词条数
    */
@@ -471,7 +471,7 @@ export class SettingState {
   /**
    * 提示选项
    */
-  hintOptions = ['phrase', 'color', 'select', 'autoSelect']
+  hintOptions = ['phrase', 'color', 'select', 'autoSelect', 'code']
   /**
    * 禁用单字提示
    */
