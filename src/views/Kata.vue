@@ -107,7 +107,7 @@
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import { KataState } from '@/store/types'
-import { contentList } from '../common/contentList'
+import { contentList, tigerCertainly632, tigerCode3, tigerSimp2F500, tigerSimp2Other, word1501 } from '../common/contentList'
 import { KataArticle } from '@/store/kata'
 import { shuffle } from '@/store/util/common'
 import { noop } from 'vue-class-component/lib/util'
@@ -195,6 +195,25 @@ export default class Home extends Vue {
       label: '手动输入'
     }]
   }, {
+    value: 'tiger',
+    label: '虎码',
+    children: [{
+      value: 'tigerSimp2F500',
+      label: tigerSimp2F500.title
+    }, {
+      value: 'tigerSimp2Other',
+      label: tigerSimp2Other.title
+    }, {
+      value: 'tigerCertainly632',
+      label: tigerCertainly632.title
+    }, {
+      value: 'tigerCode3',
+      label: tigerCode3.title
+    }, {
+      value: 'tigerHell4500',
+      label: '虎码要你命4500'
+    }]
+  }, {
     value: 'word',
     label: '单字',
     children: [{
@@ -211,23 +230,7 @@ export default class Home extends Vue {
       label: '前1500'
     }, {
       value: 'word1501',
-      label: '常用1501-2000'
-    }, {
-      value: 'word2001',
-      label: '常用2001-2500'
-    }, {
-      value: 'word5501',
-      label: '常用2501-3000'
-    }]
-  }, {
-    value: 'tiger',
-    label: '虎码',
-    children: [{
-      value: 'tigerHell4500',
-      label: '要你命4500'
-    }, {
-      value: 'tigerCertainly632',
-      label: '必拆字632'
+      label: word1501.title
     }]
   }, {
     value: 'article',

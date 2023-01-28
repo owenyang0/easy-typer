@@ -62,7 +62,7 @@ html, body {
 
 #app {
   // width: 80%;
-  max-width: 1200px;
+  max-width: 1100px;
   min-width: 300px;
   margin: 0 auto;
   @include shadow-border(var(--level3-border-color));
