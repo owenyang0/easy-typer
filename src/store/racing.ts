@@ -246,7 +246,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
   // 比赛结果
   result (state, getters, { article, setting }, rootGetters): string {
     const { inputMethod, inputMethodName, signature, signatureText } = setting
-    const finalVersion = `易跟打macOS版${rootGetters.version}`
+    const finalVersion = `易跟打${rootGetters.version}`
 
     const statistics: Map<string, string> = new Map([
       ['identity', `第${article.identity || 1}段`],
