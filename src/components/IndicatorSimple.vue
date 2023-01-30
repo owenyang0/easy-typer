@@ -88,8 +88,8 @@
             </div>
             <div class="footer">
               <div class="field">
-                <span class="label">跟打总天数</span
-                ><span class="number">{{ totalDays }}</span>
+                <span class="label">跟打总天数</span><span class="number">{{ totalDays }}</span>
+                <span class="label" style="margin-left: 20px;">日均跟打</span><span class="number">{{ totalDays ? (totalWords / totalDays).toFixed(2) : '-' }} 字</span>
               </div>
             </div>
           </div>
