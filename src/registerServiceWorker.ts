@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
     },
     updated (registration) {
       Notification.info('新版本下载完成，关闭重开即可使用最新版本')
-      registration!.waiting!.postMessage('skipWaiting')
+      registration!.waiting!.postMessage('SKIP_WAITING')
     },
     offline () {
       console.log('No internet connection found. App is running in offline mode.')
