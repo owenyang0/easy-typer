@@ -19,8 +19,16 @@ export function shuffleText (text: string) {
 
 export function initColorMode (mode = '', initial = false) {
   const html = document.getElementsByTagName('html')[0]
-  const colorMode = !initial ? mode : localStorage.getItem('colorMode') as string
+  const colorMode = !initial ? mode : (localStorage.getItem('colorMode') as string || '')
   html.setAttribute('class', colorMode)
 }
 
 export const isNative = !!window.electronAPI
+
+export function initEnv () {
+  const html = document.getElementsByTagName('html')[0]
+  isNative && html.setAttribute('data-is-native', '')
+  window.__typer = {
+    env: isNative ? 'native' : 'web'
+  }
+}

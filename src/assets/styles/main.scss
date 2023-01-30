@@ -514,6 +514,13 @@ $speed-levels: (
   }
 }
 
-[data-is-native] .toolbar-wrapper {
+.indicator .indicator-cloak {
   display: none;
 }
+[data-is-native] .indicator-cloak {
+  display: flex;
+}
+
+// [data-is-native] .toolbar-wrapper {
+//   display: none;
+// }

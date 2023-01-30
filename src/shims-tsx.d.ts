@@ -8,6 +8,9 @@ declare global {
       setGrade: (val: string) => void;
       getAppVersion: any;
     };
+    __typer: {
+      env: string;
+    };
   }
   namespace JSX {
     // tslint:disable no-empty-interface
