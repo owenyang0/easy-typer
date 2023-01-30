@@ -11,8 +11,12 @@ if (process.env.NODE_ENV === 'production') {
         'For more details, visit https://goo.gl/AFskqB'
       )
     },
-    registered () {
+    registered (registration) {
       console.log('Service worker has been registered.')
+      setInterval(() => {
+        registration.update()
+        console.log('Service worker has updated.')
+      }, 1000 * 60 * 60) // e.g. hourly checks
     },
     cached () {
       console.log('Content has been cached for offline use.')
@@ -20,8 +24,9 @@ if (process.env.NODE_ENV === 'production') {
     updatefound () {
       Notification.info('发现新版本，正在下载...')
     },
-    updated () {
+    updated (registration) {
       Notification.info('新版本下载完成，关闭重开即可使用最新版本')
+      registration!.waiting!.postMessage('skipWaiting')
     },
     offline () {
       console.log('No internet connection found. App is running in offline mode.')
