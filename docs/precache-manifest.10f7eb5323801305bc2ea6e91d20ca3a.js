@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd4f937af8e8540a1d314fd4cbd19b79",
+    "revision": "77b06c2825089734df1ac3dd21afbf76",
     "url": "/app.html"
   },
   {
@@ -8,19 +8,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baidu_verify_codeva-27b8eJ5KJd.html"
   },
   {
-    "revision": "338e9f8135b224b50c2a",
+    "revision": "3dd9d9544f4bf171ba1e",
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "690341083237057ffd08",
-    "url": "/css/app.df475bc5.css"
+    "revision": "c203774d857d4d947482",
+    "url": "/css/app.2e8c6dea.css"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "8b8817b6f917cf566420",
+    "revision": "6c61e6780fe57600c697",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -64,12 +64,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/setting.png"
   },
   {
-    "revision": "0545b65280d158fccaf4428ea62bb841",
+    "revision": "2621a02f8890aa58804c1ac0b5ed4484",
     "url": "/img/ui@2x.png"
   },
   {
-    "revision": "338e9f8135b224b50c2a",
-    "url": "/js/about.0ed387f1.js"
+    "revision": "3dd9d9544f4bf171ba1e",
+    "url": "/js/about.e9f87361.js"
   },
   {
     "revision": "1e867c2af607dc83291e",
@@ -80,8 +80,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "690341083237057ffd08",
-    "url": "/js/app.813d7232.js"
+    "revision": "c203774d857d4d947482",
+    "url": "/js/app.33b901b7.js"
   },
   {
     "revision": "8fe3899387a2b4293b58",
@@ -96,8 +96,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.a0a8a563.js"
   },
   {
-    "revision": "8b8817b6f917cf566420",
-    "url": "/js/kata.1f4ff322.js"
+    "revision": "6c61e6780fe57600c697",
+    "url": "/js/kata.5c0edcba.js"
   },
   {
     "revision": "331a8195648938c29525",
