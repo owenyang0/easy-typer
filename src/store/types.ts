@@ -275,6 +275,10 @@ export class RecordState {
    * 码长
    */
   codeLengthList = [];
+  /**
+   * 总条数
+   */
+  total = 0;
 }
 
 export class QuickTypingState {

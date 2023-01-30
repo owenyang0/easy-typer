@@ -11,7 +11,7 @@ import './assets/styles/theme-dark.scss'
 import './assets/styles/theme-day.scss'
 import './assets/styles/main.scss'
 import './assets/styles/main-dark.scss'
-import { initColorMode } from './store/util/common'
+import { initColorMode, initEnv } from './store/util/common'
 
 Vue.use(ElementUI)
 
@@ -22,6 +22,7 @@ Vue.filter('numberWithCommas', function (num: number) {
   return num.toLocaleString('en-US')
 })
 
+initEnv()
 initColorMode('', true)
 
 new Vue({

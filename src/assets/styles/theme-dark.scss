@@ -1132,6 +1132,9 @@ $--svg-monochrome-grey: #DCDDE0 !default;
       flex-direction: column;
     }
   }
+  .el-tooltip__popper[x-placement^="top"] .popper__arrow {
+    border-top-color: $--color-text-primary;
+  }
 }
 
 html.dark {

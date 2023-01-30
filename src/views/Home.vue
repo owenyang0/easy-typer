@@ -17,7 +17,9 @@
             <el-col :span="24">
               <el-button-group>
                 <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
-                <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">剪切板载文</el-button>
+                <el-tooltip content="可复制整段文本，包含段号标题" placement="top">
+                  <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">剪切板载文</el-button>
+                </el-tooltip>
                 <el-button size="mini" :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打</el-button>
               </el-button-group>
@@ -89,6 +91,9 @@ export default class Home extends Vue {
 
   @racing.State('status')
   private status!: string
+
+  @racing.State('start')
+  private pauseStartTime!: number
 
   @racing.Action('pause')
   private pause!: Function
@@ -166,7 +171,7 @@ export default class Home extends Vue {
   }
 
   created () {
-    this.authChange(this.authenticated)
+    // this.authChange(this.authenticated)
 
     // 监听快捷键
     document.addEventListener('keydown', this.handleShortCut)
@@ -253,7 +258,9 @@ export default class Home extends Vue {
 
   trigger () {
     if (this.status === 'pause') {
-      this.resume()
+      if (Date.now() - this.pauseStartTime > 500) { // 暂停超过500ms才能恢复
+        this.resume()
+      }
     } else {
       this.pause()
     }

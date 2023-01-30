@@ -102,7 +102,7 @@
           </div>
         </el-card>
         <el-card shadow="never">
-          <div class="key-value">
+          <div class="key-value indicator-cloak">
             <span>潜水</span>
             <span>
               <el-switch v-model="tempCloak" @change="toggleCloak(tempCloak)"/>

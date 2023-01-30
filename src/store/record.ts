@@ -22,7 +22,8 @@ const actions: ActionTree<RecordState, QuickTypingState> = {
       dates: chineseRecords.map(l => new Date(l.finishedTime).toLocaleString()),
       speeds: chineseRecords.map(l => l.typeSpeed),
       hitSpeeds: chineseRecords.map(l => l.hitSpeed),
-      codeLengthList: chineseRecords.map(l => l.codeLength)
+      codeLengthList: chineseRecords.map(l => l.codeLength),
+      total: list.length
     }
     commit('loaded', payload)
   }
