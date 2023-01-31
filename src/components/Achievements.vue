@@ -12,8 +12,9 @@
       <el-table-column prop="codeLength" label="码长" min-width="60"/>
       <el-table-column prop="contentLength" label="字数" min-width="60"/>
       <el-table-column prop="replace" label="回改" min-width="60"/>
-      <el-table-column prop="accuracy" label="键准(%)" min-width="80"/>
-      <el-table-column prop="phraseRate" label="打词率(%)" min-width="90"/>
+      <el-table-column prop="error" label="错字" min-width="60"/>
+      <el-table-column prop="accuracy" label="键准(%)" min-width="75"/>
+      <el-table-column prop="phraseRate" label="打词(%)" min-width="75"/>
       <el-table-column prop="title" label="标题" min-width="120" show-overflow-tooltip />
       <el-table-column prop="finishedTime" label="结束时间" :formatter="timeFormatter" width="154"/>
     </el-table>
@@ -69,6 +70,12 @@ export default class Achievements extends Vue {
 
       if (row.accuracy < 90) {
         return 'accuracy-lv-warn'
+      }
+    }
+
+    if (column.property === 'error') {
+      if (row.error > 0) {
+        return 'achievement-error'
       }
     }
 

@@ -1135,6 +1135,29 @@ $--svg-monochrome-grey: #DCDDE0 !default;
   .el-tooltip__popper[x-placement^="top"] .popper__arrow {
     border-top-color: $--color-text-primary;
   }
+
+  @include b(menu) {
+    @include m(horizontal) {
+      & > .el-menu-item {
+        height: 50px;
+        line-height: 50px;
+      }
+      & > .el-submenu {
+        & .el-submenu__title {
+          height: 50px;
+          line-height: 50px;
+        }
+      }
+    }
+  }
+  @include b(submenu) {
+    & .el-menu-item {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 45px;
+      min-width: 200px;
+    }
+  }
 }
 
 html.dark {
