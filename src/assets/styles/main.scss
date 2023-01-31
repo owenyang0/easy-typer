@@ -382,9 +382,9 @@ html, body {
   //   flex-direction: column;
   // }
 
-  // .indicator-container {
-  //   display: none;
-  // }
+  .indicator-container {
+    display: none;
+  }
 
   // .indicator-horizontal {
   //   display: block;
@@ -533,6 +533,9 @@ $speed-levels: (
   display: flex;
 }
 
+.load-text .el-dialog {
+  width: 80%;
+}
 // [data-is-native] .toolbar-wrapper {
 //   display: none;
 // }

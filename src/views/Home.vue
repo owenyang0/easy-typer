@@ -25,7 +25,7 @@
               </div> -->
               <el-button-group>
                 <el-tooltip :content="indicatorTooltipText" placement="top">
-                  <el-button size="mini" icon="el-icon-document" @click="toggleSidebar" class="indicator-real">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
+                  <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
                 </el-tooltip>
                 <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
                 <el-tooltip content="可复制整段文本，包含段号标题" placement="top">
@@ -58,8 +58,8 @@
       </el-main>
     </el-container>
 
-    <el-dialog :visible.sync="showLoadDialog" title="手动载文">
-      <el-input type="textarea" v-model="articleText" :rows="5" placeholder="请输入内容"/>
+    <el-dialog :visible.sync="showLoadDialog" title="手动载文" class="load-text">
+      <el-input type="textarea" v-model="articleText" :rows="8" placeholder="请输入内容"/>
       <div slot="footer" class="dialog-footer">
         <el-button @click="showLoadDialog = false">取 消</el-button>
         <el-button type="primary" @click="manuallyLoadArticle">确 定</el-button>
