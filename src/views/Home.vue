@@ -15,7 +15,18 @@
               </el-select>
             </el-col> -->
             <el-col :span="24">
+              <!-- <div class="indicator-real">
+                <span class="title">速度</span>
+                <span class="val">125.32</span>
+                <span class="title">击键</span>
+                <span class="val">2.4</span>
+                <span class="title">码长</span>
+                <span class="val"><el-button type="text" size="mini">23 </el-button></span>
+              </div> -->
               <el-button-group>
+                <el-tooltip :content="indicatorTooltipText" placement="top">
+                  <el-button size="mini" icon="el-icon-document" @click="toggleSidebar" class="indicator-real">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
+                </el-tooltip>
                 <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
                 <el-tooltip content="可复制整段文本，包含段号标题" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">剪切板载文</el-button>
@@ -89,6 +100,15 @@ export default class Home extends Vue {
   @State('appVersion')
   private appVersion!: string
 
+  @racing.Getter('typeSpeed')
+  private typeSpeed!: string
+
+  @racing.Getter('hitSpeed')
+  private hitSpeed!: string
+
+  @racing.Getter('codeLength')
+  private codeLength!: string
+
   @racing.State('status')
   private status!: string
 
@@ -119,6 +139,12 @@ export default class Home extends Vue {
   @setting.Getter('styles')
   private styles!: InterfaceStyle
 
+  @setting.State('showSidebar')
+  private showSidebar!: boolean
+
+  @setting.Mutation('toggleSidebar')
+  private toggleRawSidebar!: Function
+
   @kata.State('mode')
   private mode!: number
 
@@ -139,6 +165,10 @@ export default class Home extends Vue {
 
   get triggerText (): string {
     return this.status === 'pause' ? '继续' : '暂停'
+  }
+
+  get indicatorTooltipText (): string {
+    return `点击${this.showSidebar ? '隐藏' : '展示'}侧边栏`
   }
 
   get triggerIcon (): string {
@@ -266,6 +296,10 @@ export default class Home extends Vue {
     }
   }
 
+  toggleSidebar () {
+    this.toggleRawSidebar(!this.showSidebar)
+  }
+
   handleShortCut (e: KeyboardEvent) {
     switch (e.key) {
       case 'F3':
@@ -322,3 +356,12 @@ export default class Home extends Vue {
   }
 }
 </script>
+<style lang="scss">
+  .indicator-real {
+    display: inline-block;
+    .val {
+      font-weight: 500;
+      color: #ff804b;
+    }
+  }
+</style>

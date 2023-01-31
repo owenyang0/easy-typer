@@ -5,3 +5,26 @@
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+@include b(menu) {
+  @include m(horizontal) {
+    & > .el-menu-item {
+      height: 50px;
+      line-height: 50px;
+    }
+    & > .el-submenu {
+      & .el-submenu__title {
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+  }
+}
+@include b(submenu) {
+  & .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 45px;
+    min-width: 200px;
+  }
+}

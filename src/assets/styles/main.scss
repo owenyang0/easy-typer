@@ -378,29 +378,33 @@ html, body {
 }
 
 @media only screen and (max-width: 680px) {
-  #home .el-container {
-    flex-direction: column;
-  }
+  // #home .el-container {
+  //   flex-direction: column;
+  // }
 
-  .indicator-container {
-    display: none;
-  }
+  // .indicator-container {
+  //   display: none;
+  // }
 
-  .indicator-horizontal {
+  // .indicator-horizontal {
+  //   display: block;
+
+  //   .el-card {
+  //     margin-bottom: 0;
+  //   }
+  // }
+
+  .indicator-real {
     display: block;
-
-    .el-card {
-      margin-bottom: 0;
-    }
   }
 
-  .aside-history {
-    width: 100% !important;
-  }
+  // .aside-history {
+  //   width: 100% !important;
+  // }
 
-  #home .el-card__body {
-    padding: 0 0 10px 0;
-  }
+  // #home .el-card__body {
+  //   padding: 0 0 10px 0;
+  // }
 }
 
 
@@ -514,7 +518,11 @@ $speed-levels: (
   text-align: right;
 
   .toolbar {
-    padding: 8px;
+    padding: 8px 8px 3px 8px;
+  }
+
+  .el-button-group > .el-button {
+    margin-bottom: 5px;
   }
 }
 

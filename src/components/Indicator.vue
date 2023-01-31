@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <div class="indicator indicator-horizontal">
+  <el-aside width="200px" class="indicator-container" v-show="showSidebar">
+    <div class="indicator">
+      <!-- <el-card class="time" shadow="never">
+        <el-progress type="dashboard" :percentage="percentage" :width="100" :status="progressStatus"/>
+        <span>{{ passTime }}</span>
+      </el-card> -->
       <el-card shadow="never">
         <el-row>
-          <el-col :span="8">
-            <div class="hint-block">
-              <span class="number">{{ typeSpeed }}</span>
-              <span class="desc"><el-button type="text">速度</el-button></span>
-            </div>
+          <el-col :span="24" class="speed">
+            {{ typeSpeed }}
           </el-col>
+        </el-row>
+        <el-row>
           <el-col :span="8">
             <div class="hint-block">
               <span class="number">{{ hitSpeed }}</span>
@@ -18,126 +21,97 @@
           <el-col :span="8">
             <div class="hint-block">
               <span class="number">{{ codeLength }}</span>
-              <span class="desc"><el-button type="text">码长</el-button></span>
+              <span class="desc"><el-button type="text" @click="showInputKeys">码长</el-button></span>
+            </div>
+          </el-col>
+          <el-col :span="8">
+            <div class="hint-block">
+              <span class="number">{{ idealCodeLength }}</span>
+              <span class="desc"><el-button type="text" @click="showIdealCodes">理想</el-button></span>
             </div>
           </el-col>
         </el-row>
       </el-card>
+      <el-card class="code-hint" v-if="status !== 'waiting' && status !== 'finished'" shadow="never">
+        <div v-for="word in wordsHint" :key="word.text">
+          <span type="info">{{ word.text }}：</span>
+          <span v-for="coding in word.codings" :key="coding.code">{{ coding.code + getSelectChar(coding.index, coding.length) }}</span>
+        </div>
+      </el-card>
+      <el-card shadow="never">
+        <div class="key-value">
+          <span>错/今对</span>
+          <span>{{ todayErrorWords | numberWithCommas}}/{{ (todayWords - todayErrorWords) | numberWithCommas }}</span>
+        </div>
+        <div class="key-value">
+          <span>总字数</span>
+          <span>{{ totalWords | numberWithCommas}}</span>
+        </div>
+        <div class="key-value">
+          <span>天数</span>
+          <span>{{ consecutiveDays }}/{{ totalDays | numberWithCommas}}</span>
+        </div>
+        <div class="key-value">
+          <span>退格</span>
+          <span>{{ backspace }}</span>
+        </div>
+        <div class="key-value">
+          <span>回车</span>
+          <span>{{ enter }}</span>
+        </div>
+        <div class="key-value">
+          <span>回改</span>
+          <span>{{ replace }}</span>
+        </div>
+        <div class="key-value">
+          <span>打词</span>
+          <span>{{ phrase }}</span>
+        </div>
+        <div class="key-value">
+          <span>选重</span>
+          <span>{{ selective }}</span>
+        </div>
+        <div class="key-value">
+          <span>均横</span>
+          <span>{{ leftHand }}/{{ rightHand }}</span>
+        </div>
+      </el-card>
+      <el-card shadow="never">
+        <div class="key-value indicator-cloak">
+          <span>潜水</span>
+          <span>
+            <el-switch v-model="tempCloak" @change="toggleCloak(tempCloak)"/>
+          </span>
+        </div>
+        <div class="key-value">
+          <span>词提</span>
+          <span>
+            <el-switch v-model="tempHint" @change="toggleHint(tempHint)"/>
+          </span>
+        </div>
+        <div class="key-value">
+          <span>替换空格</span>
+          <span>
+            <el-switch v-model="tempReplaceSpace" @change="toggleReplaceSpace(tempReplaceSpace)"/>
+          </span>
+        </div>
+        <div class="key-value">
+          <span>暗黑模式</span>
+          <span>
+            <el-switch v-model="tempDarkMode" @change="toggleDarkMode(tempDarkMode)"/>
+          </span>
+        </div>
+      </el-card>
+      <el-drawer
+        :title="drawer.title"
+        :visible.sync="drawerVisiable"
+        :with-header="false"
+        size="100"
+        direction="ttb">
+        <p class="codes">{{ drawer.text }}</p>
+      </el-drawer>
     </div>
-    <el-aside width="200px" class="indicator-container">
-      <div class="indicator">
-        <!-- <el-card class="time" shadow="never">
-          <el-progress type="dashboard" :percentage="percentage" :width="100" :status="progressStatus"/>
-          <span>{{ passTime }}</span>
-        </el-card> -->
-        <el-card shadow="never">
-          <el-row>
-            <el-col :span="24" class="speed">
-              {{ typeSpeed }}
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="8">
-              <div class="hint-block">
-                <span class="number">{{ hitSpeed }}</span>
-                <span class="desc"><el-button type="text">击键</el-button></span>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="hint-block">
-                <span class="number">{{ codeLength }}</span>
-                <span class="desc"><el-button type="text" @click="showInputKeys">码长</el-button></span>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="hint-block">
-                <span class="number">{{ idealCodeLength }}</span>
-                <span class="desc"><el-button type="text" @click="showIdealCodes">理想</el-button></span>
-              </div>
-            </el-col>
-          </el-row>
-        </el-card>
-        <el-card class="code-hint" v-if="status !== 'waiting' && status !== 'finished'" shadow="never">
-          <div v-for="word in wordsHint" :key="word.text">
-            <span type="info">{{ word.text }}：</span>
-            <span v-for="coding in word.codings" :key="coding.code">{{ coding.code + getSelectChar(coding.index, coding.length) }}</span>
-          </div>
-        </el-card>
-        <el-card shadow="never">
-          <div class="key-value">
-            <span>错/今对</span>
-            <span>{{ todayErrorWords | numberWithCommas}}/{{ (todayWords - todayErrorWords) | numberWithCommas }}</span>
-          </div>
-          <div class="key-value">
-            <span>总字数</span>
-            <span>{{ totalWords | numberWithCommas}}</span>
-          </div>
-          <div class="key-value">
-            <span>天数</span>
-            <span>{{ consecutiveDays }}/{{ totalDays | numberWithCommas}}</span>
-          </div>
-          <div class="key-value">
-            <span>退格</span>
-            <span>{{ backspace }}</span>
-          </div>
-          <div class="key-value">
-            <span>回车</span>
-            <span>{{ enter }}</span>
-          </div>
-          <div class="key-value">
-            <span>回改</span>
-            <span>{{ replace }}</span>
-          </div>
-          <div class="key-value">
-            <span>打词</span>
-            <span>{{ phrase }}</span>
-          </div>
-          <div class="key-value">
-            <span>选重</span>
-            <span>{{ selective }}</span>
-          </div>
-          <div class="key-value">
-            <span>均横</span>
-            <span>{{ leftHand }}/{{ rightHand }}</span>
-          </div>
-        </el-card>
-        <el-card shadow="never">
-          <div class="key-value indicator-cloak">
-            <span>潜水</span>
-            <span>
-              <el-switch v-model="tempCloak" @change="toggleCloak(tempCloak)"/>
-            </span>
-          </div>
-          <div class="key-value">
-            <span>词提</span>
-            <span>
-              <el-switch v-model="tempHint" @change="toggleHint(tempHint)"/>
-            </span>
-          </div>
-          <div class="key-value">
-            <span>替换空格</span>
-            <span>
-              <el-switch v-model="tempReplaceSpace" @change="toggleReplaceSpace(tempReplaceSpace)"/>
-            </span>
-          </div>
-          <div class="key-value">
-            <span>暗黑模式</span>
-            <span>
-              <el-switch v-model="tempDarkMode" @change="toggleDarkMode(tempDarkMode)"/>
-            </span>
-          </div>
-        </el-card>
-        <el-drawer
-          :title="drawer.title"
-          :visible.sync="drawerVisiable"
-          :with-header="false"
-          size="100"
-          direction="ttb">
-          <p class="codes">{{ drawer.text }}</p>
-        </el-drawer>
-      </div>
-    </el-aside>
-  </div>
+  </el-aside>
 </template>
 
 <script lang="ts">
@@ -205,6 +179,9 @@ export default class Indicator extends Vue {
 
   @racing.State('idealKeys')
   private idealKeys!: string
+
+  @setting.State('showSidebar')
+  private showSidebar!: boolean
 
   @setting.Getter('hint')
   private hint!: boolean

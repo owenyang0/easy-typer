@@ -89,6 +89,11 @@ const mutations: MutationTree<SettingState> = {
     db.configs.put(state, 'setting')
   },
 
+  toggleSidebar (state, showSidebar) {
+    state.showSidebar = showSidebar
+    db.configs.put(state, 'setting')
+  },
+
   toggleReplaceSpace (state, replaceSpace) {
     state.replaceSpace = replaceSpace
   }

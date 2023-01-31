@@ -554,6 +554,10 @@ export class SettingState {
    * 暗黑模式
    */
   darkMode = false
+  /**
+   * 是否展示侧边栏
+   */
+  showSidebar = false
 }
 
 export interface LoginUser {
