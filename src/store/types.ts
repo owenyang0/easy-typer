@@ -370,6 +370,10 @@ export interface InterfaceStyle {
    */
   '--font-size': string;
   /**
+   * 字重
+   */
+  '--font-weight': number;
+  /**
    * 对照区行数
    */
   '--article-rows': number;
@@ -407,6 +411,11 @@ export class SettingState {
    * 字号
    */
   fontSize = '2.4rem'
+
+  /**
+   * 字重
+   */
+  fontWeight = 500
 
   /**
    * 对照区行数

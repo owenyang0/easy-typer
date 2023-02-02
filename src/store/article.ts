@@ -210,6 +210,16 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
     this.dispatch('article/loadArticle', article)
   },
 
+  init ({ state }): void {
+    const article = {
+      title: state.title,
+      content: state.content,
+      identity: state.identity,
+      shortest: null
+    }
+    this.dispatch('article/loadArticle', article)
+  },
+
   loadArticle ({ commit, rootState, rootGetters }, article: ArticleState) {
     commit('load', article)
 

@@ -191,6 +191,9 @@ export default class Setting extends Vue {
   @article.Action('random')
   private random!: Function
 
+  @article.Action('init')
+  private init!: Function
+
   @kata.Action('next')
   private next!: Function
 
@@ -309,6 +312,7 @@ export default class Setting extends Vue {
         const node = TrieNode.convert(root as TrieNode)
         this.updateCodings(node)
         console.log('Trie tree loaded')
+        // this.init()
       } else {
         // 首次默认加载虎码表
         console.log('initial codings')
@@ -322,6 +326,7 @@ export default class Setting extends Vue {
             db.configs.put(trie.root, 'codings').then(() => {
               this.updateCodings(trie.root)
               this.$message({ message: '默认『虎码』码表处理完成', type: 'success', showClose: true })
+              // this.init()
             })
           })
       }

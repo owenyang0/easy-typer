@@ -49,6 +49,7 @@
   --font-size: 2.4rem;
   --article-rows: 4;
   --input-rows: 2;
+  --font-weight: 500;
 }
 
 html, body {
@@ -264,10 +265,10 @@ html, body {
 #article-main {
   .article {
     font-family: var(--racing-font);
-    padding: 5px 15px;
+    padding: 0px 15px;
     height: calc((var(--font-size) + 2rem + 5px) * var(--article-rows));
     overflow: auto;
-    font-weight: bold;
+    font-weight: var(--font-weight);
 
     .code {
       font-size: var(--font-size);
@@ -352,9 +353,12 @@ html, body {
   font-family: var(--racing-font);
   border: none;
   border-bottom: 1px solid var(--level3-border-color);
-  font-size: var(--font-size);
-  line-height: calc(var(--font-size) + 1rem);
-  height: calc((var(--font-size) + 2rem + 5px) * var(--input-rows));
+  // font-size: var(--font-size);
+  font-size: 28px;
+  // line-height: calc(var(--font-size) + 1rem);
+  line-height: 46px;
+  // height: calc((var(--font-size) + 2rem + 5px) * var(--input-rows));
+  height: 64px;
   background-color: var(--background-color);
   &:disabled {
     background-color: var(--level4-border-color);
@@ -541,3 +545,24 @@ $speed-levels: (
 // [data-is-native] .toolbar-wrapper {
 //   display: none;
 // }
+
+.article-settings {
+  width: 150px;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  right: 20px;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 4px;
+  border: solid 1px var(--level2-border-color);
+  background-color: var(--background-color);
+
+  .label {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
