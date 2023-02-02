@@ -27,9 +27,11 @@
                 <el-tooltip :content="indicatorTooltipText" placement="top">
                   <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
                 </el-tooltip>
-                <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
-                <el-tooltip content="可复制整段文本，包含段号标题" placement="top">
-                  <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">剪切板载文</el-button>
+                <el-tooltip content="手动载文" placement="top">
+                  <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>
+                </el-tooltip>
+                <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
+                  <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
                 <el-button size="mini" :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打</el-button>
@@ -361,6 +363,7 @@ export default class Home extends Vue {
     display: inline-block;
     .val {
       font-weight: 500;
+      // font-size: 14px;
       color: #ff804b;
     }
   }

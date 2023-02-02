@@ -36,7 +36,8 @@
   --secondary-color: #909399;
   --placeholder-color: #C0C4CC;
 
-  --pending: var(--secondary-color);
+  // --pending: var(--secondary-color);
+  --pending: var(--normal-color);
   --code1: #F56C6C;
   --code2: #E6A23C;
   --code3: #409EFF;
@@ -266,6 +267,7 @@ html, body {
     padding: 5px 15px;
     height: calc((var(--font-size) + 2rem + 5px) * var(--article-rows));
     overflow: auto;
+    font-weight: bold;
 
     .code {
       font-size: var(--font-size);
@@ -273,9 +275,9 @@ html, body {
       margin-bottom: 2px;
     }
 
-    :nth-child(2n) {
-      font-weight: bold;
-    }
+    // :nth-child(2n) {
+    //   font-weight: bold;
+    // }
 
     &.grid {
       div {
@@ -320,11 +322,11 @@ html, body {
     }
 
     .pending {
-      font-weight: normal;
+      // font-weight: normal;
       color: var(--pending);
     }
     .correct {
-      font-weight: normal;
+      // font-weight: normal;
       color: var(--typed);
       background-color: var(--correct);
     }
