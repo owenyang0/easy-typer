@@ -25,7 +25,7 @@
               </div> -->
               <el-button-group>
                 <el-tooltip :content="indicatorTooltipText" placement="top">
-                  <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
+                  <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real" style="width: 220px;">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
                 </el-tooltip>
                 <el-tooltip content="手动载文" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>

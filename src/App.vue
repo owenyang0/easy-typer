@@ -121,6 +121,7 @@ import { Action, Mutation, namespace } from 'vuex-class'
 import { LoginUser, LooseObject } from './store/types'
 import xcapi from './api/xc.cool'
 import { Route } from 'vue-router'
+import punctuations from './store/util/punctuation'
 
 const setting = namespace('setting')
 const login = namespace('login')
@@ -320,12 +321,21 @@ export default class Setting extends Vue {
           .then(res => res.text())
           .then(ret => {
             const trie = parseTrieNodeByCodinds(ret)
+            // 将中文标点加入词库
+            for (const [key, value] of punctuations) {
+              trie.put(key, value, -1)
+            }
             // 将同一个字的多个编码排序
             trie.sort()
 
             db.configs.put(trie.root, 'codings').then(() => {
               this.updateCodings(trie.root)
-              this.$message({ message: '默认『虎码』码表处理完成', type: 'success', showClose: true })
+              this.$notify({
+                title: '词提加载成功',
+                message: '默认『虎码』词提加载成功，如需其他词提请在 ”功能“-”设置“-”码表设置“ 更新即可',
+                type: 'success',
+                duration: 0
+              })
               // this.init()
             })
           })
