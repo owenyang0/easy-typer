@@ -50,6 +50,12 @@ export default class Article extends Vue {
   @setting.State('hint')
   private hint!: boolean
 
+  @setting.State('fontSize')
+  private fontSize!: string
+
+  @setting.State('articleRows')
+  private articleRows!: number
+
   @setting.State('hintOptions')
   private hintOptions!: Array<string>
 
@@ -119,7 +125,11 @@ export default class Article extends Vue {
       return
     }
 
-    const fixed = 80
+    const suffixOffset = this.hint ? 2 : 1
+    const baseOffset = (parseFloat(this.fontSize) + suffixOffset) * 12
+
+    const fixed = this.hint ? Math.max(0, baseOffset * (this.articleRows - 1) - 0.5 * baseOffset) : baseOffset * (this.articleRows - 1)
+
     const pending = document.querySelector('.code1,.code2,.code3,.code4,.pending') as HTMLElement
     if (pending) {
       el.scrollTop = Math.max(0, pending.offsetTop - fixed)
@@ -175,4 +185,7 @@ export default class Article extends Vue {
 </script>
 
 <style lang="scss">
+  #article-main {
+    word-break: break-all;
+  }
 </style>

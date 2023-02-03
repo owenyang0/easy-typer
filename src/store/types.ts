@@ -370,6 +370,10 @@ export interface InterfaceStyle {
    */
   '--font-size': string;
   /**
+   * 字重
+   */
+  '--font-weight': number;
+  /**
    * 对照区行数
    */
   '--article-rows': number;
@@ -409,6 +413,11 @@ export class SettingState {
   fontSize = '2.4rem'
 
   /**
+   * 字重
+   */
+  fontWeight = 500
+
+  /**
    * 对照区行数
    */
   articleRows = 4
@@ -421,11 +430,11 @@ export class SettingState {
   /**
    * 未打文字颜色
    */
-  pending = '#909399'
+  pending = '#606266'
   /**
    * 已打文字颜色
    */
-  typed = '#909399'
+  typed = '#606266'
 
   /**
    * 正确文字背景颜色
@@ -475,7 +484,7 @@ export class SettingState {
   /**
    * 提示选项
    */
-  hintOptions = ['phrase', 'color', 'select', 'autoSelect', 'code']
+  hintOptions = ['code']
   /**
    * 禁用单字提示
    */

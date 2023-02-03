@@ -26,7 +26,7 @@ const getters: GetterTree<SettingState, QuickTypingState> = {
   },
 
   styles (): InterfaceStyle {
-    const { pending, typed, correct, error, hintColor, code1, code2, code3, code4, fontFamily, fontSize, articleRows, inputRows } = state
+    const { pending, typed, correct, error, hintColor, code1, code2, code3, code4, fontFamily, fontSize, fontWeight, articleRows, inputRows } = state
     return {
       '--pending': pending,
       '--typed': typed,
@@ -39,6 +39,7 @@ const getters: GetterTree<SettingState, QuickTypingState> = {
       '--code4': code4,
       '--racing-font': fontFamily,
       '--font-size': fontSize,
+      '--font-weight': fontWeight,
       '--article-rows': articleRows,
       '--input-rows': inputRows
     }
@@ -92,6 +93,12 @@ const mutations: MutationTree<SettingState> = {
   toggleSidebar (state, showSidebar) {
     state.showSidebar = showSidebar
     db.configs.put(state, 'setting')
+  },
+
+  saveToDB (state) {
+    db.configs.put(state, 'setting').then(() => {
+      console.log('db settings saved')
+    })
   },
 
   toggleReplaceSpace (state, replaceSpace) {

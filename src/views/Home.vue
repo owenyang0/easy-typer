@@ -25,14 +25,72 @@
               </div> -->
               <el-button-group>
                 <el-tooltip :content="indicatorTooltipText" placement="top">
-                  <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
+                  <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real" style="width: 220px;">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
                 </el-tooltip>
-                <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动载文</el-button>
-                <el-tooltip content="可复制整段文本，包含段号标题" placement="top">
-                  <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">剪切板载文</el-button>
+                <el-tooltip content="手动载文" placement="top">
+                  <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>
+                </el-tooltip>
+                <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
+                  <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
                 <el-button size="mini" :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打</el-button>
+                <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
+                  <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
+                </el-tooltip>
+                <el-popover
+                  ref="popoverStyle"
+                  placement="bottom-start"
+                  width="200"
+                  @hide="handleSettingHide"
+                  trigger="click">
+                  <div class="article-settings">
+                    <el-row>
+                      <el-col :span="7" :offset="1">
+                        <div class="article-settings_item">
+                          <span class="label">字号</span>
+                          <el-slider
+                            v-model="tempFontSize"
+                            @change="handleSliderChange"
+                            vertical
+                            :max="7"
+                            :min="1"
+                            :step="0.1"
+                            height="100px">
+                          </el-slider>
+                        </div>
+                      </el-col>
+                      <el-col :span="7" :offset="1">
+                        <div class="article-settings_item">
+                          <span class="label">字重</span>
+                          <el-slider
+                            v-model="tempFontWeight"
+                            @change="handleSliderChange"
+                            vertical
+                            :max="900"
+                            :min="100"
+                            :step="100"
+                            height="100px">
+                          </el-slider>
+                        </div>
+                      </el-col>
+                      <el-col :span="7" :offset="1">
+                        <div class="article-settings_item">
+                          <span class="label">行高</span>
+                          <el-slider
+                            v-model="tempArticleRows"
+                            @change="handleSliderChange"
+                            vertical
+                            :max="12"
+                            :min="1"
+                            :step="1"
+                            height="100px">
+                          </el-slider>
+                        </div>
+                      </el-col>
+                    </el-row>
+                  </div>
+                </el-popover>
               </el-button-group>
             </el-col>
           </el-row>
@@ -145,6 +203,21 @@ export default class Home extends Vue {
   @setting.Mutation('toggleSidebar')
   private toggleRawSidebar!: Function
 
+  @setting.State('articleRows')
+  private articleRows!: number
+
+  @setting.State('fontWeight')
+  private fontWeight!: number
+
+  @setting.State('fontSize')
+  private fontSize!: string
+
+  @setting.Mutation('update')
+  private updateSettings!: Function
+
+  @setting.Mutation('saveToDB')
+  private saveToDB!: Function
+
   @kata.State('mode')
   private mode!: number
 
@@ -161,7 +234,11 @@ export default class Home extends Vue {
   private group = ''
   private showLoadDialog = false
   private articleText = ''
-  private shouldKataDialog = false
+
+  private tempArticleRows = 4
+  private tempFontSize = 2.4
+  private tempFontWeight = 500
+  private hasUpdated = false
 
   get triggerText (): string {
     return this.status === 'pause' ? '继续' : '暂停'
@@ -200,7 +277,58 @@ export default class Home extends Vue {
     }
   }
 
+  @Watch('articleRows')
+  rawArticleRowsChange (rows: number) {
+    this.tempArticleRows = +rows
+  }
+
+  @Watch('tempArticleRows')
+  articleRowsChange (rows: number) {
+    this.updateSettings({
+      articleRows: rows
+    })
+  }
+
+  @Watch('fontWeight')
+  rawFontWeightChange (weight: number) {
+    this.tempFontWeight = +weight
+  }
+
+  @Watch('tempFontWeight')
+  fontWeightChange (weight: number) {
+    this.updateSettings({
+      fontWeight: weight
+    })
+  }
+
+  @Watch('fontSize')
+  rawFontSizeChange (size: string) {
+    this.tempFontSize = parseFloat(size)
+  }
+
+  @Watch('tempFontSize')
+  fontSizeChange (size: number) {
+    this.updateSettings({
+      fontSize: `${size}rem`
+    })
+  }
+
+  handleSliderChange () {
+    this.hasUpdated = true
+  }
+
+  handleSettingHide () {
+    if (this.hasUpdated) {
+      this.saveToDB()
+      this.hasUpdated = false
+    }
+  }
+
   created () {
+    this.rawArticleRowsChange(this.articleRows)
+    this.rawFontWeightChange(this.fontWeight)
+    this.rawFontSizeChange(this.fontSize)
+
     // this.authChange(this.authenticated)
 
     // 监听快捷键
@@ -361,6 +489,7 @@ export default class Home extends Vue {
     display: inline-block;
     .val {
       font-weight: 500;
+      // font-size: 14px;
       color: #ff804b;
     }
   }
