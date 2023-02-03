@@ -131,7 +131,7 @@ app.whenReady().then(() => {
     applescript.execString(retrivingScript, (err) => {
       app.focus({ steal: true })
 
-      const errmsg = '暂时无法获取QQ赛文！！！请参考『帮助-关于-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅~'
+      const errmsg = '暂时无法获取QQ赛文！请参考『使用帮助-快速开始』完成初始设置：在『系统偏好设置-安全性与隐私-辅助功能』中，允许『木易跟打器』控制电脑；2.按下F4快捷键直接载文，即刻开始你的跟打之旅。'
       if (err) {
         showNotification(err.message, '获取文本失败')
       }
