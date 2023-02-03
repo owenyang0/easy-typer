@@ -2970,6 +2970,7 @@
 喔	dcy
 婶	bwo
 踱	pxl
+啫	dqor
 嗜	dqo
 啤	dut
 哺	dnf
@@ -2999,7 +3000,7 @@
 渺	kqy
 迂	fnu
 梨	xpem
-拣	uryx
+拣	ury
 葫	lcv
 浏	kvp
 橡	ewx
@@ -4644,7 +4645,6 @@
 赳	pij
 龊	lpu
 媾	bqf
-邛	ute2
 馄	qov
 啕	dna
 嗵	dkt
@@ -7181,7 +7181,7 @@
 喔	dcyi
 婶	bwog
 踱	pxlr
-嗜	dqor
+嗜	dqor2
 啤	dutn
 奕	zcmd
 淳	kghi
@@ -7201,6 +7201,7 @@
 庶	xlch
 渺	kqyt
 迂	fnuc
+拣	uryx
 葫	lcvy
 浏	kvpd
 扳	uxry2
@@ -8984,7 +8985,6 @@
 糗	pomq
 蝣	cle
 蝣	cleh
-隻	ury
 鳚	wcf
 鳚	wcfk
 麇	xxh
@@ -9317,6 +9317,7 @@
 疋	ts2
 豐	vaaz
 撐	usly
+殼	gwfr3
 蟲	cccc
 柰	efs2
 殂	gfq
@@ -9686,7 +9687,6 @@
 贶	odpe
 跬	pggt2
 郇	note
-鏇	zlet
 镩	zed
 镩	zedg
 髹	pej
@@ -9734,7 +9734,7 @@
 醜	yag
 铫	zpw
 铫	zpww
-镟	zlet2
+镟	zlet
 镥	zwo
 镥	zwor
 陔	tkh
@@ -10040,6 +10040,7 @@
 鲭	wavy
 黹	cfb
 鼢	phpd2
+㞎	cmb
 佧	jyfy
 傺	jhfs
 冱	wfbj
@@ -10163,11 +10164,11 @@
 嫜	bxn
 嫜	bxns
 宀	wg2
-岊	mvs
 岍	vfl
 岍	vflc
 巯	rubo
 戤	vrap
+扌	uss
 掭	ufm
 掭	ufmh
 揞	uxy
@@ -10176,6 +10177,7 @@
 槠	esqo
 沲	keey
 洚	khvk
+炘	ctj
 烀	cth
 烀	cthn
 牿	qqd
@@ -10191,6 +10193,7 @@
 痖	afcy
 瘃	aji
 瘃	ajid
+瘖	axy
 眾	yjj
 眾	yjjj
 砟	mwa2
@@ -10315,6 +10318,8 @@
 黪	pkme2
 鼯	pwdk2
 齄	oqlf
+𤆵	cmb2
+𫟷	zil2
 𲍿	zjvx
 々	xid2
 〇	dkk
@@ -10372,7 +10377,6 @@
 㝹	ytw
 㝹	ytwt
 㝿	orp
-㞎	cmb
 㞗	cfki
 㞘	cji
 㞘	cjid
@@ -10839,7 +10843,6 @@
 啙	svdd
 啛	dfb
 啛	dfbb
-啫	dqor2
 啯	drn
 啯	drni
 啰	dyl
@@ -10914,7 +10917,7 @@
 囌	dlwx
 囍	hdhd
 囗	rkk
-囘	mvs2
+囘	mvs
 囙	rnk
 囥	rzo
 囥	rzoj
@@ -11194,6 +11197,7 @@
 屼	vfpe
 屾	vvs2
 岃	vpid2
+岊	mvs2
 岕	vjp
 岕	vjpd
 岞	vwa2
@@ -11426,7 +11430,6 @@
 扆	mti
 扊	mcc
 扊	mcch
-扌	uss
 扞	ueg
 扠	urid
 扤	ufp
@@ -11527,7 +11530,7 @@
 斝	ddwj
 斠	qfmj
 斨	atj
-斲	ctj
+斲	ctj2
 斶	tyn
 斶	tync
 旂	letj
@@ -11730,7 +11733,7 @@
 榅	eoam
 榊	efog
 榑	enkc
-榖	gwfr3
+榖	gwfr4
 榰	eqor2
 榼	egka
 榾	efg
@@ -12018,7 +12021,6 @@
 炁	dch
 炆	cvw2
 炌	cjpd2
-炘	ctj2
 炟	cof
 炟	cofi
 炣	czk2
@@ -12251,6 +12253,8 @@
 琯	nwki
 琱	nmgd
 琲	nrf2
+琹	nne
+琹	nnem
 瑀	ntdv
 瑂	ncq
 瑂	ncqm
@@ -12323,6 +12327,7 @@
 畯	qkhh2
 疁	qzj
 疁	qzje
+疌	fbsi
 疍	tofi3
 疐	nwq
 疐	nwqt
@@ -12517,7 +12522,7 @@
 稌	xjxh
 稑	xghg
 稙	xnqf
-穀	gwfr4
+穀	gwfr5
 穄	xhfs2
 穙	xcg
 穙	xcgi
@@ -12592,6 +12597,7 @@
 粃	pvvb
 粄	pxr
 粄	pxry
+粔	pnnk2
 粿	pqem2
 糄	pmic2
 糒	plt
@@ -12600,7 +12606,7 @@
 紬	idy3
 絜	api
 絜	apis
-縠	gwfr5
+縠	gwfr6
 縢	vhhi
 繄	nori
 纍	qqqi
@@ -12648,7 +12654,7 @@
 翃	nkz
 翃	nkzv
 翈	szv2
-翋	zil2
+翋	zil3
 翙	vlz
 翙	vlzv
 翚	zwyc
@@ -12867,7 +12873,7 @@
 虸	chi
 蚃	icc
 蚄	clf
-蚆	cmb2
+蚆	cmb3
 蚡	chpd
 蚲	ceh
 蚲	cehb
@@ -13138,6 +13144,7 @@
 鋬	uxrz
 鍳	qrz
 鍳	qrzj
+鏇	zlet2
 鑒	qryz
 钆	zae
 钖	zaes
@@ -13446,6 +13453,7 @@
 龁	lea
 龁	leai
 龂	ltj2
+龵	us2
 鿃	qmj
 鿃	qmjj
 鿍	ghv
@@ -13538,7 +13546,6 @@
 𣸤	kyl
 𣸤	kylf
 𤆬	vch2
-𤆵	cmb3
 𤌙	coz
 𤌙	cozv
 𤘧	qqn2
@@ -13785,7 +13792,6 @@
 𫟅	igyx
 𫟦	yhj
 𫟦	yhju
-𫟷	zil3
 𫟹	zlh
 𫟹	zlhb
 𫟼	zmu
@@ -13833,7 +13839,7 @@
 𬂩	ehh
 𬂩	ehhb
 𬃊	exno
-𬆮	gwfr6
+𬆮	gwfr7
 𬇕	kfpd
 𬇙	kob2
 𬇞	kfmj
@@ -13954,7 +13960,7 @@
 𬮤	ajdk2
 𬮱	avg
 𬮱	avgt
-𬮴	axy
+𬮴	axy2
 𬮿	tvvj
 𬯀	tqq2
 𬯎	tcob2
@@ -14812,6 +14818,7 @@
 誰	sui3
 當	sqt
 問	adk2
+邛	ute2
 該	skh2
 卻	hzj2
 內	mju2
@@ -15058,6 +15065,7 @@
 壓	xovg
 員	dob3
 賽	wqho2
+隻	ury2
 齊	qq2
 戰	ddqp
 碼	mnm3
@@ -15343,7 +15351,6 @@
 鮮	wgy3
 擋	usq
 擋	usqt
-殼	gwfr7
 盃	cam2
 蝦	ccmr2
 誠	snae2
@@ -15872,6 +15879,7 @@
 蹻	ptmd2
 躗	pgpu
 釀	ytdf
+釭	zug3
 鈒	zcj
 鈚	zvvb2
 錍	zut
@@ -16595,7 +16603,6 @@
 匞	nug3
 匟	nzo
 匟	nzoj
-匢	nne
 匢	nnes
 匤	nnid3
 匥	nkl
@@ -21831,7 +21838,6 @@
 琷	nga
 琷	ngae
 琸	nyon
-琹	nnem
 琺	nkg
 琺	nkgk
 琻	nzj2
@@ -22056,7 +22062,6 @@
 疇	qgak
 疈	fdqq
 疉	qqqb
-疌	fbsi
 疎	txs2
 疓	avn
 疕	avb2
@@ -22122,7 +22127,6 @@
 瘓	axmm2
 瘔	alc
 瘔	alcg
-瘖	axy2
 瘚	ahse2
 瘜	aohx2
 瘞	amj
@@ -23341,7 +23345,6 @@
 粏	pmid
 粐	pmh2
 粓	pzg2
-粔	pnnk2
 粖	pfe
 粖	pfem
 粙	pdy2
@@ -23913,7 +23916,7 @@
 羷	gjdj2
 羺	gtle2
 羻	gxah
-羾	zug3
+羾	zug4
 翄	zci2
 翆	zkn
 翆	zkns
@@ -26971,7 +26974,6 @@
 釫	zma
 釫	zmae
 釬	zeg2
-釭	zug4
 釮	znt
 釮	zntp
 釯	zfw
@@ -29628,7 +29630,6 @@
 龲	zxyc
 龳	ghgg
 龴	ks5
-龵	us2
 龶	af3
 龷	ln2
 龸	ss3
@@ -88297,7 +88298,7 @@
 𫨴	ary4
 𫨵	nry7
 𫨶	fry2
-𫨷	ury2
+𫨷	ury3
 𫨸	ory6
 𫨹	rrnp
 𫨺	ghry2
@@ -96013,7 +96014,7 @@
 𭠋	mzbe
 𭠌	mivu
 𭠍	pg2
-𭠎	ury3
+𭠎	ury4
 𭠏	ufyb3
 𭠐	uape
 𭠑	umfi
