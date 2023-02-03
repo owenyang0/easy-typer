@@ -405,7 +405,7 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = '"Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
+  fontFamily = 'Consolas,"LXGW WenKai GB Screen R","Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
 
   /**
    * 字号
@@ -425,7 +425,7 @@ export class SettingState {
   /**
    * 输入区行数
    */
-  inputRows = 2
+  inputRows = 1
 
   /**
    * 未打文字颜色
@@ -439,7 +439,7 @@ export class SettingState {
   /**
    * 正确文字背景颜色
    */
-  correct = '#3d444f'
+  correct = '#e5e5e5'
   /**
    * 错误文字背景颜色
    */
