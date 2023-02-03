@@ -57,6 +57,8 @@ export default class Words extends Vue {
 
     if (this.hasColorHint) {
       styles.push(this.word.type)
+    } else {
+      styles.push('pending')
     }
 
     return styles
