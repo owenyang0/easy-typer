@@ -187,7 +187,7 @@ export default class Home extends Vue {
   //   action: 'noop'
   // }
 
-  private contentOptions: Array<{ value: string; label: string; children: Array<{ value: string; label: string }> }> = [{
+  private contentOptions: Array<{ value: string; label: string; isRemote?: boolean; children: Array<{ value: string; label: string; isRemote?: boolean }> }> = [{
     value: 'free',
     label: '自由',
     children: [{
@@ -257,6 +257,7 @@ export default class Home extends Vue {
 
   @Watch('formContent.contentName')
   contentChange (names: (keyof typeof contentList)[]) {
+    const rootName = names[0]
     const name = names[1]
 
     if (name === 'freeText') {
@@ -265,13 +266,38 @@ export default class Home extends Vue {
       return
     }
 
-    this.articleText = contentList[name].content
-    this.dialogTitle = `${contentList[name].title}`
+    const subOption = this.contentOptions.find(o => o.value === rootName)
+    const current = subOption?.children.find(s => s.value === name)
+
+    if (!current?.isRemote) {
+      this.articleText = contentList[name].content
+      this.dialogTitle = `${contentList[name].title}`
+      return
+    }
+
+    fetch(`/static/kata/${name}.json`)
+      .then(res => res.json())
+      .then(ret => {
+        this.articleText = ret.content
+        this.dialogTitle = `${ret.title}`
+      }).catch(() => {
+        this.$message({
+          message: '内容获取失败，请刷新重试！',
+          type: 'error'
+        })
+      })
   }
 
   @Watch('articleText')
   articleTextChange (articleText: string) {
+    const { contentName, contentLength, paragraphCount } = this.formContent
     this.formContent.contentLength = articleText.length
+
+    if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
+      this.formContent.paragraphSize = 10
+    } else {
+      this.formContent.paragraphSize = Math.min(200, articleText.length)
+    }
     this.formContent.paragraphCount = Math.ceil(articleText.length / this.formContent.paragraphSize)
   }
 
@@ -327,6 +353,12 @@ export default class Home extends Vue {
 
   created () {
     this.init()
+
+    fetch('/static/kata/options.json')
+      .then(res => res.json())
+      .then(options => {
+        this.contentOptions = options
+      })
   }
 
   destroyed () {

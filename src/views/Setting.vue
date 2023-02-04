@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form ref="settingForm" :model="form" :rules="rules" label-suffix=":" label-width="16rem">
+    <el-form ref="settingForm" :model="form" :rules="rules" label-suffix=":" label-width="12rem">
       <el-tabs v-model="activeTab" tab-position="left">
         <el-tab-pane label="基本设置" name="basic">
           <el-form-item label="自动重新开始">
@@ -48,6 +48,11 @@
               <i class="el-icon-upload"></i>
               <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
               <div class="el-upload__tip" slot="tip">文本格式文件，UTF8编码，多多格式，即`字  编码`，每行一条记录</div>
+              <div class="el-upload__tip" slot="tip">点更新默认编码提示：
+                <!-- <el-button-group> -->
+                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字』</el-button>
+                <!-- </el-button-group> -->
+              </div>
             </el-upload>
           </el-form-item>
         </el-tab-pane>
@@ -195,6 +200,7 @@ import db from '../store/util/Database'
 import { SettingState } from '../store/types'
 import { Action, namespace } from 'vuex-class'
 import { Form, Loading, Table } from 'element-ui'
+import punctuations from '../store/util/punctuation'
 
 interface KeyValue {
   key: string;
@@ -266,6 +272,8 @@ export default class Setting extends Vue {
   private punctuationFormVisiable = false
 
   private punctuationIndex = -1
+
+  private isCodingLoading = false
 
   private punctuationForm = { key: '', value: '' }
 
@@ -403,5 +411,39 @@ export default class Setting extends Vue {
   created (): void {
     this.resetForm()
   }
+
+  handleCodingDownload (type: string) {
+    console.log('coding type: ', type)
+    this.isCodingLoading = true
+    fetch('/static/codings.txt')
+      .then(res => res.text())
+      .then(ret => {
+        const trie = parseTrieNodeByCodinds(ret)
+        // 将中文标点加入词库
+        for (const [key, value] of punctuations) {
+          trie.put(key, value, -1)
+        }
+        // 将同一个字的多个编码排序
+        trie.sort()
+
+        db.configs.put(trie.root, 'codings').then(() => {
+          this.updateCodings(trie.root)
+          this.$notify({
+            title: '编码提示加载成功',
+            message: '『虎码单字』编码提示加载成功',
+            type: 'success'
+          })
+          this.isCodingLoading = false
+        })
+      }).catch(() => {
+        this.isCodingLoading = false
+      })
+  }
 }
 </script>
+
+<style lang="scss">
+  .el-form-item {
+    margin-top: 22px;
+  }
+</style>

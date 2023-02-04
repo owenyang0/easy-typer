@@ -34,7 +34,7 @@
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
                 <el-button size="mini" :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
-                <el-button size="mini" icon="el-icon-refresh" @click="retry">重打</el-button>
+                <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
                 <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip>
@@ -241,7 +241,7 @@ export default class Home extends Vue {
   private hasUpdated = false
 
   get triggerText (): string {
-    return this.status === 'pause' ? '继续' : '暂停'
+    return this.status === 'pause' ? '继续(Enter)' : '暂停(Esc)'
   }
 
   get indicatorTooltipText (): string {

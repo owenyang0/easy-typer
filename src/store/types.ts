@@ -247,7 +247,7 @@ export class KataState {
   /**
    * 指标校验-击键
    */
-  criteriaHitSpeed = 3;
+  criteriaHitSpeed = 4;
   /**
    * 指标校验-键准
    */
@@ -566,7 +566,7 @@ export class SettingState {
   /**
    * 是否展示侧边栏
    */
-  showSidebar = false
+  showSidebar = true
 }
 
 export interface LoginUser {

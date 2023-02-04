@@ -4,10 +4,10 @@
 ## 一、网页练习
 > 木易跟打器 - 发文 [https://typer.owenyang.top/kata](https://typer.owenyang.top/kata)
 
-## 二、客户端下载-百度网盘
-> [木易跟打器0.3.0] - [https://pan.baidu.com/s/1aDbfbFx4mrM2B-ErvR-tnQ?pwd=8888](https://pan.baidu.com/s/1aDbfbFx4mrM2B-ErvR-tnQ?pwd=8888) 提取码8888
+## 二、客户端下载
+> **【百度网盘】** [木易跟打器0.3.0] - [https://pan.baidu.com/s/1aDbfbFx4mrM2B-ErvR-tnQ?pwd=8888](https://pan.baidu.com/s/1aDbfbFx4mrM2B-ErvR-tnQ?pwd=8888) 提取码8888
 
-> [木易跟打器所有发布记录] - [https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888](https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888) 提取码8888
+> **【发布记录】** [木易跟打器App所有发布记录] - [https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888](https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888) 提取码8888
 
 ### QQ群文件
 > 群号 `787343469` 群文件下载

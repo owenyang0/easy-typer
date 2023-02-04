@@ -84,7 +84,7 @@
           </span>
         </div>
         <div class="key-value">
-          <span>词提</span>
+          <span>编码提示</span>
           <span>
             <el-switch v-model="tempHint" @change="toggleHint(tempHint)"/>
           </span>
