@@ -566,7 +566,7 @@ export class SettingState {
   /**
    * 是否展示侧边栏
    */
-  showSidebar = false
+  showSidebar = true
 }
 
 export interface LoginUser {

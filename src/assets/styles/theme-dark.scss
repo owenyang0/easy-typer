@@ -1158,6 +1158,10 @@ $--svg-monochrome-grey: #DCDDE0 !default;
       min-width: 200px;
     }
   }
+
+  .el-table .el-table__cell {
+    padding: 8px 0;
+  }
 }
 
 html.dark {
