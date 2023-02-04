@@ -48,7 +48,7 @@
               <i class="el-icon-upload"></i>
               <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
               <div class="el-upload__tip" slot="tip">文本格式文件，UTF8编码，多多格式，即`字  编码`，每行一条记录</div>
-              <div class="el-upload__tip" slot="tip">点更新默认编码提示：
+              <div class="el-upload__tip" slot="tip">点击更新默认编码提示：
                 <!-- <el-button-group> -->
                 <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字』</el-button>
                 <!-- </el-button-group> -->
