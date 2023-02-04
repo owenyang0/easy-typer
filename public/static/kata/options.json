@@ -8,32 +8,38 @@
     "value": "tiger",
     "label": "虎码",
     "children": [
-      { "value": "tigerSimp2F500", "label": "虎码二简 前500[完结版]", "isRemote": true },
-      { "value": "tigerSimp2Other", "label": "虎码二简 其他[完结版]", "isRemote": true },
-      { "value": "tigerCertainly632", "label": "虎码必拆字632[完结版]", "isRemote": true },
-      { "value": "tigerCode3", "label": "虎码三码字根字", "isRemote": true },
-      { "value": "tigerHell4500", "label": "虎码要你命4500", "isRemote": true }
+      { "value": "tigerSimp2F500", "label": "虎码二简 前500[完结版]", "isRemote": false },
+      { "value": "tigerSimp2Other", "label": "虎码二简 其他[完结版]", "isRemote": false },
+      { "value": "tigerCertainly632", "label": "虎码必拆字632[完结版]", "isRemote": false },
+      { "value": "tigerCode3", "label": "虎码三码字根字", "isRemote": false },
+      { "value": "tigerHell4500", "label": "虎码要你命4500", "isRemote": false },
+      { "value": "singleMo500", "label": "魔500", "isRemote": true }
     ]
   },
   {
     "value": "word",
     "label": "单字",
     "children": [
-      { "value": "word001", "label": "前五百", "isRemote": true },
-      { "value": "word501", "label": "中五百", "isRemote": true },
-      { "value": "word1001", "label": "后五百", "isRemote": true },
-      { "value": "wordAll1500", "label": "前1500", "isRemote": true },
-      { "value": "word1501", "label": "单字1501-3500 字频排序", "isRemote": true }
+      { "value": "singleFront500", "label": "前500 1-500", "isRemote": true },
+      { "value": "singleMiddle500", "label": "中500 501-1000", "isRemote": true },
+      { "value": "singleEnd500", "label": "后500 1001-1500", "isRemote": true },
+      { "value": "singleFront1500", "label": "前1500 1-1500", "isRemote": true },
+      { "value": "singleHuang500", "label": "黄500 1501-2000", "isRemote": true },
+      { "value": "singleXuan500", "label": "玄500 2001-2500", "isRemote": true },
+      { "value": "singleDi500", "label": "地500 2501-3000", "isRemote": true },
+      { "value": "singleTian500", "label": "天500 3001-3500", "isRemote": true },
+      { "value": "singleEnd2000", "label": "后2000 1501-3000", "isRemote": true },
+      { "value": "singleAll3500", "label": "全3500 1-3500", "isRemote": true }
     ]
   },
   {
     "value": "article",
     "label": "文章",
     "children": [
-      { "value": "articleXDCK", "label": "心的出口", "isRemote": true },
-      { "value": "articleBD", "label": "冰灯", "isRemote": true },
-      { "value": "articleZGXW", "label": "曾广贤文", "isRemote": true },
-      { "value": "articleAPGF", "label": "阿房宫赋", "isRemote": true }
+      { "value": "articleXDCK", "label": "心的出口", "isRemote": false },
+      { "value": "articleBD", "label": "冰灯", "isRemote": false },
+      { "value": "articleZGXW", "label": "曾广贤文", "isRemote": false },
+      { "value": "articleAPGF", "label": "阿房宫赋", "isRemote": false }
     ]
   }
 ]
