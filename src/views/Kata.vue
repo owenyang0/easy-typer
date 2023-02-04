@@ -265,8 +265,19 @@ export default class Home extends Vue {
       return
     }
 
-    this.articleText = contentList[name].content
-    this.dialogTitle = `${contentList[name].title}`
+    fetch(`/static/kata/${name}.json`)
+      .then(res => res.json())
+      .then(ret => {
+        this.articleText = ret.content
+        this.dialogTitle = `${ret.title}`
+      }).catch(() => {
+        this.$message({
+          message: '内容获取失败，请刷新重试！',
+          type: 'error'
+        })
+        this.articleText = contentList[name].content
+        this.dialogTitle = `${contentList[name].title}`
+      })
   }
 
   @Watch('articleText')
@@ -327,6 +338,12 @@ export default class Home extends Vue {
 
   created () {
     this.init()
+
+    fetch('/static/kata/options.json')
+      .then(res => res.json())
+      .then(options => {
+        this.contentOptions = options
+      })
   }
 
   destroyed () {

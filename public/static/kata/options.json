@@ -1,0 +1,39 @@
+[
+  {
+    "value": "free",
+    "label": "自由",
+    "children": [{ "value": "freeText", "label": "手动输入" }]
+  },
+  {
+    "value": "tiger",
+    "label": "虎码",
+    "children": [
+      { "value": "tigerSimp2F500", "label": "虎码二简 前500[完结版]", "isRemote": true },
+      { "value": "tigerSimp2Other", "label": "虎码二简 其他[完结版]", "isRemote": true },
+      { "value": "tigerCertainly632", "label": "虎码必拆字632[完结版]", "isRemote": true },
+      { "value": "tigerCode3", "label": "虎码三码字根字", "isRemote": true },
+      { "value": "tigerHell4500", "label": "虎码要你命4500", "isRemote": true }
+    ]
+  },
+  {
+    "value": "word",
+    "label": "单字",
+    "children": [
+      { "value": "word001", "label": "前五百", "isRemote": true },
+      { "value": "word501", "label": "中五百", "isRemote": true },
+      { "value": "word1001", "label": "后五百", "isRemote": true },
+      { "value": "wordAll1500", "label": "前1500", "isRemote": true },
+      { "value": "word1501", "label": "单字1501-3500 字频排序", "isRemote": true }
+    ]
+  },
+  {
+    "value": "article",
+    "label": "文章",
+    "children": [
+      { "value": "articleXDCK", "label": "心的出口", "isRemote": true },
+      { "value": "articleBD", "label": "冰灯", "isRemote": true },
+      { "value": "articleZGXW", "label": "曾广贤文", "isRemote": true },
+      { "value": "articleAPGF", "label": "阿房宫赋", "isRemote": true }
+    ]
+  }
+]
