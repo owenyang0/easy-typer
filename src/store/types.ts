@@ -247,7 +247,7 @@ export class KataState {
   /**
    * 指标校验-击键
    */
-  criteriaHitSpeed = 3;
+  criteriaHitSpeed = 4;
   /**
    * 指标校验-键准
    */

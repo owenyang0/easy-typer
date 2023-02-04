@@ -290,7 +290,14 @@ export default class Home extends Vue {
 
   @Watch('articleText')
   articleTextChange (articleText: string) {
+    const { contentName, contentLength, paragraphCount } = this.formContent
     this.formContent.contentLength = articleText.length
+
+    if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
+      this.formContent.paragraphSize = 10
+    } else {
+      this.formContent.paragraphSize = Math.min(200, articleText.length)
+    }
     this.formContent.paragraphCount = Math.ceil(articleText.length / this.formContent.paragraphSize)
   }
 
