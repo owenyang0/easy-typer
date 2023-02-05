@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e8651df40f1283d81d2021d8c0bf7c25",
+    "revision": "9f61981136b2e5da7f7aedfc66558350",
     "url": "/app.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "296f05433ccbef84fa8f",
-    "url": "/css/app.d48061d6.css"
+    "revision": "eafc79eb588411763764",
+    "url": "/css/app.875536e1.css"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/practice.691b3b29.css"
   },
   {
-    "revision": "e89099ca24d78816e200",
+    "revision": "bde66e762a7a011e543a",
     "url": "/css/setting.ff2f260c.css"
   },
   {
@@ -84,8 +84,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "296f05433ccbef84fa8f",
-    "url": "/js/app.69a9da29.js"
+    "revision": "eafc79eb588411763764",
+    "url": "/js/app.727e49a9.js"
   },
   {
     "revision": "5ef245b7c30e3b394cdf",
@@ -108,8 +108,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/practice.2f5a686c.js"
   },
   {
-    "revision": "e89099ca24d78816e200",
-    "url": "/js/setting.1b038577.js"
+    "revision": "bde66e762a7a011e543a",
+    "url": "/js/setting.48f91f4a.js"
   },
   {
     "revision": "49b2b8355a0cae004a32",
@@ -120,11 +120,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manifest.json"
   },
   {
-    "revision": "b03fe0da78e887f8df04f87606c56a9a",
+    "revision": "027570ad1416f227780c6bb1ed849315",
     "url": "/static/codings.txt"
   },
   {
-    "revision": "a083a903b1a1c09f1155b49daf552584",
+    "revision": "5beb06e1344dee195f297bf1d1503cab",
+    "url": "/static/codingsSingleRaw.txt"
+  },
+  {
+    "revision": "f11e2ab1e685f430dff5068c3e95d19d",
     "url": "/static/kata/options.json"
   },
   {
