@@ -392,7 +392,7 @@ export class SettingState {
   /**
    * 在删除输入框的所有文字后自动重新开始
    */
-  retryWhenEmpty = false
+  retryWhenEmpty = true
   /**
    * 赛文结束策略
    *
