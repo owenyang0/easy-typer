@@ -56,8 +56,8 @@
             </el-upload>
           </el-form-item>
         </el-tab-pane>
-        <el-tab-pane label="词语提示设置">
-          <el-form-item label="词语提示">
+        <el-tab-pane label="编码提示设置">
+          <el-form-item label="编码提示">
             <el-switch v-model="form.hint"/>
           </el-form-item>
           <el-form-item v-if="form.hint" label="提示选项">
@@ -65,7 +65,7 @@
               <el-checkbox-button v-for="o in hintOptions" :label="o.value" :key="o.value" :disabled="o.disabled">{{ o.text }}</el-checkbox-button>
             </el-checkbox-group>
           </el-form-item>
-          <el-form-item label="禁用单字词语提示">
+          <el-form-item label="禁用单字编码提示">
             <el-switch v-model="form.disableSingleHint"/>
           </el-form-item>
           <el-form-item v-if="selectHintEnabled" label="候选词条数" prop="pageSize">
