@@ -136,6 +136,9 @@ export default class Racing extends Vue {
   }
 
   keydown (e: KeyboardEvent) {
+    if (e.code === 'Backspace' && this.status === 'init') {
+      return
+    }
     this.typing(e)
     this.last = ''
 
