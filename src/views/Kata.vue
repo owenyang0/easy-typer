@@ -77,7 +77,7 @@
             class="form-field"
           ></el-input-number>
         </el-form-item>
-        <el-form-item label="未达标时">
+        <el-form-item label="未达标『或』有错字时">
           <el-select
             size="small"
             placeholder="请选择类型"
