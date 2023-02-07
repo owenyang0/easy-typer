@@ -356,12 +356,12 @@ html, body {
   font-family: var(--racing-font);
   border: none;
   border-bottom: 1px solid var(--level3-border-color);
-  // font-size: var(--font-size);
-  font-size: 28px;
-  // line-height: calc(var(--font-size) + 1rem);
-  line-height: 46px;
-  // height: calc((var(--font-size) + 2rem + 5px) * var(--input-rows));
-  height: 64px;
+  font-size: var(--font-size);
+  // font-size: 28px;
+  line-height: calc(var(--font-size) + 1rem);
+  // line-height: 46px;
+  height: calc((var(--font-size) + 2rem) * var(--input-rows));
+  // height: 64px;
   background-color: var(--background-color);
   &:disabled {
     background-color: var(--level4-border-color);
@@ -550,7 +550,7 @@ $speed-levels: (
 // }
 
 .article-settings {
-  width: 150px;
+  width: 280px;
   z-index: 999;
   position: absolute;
   top: 0;
@@ -567,5 +567,9 @@ $speed-levels: (
     display: inline-block;
     font-weight: bold;
     margin-bottom: 10px;
+  }
+
+  .el-slider.is-vertical .el-slider__runway {
+    margin: 0 auto;
   }
 }

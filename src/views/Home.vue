@@ -41,26 +41,26 @@
                 <el-popover
                   ref="popoverStyle"
                   placement="bottom-start"
-                  width="200"
+                  width="280"
                   @hide="handleSettingHide"
                   trigger="click">
                   <div class="article-settings">
                     <el-row>
-                      <el-col :span="7" :offset="1">
+                      <el-col :span="5" :offset="1">
                         <div class="article-settings_item">
                           <span class="label">字号</span>
                           <el-slider
                             v-model="tempFontSize"
                             @change="handleSliderChange"
                             vertical
-                            :max="7"
+                            :max="5"
                             :min="1"
                             :step="0.1"
                             height="100px">
                           </el-slider>
                         </div>
                       </el-col>
-                      <el-col :span="7" :offset="1">
+                      <el-col :span="5" :offset="1">
                         <div class="article-settings_item">
                           <span class="label">字重</span>
                           <el-slider
@@ -74,14 +74,28 @@
                           </el-slider>
                         </div>
                       </el-col>
-                      <el-col :span="7" :offset="1">
+                      <el-col :span="5" :offset="1">
                         <div class="article-settings_item">
-                          <span class="label">行高</span>
+                          <span class="label">对照行高</span>
                           <el-slider
                             v-model="tempArticleRows"
                             @change="handleSliderChange"
                             vertical
                             :max="12"
+                            :min="1"
+                            :step="1"
+                            height="100px">
+                          </el-slider>
+                        </div>
+                      </el-col>
+                      <el-col :span="5" :offset="1">
+                        <div class="article-settings_item">
+                          <span class="label">跟打行高</span>
+                          <el-slider
+                            v-model="tempInputRows"
+                            @change="handleSliderChange"
+                            vertical
+                            :max="4"
                             :min="1"
                             :step="1"
                             height="100px">
@@ -107,7 +121,7 @@
               <Racing ref="racing" />
             </el-col>
           </el-row>
-          <el-row>
+          <el-row style="margin-top: 5px;">
             <el-col :span="24">
               <Achievements />
             </el-col>
@@ -206,6 +220,9 @@ export default class Home extends Vue {
   @setting.State('articleRows')
   private articleRows!: number
 
+  @setting.State('inputRows')
+  private inputRows!: number
+
   @setting.State('fontWeight')
   private fontWeight!: number
 
@@ -236,6 +253,7 @@ export default class Home extends Vue {
   private articleText = ''
 
   private tempArticleRows = 4
+  private tempInputRows = 1
   private tempFontSize = 2.4
   private tempFontWeight = 500
   private hasUpdated = false
@@ -289,6 +307,18 @@ export default class Home extends Vue {
     })
   }
 
+  @Watch('inputRows')
+  rawInputRowsChange (rows: number) {
+    this.tempInputRows = +rows
+  }
+
+  @Watch('tempInputRows')
+  inputRowsChange (rows: number) {
+    this.updateSettings({
+      inputRows: rows
+    })
+  }
+
   @Watch('fontWeight')
   rawFontWeightChange (weight: number) {
     this.tempFontWeight = +weight
@@ -326,6 +356,7 @@ export default class Home extends Vue {
 
   created () {
     this.rawArticleRowsChange(this.articleRows)
+    this.rawInputRowsChange(this.inputRows)
     this.rawFontWeightChange(this.fontWeight)
     this.rawFontSizeChange(this.fontSize)
 
