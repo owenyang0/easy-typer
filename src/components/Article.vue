@@ -96,9 +96,12 @@ export default class Article extends Vue {
     } else {
       const { path, vertices } = this.shortest
       for (let i = 0; i < length;) {
-        const edge = vertices[path[i]].get(i)
+        // TODO: 扩折号会报错，如：老去——致爸
+        const vertice = vertices[path[i]]
+        const edge = vertice?.get(i)
         if (!edge) {
-          break
+          i++
+          continue
         }
         const next = this.addPhrase(input, edge, words)
         i = next === 0 ? path[i] : next

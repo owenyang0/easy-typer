@@ -331,7 +331,7 @@ export default class Setting extends Vue {
             db.configs.put(trie.root, 'codings').then(() => {
               this.updateCodings(trie.root)
               this.$notify({
-                title: '词提加载成功',
+                title: '编码提示加载成功',
                 message: '默认『虎码』编码提示加载成功，如需其他编码提示请在 ”功能“-”设置“-”码表设置“ 更新即可',
                 type: 'success',
                 duration: 0
