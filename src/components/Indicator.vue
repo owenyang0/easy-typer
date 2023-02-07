@@ -40,11 +40,11 @@
       </el-card>
       <el-card shadow="never">
         <div class="key-value">
-          <span>错/今对</span>
+          <span>今日错/对</span>
           <span>{{ todayErrorWords | numberWithCommas}}/{{ (todayWords - todayErrorWords) | numberWithCommas }}</span>
         </div>
         <div class="key-value">
-          <span>总字数</span>
+          <span>总字</span>
           <span>{{ totalWords | numberWithCommas}}</span>
         </div>
         <div class="key-value">
@@ -72,7 +72,7 @@
           <span>{{ selective }}</span>
         </div>
         <div class="key-value">
-          <span>均横</span>
+          <span>均衡</span>
           <span>{{ leftHand }}/{{ rightHand }}</span>
         </div>
       </el-card>
