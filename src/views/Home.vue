@@ -33,11 +33,11 @@
                 <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
-                <el-button size="mini" :icon="triggerIcon" @click="trigger">{{ triggerText }}</el-button>
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
                 <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip>
+                <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button>
                 <el-popover
                   ref="popoverStyle"
                   placement="bottom-start"
@@ -53,7 +53,7 @@
                             v-model="tempFontSize"
                             @change="handleSliderChange"
                             vertical
-                            :max="5"
+                            :max="8"
                             :min="1"
                             :step="0.1"
                             height="100px">
@@ -270,6 +270,12 @@ export default class Home extends Vue {
     return this.status === 'pause'
       ? 'el-icon-video-play'
       : 'el-icon-video-pause'
+  }
+
+  get triggerType (): string {
+    return this.status !== 'pause'
+      ? 'primary'
+      : 'danger'
   }
 
   @Watch('authenticated')
