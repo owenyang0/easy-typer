@@ -14,7 +14,7 @@ const routes = [
 ]
 
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_WEB_VERSION = '(14)'
+process.env.VUE_APP_WEB_VERSION = '(15)'
 
 const name = '木易跟打器'
 

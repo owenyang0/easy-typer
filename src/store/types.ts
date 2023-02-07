@@ -400,7 +400,7 @@ export class SettingState {
    * LENGTH_MATCH - 打完
    * LAST_RIGHT - 最后一次上屏正确
    */
-  finishStrategy = 'NO_ERROR'
+  finishStrategy = 'LAST_RIGHT'
 
   /**
    * 字体
