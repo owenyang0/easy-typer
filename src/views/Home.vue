@@ -244,6 +244,9 @@ export default class Home extends Vue {
   @kata.Action('updateTipWarning')
   private updateTipWarning!: Function
 
+  @kata.Action('init')
+  private init!: Function
+
   @kata.Action('next')
   private next!: Function
 
@@ -399,15 +402,7 @@ export default class Home extends Vue {
     window.electronAPI && window.electronAPI.removePasteHanlder()
   }
 
-  /**
-   * 粘贴监听
-   */
-  paste (e: ClipboardEvent) {
-    if (this.showLoadDialog || this.mode === 1) {
-      // 手动载文时禁用
-      return
-    }
-
+  loadFromPaste (e: ClipboardEvent) {
     e.preventDefault()
     const { clipboardData } = e
     if (clipboardData) {
@@ -420,6 +415,28 @@ export default class Home extends Vue {
         }
       }
     }
+  }
+
+  /**
+   * 粘贴监听
+   */
+  paste (e: ClipboardEvent) {
+    if (this.showLoadDialog || this.mode === 1) {
+      // 手动载文时禁用
+      this.$confirm('当前正在发文中, 请先结束发文后再试', '是否结束当前发文？', {
+        confirmButtonText: '结束发文',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.init()
+        this.loadFromClipboard()
+      }).catch(() => {
+        console.log('cancel')
+      })
+      return
+    }
+
+    this.loadFromPaste(e)
   }
 
   onGroupChange () {
@@ -490,7 +507,7 @@ export default class Home extends Vue {
         if (this.mode === 1) {
           this.updateTipWarning(true)
 
-          this.$confirm('正在发文，是否结束发文？', '提示', {
+          this.$confirm('正在发文中，是否结束当前发文？', '提示', {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
             type: 'warning'
