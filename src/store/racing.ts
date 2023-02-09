@@ -262,14 +262,16 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
       ['leftHand', `左${getters.leftHand}`],
       ['rightHand', `右${getters.rightHand}`],
       ['idealCodeLength', `理论码长${getters.idealCodeLength}`],
-      ['phrase', `打词${state.phrase}`],
-      ['phraseRate', `打词率${getters.phraseRate}%`],
+      ['phrase', `打词数${state.phrase}`],
+      ['phraseRate', `打词${getters.phraseRate}%`],
       ['selective', `选重${state.selective}`],
       ['replace', `回改${state.replace}`],
       ['keys', `键数${state.keys.length}`],
       ['backspace', `退格${getters.backspaceCount}`],
       ['enter', `回车${getters.enterCount}`],
       ['retry', `重打${state.retry}`],
+      ['firstTry', '[首打大神]'],
+      ['noCodings', '[词提禁用]'],
       ['hash', `哈希${getters.hash}`],
       ['inputMethod', `输入法:${inputMethodName}`],
       ['signature', `个性签名:${signatureText}`],
@@ -287,12 +289,18 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
     const keys = new Set(options)
     const result: Array<string> = []
     statistics.forEach((value, key) => {
+      if (key === 'firstTry') {
+        return state.retry <= 1 && result.push(value)
+      }
+      if (key === 'noCodings') {
+        return !setting.hint && result.push(value)
+      }
       if (keys.has(key)) {
         result.push(value)
       }
     })
 
-    return result.join(' ')
+    return result.join(' ').replace('] [', '][')
   }
 }
 

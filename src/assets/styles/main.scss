@@ -5,6 +5,24 @@
   src: url("../font/digital-7-mono.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "LXGW WenKai GB Screen R";
+  src: url('../font/LXGWWenKai-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "LXGW WenKai GB Screen R";
+  src: url('../font/LXGWWenKai-Light.woff2') format('woff2');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "LXGW WenKai GB Screen R";
+  src: url('../font/LXGWWenKai-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+
 @mixin radius-border($color: var(--level3-border-color), $width: 1px) {
   border: $width solid $color;
   border-radius: 4px;

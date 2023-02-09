@@ -231,8 +231,8 @@ const RESULT_OPTIONS = [
   { value: 'balance', text: '键法' },
   { value: 'leftHand', text: '左' },
   { value: 'rightHand', text: '右' },
-  { value: 'phrase', text: '打词' },
-  { value: 'phraseRate', text: '打词率' },
+  { value: 'phrase', text: '打词数' },
+  { value: 'phraseRate', text: '打词' },
   { value: 'selective', text: '选重' },
   { value: 'replace', text: '回改' },
   { value: 'keys', text: '键数' },
@@ -240,7 +240,9 @@ const RESULT_OPTIONS = [
   { value: 'enter', text: '回车' },
   { value: 'retry', text: '重打' },
   { value: 'hash', text: '哈希码' },
-  { value: 'version', text: '版本' }
+  { value: 'version', text: '版本' },
+  { value: 'firstTry', text: '首打大神提示' },
+  { value: 'noCodings', text: '词提禁用提示' }
 ]
 
 @Component

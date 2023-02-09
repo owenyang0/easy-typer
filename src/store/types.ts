@@ -525,7 +525,7 @@ export class SettingState {
    * 结果选项
    */
 
-  resultOptions = ['identity', 'typeSpeed', 'hitSpeed', 'codeLength', 'version', 'accuracy', 'phraseRate', 'selective', 'keys', 'replace', 'hash', 'backspace']
+  resultOptions = ['identity', 'typeSpeed', 'hitSpeed', 'codeLength', 'version', 'accuracy', 'phraseRate', 'selective', 'keys', 'replace', 'hash', 'backspace', 'firstTry', 'noCodings']
 
   /**
    * 输入法
