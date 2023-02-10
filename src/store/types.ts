@@ -405,7 +405,7 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = 'Consolas,"LXGW WenKai GB Screen R","Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
+  fontFamily = '"LXGW WenKai GB Screen R","Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
 
   /**
    * 字号

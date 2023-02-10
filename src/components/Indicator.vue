@@ -102,6 +102,10 @@
           </span>
         </div>
       </el-card>
+      <el-card class="contribute" shadow="never">
+        <p><i class="el-icon-info"/> <a href="https://github.com/owenyang0/easy-typer/issues" target="_blank">有问题，提个Issue</a></p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank" class="slide">蜀ICP备2023002101号-1</a></p>
+      </el-card>
       <el-drawer
         :title="drawer.title"
         :visible.sync="drawerVisiable"
