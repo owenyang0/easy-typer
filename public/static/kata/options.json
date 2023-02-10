@@ -10,7 +10,7 @@
     "children": [
       { "value": "tigerSimp2F500", "label": "虎码二简 前500[完结版]", "isRemote": false },
       { "value": "tigerSimp2Other", "label": "虎码二简 其他[完结版]", "isRemote": false },
-      { "value": "tigerCertainly632", "label": "虎码必拆字632[完结版]", "isRemote": false },
+      { "value": "tigerCertainly632", "label": "虎码必拆字632[完结版]", "isRemote": true },
       { "value": "tigerCode3", "label": "虎码三码字根字", "isRemote": false },
       { "value": "tigerHell4500", "label": "虎码要你命4500", "isRemote": false },
       { "value": "singleMo500", "label": "魔500", "isRemote": true }

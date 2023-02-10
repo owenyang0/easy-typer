@@ -107,7 +107,7 @@
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import { KataState } from '@/store/types'
-import { contentList, tigerCertainly632, tigerCode3, tigerSimp2F500, tigerSimp2Other, word1501 } from '../common/contentList'
+import { contentList, tigerCode3, tigerSimp2F500, tigerSimp2Other } from '../common/contentList'
 import { KataArticle } from '@/store/kata'
 import { shuffle } from '@/store/util/common'
 import { noop } from 'vue-class-component/lib/util'
@@ -204,9 +204,6 @@ export default class Home extends Vue {
       value: 'tigerSimp2Other',
       label: tigerSimp2Other.title
     }, {
-      value: 'tigerCertainly632',
-      label: tigerCertainly632.title
-    }, {
       value: 'tigerCode3',
       label: tigerCode3.title
     }, {
@@ -216,22 +213,7 @@ export default class Home extends Vue {
   }, {
     value: 'word',
     label: '单字',
-    children: [{
-      value: 'word001',
-      label: '前五百'
-    }, {
-      value: 'word501',
-      label: '中五百'
-    }, {
-      value: 'word1001',
-      label: '后五百'
-    }, {
-      value: 'wordAll1500',
-      label: '前1500'
-    }, {
-      value: 'word1501',
-      label: word1501.title
-    }]
+    children: []
   }, {
     value: 'article',
     label: '文章',
