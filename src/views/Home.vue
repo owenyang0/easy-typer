@@ -379,14 +379,17 @@ export default class Home extends Vue {
         if (!this.appVersion) {
           this.setAppVersion('0.2.4') // 上一版本号
         }
-        if (val && this.mode !== 1) { // 发文状态禁止载文
+
+        this.checkBeforeLoad().then(() => {
           try {
             this.loadText(val)
             this.$router.push('/').catch(noop)
           } catch (error) {
             this.$message.error(error.message)
           }
-        }
+        }).catch(() => {
+          console.log('err')
+        })
       })
     // 监听粘贴事件
     document.addEventListener('paste', this.paste)
@@ -402,41 +405,66 @@ export default class Home extends Vue {
     window.electronAPI && window.electronAPI.removePasteHanlder()
   }
 
-  loadFromPaste (e: ClipboardEvent) {
-    e.preventDefault()
-    const { clipboardData } = e
-    if (clipboardData) {
-      const pasteContent = clipboardData.getData('text/plain')
-      if (pasteContent) {
-        try {
-          this.loadText(pasteContent)
-        } catch (error) {
-          this.$message.error(error.message)
-        }
+  // loadFromPaste (e: ClipboardEvent) {
+  //   e.preventDefault()
+  //   const { clipboardData } = e
+  //   if (clipboardData) {
+  //     const pasteContent = clipboardData.getData('text/plain')
+  //     if (pasteContent) {
+  //       try {
+  //         this.loadText(pasteContent)
+  //       } catch (error) {
+  //         this.$message.error(error.message)
+  //       }
+  //     }
+  //   }
+  // }
+
+  checkBeforeLoad () {
+    return new Promise((resolve, reject) => {
+      if (this.showLoadDialog || this.mode === 1) {
+        // 手动载文时禁用
+        return this.$confirm('当前正在发文中, 请先结束发文后再试', '是否结束当前发文？', {
+          confirmButtonText: '结束发文',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.init()
+          resolve('OK')
+        }).catch(() => {
+          reject(new Error('failed'))
+        })
+      } else {
+        resolve('OK')
       }
-    }
+    })
   }
 
   /**
    * 粘贴监听
    */
   paste (e: ClipboardEvent) {
-    if (this.showLoadDialog || this.mode === 1) {
-      // 手动载文时禁用
-      this.$confirm('当前正在发文中, 请先结束发文后再试', '是否结束当前发文？', {
-        confirmButtonText: '结束发文',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.init()
-        this.loadFromClipboard()
-      }).catch(() => {
-        console.log('cancel')
-      })
-      return
-    }
-
-    this.loadFromPaste(e)
+    e.preventDefault()
+    this.checkBeforeLoad().then(() => {
+      // this.init()
+      this.loadFromClipboard()
+    }).catch(() => {
+      console.log('cancel')
+    })
+    // if (this.showLoadDialog || this.mode === 1) {
+    //   // 手动载文时禁用
+    //   this.$confirm('当前正在发文中, 请先结束发文后再试', '是否结束当前发文？', {
+    //     confirmButtonText: '结束发文',
+    //     cancelButtonText: '取消',
+    //     type: 'warning'
+    //   }).then(() => {
+    //     this.init()
+    //     this.loadFromClipboard()
+    //   }).catch(() => {
+    //     console.log('cancel')
+    //   })
+    //   return
+    // }
   }
 
   onGroupChange () {
@@ -459,13 +487,18 @@ export default class Home extends Vue {
   }
 
   loadFromClipboard () {
-    try {
-      navigator.clipboard.readText().then((text) => {
-        this.loadText(text)
-      })
-    } catch (err) {
-      console.error('Failed to read clipboard contents: ', err)
-    }
+    this.checkBeforeLoad().then(() => {
+      // this.init()
+      try {
+        navigator.clipboard.readText().then((text) => {
+          this.loadText(text)
+        })
+      } catch (err) {
+        console.error('Failed to read clipboard contents: ', err)
+      }
+    }).catch(() => {
+      console.log('cancel')
+    })
   }
 
   trigger () {
