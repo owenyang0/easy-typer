@@ -6,20 +6,23 @@
 }
 
 @font-face {
-  font-family: "LXGW WenKai GB Screen R";
+  font-family: "LXGWWenKai";
   src: url('../font/LXGWWenKai-Regular.woff2') format('woff2');
+  font-display: swap;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "LXGW WenKai GB Screen R";
+  font-family: "LXGWWenKai";
   src: url('../font/LXGWWenKai-Light.woff2') format('woff2');
+  font-display: swap;
   font-weight: 100;
 }
 
 @font-face {
-  font-family: "LXGW WenKai GB Screen R";
+  font-family: "LXGWWenKai";
   src: url('../font/LXGWWenKai-Bold.woff2') format('woff2');
+  font-display: swap;
   font-weight: bold;
 }
 
@@ -280,6 +283,16 @@ html, body {
     }
   }
 }
+
+// .fonts-loaded .el-main {
+//   .article {
+//     font-family: var(--racing-font);
+//   }
+  
+//   #racing-textarea {
+//     font-family: var(--racing-font);
+//   }
+// }
 
 #article-main {
   .article {

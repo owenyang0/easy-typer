@@ -32,3 +32,21 @@ export function initEnv () {
     env: isNative ? 'native' : 'web'
   }
 }
+
+export function loadFonts () {
+  if ('fonts' in document) {
+    if (sessionStorage.fontsLoadedFoft) {
+      document.body.className += ' fonts-loaded'
+      return
+    }
+
+    Promise.all([
+      document.fonts.load('400 1em LXGWWenKai')
+      // document.fonts.load('100 1em LXGWWenKai'),
+      // document.fonts.load('700 1em LXGWWenKai')
+    ]).then(function () {
+      document.body.className += ' fonts-loaded'
+      sessionStorage.fontsLoadedFoft = true
+    })
+  }
+}
