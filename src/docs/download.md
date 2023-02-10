@@ -5,6 +5,8 @@
 > 木易跟打器 - 发文 [https://typer.owenyang.top/kata](https://typer.owenyang.top/kata)
 
 ## 二、客户端下载
+> **【官网下载】** [木易跟打器0.3.0] - [木易跟打器-0.3.0-mac.zip](http://s.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8-0.3.0-mac.zip)
+
 > **【百度网盘】** [木易跟打器0.3.0] - [https://pan.baidu.com/s/1aDbfbFx4mrM2B-ErvR-tnQ?pwd=8888](https://pan.baidu.com/s/1aDbfbFx4mrM2B-ErvR-tnQ?pwd=8888) 提取码8888
 
 > **【发布记录】** [木易跟打器App所有发布记录] - [https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888](https://pan.baidu.com/s/16UKkWAnH9nk3Na45RGe1jg?pwd=8888) 提取码8888
