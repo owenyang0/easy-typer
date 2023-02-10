@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9ce2e2e56c6a14dfe842f8a33bc92c0a",
+    "revision": "9edf777c52361479255c92145bfd2ea0",
     "url": "/app.html"
   },
   {
@@ -8,19 +8,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baidu_verify_codeva-27b8eJ5KJd.html"
   },
   {
-    "revision": "b942c331368747f95230",
+    "revision": "b2c28384894b972b0802",
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "246e2f8a0c1dd1ac82b3",
-    "url": "/css/app.5b264d40.css"
+    "revision": "e4b0f53d6f4a5068c8dd",
+    "url": "/css/app.34dc6367.css"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "bd996861e740b4d7eefa",
+    "revision": "a6b7d789d29562a687c9",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -84,8 +84,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/ui@2x.png"
   },
   {
-    "revision": "b942c331368747f95230",
-    "url": "/js/about.0b53d6fb.js"
+    "revision": "b2c28384894b972b0802",
+    "url": "/js/about.e495c8e5.js"
   },
   {
     "revision": "1e867c2af607dc83291e",
@@ -96,12 +96,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "246e2f8a0c1dd1ac82b3",
-    "url": "/js/app.dfd8bb29.js"
+    "revision": "e4b0f53d6f4a5068c8dd",
+    "url": "/js/app.dcb2175b.js"
   },
   {
-    "revision": "9480f3bdd1e22baa80cd",
-    "url": "/js/changelog.1f38c5ab.js"
+    "revision": "9295d32ccad6c826aa6e",
+    "url": "/js/changelog.fe30defa.js"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
@@ -112,8 +112,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.014ff781.js"
   },
   {
-    "revision": "bd996861e740b4d7eefa",
-    "url": "/js/kata.6d081649.js"
+    "revision": "a6b7d789d29562a687c9",
+    "url": "/js/kata.bc1093fb.js"
   },
   {
     "revision": "331a8195648938c29525",
@@ -140,7 +140,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/codingsSingleRaw.txt"
   },
   {
-    "revision": "f11e2ab1e685f430dff5068c3e95d19d",
+    "revision": "82055f3ab306d333f9f6f13514cc64b4",
     "url": "/static/kata/options.json"
   },
   {
