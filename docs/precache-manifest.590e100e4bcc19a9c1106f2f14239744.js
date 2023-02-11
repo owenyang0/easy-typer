@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd099de75950603263a4e17439a08d7d",
+    "revision": "17fc958810012b81ed36c3fda5a25932",
     "url": "/app.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "f9a31e95f5a0277cc1e8",
+    "revision": "0cd6b84f3208a54027d8",
     "url": "/css/app.fa57953c.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "a2a7b5146182b37fd1a9",
+    "revision": "7226ac76e80673aa4db3",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -96,8 +96,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "f9a31e95f5a0277cc1e8",
-    "url": "/js/app.098491dd.js"
+    "revision": "0cd6b84f3208a54027d8",
+    "url": "/js/app.0a7c022c.js"
   },
   {
     "revision": "9295d32ccad6c826aa6e",
@@ -112,8 +112,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.014ff781.js"
   },
   {
-    "revision": "a2a7b5146182b37fd1a9",
-    "url": "/js/kata.ccc66c26.js"
+    "revision": "7226ac76e80673aa4db3",
+    "url": "/js/kata.9ee3e036.js"
   },
   {
     "revision": "331a8195648938c29525",
@@ -140,7 +140,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/codingsSingleRaw.txt"
   },
   {
-    "revision": "82055f3ab306d333f9f6f13514cc64b4",
+    "revision": "eb68d3daa1e54b887c344a3206c3a4fe",
+    "url": "/static/kata/articleAPGF.json"
+  },
+  {
+    "revision": "d855ff9c9aae20f5740421eb693899ed",
+    "url": "/static/kata/articleBD.json"
+  },
+  {
+    "revision": "79eefeee5faf522bfc848466b7ae934d",
+    "url": "/static/kata/articleZGXW.json"
+  },
+  {
+    "revision": "3bc1efef072e9d5668af0338520e5352",
     "url": "/static/kata/options.json"
   },
   {
