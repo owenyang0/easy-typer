@@ -34,11 +34,76 @@
   },
   {
     "value": "article",
-    "label": "文章 [秃秃整理]",
+    "label": "名篇合集 [秃秃整理]",
     "children": [
       {
-        "value": "articleBD",
-        "label": "冰灯",
+        "value": "articleLS",
+        "label": "离骚",
+        "isRemote": true
+      },
+      {
+        "value": "articleCSB",
+        "label": "出师表",
+        "isRemote": true
+      },
+      {
+        "value": "articleLSF",
+        "label": "洛神赋",
+        "isRemote": true
+      },
+      {
+        "value": "articleSDN",
+        "label": "蜀道难",
+        "isRemote": true
+      },
+      {
+        "value": "articleCHG",
+        "label": "长恨歌",
+        "isRemote": true
+      },
+      {
+        "value": "articleCQB",
+        "label": "陈情表",
+        "isRemote": true
+      },
+      {
+        "value": "articleLSM",
+        "label": "陋室铭",
+        "isRemote": true
+      },
+      {
+        "value": "articleJJJ",
+        "label": "将进酒·君不见",
+        "isRemote": true
+      },
+      {
+        "value": "articleLTJX",
+        "label": "兰亭集序",
+        "isRemote": true
+      },
+      {
+        "value": "articleQCBF",
+        "label": "前赤壁赋",
+        "isRemote": true
+      },
+      {
+        "value": "articleHCBF",
+        "label": "后赤壁赋",
+        "isRemote": true
+      },
+      {
+        "value": "articleXSTJ",
+        "label": "小石潭记",
+        "isRemote": true
+      },
+      {
+        "value": "articleYYLJ",
+        "label": "岳阳楼记",
+        "isRemote": true
+      },
+      {
+        "value": "articleBSZH",
+        "label": "捕蛇者说",
         "isRemote": true
       },
       {
@@ -47,8 +112,68 @@
         "isRemote": true
       },
       {
+        "value": "articleTHYJ",
+        "label": "桃花源记",
+        "isRemote": true
+      },
+      {
+        "value": "articleTWGX",
+        "label": "滕王阁序",
+        "isRemote": true
+      },
+      {
+        "value": "articleDTSJ",
+        "label": "登泰山记",
+        "isRemote": true
+      },
+      {
+        "value": "articleZWTJ",
+        "label": "醉翁亭记",
+        "isRemote": true
+      },
+      {
         "value": "articleAPGF",
         "label": "阿房宫赋",
+        "isRemote": true
+      },
+      {
+        "value": "articleXJXZ",
+        "label": "项脊轩志",
+        "isRemote": true
+      },
+      {
+        "value": "articleYZYSS",
+        "label": "与朱元思书",
+        "isRemote": true
+      },
+      {
+        "value": "articleHXTKX",
+        "label": "湖心亭看雪",
+        "isRemote": true
+      },
+      {
+        "value": "articleJSELW",
+        "label": "祭十二郎文",
+        "isRemote": true
+      },
+      {
+        "value": "articleZJFQWNJ",
+        "label": "邹忌讽齐王纳谏",
+        "isRemote": true
+      },
+      {
+        "value": "articleMLS",
+        "label": "木兰诗（木兰辞）",
+        "isRemote": true
+      },
+      {
+        "value": "articleCYYCDTHYX",
+        "label": "春夜宴从弟桃花园序",
+        "isRemote": true
+      },
+      {
+        "value": "articleBD",
+        "label": "冰灯",
         "isRemote": true
       }
     ]

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d52ceef6f519dc1c20c5ae8f25404893",
+    "revision": "596e5cbad4d8576d9b3390bc41b7e860",
     "url": "/app.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "bbbafe91a64339796957",
+    "revision": "5218f9caf5f5025ba76f",
     "url": "/css/app.fa57953c.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "b6d599a3ea392690bb95",
+    "revision": "c548d98d357aa7b398ae",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -96,12 +96,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "bbbafe91a64339796957",
-    "url": "/js/app.c12d83d5.js"
+    "revision": "5218f9caf5f5025ba76f",
+    "url": "/js/app.5b0a19f6.js"
   },
   {
-    "revision": "e3acc42b2a43cd9a071c",
-    "url": "/js/changelog.d107c459.js"
+    "revision": "d5ddddb67553c7b49bd4",
+    "url": "/js/changelog.101cfbbc.js"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
@@ -112,8 +112,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.014ff781.js"
   },
   {
-    "revision": "b6d599a3ea392690bb95",
-    "url": "/js/kata.72040859.js"
+    "revision": "c548d98d357aa7b398ae",
+    "url": "/js/kata.b7a5ee0e.js"
   },
   {
     "revision": "331a8195648938c29525",
@@ -148,11 +148,111 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleBD.json"
   },
   {
+    "revision": "684735682e568097775719aa7316a0c7",
+    "url": "/static/kata/articleBSZH.json"
+  },
+  {
+    "revision": "049d2d97ab049fc87b6643cf80453285",
+    "url": "/static/kata/articleCHG.json"
+  },
+  {
+    "revision": "d3db528662caa6d2d9ab994d12f75cf0",
+    "url": "/static/kata/articleCQB.json"
+  },
+  {
+    "revision": "06f13398fba4fba1acae8397130bb247",
+    "url": "/static/kata/articleCSB.json"
+  },
+  {
+    "revision": "d27648172e22d7037b9d117458b02d8f",
+    "url": "/static/kata/articleCYYCDTHYX.json"
+  },
+  {
+    "revision": "d4cffe3a1f321bba4a32e66977e679f5",
+    "url": "/static/kata/articleDTSJ.json"
+  },
+  {
+    "revision": "c13c0958467e5ea76b79a692af00743a",
+    "url": "/static/kata/articleHCBF.json"
+  },
+  {
+    "revision": "038479cf03ae4e6c13f6321068721f21",
+    "url": "/static/kata/articleHXTKX.json"
+  },
+  {
+    "revision": "c5b4691dd983094e5a8a634b0d0d7d52",
+    "url": "/static/kata/articleJJJ.json"
+  },
+  {
+    "revision": "2426858a53b27de303fd4ce50f74730e",
+    "url": "/static/kata/articleJSELW.json"
+  },
+  {
+    "revision": "5b62cbdf5e5bc4761ea06cf6684ab824",
+    "url": "/static/kata/articleLS.json"
+  },
+  {
+    "revision": "8bdec28609b002267519e66fdcbb11d1",
+    "url": "/static/kata/articleLSF.json"
+  },
+  {
+    "revision": "656e2415bdc39c7fddd10d05efc00ead",
+    "url": "/static/kata/articleLSM.json"
+  },
+  {
+    "revision": "8a80f288bb5275d47b72a628ee1450bf",
+    "url": "/static/kata/articleLTJX.json"
+  },
+  {
+    "revision": "cc39c542e300877fc5ce16b644c8118c",
+    "url": "/static/kata/articleMLS.json"
+  },
+  {
+    "revision": "6ad03aa96635864d6b14311fb6f1abbf",
+    "url": "/static/kata/articleQCBF.json"
+  },
+  {
+    "revision": "d5ca4632fa860705c6ea5a4f6735f468",
+    "url": "/static/kata/articleSDN.json"
+  },
+  {
+    "revision": "c006cecd732b07e26213d10fa5574ffd",
+    "url": "/static/kata/articleTHYJ.json"
+  },
+  {
+    "revision": "52192b961729bfcceaac1b7cf0313dbf",
+    "url": "/static/kata/articleTWGX.json"
+  },
+  {
+    "revision": "80d071489f53ab670f6c9594661375e9",
+    "url": "/static/kata/articleXJXZ.json"
+  },
+  {
+    "revision": "b4650ed9c4ac566ebe9a1ef47d2be496",
+    "url": "/static/kata/articleXSTJ.json"
+  },
+  {
+    "revision": "9e76e391bc0e2992d371a6e6b6fea120",
+    "url": "/static/kata/articleYYLJ.json"
+  },
+  {
+    "revision": "91778bdfbf9cb8d7309a208746a47f3f",
+    "url": "/static/kata/articleYZYSS.json"
+  },
+  {
     "revision": "79eefeee5faf522bfc848466b7ae934d",
     "url": "/static/kata/articleZGXW.json"
   },
   {
-    "revision": "3bc1efef072e9d5668af0338520e5352",
+    "revision": "d22bd7119aa1960b1bd522cc2fbaaada",
+    "url": "/static/kata/articleZJFQWNJ.json"
+  },
+  {
+    "revision": "a13e2294e8c5cb7f016dff77e88b3245",
+    "url": "/static/kata/articleZWTJ.json"
+  },
+  {
+    "revision": "c7f8d6937c0306a3eab8ae572eab0be0",
     "url": "/static/kata/options.json"
   },
   {
