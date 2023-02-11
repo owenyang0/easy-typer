@@ -1,17 +1,5 @@
 const File = require('./File');
-
-const configs = [
-  {
-    name: '冰灯',
-    value: 'BD'
-  }, {
-    name: '曾广贤文',
-    value: 'ZGXW'
-  }, {
-    name: '阿房宫赋',
-    value: 'APGF'
-  },
-]
+const configs = require('./config')
 
 const options = []
 const promises = configs.map(conf => {

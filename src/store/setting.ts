@@ -69,7 +69,7 @@ const mutations: MutationTree<SettingState> = {
   update (state, setting) {
     if (setting) {
       // 用于主动更新配置
-      if (!setting.lastUpdatedTime || setting.lastUpdatedTime < state.lastUpdatedTime) {
+      if ((!setting.lastUpdatedTime || setting.lastUpdatedTime < state.lastUpdatedTime) && setting.resultOptions) {
         setting.resultOptions = setting.resultOptions.concat(['accuracyTip', 'errPenaltyTip'])
       }
       Object.assign(state, setting, {
