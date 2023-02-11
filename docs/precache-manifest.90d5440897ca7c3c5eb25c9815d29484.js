@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "17fc958810012b81ed36c3fda5a25932",
+    "revision": "8be20e0d70ba061e718e1995462f7a32",
     "url": "/app.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "0cd6b84f3208a54027d8",
+    "revision": "aaed76935b32337bcd6a",
     "url": "/css/app.fa57953c.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "7226ac76e80673aa4db3",
+    "revision": "b6d599a3ea392690bb95",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/practice.691b3b29.css"
   },
   {
-    "revision": "1e88e1247ab34de8b738",
+    "revision": "3eeb9f2392af7ddfbff7",
     "url": "/css/setting.ff2f260c.css"
   },
   {
@@ -96,12 +96,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "0cd6b84f3208a54027d8",
-    "url": "/js/app.0a7c022c.js"
+    "revision": "aaed76935b32337bcd6a",
+    "url": "/js/app.cbfbd8b1.js"
   },
   {
-    "revision": "9295d32ccad6c826aa6e",
-    "url": "/js/changelog.fe30defa.js"
+    "revision": "e3acc42b2a43cd9a071c",
+    "url": "/js/changelog.d107c459.js"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
@@ -112,16 +112,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.014ff781.js"
   },
   {
-    "revision": "7226ac76e80673aa4db3",
-    "url": "/js/kata.9ee3e036.js"
+    "revision": "b6d599a3ea392690bb95",
+    "url": "/js/kata.72040859.js"
   },
   {
     "revision": "331a8195648938c29525",
     "url": "/js/practice.2f5a686c.js"
   },
   {
-    "revision": "1e88e1247ab34de8b738",
-    "url": "/js/setting.ec35ad8b.js"
+    "revision": "3eeb9f2392af7ddfbff7",
+    "url": "/js/setting.0f6cb9a5.js"
   },
   {
     "revision": "49b2b8355a0cae004a32",
