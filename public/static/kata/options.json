@@ -36,9 +36,21 @@
     "value": "article",
     "label": "文章 [秃秃整理]",
     "children": [
-      { "value": "articleBD", "label": "冰灯", "isRemote": false },
-      { "value": "articleZGXW", "label": "曾广贤文", "isRemote": false },
-      { "value": "articleAPGF", "label": "阿房宫赋", "isRemote": false }
+      {
+        "value": "articleBD",
+        "label": "冰灯",
+        "isRemote": true
+      },
+      {
+        "value": "articleZGXW",
+        "label": "曾广贤文",
+        "isRemote": true
+      },
+      {
+        "value": "articleAPGF",
+        "label": "阿房宫赋",
+        "isRemote": true
+      }
     ]
   }
 ]

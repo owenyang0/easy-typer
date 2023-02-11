@@ -216,16 +216,7 @@ export default class Home extends Vue {
   }, {
     value: 'article',
     label: '文章',
-    children: [{
-      value: 'articleBD',
-      label: '冰灯'
-    }, {
-      value: 'articleZGXW',
-      label: '曾广贤文'
-    }, {
-      value: 'articleAPGF',
-      label: '阿房宫赋'
-    }]
+    children: []
   }]
 
   @Watch('formContent.paragraphSize')
@@ -332,7 +323,7 @@ export default class Home extends Vue {
   created () {
     this.init()
 
-    fetch('/static/kata/options.json?v=1')
+    fetch('/static/kata/options.json?v=2')
       .then(res => res.json())
       .then(options => {
         this.contentOptions = options
