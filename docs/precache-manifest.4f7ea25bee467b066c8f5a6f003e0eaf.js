@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "70133d94bf70e9e4d9e72b7c81b9ce41",
+    "url": "/app.html"
+  },
+  {
     "revision": "cb2595dcb46d25e28fa6e7cc31c1fce3",
     "url": "/baidu_verify_codeva-27b8eJ5KJd.html"
   },
@@ -8,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "20f487703cfe5c2368cc",
-    "url": "/css/app.34dc6367.css"
+    "revision": "a9444679baf9317dd880",
+    "url": "/css/app.fa57953c.css"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
@@ -92,8 +96,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "20f487703cfe5c2368cc",
-    "url": "/js/app.6748edcc.js"
+    "revision": "a9444679baf9317dd880",
+    "url": "/js/app.7c0d920e.js"
   },
   {
     "revision": "9295d32ccad6c826aa6e",
