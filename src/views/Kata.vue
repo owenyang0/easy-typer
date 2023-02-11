@@ -19,7 +19,6 @@
             expand-trigger="hover"
             :options="contentOptions"
             v-model="formContent.contentName"
-            class="form-field"
           >
           </el-cascader>
         </el-form-item>
@@ -31,7 +30,7 @@
             size="small"
             v-model="formContent.paragraphSize"
             :min="1"
-            :step="1"
+            :step="10"
             class="form-field"
           ></el-input-number>
         </el-form-item>
@@ -218,9 +217,6 @@ export default class Home extends Vue {
     value: 'article',
     label: '文章',
     children: [{
-      value: 'articleXDCK',
-      label: '心的出口'
-    }, {
       value: 'articleBD',
       label: '冰灯'
     }, {
