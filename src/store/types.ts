@@ -525,7 +525,7 @@ export class SettingState {
    * 结果选项
    */
 
-  resultOptions = ['identity', 'typeSpeed', 'hitSpeed', 'codeLength', 'version', 'accuracy', 'phraseRate', 'selective', 'keys', 'replace', 'hash', 'backspace', 'firstTry', 'noCodings']
+  resultOptions = ['identity', 'typeSpeed', 'hitSpeed', 'codeLength', 'version', 'accuracy', 'phraseRate', 'selective', 'keys', 'replace', 'hash', 'backspace', 'firstTry', 'noCodings', 'accuracyTip', 'errPenaltyTip']
 
   /**
    * 输入法
@@ -567,6 +567,10 @@ export class SettingState {
    * 是否展示侧边栏
    */
   showSidebar = true
+  /**
+   * 上次配置更新时间
+   */
+  lastUpdatedTime = 1676097265092
 }
 
 export interface LoginUser {
