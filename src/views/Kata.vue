@@ -323,7 +323,7 @@ export default class Home extends Vue {
   created () {
     this.init()
 
-    fetch('/static/kata/options.json?v=2')
+    fetch('/static/kata/options.json?v=3')
       .then(res => res.json())
       .then(options => {
         this.contentOptions = options
