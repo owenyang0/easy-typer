@@ -84,6 +84,10 @@ const routes: Array<RouteConfig> = [
       title: '木易跟打器 - 程序下载'
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/Download.vue')
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 
