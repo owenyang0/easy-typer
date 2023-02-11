@@ -241,8 +241,10 @@ const RESULT_OPTIONS = [
   { value: 'retry', text: '重打' },
   { value: 'hash', text: '哈希码' },
   { value: 'version', text: '版本' },
-  { value: 'firstTry', text: '首打大神提示' },
-  { value: 'noCodings', text: '词提禁用提示' }
+  { value: 'firstTry', text: '首打等级提示' },
+  { value: 'noCodings', text: '词提禁用提示' },
+  { value: 'accuracyTip', text: '无敌键准提示' },
+  { value: 'errPenaltyTip', text: '错一罚五提示' }
 ]
 
 @Component
