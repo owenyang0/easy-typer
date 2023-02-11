@@ -353,7 +353,8 @@ html, body {
     &.inline {
       div {
         display: inline;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+        line-height: calc(var(--font-size) + 1.4rem);
       }
     }
 
