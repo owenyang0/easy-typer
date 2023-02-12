@@ -22,13 +22,23 @@
 - `Esc`：暂停
 - `Enter`: 继续
 
+### 2.2 视频演示
 
-### 2.2 载文
+**1) 木易跟打器macOS版-载文演示**
+
+<video style="max-width:600px;" autoplay="autoplay" controls="controls" loop alt="木易跟打器macOS版-载文演示" src="https://s.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8macOS%E7%89%88-%E8%BD%BD%E6%96%87%E6%BC%94%E7%A4%BA.mp4" />
+
+**2) 木易跟打器-复合指标演示**
+
+<video style="max-width:600px;" controls="controls" loop alt="木易跟打器-复合指标演示" src="https://s.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8-%E5%A4%8D%E5%90%88%E6%8C%87%E6%A0%87%E6%BC%94%E7%A4%BA.mp4" />
+
+
+### 2.3 载文
 由于QQ macOS版本的限制，无法全文获取。可将鼠标移至聊天窗口对应消息位置，按`F4`载入文本。
-1. 『赛文文字』从QQ群使用指令获取赛文，然后鼠标移至赛文外，按`F4`即可
+1. 『赛文文字』从QQ群使用指令获取赛文，然后鼠标移至赛文外，按`F4`即可。如下视频所示：
 2. 『自由文本』将要打的文本复制到剪切板，然后到主页粘贴即可
 
-### 2.3 发送成绩
+### 2.4 发送成绩
 
 * 跟打结束后，成绩会 **自动** 发送至QQ群当前激活的窗口并发送，并复制到系统剪切板
 * 如不想自动发送成绩，可在左侧开启 **`潜水`** 模式
