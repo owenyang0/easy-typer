@@ -381,6 +381,6 @@ export default class Setting extends Vue {
     overflow-y: hidden;
   }
   .menu-col {
-    min-width: 500px;
+    min-width: 570px;
   }
 </style>
