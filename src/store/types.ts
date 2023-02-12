@@ -237,6 +237,10 @@ export class KataState {
    */
   mode = 0;
   /**
+   * 是否是从阅读模式发文
+   */
+  isReading = false;
+  /**
    * 是否提示正在发文
    */
   hasTipWarning = false;
@@ -256,6 +260,27 @@ export class KataState {
    * 指标校验-操作 random乱序 retry重打 noop不处理
    */
   criteriaAction: 'noop' | 'random' | 'retry' = 'random';
+}
+
+export interface BookModel {
+  id: string;
+  title: string;
+  content?: string;
+  totalWords: number;
+  paragraphSize: number;
+  currentWords: number;
+  paragraphs: number;
+}
+
+export class ReadingState {
+  /**
+   * 书籍列表
+   */
+  books = [] as BookModel[];
+  /**
+   * 当前书
+   */
+  bookConf = {} as BookModel;
 }
 
 export class RecordState {
@@ -285,6 +310,7 @@ export class QuickTypingState {
   article!: ArticleState;
   racing!: RacingState;
   kata!: KataState;
+  reading!: ReadingState;
   /**
    * 编码
    */

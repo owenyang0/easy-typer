@@ -22,6 +22,10 @@
             <i class="el-icon-medal-1"></i>
             <span slot="title">跟打</span>
           </el-menu-item>
+          <el-menu-item index="/reading">
+            <i class="el-icon-document"></i>
+            <span slot="title">阅读</span>
+          </el-menu-item>
           <el-submenu index="/func">
             <template slot="title"><i class="el-icon-s-data"></i>功能</template>
             <el-menu-item index="/kata">
@@ -212,7 +216,7 @@ export default class Setting extends Vue {
   ]
 
   handleSelect (key: string, keyPath: string[]) {
-    if (key === '/kata') {
+    if (key === '/kata' || key === '/reading') {
       if (this.hasTipWarning) {
         return
       }

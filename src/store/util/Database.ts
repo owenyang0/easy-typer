@@ -12,6 +12,10 @@ class QuickTypingDatabase extends Dexie {
    */
   summary: Dexie.Table<LooseObject<number>, string>
   /**
+   * 汇总
+   */
+  bookShelf: Dexie.Table<unknown, string>
+  /**
    * 成绩
    */
   achievement: Dexie.Table<Achievement, number>
@@ -32,10 +36,17 @@ class QuickTypingDatabase extends Dexie {
       summary: '',
       achievement: '++'
     })
+    this.version(4).stores({
+      configs: '',
+      summary: '',
+      achievement: '++',
+      bookShelf: ''
+    })
 
     this.configs = this.table('configs')
     this.summary = this.table('summary')
     this.achievement = this.table('achievement')
+    this.bookShelf = this.table('bookShelf')
   }
 }
 

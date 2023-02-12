@@ -1,6 +1,6 @@
-<img style="max-width:600px;" alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/logo-lanscape%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/logo-lanscape@2x.png">
 
-<img style="max-width:600px;" alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/ui%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/ui@2x.png">
 <img style="max-width:600px;" alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/kata.png">
 <img style="max-width:600px;" alt="木易跟打器macOS版" src="https://typer.owenyang.top/img/history.png">
 
