@@ -4,7 +4,7 @@
       <h2>阅读：上传书籍 即可跟打阅读</h2>
     </div>
     <div class="pro-module-bd">
-      <el-form :inline="true" class="form-content">
+      <el-form :inline="true" class="form-content" label-width="100px">
         <el-form-item label="书籍上传">
           <el-upload drag action="#"
             accept=".txt"
@@ -67,19 +67,23 @@
             </template>
           </el-table-column>
           <el-table-column prop="title" label="书名" min-width="140" show-overflow-tooltip />
-          <el-table-column prop="currentWords" label="进度/总字数" min-width="120">
+          <el-table-column prop="currentWords" label="进度/总字数" min-width="140">
             <template slot-scope="props">
               {{props.row.currentWords | numberWithCommas}}/{{props.row.totalWords | numberWithCommas}}
             </template>
           </el-table-column>
-          <el-table-column prop="paragraphs" label="总段数" min-width="70"/>
-          <el-table-column prop="paragraphWords" label="每段字数" min-width="80"/>
+          <el-table-column prop="paragraphs" label="总段数" min-width="70">
+            <template slot-scope="props">
+              {{props.row.paragraphs | numberWithCommas}}
+            </template>
+          </el-table-column>
+          <el-table-column prop="paragraphSize" label="每段字数" min-width="80"/>
           <el-table-column
             label="操作"
             width="190">
             <template slot-scope="prop">
               <el-button
-                @click.native.prevent="deleteRossw(prop.$index, tableData4)"
+                @click.native.prevent="showSettingDialog(prop.row.id)"
                 type="text"
                 size="mini">
                 设置
@@ -101,6 +105,34 @@
         </el-table>
       </el-form>
     </div>
+    <el-dialog :visible.sync="showLoadDialog" title="设置" class="load-text">
+      <el-form ref="form" label-width="100px">
+        <el-form-item label="进度调整">
+          <el-slider
+            v-model="currentProgress"
+            :min="0"
+            :max="bookConf.totalWords"
+            @change="handleProgressChange"
+            show-input>
+          </el-slider>
+        </el-form-item>
+        <el-form-item label="每段字数">
+          <el-input-number
+            size="small"
+            :value="bookConf.paragraphSize"
+            :min="5"
+            :max="10000"
+            :step="10"
+            @change="handleParagraphSizeChange"
+            class="form-field"
+            ></el-input-number>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="showLoadDialog = false">取 消</el-button>
+        <el-button type="primary" @click="saveSetting">确 定</el-button>
+      </div>
+    </el-dialog>
 </div>
 </template>
 
@@ -119,7 +151,7 @@ const kata = namespace('kata')
 const reading = namespace('reading')
 
 @Component
-export default class Home extends Vue {
+export default class Reading extends Vue {
   @article.Action('loadMatch')
   private loadMatch!: Function
 
@@ -156,11 +188,23 @@ export default class Home extends Vue {
   @reading.Action('selectBook')
   private selectBook!: Function
 
+  @reading.Action('updateBookConf')
+  private updateBookConf!: Function
+
+  @reading.Action('updateBooksByConf')
+  private updateBooksByConf!: Function
+
+  @reading.Mutation('saveBooksConfToDB')
+  private saveBooksConfToDB!: Function
+
   @reading.Getter('books')
-  private books!: any[]
+  private books!: BookModel[]
 
   @reading.Getter('bookConf')
   private bookConf!: BookModel
+
+  private currentProgress = 1
+  private showLoadDialog = false
 
   get isCriteriaDisabled (): boolean {
     return !this.criteriaOpen
@@ -218,7 +262,7 @@ export default class Home extends Vue {
             id,
             title,
             totalWords,
-            paragraphWords: 10,
+            paragraphSize: 10,
             currentWords: 0,
             paragraphs: Math.ceil(result.length / 10)
           }
@@ -257,8 +301,8 @@ export default class Home extends Vue {
         const article: Partial<KataState> = {
           articleTitle: b.title,
           articleText: b.content,
-          currentParagraphNo: Math.ceil((conf.currentWords + 1) / conf.paragraphWords),
-          paragraphSize: conf.paragraphWords,
+          currentParagraphNo: Math.ceil((conf.currentWords + 1) / conf.paragraphSize),
+          paragraphSize: conf.paragraphSize,
           isReading: true
         }
 
@@ -271,6 +315,30 @@ export default class Home extends Vue {
 
   deleteBook (id: string) {
     this.deleteBookById(id)
+  }
+
+  showSettingDialog (id: string) {
+    this.selectBook(id)
+    this.currentProgress = this.bookConf.currentWords
+    this.showLoadDialog = true
+  }
+
+  saveSetting (id: string) {
+    this.showLoadDialog = false
+    this.updateBooksByConf(id)
+    this.saveBooksConfToDB()
+  }
+
+  handleProgressChange (progress: number) {
+    this.updateBookConf({
+      currentWords: progress
+    })
+  }
+
+  handleParagraphSizeChange (size: number) {
+    this.updateBookConf({
+      paragraphSize: size
+    })
   }
 
   created () {

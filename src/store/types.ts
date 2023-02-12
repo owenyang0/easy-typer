@@ -267,7 +267,7 @@ export interface BookModel {
   title: string;
   content?: string;
   totalWords: number;
-  paragraphWords: number;
+  paragraphSize: number;
   currentWords: number;
   paragraphs: number;
 }

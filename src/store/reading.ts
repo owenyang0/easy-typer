@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { BookModel, QuickTypingState, ReadingState } from './types'
 import db from './util/Database'
@@ -14,15 +15,9 @@ const getters: GetterTree<ReadingState, QuickTypingState> = {
 }
 
 const mutations: MutationTree<ReadingState> = {
-  update (state, setting) {
-    if (setting) {
-      Object.assign(state, setting)
-    }
-  },
-
   updateBookConf (state, conf: BookModel) {
     if (conf) {
-      Object.assign(state.bookConf, conf)
+      state.bookConf = Object.assign({}, state.bookConf, conf)
     }
   },
 
@@ -32,7 +27,7 @@ const mutations: MutationTree<ReadingState> = {
 
   updateProgress (state, words) {
     state.bookConf.currentWords += words
-    state.books.map(book => {
+    state.books = state.books.map(book => {
       return {
         ...book,
         currentWords: book.id === state.bookConf.id ? state.bookConf.currentWords : book.currentWords
@@ -65,6 +60,18 @@ const actions: ActionTree<ReadingState, QuickTypingState> = {
 
   updateBookConf ({ commit }, conf) {
     commit('updateBookConf', conf)
+  },
+
+  updateBooksByConf ({ commit, state }, id: string) {
+    const books = state.books.map(book => {
+      return book.id === state.bookConf.id
+        ? {
+          ...state.bookConf
+        }
+        : book
+    })
+
+    commit('loadBooks', books)
   },
   deleteBookById ({ commit, state }, id: string) {
     const books = state.books.filter(book => book.id !== id)

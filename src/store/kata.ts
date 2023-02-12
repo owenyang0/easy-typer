@@ -94,7 +94,7 @@ const actions: ActionTree<KataState, QuickTypingState> = {
         this.dispatch('article/loadMatch', getters.nextParagraph)
 
         if (state.isReading) {
-          this.dispatch('reading/updateProgress', state.paragraphSize)
+          this.dispatch('reading/updateProgress', state.currentContent.length)
         }
       }
     } else if (!hideWanring) {
