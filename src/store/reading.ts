@@ -27,6 +27,9 @@ const mutations: MutationTree<ReadingState> = {
 
   updateProgress (state, words) {
     state.bookConf.currentWords += words
+    if (state.bookConf.currentWords > state.bookConf.totalWords) {
+      state.bookConf.currentWords = state.bookConf.totalWords
+    }
     state.books = state.books.map(book => {
       return {
         ...book,

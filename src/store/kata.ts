@@ -88,14 +88,13 @@ const actions: ActionTree<KataState, QuickTypingState> = {
     if (state.mode === 1) {
       const mode = state.currentParagraphNo >= getters.paragraphCount ? 2 : 1
       commit('mode', mode)
+      if (state.isReading) {
+        this.dispatch('reading/updateProgress', state.currentContent.length)
+      }
 
       if (mode === 1) { // 2 已结束
         commit('next')
         this.dispatch('article/loadMatch', getters.nextParagraph)
-
-        if (state.isReading) {
-          this.dispatch('reading/updateProgress', state.currentContent.length)
-        }
       }
     } else if (!hideWanring) {
       commit('init')
