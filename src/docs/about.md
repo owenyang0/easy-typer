@@ -1,4 +1,4 @@
-<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/logo-lanscape%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/logo-lanscape@2x.png">
 
 # 木易跟打器-{{ version }}
 **木易跟打器**也叫 `mac跟打器` 或 `qq跟打器`，是由木易打造的当前macOS平台**唯一的**、可**直接载文**的跟打器。可通过macQQ直接群载文，计算跟打指标最终发送成绩至QQ群里，具有发文`复合指标`、历史数据`可视化`、轻便、准确、快捷等特点。
@@ -12,7 +12,7 @@
 
 从 `Windows` 转到 `Mac` 之后，苦于`macOS`没有可用的跟打器，偶然看到了[QT](https://gitee.com/hotleave/quick-typing)，基于他的代码做一个`macOS`上可直接载文用的跟打器，处理了一些macOS系统的兼容，于是便有了这个项目。
 
-<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/ui%402x.png">
+<img style="max-width:600px;" alt="木易跟打器macOS版" src="img/ui@2x.png">
 <img style="max-width:600px;" alt="木易跟打器macOS版" src="img/kata.png">
 <img style="max-width:600px;" alt="木易跟打器macOS版" src="img/history.png">
 
