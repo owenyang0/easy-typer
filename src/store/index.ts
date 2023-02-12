@@ -6,6 +6,7 @@ import { setting } from './setting'
 import { login } from './login'
 import { summary } from './summary'
 import { kata } from './kata'
+import { reading } from './reading'
 import { record } from './record'
 import { LooseObject, QuickTypingState } from './types'
 import db from './util/Database'
@@ -24,6 +25,7 @@ const store: StoreOptions<QuickTypingState> = {
     login,
     summary,
     kata,
+    reading,
     record
   },
   getters: {

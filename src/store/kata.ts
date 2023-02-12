@@ -26,6 +26,7 @@ const getters: GetterTree<KataState, QuickTypingState> = {
 const mutations: MutationTree<KataState> = {
   init: (state) => {
     state.mode = 0
+    state.isReading = false
     state.criteriaOpen = false
   },
 
@@ -39,6 +40,7 @@ const mutations: MutationTree<KataState> = {
     state.currentContent = state.articleText.slice(startIndex, startIndex + article.paragraphSize)
 
     state.mode = 1
+    state.isReading = article.isReading
   },
 
   next: (state) => {
@@ -90,6 +92,10 @@ const actions: ActionTree<KataState, QuickTypingState> = {
       if (mode === 1) { // 2 已结束
         commit('next')
         this.dispatch('article/loadMatch', getters.nextParagraph)
+
+        if (state.isReading) {
+          this.dispatch('reading/updateProgress', state.paragraphSize)
+        }
       }
     } else if (!hideWanring) {
       commit('init')

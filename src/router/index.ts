@@ -30,6 +30,14 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "kata" */ '../views/Kata.vue')
   },
   {
+    path: '/reading',
+    name: 'Reading',
+    meta: {
+      title: '木易跟打器 - 阅读'
+    },
+    component: () => import(/* webpackChunkName: "kata" */ '../views/Reading.vue')
+  },
+  {
     path: '/setting',
     name: 'Setting',
     meta: {
