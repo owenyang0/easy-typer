@@ -4,6 +4,7 @@ const routes = [
   '/',
   '/practice',
   '/kata',
+  '/reading',
   '/setting',
   '/summary',
   '/changelog',
@@ -14,7 +15,7 @@ const routes = [
 ]
 
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_WEB_VERSION = '(19)'
+process.env.VUE_APP_WEB_VERSION = '(20)'
 
 const name = '木易跟打器'
 
