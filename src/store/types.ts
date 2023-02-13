@@ -596,7 +596,7 @@ export class SettingState {
   /**
    * 上次配置更新时间
    */
-  lastUpdatedTime = 1676097265092
+  lastUpdatedTime = 1676263743697
 }
 
 export interface LoginUser {

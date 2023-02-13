@@ -70,7 +70,8 @@ const mutations: MutationTree<SettingState> = {
     if (setting) {
       // 用于主动更新配置
       if ((!setting.lastUpdatedTime || setting.lastUpdatedTime < state.lastUpdatedTime) && setting.resultOptions) {
-        setting.resultOptions = setting.resultOptions.concat(['accuracyTip', 'errPenaltyTip'])
+        // setting.resultOptions = setting.resultOptions.concat(['accuracyTip', 'errPenaltyTip'])
+        setting.fontFamily = '"LXGWWenKai", "LXGW WenKai GB Screen R","Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
       }
       Object.assign(state, setting, {
         lastUpdatedTime: Date.now()
