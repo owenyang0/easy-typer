@@ -27,17 +27,17 @@
             <span slot="title">阅读</span>
           </el-menu-item>
           <el-submenu index="/func">
-            <template slot="title"><i class="el-icon-s-data"></i>功能</template>
+            <template slot="title"><i class="el-icon-date"></i>功能</template>
             <el-menu-item index="/kata">
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
             </el-menu-item>
             <el-menu-item index="/retry">
-              <i class="el-icon-edit-outline"></i>
+              <i class="el-icon-refresh"></i>
               <span slot="title">重打（F3）</span>
             </el-menu-item>
             <el-menu-item index="/random">
-              <i class="el-icon-document"></i>
+              <i class="el-icon-edit-outline"></i>
               <span slot="title">乱序（Ctrl+L）</span>
             </el-menu-item>
             <el-menu-item index="/next">
@@ -83,6 +83,10 @@
               <span slot="title">关于</span>
             </el-menu-item>
           </el-submenu>
+          <el-menu-item index="/tiger">
+            <i class="el-icon-star-on"></i>
+            <span slot="title">虎码官网</span>
+          </el-menu-item>
         </el-menu>
         <!-- <div id="profile">
           <el-button v-if="!authenticated" type="text" @click="loginFormVisible = true">登录</el-button>
@@ -241,6 +245,11 @@ export default class Setting extends Vue {
       return
     }
 
+    if (key === '/tiger') {
+      window.open('https://tiger-code.com/', '_blank')
+      return
+    }
+
     if (key === '/random') {
       this.random()
       return
@@ -381,6 +390,6 @@ export default class Setting extends Vue {
     overflow-y: hidden;
   }
   .menu-col {
-    min-width: 570px;
+    min-width: 700px;
   }
 </style>
