@@ -32,9 +32,9 @@
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
             </el-menu-item>
-            <el-menu-item index="/retry">
-              <i class="el-icon-refresh"></i>
-              <span slot="title">重打（F3）</span>
+            <el-menu-item index="/practice">
+              <i class="el-icon-aim"></i>
+              <span slot="title">词库练习</span>
             </el-menu-item>
             <el-menu-item index="/random">
               <i class="el-icon-edit-outline"></i>
@@ -43,10 +43,6 @@
             <el-menu-item index="/next">
               <i class="el-icon-d-arrow-right"></i>
               <span slot="title">下一段（Ctrl+P）</span>
-            </el-menu-item>
-            <el-menu-item index="/practice">
-              <i class="el-icon-aim"></i>
-              <span slot="title">词库练习</span>
             </el-menu-item>
             <el-menu-item index="/setting">
               <i class="el-icon-setting"></i>
@@ -182,8 +178,8 @@ export default class Setting extends Vue {
     password: ''
   }
 
-  @racing.Action('retry')
-  private retry!: Function
+  // @racing.Action('retry')
+  // private retry!: Function
 
   @racing.Getter('progress')
   private progress!: number
@@ -260,10 +256,10 @@ export default class Setting extends Vue {
       return
     }
 
-    if (key === '/retry') {
-      this.retry()
-      return
-    }
+    // if (key === '/retry') {
+    //   this.retry()
+    //   return
+    // }
 
     this.$router.push(key).catch(err => err)
   }

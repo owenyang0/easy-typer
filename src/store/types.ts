@@ -431,7 +431,7 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = '"LXGWWenKai", "LXGW WenKai GB Screen R","Noto Sans SC","Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif'
+  fontFamily = '"LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif'
 
   /**
    * 字号
@@ -596,7 +596,7 @@ export class SettingState {
   /**
    * 上次配置更新时间
    */
-  lastUpdatedTime = 1676267079959
+  lastUpdatedTime = 1676385338477
 }
 
 export interface LoginUser {
