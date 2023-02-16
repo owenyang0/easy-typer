@@ -6,10 +6,10 @@ Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: '/dojo',
     name: 'Home',
     meta: {
-      title: '木易跟打器 - 赛文跟打'
+      title: '赛文跟打 - 木易跟打器'
     },
     component: Home
   },
@@ -17,7 +17,7 @@ const routes: Array<RouteConfig> = [
     path: '/practice',
     name: 'Practice',
     meta: {
-      title: '木易跟打器 - 词库练习'
+      title: '词库练习 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "practice" */ '../views/Practice.vue')
   },
@@ -25,7 +25,7 @@ const routes: Array<RouteConfig> = [
     path: '/kata',
     name: 'Kata',
     meta: {
-      title: '木易跟打器 - 发文'
+      title: '发文 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "kata" */ '../views/Kata.vue')
   },
@@ -33,7 +33,7 @@ const routes: Array<RouteConfig> = [
     path: '/reading',
     name: 'Reading',
     meta: {
-      title: '木易跟打器 - 阅读'
+      title: '阅读 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "kata" */ '../views/Reading.vue')
   },
@@ -41,7 +41,7 @@ const routes: Array<RouteConfig> = [
     path: '/setting',
     name: 'Setting',
     meta: {
-      title: '木易跟打器 - 设置'
+      title: '设置 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "setting" */ '../views/Setting.vue')
   },
@@ -49,7 +49,7 @@ const routes: Array<RouteConfig> = [
     path: '/summary',
     name: 'Summary',
     meta: {
-      title: '木易跟打器 - 键盘统计'
+      title: '键盘统计 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "summary" */'../views/Summary.vue')
   },
@@ -57,7 +57,7 @@ const routes: Array<RouteConfig> = [
     path: '/changelog',
     name: 'Changelog',
     meta: {
-      title: '木易跟打器 - 变更历史'
+      title: '变更历史 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "changelog" */'../views/Changelog.vue')
   },
@@ -65,7 +65,7 @@ const routes: Array<RouteConfig> = [
     path: '/help',
     name: 'Help',
     meta: {
-      title: '木易跟打器 - 使用帮助'
+      title: '使用帮助 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "help" */ '../views/Help.vue')
   },
@@ -73,7 +73,7 @@ const routes: Array<RouteConfig> = [
     path: '/about',
     name: 'About',
     meta: {
-      title: '木易跟打器 - 关于'
+      title: '关于 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
@@ -81,7 +81,7 @@ const routes: Array<RouteConfig> = [
     path: '/history',
     name: 'History',
     meta: {
-      title: '木易跟打器 - 跟打记录'
+      title: '跟打记录 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/History.vue')
   },
@@ -89,13 +89,13 @@ const routes: Array<RouteConfig> = [
     path: '/download',
     name: 'Download',
     meta: {
-      title: '木易跟打器 - 程序下载'
+      title: '程序下载 - 木易跟打器'
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/Download.vue')
   },
   {
     path: '*',
-    redirect: '/'
+    redirect: '/dojo'
   }
 ]
 
