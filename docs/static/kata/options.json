@@ -29,7 +29,22 @@
       { "value": "singleDi500", "label": "地500 2501-3000", "isRemote": true },
       { "value": "singleTian500", "label": "天500 3001-3500", "isRemote": true },
       { "value": "singleEnd2000", "label": "后2000 1501-3500", "isRemote": true },
-      { "value": "singleAll3500", "label": "全3500 1-3500", "isRemote": true }
+      { "value": "singleAll3500", "label": "全3500 1-3500", "isRemote": true },
+      {
+        "value": "singleWang500",
+        "label": "王500 3501-4000",
+        "isRemote": true
+      },
+      {
+        "value": "singleGrand500",
+        "label": "皇500 4001-4500",
+        "isRemote": true
+      },
+      {
+        "value": "singleEmpire500",
+        "label": "帝500 4501-5000",
+        "isRemote": true
+      }
     ]
   },
   {

@@ -245,7 +245,7 @@ export default class Home extends Vue {
       return
     }
 
-    fetch(`/static/kata/${name}.json`)
+    fetch(`/static/kata/${name}.json?v=4`)
       .then(res => res.json())
       .then(ret => {
         this.articleText = ret.content
@@ -324,7 +324,7 @@ export default class Home extends Vue {
   created () {
     this.init()
 
-    fetch('/static/kata/options.json?v=3')
+    fetch('/static/kata/options.json?v=4')
       .then(res => res.json())
       .then(options => {
         this.contentOptions = options

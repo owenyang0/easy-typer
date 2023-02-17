@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "81a6eff698e2cd2afaf4d4596bd668a0",
+    "revision": "a6fe2168f380095a4f88f123dd613015",
     "url": "/app.html"
   },
   {
@@ -12,15 +12,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "0026567036aab5bf7ac0",
-    "url": "/css/app.836963b7.css"
+    "revision": "4a4222f70237eb265f0f",
+    "url": "/css/app.11d11d30.css"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "13ce499512a03ab4fc78",
+    "revision": "dcf00d47802a193862b5",
     "url": "/css/kata.abbe4c21.css"
   },
   {
@@ -96,12 +96,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "0026567036aab5bf7ac0",
-    "url": "/js/app.846681c8.js"
+    "revision": "4a4222f70237eb265f0f",
+    "url": "/js/app.9c6c7867.js"
   },
   {
-    "revision": "0d8314b33f428c1bdd3d",
-    "url": "/js/changelog.599ae41c.js"
+    "revision": "b850ae9f76fb4f8823de",
+    "url": "/js/changelog.4dbeee75.js"
   },
   {
     "revision": "58d7a1b1fa0b6ab089dd",
@@ -112,8 +112,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.fc081bef.js"
   },
   {
-    "revision": "13ce499512a03ab4fc78",
-    "url": "/js/kata.b00978be.js"
+    "revision": "dcf00d47802a193862b5",
+    "url": "/js/kata.5cf38352.js"
   },
   {
     "revision": "d53baa579765c61c3b55",
@@ -196,7 +196,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleLSF.json"
   },
   {
-    "revision": "656e2415bdc39c7fddd10d05efc00ead",
+    "revision": "1b4d69f98354620817b0dd74450cf1de",
     "url": "/static/kata/articleLSM.json"
   },
   {
@@ -252,7 +252,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleZWTJ.json"
   },
   {
-    "revision": "c7f8d6937c0306a3eab8ae572eab0be0",
+    "revision": "0b9b36bc4cfc9f748825dfde67f22ed9",
     "url": "/static/kata/options.json"
   },
   {
@@ -262,6 +262,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c55d10f643371981e46373ce1d6f6962",
     "url": "/static/kata/singleDi500.json"
+  },
+  {
+    "revision": "c1e2e95065347e12d84255d38dbb611f",
+    "url": "/static/kata/singleEmpire500.json"
   },
   {
     "revision": "b7cb40c31cefd54667bb322cabfeee9a",
@@ -280,6 +284,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/singleFront500.json"
   },
   {
+    "revision": "d79928afac782fd824c3571fc985b2b6",
+    "url": "/static/kata/singleGrand500.json"
+  },
+  {
     "revision": "5d9b5f7b821796b42f0ce73b97baed22",
     "url": "/static/kata/singleHuang500.json"
   },
@@ -294,6 +302,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3ce015099f05eb703cb11346fdfe8061",
     "url": "/static/kata/singleTian500.json"
+  },
+  {
+    "revision": "0c872e8257811fb9e1a7f10be8c473cc",
+    "url": "/static/kata/singleWang500.json"
   },
   {
     "revision": "8d9e615cd8076d92b85f363c478aa66c",

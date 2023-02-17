@@ -1,17 +1,17 @@
 const File = require('./File');
 const config = require('./config')
 
-const articleConfig = config.articleConfig
+const singleConfig = config.singleConfig
 
 const options = []
-const promises = articleConfig.map(conf => {
-  return File.read(`/articles/${conf.name}.txt`).then(content => {
+const promises = singleConfig.map(conf => {
+  return File.read(`/single/${conf.name}.txt`).then(content => {
     const ret = {
       title: conf.name,
       content
     }
 
-    const finalVal = `article${conf.value}`
+    const finalVal = `single${conf.value}`
     return File.create(`../public/static/kata/${finalVal}.json`, JSON.stringify(ret, null, 2)).then(data => {
       options.push({ "value": finalVal, "label": conf.name, "isRemote": true })
     }).catch(err => {
@@ -21,6 +21,6 @@ const promises = articleConfig.map(conf => {
 })
 
 Promise.all(promises).then((ret) => {
-  const retOptions = articleConfig.map(c => options.find(o => o.label === c.name))
+  const retOptions = singleConfig.map(c => options.find(o => o.label === c.name))
   console.log(JSON.stringify(retOptions, null, 2))
 })

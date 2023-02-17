@@ -1,7 +1,7 @@
 const sitemapPlugin = require('sitemap-webpack-plugin').default
 
 const routes = [
-  '/',
+  '/dojo',
   '/practice',
   '/kata',
   '/reading',
@@ -15,7 +15,7 @@ const routes = [
 ]
 
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_WEB_VERSION = '(22)'
+process.env.VUE_APP_WEB_VERSION = '(23)'
 
 const name = '木易跟打器'
 

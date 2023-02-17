@@ -18,19 +18,23 @@
           active-text-color="#eb9010"
           mode="horizontal"
         >
-          <el-menu-item index="/">
+          <el-menu-item index="/portal">
+            <i class="el-icon-s-promotion"></i>
+            <span slot="title">门户</span>
+          </el-menu-item>
+          <el-menu-item index="/dojo">
             <i class="el-icon-medal-1"></i>
             <span slot="title">跟打</span>
-          </el-menu-item>
-          <el-menu-item index="/reading">
-            <i class="el-icon-document"></i>
-            <span slot="title">阅读</span>
           </el-menu-item>
           <el-submenu index="/func">
             <template slot="title"><i class="el-icon-date"></i>功能</template>
             <el-menu-item index="/kata">
               <i class="el-icon-date"></i>
               <span slot="title">发文（F2）</span>
+            </el-menu-item>
+            <el-menu-item index="/reading">
+              <i class="el-icon-document"></i>
+              <span slot="title">阅读</span>
             </el-menu-item>
             <el-menu-item index="/practice">
               <i class="el-icon-aim"></i>
@@ -256,10 +260,10 @@ export default class Setting extends Vue {
       return
     }
 
-    // if (key === '/retry') {
-    //   this.retry()
-    //   return
-    // }
+    if (key === '/portal') {
+      location.href = '/portal'
+      return
+    }
 
     this.$router.push(key).catch(err => err)
   }
