@@ -22,4 +22,3 @@ Promise.all(promises).then((ret) => {
   const retOptions = configs.map(c => options.find(o => o.label === c.name))
   console.log(JSON.stringify(retOptions, null, 2))
 })
-
