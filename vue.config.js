@@ -1,7 +1,7 @@
 const sitemapPlugin = require('sitemap-webpack-plugin').default
 
 const routes = [
-  '/app',
+  '/',
   '/practice',
   '/kata',
   '/reading',
@@ -14,7 +14,7 @@ const routes = [
   '/download'
 ]
 
-const version = '(24)'
+const version = '(25)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 
@@ -75,14 +75,7 @@ module.exports = {
       renderRoutes: routes,
       useRenderEvent: true,
       headless: true,
-      onlyProduction: true,
-      postProcess: route => {
-        // Defer scripts and tell Vue it's been server rendered to trigger hydration
-        route.html = route.html
-          .replace(/<script (.*?)>/g, '<script $1 defer>')
-          .replace('id="app"', 'id="app" data-server-rendered="true"')
-        return route
-      }
+      onlyProduction: true
     }
   }
 }

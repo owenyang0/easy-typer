@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/app',
+    path: '/',
     name: 'Home',
     meta: {
       title: '赛文跟打 - 木易跟打器'
@@ -95,7 +95,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '*',
-    redirect: '/app'
+    redirect: '/'
   }
 ]
 
