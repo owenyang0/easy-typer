@@ -1,7 +1,7 @@
 const sitemapPlugin = require('sitemap-webpack-plugin').default
 
 const routes = [
-  '/',
+  '/app',
   '/practice',
   '/kata',
   '/reading',
@@ -14,7 +14,7 @@ const routes = [
   '/download'
 ]
 
-const version = '(25)'
+const version = '(26)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 
