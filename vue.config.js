@@ -14,8 +14,9 @@ const routes = [
   '/download'
 ]
 
+const version = '(24)'
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_WEB_VERSION = '(24)'
+process.env.VUE_APP_WEB_VERSION = version
 
 const name = '木易跟打器'
 
@@ -31,7 +32,8 @@ module.exports = {
       msTileImage: 'img/icons/msapplication-icon-144x144.png'
     },
     appleMobileWebAppCapable: 'yes',
-    display: 'fullscreen',
+    assetsVersion: version,
+    display: 'standalone',
     themeColor: '#1c1f24',
     msTileColor: '#1c1f24'
   },
@@ -59,7 +61,8 @@ module.exports = {
         options: {
           filename: 'sitemap.xml',
           lastMod: true,
-          changefreq: 'weekly'
+          changefreq: 'daily',
+          priority: 0.7
         }
       }
     ])
@@ -72,7 +75,14 @@ module.exports = {
       renderRoutes: routes,
       useRenderEvent: true,
       headless: true,
-      onlyProduction: true
+      onlyProduction: true,
+      postProcess: route => {
+        // Defer scripts and tell Vue it's been server rendered to trigger hydration
+        route.html = route.html
+          .replace(/<script (.*?)>/g, '<script $1 defer>')
+          .replace('id="app"', 'id="app" data-server-rendered="true"')
+        return route
+      }
     }
   }
 }
