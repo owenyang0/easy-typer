@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.c41af7d7cc6ba25c691b97ba46eada7a.js"
+  "/precache-manifest.67196499a87c670b5ac7086ea1d434a7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "easy-typer"});
@@ -32,3 +32,5 @@ self.addEventListener('message', (event) => {
  */
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.routing.registerRoute("/", new workbox.strategies.StaleWhileRevalidate({ "cacheName":"easy-typer-custom-cache", plugins: [new workbox.expiration.Plugin({ maxAgeSeconds: 2592000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
