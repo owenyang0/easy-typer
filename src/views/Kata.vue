@@ -10,6 +10,7 @@
         :autosize="{ minRows: 6, maxRows: 10 }"
         :disabled="isTextDisabled"
         placeholder="请输入内容"
+        autofocus
       />
       <el-form :inline="true" :model="formContent" class="form-content">
         <el-form-item label="练习文本">
