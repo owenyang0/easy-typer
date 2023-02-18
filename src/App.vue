@@ -22,7 +22,7 @@
             <i class="el-icon-s-promotion"></i>
             <span slot="title">门户</span>
           </el-menu-item>
-          <el-menu-item index="/dojo">
+          <el-menu-item index="/app">
             <i class="el-icon-medal-1"></i>
             <span slot="title">跟打</span>
           </el-menu-item>
