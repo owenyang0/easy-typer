@@ -422,7 +422,7 @@ export default class Home extends Vue {
 
   checkBeforeLoad () {
     return new Promise((resolve, reject) => {
-      if (this.showLoadDialog || this.mode === 1) {
+      if (this.mode === 1) {
         // 手动载文时禁用
         return this.$confirm('当前正在发文中, 请先结束发文后再试', '是否结束当前发文？', {
           confirmButtonText: '结束发文',
@@ -444,6 +444,10 @@ export default class Home extends Vue {
    * 粘贴监听
    */
   paste (e: ClipboardEvent) {
+    if (this.showLoadDialog) {
+      // 手动载文时禁用
+      return
+    }
     e.preventDefault()
     this.checkBeforeLoad().then(() => {
       // this.init()

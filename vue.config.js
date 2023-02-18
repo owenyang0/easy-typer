@@ -15,14 +15,25 @@ const routes = [
 ]
 
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_WEB_VERSION = '(23)'
+process.env.VUE_APP_WEB_VERSION = '(24)'
 
 const name = '木易跟打器'
 
 module.exports = {
   pwa: {
     name,
-    themeColor: '#1c1f24'
+    iconPaths: {
+      faviconSVG: 'img/icons/favicon.svg',
+      favicon32: 'img/icons/favicon-32x32.png',
+      favicon16: 'img/icons/favicon-16x16.png',
+      appleTouchIcon: 'img/icons/apple-touch-icon-180x180.png',
+      maskIcon: null,
+      msTileImage: 'img/icons/msapplication-icon-144x144.png'
+    },
+    appleMobileWebAppCapable: 'yes',
+    display: 'fullscreen',
+    themeColor: '#1c1f24',
+    msTileColor: '#1c1f24'
   },
 
   publicPath: process.env.NODE_ENV === 'production'
