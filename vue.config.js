@@ -1,7 +1,7 @@
 const sitemapPlugin = require('sitemap-webpack-plugin').default
 
 const routes = [
-  '/dojo',
+  '/app',
   '/practice',
   '/kata',
   '/reading',
