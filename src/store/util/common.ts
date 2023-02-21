@@ -70,3 +70,12 @@ export function speedRank (speed: number) {
 
   return rankLevel[rank]
 }
+
+export function accuracyRank (accuracy: number) {
+  if (accuracy >= 100) return '百准神仙'
+  if (accuracy >= 99) return '键准大神'
+  if (accuracy >= 97) return '键准大师'
+  if (accuracy >= 95) return '键准高手'
+  if (accuracy >= 92) return '键准熟手'
+  return '键准新手'
+}
