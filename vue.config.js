@@ -14,7 +14,7 @@ const routes = [
   '/download'
 ]
 
-const version = '(26)'
+const version = '(27)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 
@@ -32,10 +32,32 @@ module.exports = {
       msTileImage: 'img/icons/msapplication-icon-144x144.png'
     },
     appleMobileWebAppCapable: 'yes',
-    assetsVersion: version,
+    assetsVersion: '26.1',
     display: 'standalone',
     themeColor: '#1c1f24',
-    msTileColor: '#1c1f24'
+    msTileColor: '#1c1f24',
+    // // configure the workbox plugin
+    // workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      // swSrc: 'dev/sw.js'
+      // ...other Workbox options...
+      runtimeCaching: [
+        {
+          urlPattern: '/',
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'easy-typer-custom-cache',
+            expiration: {
+              maxAgeSeconds: 86400 * 30
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }
+      ]
+    }
   },
 
   publicPath: process.env.NODE_ENV === 'production'
@@ -68,7 +90,6 @@ module.exports = {
     ])
   },
   productionSourceMap: false,
-
   pluginOptions: {
     prerenderSpa: {
       registry: undefined,

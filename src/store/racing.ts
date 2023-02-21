@@ -1,7 +1,7 @@
 import xcapi from '@/api/xc.cool'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { Achievement, QuickTypingState, RacingState, Word } from './types'
-import { speedRank } from './util/common'
+import { accuracyRank, speedRank } from './util/common'
 import db from './util/Database'
 import { keyboard } from './util/keyboard'
 
@@ -272,7 +272,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
       ['enter', `回车${getters.enterCount}`],
       ['retry', `重打${state.retry}`],
       ['firstTry', '[首打大神]'],
-      ['accuracyTip', '[无敌键准]'],
+      ['accuracyTip', '[百准神仙]'],
       ['noCodings', '[词提禁用]'],
       ['errPenaltyTip', '[错一罚五]'],
       ['hash', `哈希${getters.hash}`],
@@ -296,7 +296,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
         return state.retry <= 1 && result.push(`[首打${speedRank(getters.typeSpeed)}]`)
       }
       if (key === 'accuracyTip') {
-        return getters.accuracy >= 100 && result.push(value)
+        return getters.accuracy >= 90 && result.push(`[${accuracyRank(getters.accuracy)}]`)
       }
       if (key === 'noCodings') {
         return !setting.hint && result.push(value)
