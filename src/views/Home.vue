@@ -150,6 +150,7 @@ import { Action, namespace, State } from 'vuex-class'
 import xcapi from '@/api/xc.cool'
 import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
+import { statusMapIcon, statusMapText, statusMapType } from '../store/util/constants'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -258,11 +259,11 @@ export default class Home extends Vue {
   private tempArticleRows = 4
   private tempInputRows = 1
   private tempFontSize = 2.4
-  private tempFontWeight = 500
+  private tempFontWeight = 400
   private hasUpdated = false
 
   get triggerText (): string {
-    return this.status === 'pause' ? '继续(Enter)' : '暂停(Esc)'
+    return statusMapText.get(this.status) || '暂停(Esc)'
   }
 
   get indicatorTooltipText (): string {
@@ -270,15 +271,11 @@ export default class Home extends Vue {
   }
 
   get triggerIcon (): string {
-    return this.status === 'pause'
-      ? 'el-icon-video-play'
-      : 'el-icon-video-pause'
+    return statusMapIcon.get(this.status) || 'el-icon-success'
   }
 
   get triggerType (): string {
-    return this.status !== 'pause'
-      ? 'primary'
-      : 'danger'
+    return statusMapType.get(this.status) || 'primary'
   }
 
   @Watch('authenticated')
@@ -506,6 +503,10 @@ export default class Home extends Vue {
   }
 
   trigger () {
+    if (!['pause', 'typing'].includes(this.status)) {
+      console.log(this.status, 'returned')
+      return
+    }
     if (this.status === 'pause') {
       if (Date.now() - this.pauseStartTime > 500) { // 暂停超过500ms才能恢复
         this.resume()
