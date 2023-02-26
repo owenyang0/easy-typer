@@ -20,6 +20,8 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 
+const functionCodes = ['Backspace', 'Enter', 'Control', 'Alt', 'Meta', 'Shift', 'CapsLock']
+
 const racing = namespace('racing')
 const setting = namespace('setting')
 const kata = namespace('kata')
@@ -136,7 +138,7 @@ export default class Racing extends Vue {
   }
 
   keydown (e: KeyboardEvent) {
-    if (e.code === 'Backspace' && this.status === 'init') {
+    if (functionCodes.includes(e.key) && this.status === 'init') {
       return
     }
     this.typing(e)
