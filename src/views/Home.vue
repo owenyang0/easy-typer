@@ -34,14 +34,16 @@
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
-                <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
+                <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
-                </el-tooltip>
+                </el-tooltip> -->
+                <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button>
                 <el-popover
                   ref="popoverStyle"
-                  placement="bottom-start"
-                  width="280"
+                  placement="bottom"
+                  width="300"
+                  popper-class="article-set-popover"
                   @hide="handleSettingHide"
                   trigger="click">
                   <div class="article-settings">
@@ -56,6 +58,7 @@
                             :max="8"
                             :min="1"
                             :step="0.1"
+                            :show-tooltip="false"
                             height="100px">
                           </el-slider>
                         </div>
@@ -70,6 +73,7 @@
                             :max="900"
                             :min="100"
                             :step="100"
+                            :show-tooltip="false"
                             height="100px">
                           </el-slider>
                         </div>
@@ -84,6 +88,7 @@
                             :max="12"
                             :min="1"
                             :step="1"
+                            :show-tooltip="false"
                             height="100px">
                           </el-slider>
                         </div>
@@ -98,6 +103,7 @@
                             :max="4"
                             :min="1"
                             :step="1"
+                            :show-tooltip="false"
                             height="100px">
                           </el-slider>
                         </div>
