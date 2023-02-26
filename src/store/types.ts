@@ -441,7 +441,7 @@ export class SettingState {
   /**
    * 字重
    */
-  fontWeight = 500
+  fontWeight = 400
 
   /**
    * 对照区行数
