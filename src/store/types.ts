@@ -474,7 +474,7 @@ export class SettingState {
   /**
    * 词语提示
    */
-  hint = true
+  hint = false
   /**
    * 候选词条数
    */
@@ -596,7 +596,7 @@ export class SettingState {
   /**
    * 上次配置更新时间
    */
-  lastUpdatedTime = 1676385338477
+  lastUpdatedTime = 1677380465896
 }
 
 export interface LoginUser {
