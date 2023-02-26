@@ -8,18 +8,21 @@
 @font-face {
   font-family: "LXGWWenKaiGB";
   src: url('../font/LXGWWenKaiGB-Regular.woff2') format('woff2');
+  font-display: swap;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "LXGWWenKaiGB";
   src: url('../font/LXGWWenKaiGB-Light.woff2') format('woff2');
+  font-display: swap;
   font-weight: 100;
 }
 
 @font-face {
   font-family: "LXGWWenKaiGB";
   src: url('../font/LXGWWenKaiGB-Bold.woff2') format('woff2');
+  font-display: swap;
   font-weight: bold;
 }
 
@@ -42,7 +45,7 @@
   font-family: -apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif;
   font-variant-ligatures: none;
 
-  --racing-font: "LXGWWenKaiGB",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif;
+  --racing-font: "LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif;
   --background-color: #FFF;
   // --level1-border-color: #DCDFE6;
   --level1-border-color: #fefefe;
@@ -579,17 +582,21 @@ $speed-levels: (
 //   display: none;
 // }
 
+.el-popper.article-set-popover {
+  padding-bottom: 24px;
+}
+
 .article-settings {
-  width: 280px;
-  z-index: 999;
-  position: absolute;
-  top: 0;
-  right: 20px;
-  padding: 10px;
-  padding-bottom: 20px;
-  border-radius: 4px;
-  border: solid 1px var(--level2-border-color);
-  background-color: var(--background-color);
+  // width: 280px;
+  // z-index: 999;
+  // position: absolute;
+  // top: 0;
+  // right: 20px;
+  // padding: 10px;
+  // padding-bottom: 20px;
+  // border-radius: 4px;
+  // border: solid 1px var(--level2-border-color);
+  // background-color: var(--background-color);
 
   .label {
     text-align: center;
