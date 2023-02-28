@@ -35,6 +35,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import { Mutation, State } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 import db from '../store/util/Database'
+import dayjs from 'dayjs'
 
 const PAGE_SIZE = 10
 const SPEED_GAP = 30 // 速度阶梯，每30新增一个颜色
@@ -83,7 +84,7 @@ export default class Achievements extends Vue {
   }
 
   timeFormatter (row: Achievement, column: number, value: number) {
-    return new Date(value).toLocaleString()
+    return dayjs(value).format('YYYY/MM/DD HH:mm:ss')
   }
 
   formatTime (total: number, mill = 3): string {

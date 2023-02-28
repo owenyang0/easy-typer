@@ -17,7 +17,8 @@
   },
   "main": "electron/main.js",
   "dependencies": {
-    "applescript": "^1.0.0"
+    "applescript": "^1.0.0",
+    "dayjs": "^1.11.7"
   },
   "devDependencies": {
     "@types/echarts": "^4.9.4",
