@@ -19,6 +19,7 @@
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
+import { fixIOSScrollIssue } from '@/store/util/common'
 
 const functionCodes = ['Backspace', 'Enter', 'Control', 'Alt', 'Meta', 'Shift', 'CapsLock']
 
@@ -154,6 +155,10 @@ export default class Racing extends Vue {
     if (!e.isComposing) {
       this.checkFinished(this.last)
     }
+  }
+
+  mounted () {
+    fixIOSScrollIssue()
   }
 
   /**
