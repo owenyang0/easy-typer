@@ -130,6 +130,7 @@ import { LoginUser, LooseObject } from './store/types'
 import xcapi from './api/xc.cool'
 import { Route } from 'vue-router'
 import punctuations from './store/util/punctuation'
+import { fixIOSScrollIssue } from './store/util/common'
 
 const setting = namespace('setting')
 const login = namespace('login')
@@ -380,6 +381,10 @@ export default class Setting extends Vue {
     }, (error) => {
       console.log(error)
     })
+  }
+
+  mounted () {
+    fixIOSScrollIssue()
   }
 }
 </script>
