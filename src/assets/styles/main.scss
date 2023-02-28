@@ -72,6 +72,9 @@
   --input-rows: 2;
   --font-weight: 500;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 html, body {
   width: 100%;
@@ -426,6 +429,16 @@ html, body {
 
   .indicator-container {
     display: none;
+  }
+
+  #home #home-main {
+    border: none;
+  }
+
+  #home-main .toolbar-wrapper {
+    .toolbar {
+      padding: 8px 0 3px 0;
+    }
   }
 
   // .indicator-horizontal {

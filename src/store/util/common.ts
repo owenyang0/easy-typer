@@ -86,7 +86,7 @@ export function fixIOSScrollIssue () {
     return
   }
   /* eslint-disable @typescript-eslint/no-non-null-assertion */
-  const page = document.querySelector('#app')
+  const racingEl = document.querySelector('#racing-textarea')
   let currentInput: EventTarget | null = null // 当前聚焦的输入框
   const fixedEle = document.querySelector('body')
 
@@ -124,5 +124,5 @@ export function fixIOSScrollIssue () {
     window.addEventListener('touchmove', stopMove)
   }
 
-  page!.addEventListener('focusin', handleFocusin)
+  racingEl!.addEventListener('focusin', handleFocusin)
 }
