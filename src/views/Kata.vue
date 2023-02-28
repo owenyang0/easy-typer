@@ -16,7 +16,6 @@
         <el-form-item label="练习文本">
           <el-cascader
             size="small"
-            filterable
             :show-all-levels="false"
             expand-trigger="hover"
             :options="contentOptions"

@@ -86,13 +86,12 @@ export function fixIOSScrollIssue () {
     return
   }
   /* eslint-disable @typescript-eslint/no-non-null-assertion */
-  const page = document.querySelector('#app')
+  const racingEl = document.querySelector('#racing-textarea')
   let currentInput: EventTarget | null = null // 当前聚焦的输入框
   const fixedEle = document.querySelector('body')
 
   // webview发生平移，则及时更新fixed元素的定位
   function handleScroll () {
-    console.log('style', window.pageYOffset)
     fixedEle!.style.position = 'fixed'
     fixedEle!.style.top = `${window.pageYOffset - 62}px`
   }
@@ -125,5 +124,5 @@ export function fixIOSScrollIssue () {
     window.addEventListener('touchmove', stopMove)
   }
 
-  page!.addEventListener('focusin', handleFocusin)
+  racingEl!.addEventListener('focusin', handleFocusin)
 }
