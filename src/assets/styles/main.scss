@@ -623,3 +623,7 @@ $speed-levels: (
     margin: 0 auto;
   }
 }
+
+.el-notification__content {
+  user-select: all;
+}

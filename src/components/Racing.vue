@@ -96,8 +96,25 @@ export default class Racing extends Vue {
             window.electronAPI.setGrade('typing finished!')
           }
         }, () => {
-          // this.$message.warning('你的浏览器不支持自动复制，需要手动操作')
           this.$notify.warning('你的浏览器不支持自动复制，需要手动操作')
+
+          this.$nextTick(() => {
+            this.$notify({
+              type: 'info',
+              title: '请点击文本手动复制',
+              message: text,
+              duration: 10000
+            })
+          })
+
+          const permissionName = 'clipboard-write' as PermissionName
+          navigator.permissions.query({ name: permissionName })
+            .then((permissionStatus) => {
+              console.log('clipboard permission state is ', permissionStatus.state)
+              if (permissionStatus.state === 'denied') {
+                this.$message.warning('当前浏览器复制权限被禁用，请检查设置')
+              }
+            })
         })
         // this.$notify.success({
         //   message: text,
