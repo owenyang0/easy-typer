@@ -16,7 +16,7 @@
       <el-table-column prop="accuracy" label="键准(%)" min-width="80"/>
       <el-table-column prop="phraseRate" label="打词(%)" min-width="80"/>
       <el-table-column prop="title" label="标题" min-width="120" show-overflow-tooltip />
-      <el-table-column prop="finishedTime" label="结束时间" :formatter="timeFormatter" width="154"/>
+      <el-table-column prop="finishedTime" label="结束时间" :formatter="timeFormatter" width="160"/>
     </el-table>
     <div class="pagination-wrapper">
       <el-pagination

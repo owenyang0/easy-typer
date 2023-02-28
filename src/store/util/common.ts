@@ -79,3 +79,51 @@ export function accuracyRank (accuracy: number) {
   if (accuracy >= 92) return '键准熟手'
   return '键准新手'
 }
+
+export function fixIOSScrollIssue () {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+  if (!isIOS) {
+    return
+  }
+  /* eslint-disable @typescript-eslint/no-non-null-assertion */
+  const page = document.querySelector('#app')
+  let currentInput: EventTarget | null = null // 当前聚焦的输入框
+  const fixedEle = document.querySelector('body')
+
+  // webview发生平移，则及时更新fixed元素的定位
+  function handleScroll () {
+    console.log('style', window.pageYOffset)
+    fixedEle!.style.position = 'fixed'
+    fixedEle!.style.top = `${window.pageYOffset - 62}px`
+  }
+
+  // 滚动时收起软键盘
+  function stopMove () {
+    if (currentInput) {
+      (currentInput as HTMLElement).blur()
+      currentInput = null
+      window.removeEventListener('touchmove', stopMove)
+      window.removeEventListener('scroll', handleScroll)
+      fixedEle!.style.top = '0px'
+      fixedEle!.style.position = ''
+    }
+  }
+
+  function handleFocusin (e: Event) {
+    const el = e || window.event
+    // 在本身有输入框处于聚焦状态软键盘出现时，点击聚焦另外的输入框
+    if (currentInput) {
+      currentInput = el.target
+      return
+    }
+    // 添加滚动监听，为了软键盘出现 以及 从一个聚焦输入框聚焦到另外一个输入框时， 重新定位fixed元素（其实这里不用滚动事件监听变化也可以用setTimeout来更新定位）
+    window.addEventListener('scroll', handleScroll)
+    currentInput = el.target
+    // 监听移动手势：
+    // 1. 在软键盘出现后，如果想要滚动，则收起软键盘，解绑webview的滚动监听事件
+    // 2. 在软键盘出现后，用户主动收起软键盘（如点击软键盘的收起/完成等按钮），此时用户没有做移动手势，那么就会在收起软键盘后只要做了移动手势，就仍然触发绑定事件，达到解绑滚动监听事件的目的，阻止监听到webview回弹效果导致的固定顶部元素发生位移。
+    window.addEventListener('touchmove', stopMove)
+  }
+
+  page!.addEventListener('focusin', handleFocusin)
+}
