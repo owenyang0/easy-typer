@@ -92,7 +92,6 @@ export function fixIOSScrollIssue () {
 
   // webview发生平移，则及时更新fixed元素的定位
   function handleScroll () {
-    console.log('style', window.pageYOffset)
     fixedEle!.style.position = 'fixed'
     fixedEle!.style.top = `${window.pageYOffset - 62}px`
   }
