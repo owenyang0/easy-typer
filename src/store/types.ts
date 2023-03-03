@@ -257,6 +257,10 @@ export class KataState {
    */
   criteriaAccuracy = 100;
   /**
+   * 文本类型 1正常文本 2\n分段文本
+   */
+  textType = 1;
+  /**
    * 指标校验-操作 random乱序 retry重打 noop不处理
    */
   criteriaAction: 'noop' | 'random' | 'retry' = 'random';
