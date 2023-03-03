@@ -13,7 +13,7 @@ const state = new KataState()
 
 const getters: GetterTree<KataState, QuickTypingState> = {
   currentMatch: state => state.articleTitle,
-  paragraphCount: state => Math.ceil(state.articleText.length / state.paragraphSize),
+  paragraphCount: state => state.textType === 2 ? state.articleText.split('\n').length : Math.ceil(state.articleText.length / state.paragraphSize),
   nextParagraph: (state, getters) => {
     return {
       title: `${state.articleTitle}(${state.currentParagraphNo}/${getters.paragraphCount})`,
@@ -31,13 +31,19 @@ const mutations: MutationTree<KataState> = {
   },
 
   article: (state, article: KataState) => {
+    state.textType = article.textType
     const startIndex = (article.currentParagraphNo - 1) * article.paragraphSize
 
     state.articleText = article.articleText
     state.articleTitle = article.articleTitle
     state.currentParagraphNo = article.currentParagraphNo
     state.paragraphSize = article.paragraphSize
-    state.currentContent = state.articleText.slice(startIndex, startIndex + article.paragraphSize)
+
+    if (state.textType === 2) {
+      state.currentContent = state.articleText.split('\n')[article.currentParagraphNo - 1]
+    } else {
+      state.currentContent = state.articleText.slice(startIndex, startIndex + article.paragraphSize)
+    }
 
     state.mode = 1
     state.isReading = article.isReading
@@ -47,7 +53,11 @@ const mutations: MutationTree<KataState> = {
     state.currentParagraphNo += 1
     const startIndex = (state.currentParagraphNo - 1) * state.paragraphSize
 
-    state.currentContent = state.articleText.slice(startIndex, startIndex + state.paragraphSize)
+    if (state.textType === 2) {
+      state.currentContent = state.articleText.split('\n')[state.currentParagraphNo - 1]
+    } else {
+      state.currentContent = state.articleText.slice(startIndex, startIndex + state.paragraphSize)
+    }
   },
 
   random: (state) => {

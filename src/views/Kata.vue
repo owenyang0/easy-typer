@@ -28,12 +28,14 @@
         </el-form-item>
         <el-form-item label="每段字数">
           <el-input-number
+            v-if="currentTextType === 1"
             size="small"
             v-model="formContent.paragraphSize"
             :min="1"
             :step="10"
             class="form-field"
           ></el-input-number>
+          <el-input v-else value="动态" size="small" disabled class="form-field-mini" />
         </el-form-item>
         <el-form-item label="开始段数">
           <el-input-number
@@ -168,6 +170,10 @@ export default class Home extends Vue {
     return this.articleText.length > 0
   }
 
+  get currentTextType (): number {
+    return this.articleText.indexOf('\n') !== -1 ? 2 : 1
+  }
+
   private articleText = ''
   // private articleText = contentList.word001.content
 
@@ -222,7 +228,9 @@ export default class Home extends Vue {
 
   @Watch('formContent.paragraphSize')
   paragraphSizeChange (size: number) {
-    this.formContent.paragraphCount = Math.ceil(this.articleText.length / size)
+    if (this.currentTextType !== 2) {
+      this.formContent.paragraphCount = Math.ceil(this.articleText.length / size)
+    }
   }
 
   @Watch('formContent.contentName')
@@ -268,7 +276,12 @@ export default class Home extends Vue {
     } else {
       this.formContent.paragraphSize = Math.min(200, articleText.length)
     }
-    this.formContent.paragraphCount = Math.ceil(articleText.length / this.formContent.paragraphSize)
+
+    if (this.currentTextType === 2) {
+      this.formContent.paragraphCount = articleText.trim().split('\n').length
+    } else {
+      this.formContent.paragraphCount = Math.ceil(articleText.length / this.formContent.paragraphSize)
+    }
   }
 
   handleCriteriaOpenChange (criteriaOpen: boolean) {
@@ -310,7 +323,8 @@ export default class Home extends Vue {
   startKata (paragraphSize = 0) {
     const article: Partial<KataState> = {
       articleTitle: this.dialogTitle,
-      articleText: this.articleText,
+      articleText: this.articleText.trim().split('\n').filter(a => !!a).join(this.currentTextType === 2 ? '\n' : ''),
+      textType: this.currentTextType,
       currentParagraphNo: this.formContent.currentParagraphNo,
       paragraphSize: paragraphSize > 0 ? paragraphSize : this.formContent.paragraphSize
     }
