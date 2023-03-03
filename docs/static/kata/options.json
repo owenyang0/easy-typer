@@ -12,7 +12,7 @@
       { "value": "tigerSimp2Other", "label": "虎码二简 其他[完结版]", "isRemote": false },
       { "value": "tigerCertainly632", "label": "虎码必拆字632[完结版]", "isRemote": true },
       { "value": "tigerCode3", "label": "虎码三码字根字", "isRemote": false },
-      { "value": "tigerHell4500", "label": "虎码要你命4500", "isRemote": false },
+      { "value": "tigerYNM4500", "label": "虎码要你命4500", "isRemote": true },
       { "value": "singleMo500", "label": "魔500", "isRemote": true }
     ]
   },
@@ -184,11 +184,6 @@
       {
         "value": "articleCYYCDTHYX",
         "label": "春夜宴从弟桃花园序",
-        "isRemote": true
-      },
-      {
-        "value": "articleBD",
-        "label": "冰灯",
         "isRemote": true
       }
     ]
