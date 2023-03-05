@@ -122,7 +122,7 @@
             :value="bookConf.paragraphSize"
             :min="5"
             :max="10000"
-            :step="10"
+            :step="50"
             @change="handleParagraphSizeChange"
             class="form-field"
             ></el-input-number>
@@ -262,7 +262,7 @@ export default class Reading extends Vue {
             id,
             title,
             totalWords,
-            paragraphSize: 10,
+            paragraphSize: 100,
             currentWords: 0,
             paragraphs: Math.ceil(result.length / 10)
           }
