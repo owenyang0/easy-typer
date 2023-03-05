@@ -67,7 +67,7 @@
             @change="handleHitSpeedChange"
             class="form-field"
           ></el-input-number>
-          <el-tag type="warning" size="mini" style="margin-left: 10px;">移动端无效</el-tag>
+          <el-tag v-if="isMobile" type="warning" size="mini" style="margin-left: 10px;">移动端无效</el-tag>
         </el-form-item>
         <el-form-item label="速度≥">
           <el-input-number
@@ -185,6 +185,10 @@ export default class Home extends Vue {
 
   get isHitSpeedCriteriaDisabled (): boolean {
     return this.isCriteriaDisabled || isMobile()
+  }
+
+  get isMobile (): boolean {
+    return isMobile()
   }
 
   get hasArticleText (): boolean {
