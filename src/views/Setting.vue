@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form ref="settingForm" :model="form" :rules="rules" label-suffix=":" label-width="12rem">
+    <el-form ref="settingForm" :model="form" :rules="rules" label-suffix=":" label-width="14rem">
       <el-tabs v-model="activeTab" tab-position="left">
         <el-tab-pane label="基本设置" name="basic">
           <el-form-item label="自动重新开始">
@@ -25,16 +25,22 @@
           <el-form-item label="输入区行数">
             <el-input type="number" v-model="form.inputRows"/>
           </el-form-item>
-          <el-form-item label="未打颜色">
+          <el-form-item label="未打文字颜色">
             <el-color-picker v-model="form.pending"></el-color-picker>
           </el-form-item>
-          <el-form-item label="已打颜色">
+          <el-form-item label="已打文字颜色">
             <el-color-picker v-model="form.typed"></el-color-picker>
           </el-form-item>
-          <el-form-item label="正确颜色">
+          <el-form-item label="已打文字颜色[暗黑模式]">
+            <el-color-picker v-model="form.darkTyped"></el-color-picker>
+          </el-form-item>
+          <el-form-item label="正确背景颜色">
             <el-color-picker v-model="form.correct"></el-color-picker>
           </el-form-item>
-          <el-form-item label="错误颜色">
+          <el-form-item label="正确背景颜色[暗黑模式]">
+            <el-color-picker v-model="form.darkCorrect"></el-color-picker>
+          </el-form-item>
+          <el-form-item label="错误背景颜色">
             <el-color-picker v-model="form.error"></el-color-picker>
           </el-form-item>
         </el-tab-pane>

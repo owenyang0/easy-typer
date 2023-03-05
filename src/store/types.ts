@@ -362,11 +362,13 @@ export interface InterfaceStyle {
    * 已打文字颜色
    */
   '--typed': string;
+  '--dark-typed': string;
 
   /**
    * 正确文字背景颜色
    */
   '--correct': string;
+  '--dark-correct': string;
   /**
    * 错误文字背景颜色
    */
@@ -465,11 +467,19 @@ export class SettingState {
    * 已打文字颜色
    */
   typed = '#606266'
+  /**
+   * 已打文字颜色
+   */
+  darkTyped = '#909399'
 
   /**
    * 正确文字背景颜色
    */
   correct = '#e5e5e5'
+  /**
+   * 正确文字背景颜色
+   */
+  darkCorrect = '#3d444f'
   /**
    * 错误文字背景颜色
    */
@@ -600,7 +610,7 @@ export class SettingState {
   /**
    * 上次配置更新时间
    */
-  lastUpdatedTime = 1677380465896
+  lastUpdatedTime = 1677989604546
 }
 
 export interface LoginUser {
