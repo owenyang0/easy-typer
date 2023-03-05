@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "205d31bb7a8f1b235219364afeceedf0",
+    "revision": "07aec15986367e5e50dfb3bbf6d0a275",
     "url": "/app.html"
   },
   {
@@ -12,23 +12,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "0dae7184cde1d27a967e",
-    "url": "/css/app.11a8125c.css"
+    "revision": "52100d497a45697d2466",
+    "url": "/css/app.3c00ece2.css"
   },
   {
     "revision": "ee33f9825f0b325a68e7",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "82ccff1a3732d65a7c95",
-    "url": "/css/kata.abbe4c21.css"
+    "revision": "033bffc7fc749825e6b3",
+    "url": "/css/kata.26971da1.css"
   },
   {
     "revision": "aae94fd3b888d68f12ca",
     "url": "/css/practice.691b3b29.css"
   },
   {
-    "revision": "caba3436a2450f52147e",
+    "revision": "7aa5853666dc5d8bdadb",
     "url": "/css/setting.ff2f260c.css"
   },
   {
@@ -96,12 +96,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "0dae7184cde1d27a967e",
-    "url": "/js/app.7059897e.js"
+    "revision": "52100d497a45697d2466",
+    "url": "/js/app.7362f5bd.js"
   },
   {
-    "revision": "9f35aa3291cbeab529c0",
-    "url": "/js/changelog.f4bc98e7.js"
+    "revision": "41ab8621e6d2d2624b0f",
+    "url": "/js/changelog.67462b08.js"
   },
   {
     "revision": "ee33f9825f0b325a68e7",
@@ -112,16 +112,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/help.82ebc1a0.js"
   },
   {
-    "revision": "82ccff1a3732d65a7c95",
-    "url": "/js/kata.f0a27abb.js"
+    "revision": "033bffc7fc749825e6b3",
+    "url": "/js/kata.f4401449.js"
   },
   {
     "revision": "aae94fd3b888d68f12ca",
     "url": "/js/practice.2a7641e2.js"
   },
   {
-    "revision": "caba3436a2450f52147e",
-    "url": "/js/setting.b66204dd.js"
+    "revision": "7aa5853666dc5d8bdadb",
+    "url": "/js/setting.40d611b4.js"
   },
   {
     "revision": "7b616f10a7bd75c64500",
