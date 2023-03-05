@@ -253,6 +253,10 @@ export class KataState {
    */
   criteriaHitSpeed = 4;
   /**
+   * 指标校验-速度
+   */
+  criteriaSpeed = 0;
+  /**
    * 指标校验-键准
    */
   criteriaAccuracy = 100;
@@ -442,7 +446,7 @@ export class SettingState {
   /**
    * 字号
    */
-  fontSize = '2.4rem'
+  fontSize = '3rem'
 
   /**
    * 字重

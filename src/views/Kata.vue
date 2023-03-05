@@ -32,7 +32,7 @@
             size="small"
             v-model="formContent.paragraphSize"
             :min="1"
-            :step="10"
+            :step="5"
             class="form-field"
           ></el-input-number>
           <el-input v-else value="动态" size="small" disabled class="form-field-mini" />
@@ -67,6 +67,18 @@
             class="form-field"
           ></el-input-number>
         </el-form-item>
+        <el-form-item label="速度≥">
+          <el-input-number
+            size="small"
+            :value="criteriaSpeed"
+            :min="0"
+            :max="500"
+            :step="30"
+            :disabled="isCriteriaDisabled"
+            @change="handleSpeedChange"
+            class="form-field"
+          ></el-input-number>
+        </el-form-item>
         <el-form-item label="键准≥">
           <el-input-number
             size="small"
@@ -79,7 +91,7 @@
             class="form-field"
           ></el-input-number>
         </el-form-item>
-        <el-form-item label="未达标『或』有错字时">
+        <el-form-item label="未达标时『或』有错字时">
           <el-select
             size="small"
             placeholder="请选择类型"
@@ -133,6 +145,9 @@ export default class Home extends Vue {
 
   @kata.State('criteriaHitSpeed')
   private criteriaHitSpeed!: number
+
+  @kata.State('criteriaSpeed')
+  private criteriaSpeed!: number
 
   @kata.State('criteriaAccuracy')
   private criteriaAccuracy!: number
@@ -293,6 +308,12 @@ export default class Home extends Vue {
   handleHitSpeedChange (criteriaHitSpeed: number) {
     this.updateCriteria({
       criteriaHitSpeed
+    })
+  }
+
+  handleSpeedChange (criteriaSpeed: number) {
+    this.updateCriteria({
+      criteriaSpeed
     })
   }
 
