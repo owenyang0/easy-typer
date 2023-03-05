@@ -1,7 +1,7 @@
 
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { QuickTypingState, KataState } from './types'
-import { shuffle } from './util/common'
+import { isMobile, shuffle } from './util/common'
 import { Message } from 'element-ui'
 
 export interface KataArticle {
@@ -28,6 +28,9 @@ const mutations: MutationTree<KataState> = {
     state.mode = 0
     state.isReading = false
     state.criteriaOpen = false
+    if (isMobile()) {
+      state.criteriaHitSpeed = 0
+    }
   },
 
   article: (state, article: KataState) => {
