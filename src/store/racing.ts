@@ -1,7 +1,7 @@
 import xcapi from '@/api/xc.cool'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { Achievement, QuickTypingState, RacingState, Word } from './types'
-import { accuracyRank, speedRank } from './util/common'
+import { accuracyRank, isMobile, speedRank } from './util/common'
 import db from './util/Database'
 import { keyboard } from './util/keyboard'
 
@@ -136,6 +136,9 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
   balance (state, getters): string {
     const { leftHand, rightHand } = getters
     const total = leftHand + rightHand
+    if (total === 0) {
+      return 'N/A'
+    }
     const delta = Math.abs(leftHand - rightHand)
 
     return (100 - delta / total * 100).toFixed(2)
@@ -275,6 +278,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
       ['accuracyTip', '[百准神仙]'],
       ['noCodings', '[词提禁用]'],
       ['errPenaltyTip', '[错一罚五]'],
+      ['mobileMode', '[手搓选手]'],
       ['hash', `哈希${getters.hash}`],
       ['inputMethod', `输入法:${inputMethodName}`],
       ['signature', `个性签名:${signatureText}`],
@@ -303,6 +307,10 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
       }
       if (key === 'errPenaltyTip') {
         return state.error >= 1 && result.push(value)
+      }
+
+      if (key === 'mobileMode') {
+        return isMobile() && result.push(value)
       }
 
       if (keys.has(key)) {
