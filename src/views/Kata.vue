@@ -32,7 +32,7 @@
             size="small"
             v-model="formContent.paragraphSize"
             :min="1"
-            :step="10"
+            :step="5"
             class="form-field"
           ></el-input-number>
           <el-input v-else value="动态" size="small" disabled class="form-field-mini" />
@@ -56,14 +56,28 @@
           <el-switch :value="criteriaOpen" @change="handleCriteriaOpenChange"></el-switch>
         </el-form-item>
         <el-form-item label="击键≥">
+          <!-- <el-badge class="mark" value="移动端无效" /> -->
           <el-input-number
             size="small"
             :value="criteriaHitSpeed"
             :min="0"
             :max="30"
             :step="0.5"
-            :disabled="isCriteriaDisabled"
+            :disabled="isHitSpeedCriteriaDisabled"
             @change="handleHitSpeedChange"
+            class="form-field"
+          ></el-input-number>
+          <el-tag type="warning" size="mini" style="margin-left: 10px;">移动端无效</el-tag>
+        </el-form-item>
+        <el-form-item label="速度≥">
+          <el-input-number
+            size="small"
+            :value="criteriaSpeed"
+            :min="0"
+            :max="500"
+            :step="30"
+            :disabled="isCriteriaDisabled"
+            @change="handleSpeedChange"
             class="form-field"
           ></el-input-number>
         </el-form-item>
@@ -79,7 +93,7 @@
             class="form-field"
           ></el-input-number>
         </el-form-item>
-        <el-form-item label="未达标『或』有错字时">
+        <el-form-item label="未达标时『或』有错字时">
           <el-select
             size="small"
             placeholder="请选择类型"
@@ -111,7 +125,7 @@ import { namespace } from 'vuex-class'
 import { KataState } from '@/store/types'
 import { contentList, tigerCode3, tigerSimp2F500, tigerSimp2Other } from '../common/contentList'
 import { KataArticle } from '@/store/kata'
-import { shuffle } from '@/store/util/common'
+import { shuffle, isMobile } from '@/store/util/common'
 import { noop } from 'vue-class-component/lib/util'
 
 const article = namespace('article')
@@ -133,6 +147,9 @@ export default class Home extends Vue {
 
   @kata.State('criteriaHitSpeed')
   private criteriaHitSpeed!: number
+
+  @kata.State('criteriaSpeed')
+  private criteriaSpeed!: number
 
   @kata.State('criteriaAccuracy')
   private criteriaAccuracy!: number
@@ -166,6 +183,10 @@ export default class Home extends Vue {
     return !this.criteriaOpen
   }
 
+  get isHitSpeedCriteriaDisabled (): boolean {
+    return this.isCriteriaDisabled || isMobile()
+  }
+
   get hasArticleText (): boolean {
     return this.articleText.length > 0
   }
@@ -182,7 +203,7 @@ export default class Home extends Vue {
     contentName: ['free', 'freeText'],
     contentLength: 0,
     currentParagraphNo: 1,
-    paragraphSize: 10,
+    paragraphSize: isMobile() ? 5 : 10,
     paragraphCount: 1
   }
 
@@ -272,7 +293,7 @@ export default class Home extends Vue {
     this.formContent.contentLength = articleText.length
 
     if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
-      this.formContent.paragraphSize = 10
+      this.formContent.paragraphSize = this.formContent.paragraphSize > 100 ? 10 : this.formContent.paragraphSize
     } else {
       this.formContent.paragraphSize = Math.min(200, articleText.length)
     }
@@ -286,13 +307,20 @@ export default class Home extends Vue {
 
   handleCriteriaOpenChange (criteriaOpen: boolean) {
     this.updateCriteria({
-      criteriaOpen
+      criteriaOpen,
+      criteriaHitSpeed: isMobile
     })
   }
 
   handleHitSpeedChange (criteriaHitSpeed: number) {
     this.updateCriteria({
       criteriaHitSpeed
+    })
+  }
+
+  handleSpeedChange (criteriaSpeed: number) {
+    this.updateCriteria({
+      criteriaSpeed
     })
   }
 
@@ -359,6 +387,10 @@ export default class Home extends Vue {
   }
   .form-field-mini {
     width: 60px;
+  }
+
+  .el-button {
+    margin-bottom: 10px;
   }
 }
 .form-content {

@@ -26,11 +26,13 @@ const getters: GetterTree<SettingState, QuickTypingState> = {
   },
 
   styles (): InterfaceStyle {
-    const { pending, typed, correct, error, hintColor, code1, code2, code3, code4, fontFamily, fontSize, fontWeight, articleRows, inputRows } = state
+    const { pending, typed, correct, error, hintColor, code1, code2, code3, code4, fontFamily, fontSize, fontWeight, articleRows, inputRows, darkTyped, darkCorrect } = state
     return {
       '--pending': pending,
       '--typed': typed,
+      '--dark-typed': darkTyped,
       '--correct': correct,
+      '--dark-correct': darkCorrect,
       '--error': error,
       '--hint': hintColor,
       '--code1': code1,
@@ -71,7 +73,10 @@ const mutations: MutationTree<SettingState> = {
       // 用于主动更新配置
       if (!setting.lastUpdatedTime || setting.lastUpdatedTime < state.lastUpdatedTime) {
         // setting.fontFamily = '"LXGWWenKaiGB",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif'
-        setting.hint = false
+        setting.typed = '#606266'
+        setting.darkTyped = '#909399'
+        setting.correct = '#e5e5e5'
+        setting.darkCorrect = '#3d444f'
       }
       Object.assign(state, setting, {
         lastUpdatedTime: Date.now()

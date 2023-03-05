@@ -49,11 +49,12 @@ $--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
 /// color|1|Font Color|2
 $--color-text-primary: #9ca0a9 !default;
 /// color|1|Font Color|2
-$--color-text-regular: #828895 !default;
+$--color-text-regular: #606266 !default;
 /// color|1|Font Color|2
 $--color-text-secondary: #909399 !default;
 /// color|1|Font Color|2
-$--color-text-placeholder: #9ca0a9 !default;
+// $--color-text-placeholder: #9ca0a9 !default;
+$--color-text-placeholder: #606266 !default;
 /// color|1|Border Color|3
 // $--border-color-base: #DCDFE6 !default;
 $--border-color-base: #3d444f;
@@ -1084,18 +1085,18 @@ $--svg-monochrome-grey: #DCDDE0 !default;
   .el-input__inner {
     background-color: #1c1f24;
     border: 1px solid #3d444f;
-    color: #828895;
+    color: $--color-text-regular;
   }
 
   .el-textarea__inner {
-    color: #828895;
+    color: $--color-text-regular;
     background-color: #1c1f24;
     border: 1px solid #3d444f;
   }
 
   .el-input-number__increase, .el-input-number__decrease {
     background: #20242a;
-    color: #828895;
+    color: $--color-text-regular;
   }
   .el-input-number__increase {
     border-left: 1px solid #3d444f;

@@ -126,3 +126,7 @@ export function fixIOSScrollIssue () {
 
   racingEl!.addEventListener('focusin', handleFocusin)
 }
+
+export const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+}

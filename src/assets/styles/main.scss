@@ -67,7 +67,7 @@
   --error: #F56C6C;
   --typed: #FFFFFF;
   --hint: var(--secondary-color);
-  --font-size: 2.4rem;
+  --font-size: 3rem;
   --article-rows: 4;
   --input-rows: 2;
   --font-weight: 500;
@@ -401,6 +401,10 @@ html, body {
   background-color: var(--background-color);
   &:disabled {
     background-color: var(--level4-border-color);
+  }
+
+  &::placeholder {
+    color: var(--placeholder-color);
   }
 }
 

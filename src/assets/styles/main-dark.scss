@@ -14,7 +14,7 @@
   --normal-color: #606266;
   --secondary-color: #909399;
   // --placeholder-color: #C0C4CC;
-  --placeholder-color: #909399;
+  --placeholder-color: #606266;
 
   --pending: var(--secondary-color);
   --code1: #F56C6C;
@@ -29,4 +29,15 @@
   --font-size: 2.4rem;
   --article-rows: 4;
   --input-rows: 2;
+  --dark-typed: #909399;
+  --dark-correct: #3d444f;
+
+  #article-main {
+    .article {
+      .correct {
+        color: var(--dark-typed);
+        background-color: var(--dark-correct);
+      }
+    }
+  }
 }

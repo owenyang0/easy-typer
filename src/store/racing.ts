@@ -514,7 +514,7 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
         }
 
         if (kata.criteriaOpen) {
-          if (getters.hitSpeed >= kata.criteriaHitSpeed && getters.accuracy >= kata.criteriaAccuracy && finishState.error === 0) {
+          if (+getters.typeSpeed >= kata.criteriaSpeed && getters.hitSpeed >= kata.criteriaHitSpeed && getters.accuracy >= kata.criteriaAccuracy && finishState.error === 0) {
             this.dispatch('kata/next')
           } else {
             if (kata.criteriaAction === 'retry') {
