@@ -402,6 +402,10 @@ html, body {
   &:disabled {
     background-color: var(--level4-border-color);
   }
+
+  &::placeholder {
+    color: var(--placeholder-color);
+  }
 }
 
 .markdown-body {
