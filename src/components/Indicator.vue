@@ -96,6 +96,12 @@
           </span>
         </div>
         <div class="key-value">
+          <span>符号替换|英->中</span>
+          <span>
+            <el-switch v-model="tempReplaceSymbol" @change="toggleReplaceSymbol(tempReplaceSymbol)"/>
+          </span>
+        </div>
+        <div class="key-value">
           <span>暗黑模式</span>
           <span>
             <el-switch v-model="tempDarkMode" @change="toggleDarkMode(tempDarkMode)"/>
@@ -103,6 +109,7 @@
         </div>
       </el-card>
       <el-card class="contribute" shadow="never">
+        <p><a class="e-github-link" href="https://github.com/owenyang0/easy-typer" target="_blank">喜欢，点个赞</a></p>
         <p><i class="el-icon-info"/> <a href="https://github.com/owenyang0/easy-typer/issues" target="_blank">有问题，提个Issue</a></p>
         <p><a href="https://beian.miit.gov.cn/" target="_blank" class="slide">蜀ICP备2023002101号-1</a></p>
       </el-card>
@@ -199,6 +206,9 @@ export default class Indicator extends Vue {
   @setting.Getter('replaceSpace')
   private replaceSpace!: boolean
 
+  @setting.Getter('replaceSymbol')
+  private replaceSymbol!: boolean
+
   @setting.Getter('getSelectChar')
   private getSelectChar!: Function
 
@@ -213,6 +223,9 @@ export default class Indicator extends Vue {
 
   @setting.Mutation('toggleReplaceSpace')
   private toggleReplaceSpace!: Function
+
+  @setting.Mutation('toggleReplaceSymbol')
+  private toggleReplaceSymbol!: Function
 
   @summary.Getter('todayWords')
   private todayWords!: number
@@ -236,7 +249,8 @@ export default class Indicator extends Vue {
 
   private tempHint = false
 
-  private tempReplaceSpace = false
+  private tempReplaceSpace = true
+  private tempReplaceSymbol = true
 
   private tempDarkMode = false
 
@@ -274,6 +288,13 @@ export default class Indicator extends Vue {
     }
   }
 
+  @Watch('replaceSymbol')
+  replaceSymbolChange (replaceSymbol: boolean) {
+    if (this.tempReplaceSymbol !== replaceSymbol) {
+      this.tempReplaceSymbol = replaceSymbol
+    }
+  }
+
   toggleDarkMode (isDarkMode: boolean) {
     this.tempDarkMode = isDarkMode
     const newMode = isDarkMode ? 'dark' : ''
@@ -301,6 +322,7 @@ export default class Indicator extends Vue {
     this.cloakChange(this.cloak)
     this.hintChange(this.hint)
     this.replaceSpaceChange(this.replaceSpace)
+    this.replaceSymbolChange(this.replaceSymbol)
 
     this.tempDarkMode = localStorage.getItem('colorMode') as string === 'dark'
   }

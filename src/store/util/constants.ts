@@ -11,7 +11,7 @@ export const statusMapType = new Map<string, string>([
   ['wait', 'success'],
   ['finished', 'primary'],
   ['pause', 'warning'],
-  ['typing', 'danger']
+  ['typing', 'success']
 ])
 
 export const statusMapIcon = new Map<string, string>([
@@ -21,3 +21,44 @@ export const statusMapIcon = new Map<string, string>([
   ['pause', 'el-icon-video-play'],
   ['typing', 'el-icon-loading']
 ])
+
+export const symbol2CH = {
+  comma: [
+    { reg: /,/g, replacement: '，' },
+    { reg: /\./g, replacement: '。' }
+  ],
+  questionmark: [
+    { reg: /\?/g, replacement: '？' },
+    { reg: /!/g, replacement: '！' }
+  ],
+  colon: [
+    { reg: /;/g, replacement: '；' },
+    { reg: /:/g, replacement: '：' }
+  ],
+  bracket: [
+    { reg: /\(/g, replacement: '（' },
+    { reg: /\)/g, replacement: '）' }
+  ],
+  squareBracket: [
+    { reg: /\[/g, replacement: '【' },
+    { reg: /\]/g, replacement: '】' }
+  ],
+  quot: [
+    { reg: /"(.*?)"/g, replacement: '“$1”' },
+    { reg: /'(.*?)'/g, replacement: '‘$1’' }
+  ],
+  connector: [
+    { reg: /-/g, replacement: '—' },
+    { reg: /⋯/g, replacement: '…' },
+    { reg: /\.\.\./g, replacement: '…' }
+  ],
+  book: [
+    { reg: /</g, replacement: '《' },
+    { reg: />/g, replacement: '》' }
+  ],
+  backslash: [
+    { reg: /\\/g, replacement: '、' }
+  ]
+}
+
+export const symbolsRegs = Object.entries(symbol2CH).map(([, vals]) => vals).reduce((pre, curr) => pre.concat(curr))
