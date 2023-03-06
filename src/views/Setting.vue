@@ -174,6 +174,9 @@
           <el-form-item label="去除空格">
             <el-switch v-model="form.replaceSpace"/>
           </el-form-item>
+          <el-form-item label="替换符号[英->中]">
+            <el-switch v-model="form.replaceSymbol"/>
+          </el-form-item>
         </el-tab-pane>
       </el-tabs>
       <el-form-item>

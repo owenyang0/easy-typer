@@ -566,6 +566,11 @@ export class SettingState {
   replaceSpace = true
 
   /**
+   * 替换符号
+   */
+  replaceSymbol = true
+
+  /**
    * 结果选项
    */
 

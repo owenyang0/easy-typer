@@ -4,6 +4,7 @@ import { ArticleState, Coding, QuickTypingState, SettingState, Word } from './ty
 import { shuffleText, isNative } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
+import { symbolsRegs } from './util/constants'
 
 const alphaPattern = /[a-zA-Z0-9]/
 
@@ -153,6 +154,13 @@ const parseArticle = (content: string, setting: SettingState): ArticleState => {
   if (setting.replaceSpace) {
     // 替换空白
     content = content.replace(/\s/gm, '')
+  }
+
+  if (setting.replaceSymbol) {
+    // 替换符号
+    symbolsRegs.forEach(conf => {
+      content = content.replace(conf.reg, conf.replacement)
+    })
   }
 
   return { title, content, identity, shortest: null }

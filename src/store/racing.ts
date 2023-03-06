@@ -137,7 +137,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
     const { leftHand, rightHand } = getters
     const total = leftHand + rightHand
     if (total === 0) {
-      return 'N/A'
+      return '0'
     }
     const delta = Math.abs(leftHand - rightHand)
 
