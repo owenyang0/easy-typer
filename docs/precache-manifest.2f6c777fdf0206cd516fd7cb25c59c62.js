@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc78e5a0c8d89dd6da2f155d85ce21c3",
+    "revision": "25b72f4eda357f7495b864241a894528",
     "url": "/app.html"
   },
   {
@@ -12,11 +12,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.97d75575.css"
   },
   {
-    "revision": "f533f4b84fda6ac18d88",
-    "url": "/css/app.3c00ece2.css"
+    "revision": "c81bb3fe7b49b278375d",
+    "url": "/css/app.cf92f002.css"
   },
   {
-    "revision": "ee33f9825f0b325a68e7",
+    "revision": "1fd9b39eb2b3b6161a77",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/practice.691b3b29.css"
   },
   {
-    "revision": "7aa5853666dc5d8bdadb",
+    "revision": "951383cc90624c14991a",
     "url": "/css/setting.ff2f260c.css"
   },
   {
@@ -96,16 +96,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "f533f4b84fda6ac18d88",
-    "url": "/js/app.0593d23e.js"
+    "revision": "c81bb3fe7b49b278375d",
+    "url": "/js/app.f86feb43.js"
   },
   {
-    "revision": "b518c56ee1cadaa399e0",
-    "url": "/js/changelog.c6925bed.js"
+    "revision": "a61a04b8e39d5391a6eb",
+    "url": "/js/changelog.aa83f2eb.js"
   },
   {
-    "revision": "ee33f9825f0b325a68e7",
-    "url": "/js/chunk-vendors.b1dc8e06.js"
+    "revision": "1fd9b39eb2b3b6161a77",
+    "url": "/js/chunk-vendors.d61a65de.js"
   },
   {
     "revision": "eea1536bada352e6cf46",
@@ -120,8 +120,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/practice.2a7641e2.js"
   },
   {
-    "revision": "7aa5853666dc5d8bdadb",
-    "url": "/js/setting.40d611b4.js"
+    "revision": "951383cc90624c14991a",
+    "url": "/js/setting.0894be79.js"
   },
   {
     "revision": "7b616f10a7bd75c64500",
@@ -208,7 +208,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleMLS.json"
   },
   {
-    "revision": "6ad03aa96635864d6b14311fb6f1abbf",
+    "revision": "6bd13ffe54bc7bf9525bba249ab64704",
     "url": "/static/kata/articleQCBF.json"
   },
   {
