@@ -56,7 +56,6 @@
           <el-switch :value="criteriaOpen" @change="handleCriteriaOpenChange"></el-switch>
         </el-form-item>
         <el-form-item label="击键≥">
-          <!-- <el-badge class="mark" value="移动端无效" /> -->
           <el-input-number
             size="small"
             :value="criteriaHitSpeed"
@@ -311,8 +310,7 @@ export default class Home extends Vue {
 
   handleCriteriaOpenChange (criteriaOpen: boolean) {
     this.updateCriteria({
-      criteriaOpen,
-      criteriaHitSpeed: isMobile
+      criteriaOpen
     })
   }
 
