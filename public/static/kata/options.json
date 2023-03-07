@@ -48,142 +48,394 @@
     ]
   },
   {
-    "value": "article",
-    "label": "名篇合集 [秃秃整理]",
+    "value": "articleSet1",
+    "label": "名篇合集1",
     "children": [
       {
-        "value": "articleLS",
-        "label": "离骚",
+        "value": "article01",
+        "label": "01 爱莲说",
         "isRemote": true
       },
       {
-        "value": "articleCSB",
-        "label": "出师表",
+        "value": "article02",
+        "label": "02 拜中军记室辞隋王笺",
         "isRemote": true
       },
       {
-        "value": "articleLSF",
-        "label": "洛神赋",
+        "value": "article03",
+        "label": "03 报任少卿书（报任安书）",
         "isRemote": true
       },
       {
-        "value": "articleSDN",
-        "label": "蜀道难",
+        "value": "article04",
+        "label": "04 伯夷列传",
         "isRemote": true
       },
       {
-        "value": "articleCHG",
-        "label": "长恨歌",
+        "value": "article05",
+        "label": "05 捕蛇者说",
         "isRemote": true
       },
       {
-        "value": "articleCQB",
-        "label": "陈情表",
+        "value": "article06",
+        "label": "06 曹刿论战",
         "isRemote": true
       },
       {
-        "value": "articleLSM",
-        "label": "陋室铭",
+        "value": "article07",
+        "label": "07 陈情表",
         "isRemote": true
       },
       {
-        "value": "articleJJJ",
-        "label": "将进酒·君不见",
+        "value": "article08",
+        "label": "08 出师表",
         "isRemote": true
       },
       {
-        "value": "articleLTJX",
-        "label": "兰亭集序",
+        "value": "article09",
+        "label": "09 春望",
         "isRemote": true
       },
       {
-        "value": "articleQCBF",
-        "label": "前赤壁赋",
+        "value": "article10",
+        "label": "10 春夜宴从弟桃花园序",
         "isRemote": true
       },
       {
-        "value": "articleHCBF",
-        "label": "后赤壁赋",
+        "value": "article11",
+        "label": "11 答司马谏议书",
         "isRemote": true
       },
       {
-        "value": "articleXSTJ",
-        "label": "小石潭记",
+        "value": "article12",
+        "label": "12 登高",
         "isRemote": true
       },
       {
-        "value": "articleYYLJ",
-        "label": "岳阳楼记",
+        "value": "article13",
+        "label": "13 登泰山记",
         "isRemote": true
       },
       {
-        "value": "articleBSZH",
-        "label": "捕蛇者说",
+        "value": "article14",
+        "label": "14 殿前欢_秋日湖上倚",
         "isRemote": true
       },
       {
-        "value": "articleZGXW",
-        "label": "曾广贤文",
+        "value": "article15",
+        "label": "15 关雎",
         "isRemote": true
       },
       {
-        "value": "articleTHYJ",
-        "label": "桃花源记",
+        "value": "article16",
+        "label": "16 和陶归去来兮辞",
         "isRemote": true
       },
       {
-        "value": "articleTWGX",
-        "label": "滕王阁序",
+        "value": "article17",
+        "label": "17 后赤壁赋",
         "isRemote": true
       },
       {
-        "value": "articleDTSJ",
-        "label": "登泰山记",
+        "value": "article18",
+        "label": "18 湖心亭看雪",
         "isRemote": true
       },
       {
-        "value": "articleZWTJ",
-        "label": "醉翁亭记",
+        "value": "article19",
+        "label": "19 黄冈竹楼记",
         "isRemote": true
       },
       {
-        "value": "articleAPGF",
-        "label": "阿房宫赋",
+        "value": "article20",
+        "label": "20 货殖列传",
         "isRemote": true
       },
       {
-        "value": "articleXJXZ",
-        "label": "项脊轩志",
+        "value": "article21",
+        "label": "21 记承天寺夜游",
         "isRemote": true
       },
       {
-        "value": "articleYZYSS",
-        "label": "与朱元思书",
+        "value": "article22",
+        "label": "22 季氏将伐颛臾",
         "isRemote": true
       },
       {
-        "value": "articleHXTKX",
-        "label": "湖心亭看雪",
+        "value": "article23",
+        "label": "23 祭十二郎文",
         "isRemote": true
       },
       {
-        "value": "articleJSELW",
-        "label": "祭十二郎文",
+        "value": "article24",
+        "label": "24 蒹葭",
         "isRemote": true
       },
       {
-        "value": "articleZJFQWNJ",
-        "label": "邹忌讽齐王纳谏",
+        "value": "article25",
+        "label": "25 将进酒·君不见",
+        "isRemote": true
+      }
+    ]
+  },
+  {
+    "value": "articleSet2",
+    "label": "名篇合集2",
+    "children": [
+      {
+        "value": "article26",
+        "label": "26 兰亭集序",
         "isRemote": true
       },
       {
-        "value": "articleMLS",
-        "label": "木兰诗（木兰辞）",
+        "value": "article27",
+        "label": "27 离骚",
         "isRemote": true
       },
       {
-        "value": "articleCYYCDTHYX",
-        "label": "春夜宴从弟桃花园序",
+        "value": "article28",
+        "label": "28 六国论",
+        "isRemote": true
+      },
+      {
+        "value": "article29",
+        "label": "29 陋室铭",
+        "isRemote": true
+      },
+      {
+        "value": "article30",
+        "label": "30 论语十六则",
+        "isRemote": true
+      },
+      {
+        "value": "article31",
+        "label": "31 洛神赋",
+        "isRemote": true
+      },
+      {
+        "value": "article32",
+        "label": "32 马说",
+        "isRemote": true
+      },
+      {
+        "value": "article33",
+        "label": "33 氓",
+        "isRemote": true
+      },
+      {
+        "value": "article34",
+        "label": "34 茅屋为秋风所破歌",
+        "isRemote": true
+      },
+      {
+        "value": "article35",
+        "label": "35 摸鱼儿·雁丘词",
+        "isRemote": true
+      },
+      {
+        "value": "article36",
+        "label": "36 木兰诗（木兰辞）",
+        "isRemote": true
+      },
+      {
+        "value": "article37",
+        "label": "37 琵琶行",
+        "isRemote": true
+      },
+      {
+        "value": "article38",
+        "label": "38 菩萨蛮·平林漠漠烟如织",
+        "isRemote": true
+      },
+      {
+        "value": "article39",
+        "label": "39 前赤壁赋",
+        "isRemote": true
+      },
+      {
+        "value": "article40",
+        "label": "40 劝学",
+        "isRemote": true
+      },
+      {
+        "value": "article41",
+        "label": "41 如梦令·昨夜雨疏风骤",
+        "isRemote": true
+      },
+      {
+        "value": "article42",
+        "label": "42 三代世表",
+        "isRemote": true
+      },
+      {
+        "value": "article43",
+        "label": "43 三峡",
+        "isRemote": true
+      },
+      {
+        "value": "article44",
+        "label": "44 山坡羊·潼关怀古",
+        "isRemote": true
+      },
+      {
+        "value": "article45",
+        "label": "45 上枢密韩太尉书",
+        "isRemote": true
+      },
+      {
+        "value": "article46",
+        "label": "46 声声慢·寻寻觅觅",
+        "isRemote": true
+      },
+      {
+        "value": "article47",
+        "label": "47 师说",
+        "isRemote": true
+      },
+      {
+        "value": "article48",
+        "label": "48 十二诸侯年表",
+        "isRemote": true
+      },
+      {
+        "value": "article49",
+        "label": "49 蜀道难",
+        "isRemote": true
+      },
+      {
+        "value": "article50",
+        "label": "50 蜀相",
+        "isRemote": true
+      }
+    ]
+  },
+  {
+    "value": "articleSet3",
+    "label": "名篇合集3",
+    "children": [
+      {
+        "value": "article51",
+        "label": "51 水仙子·夜雨",
+        "isRemote": true
+      },
+      {
+        "value": "article52",
+        "label": "52 摊破浣溪沙·病起萧萧两鬓华",
+        "isRemote": true
+      },
+      {
+        "value": "article53",
+        "label": "53 桃花源记",
+        "isRemote": true
+      },
+      {
+        "value": "article54",
+        "label": "54 滕王阁序",
+        "isRemote": true
+      },
+      {
+        "value": "article55",
+        "label": "55 天净沙·秋思",
+        "isRemote": true
+      },
+      {
+        "value": "article56",
+        "label": "56 望岳",
+        "isRemote": true
+      },
+      {
+        "value": "article57",
+        "label": "57 闻官军收河南河北",
+        "isRemote": true
+      },
+      {
+        "value": "article58",
+        "label": "58 项脊轩志",
+        "isRemote": true
+      },
+      {
+        "value": "article59",
+        "label": "59 逍遥游·北冥有鱼",
+        "isRemote": true
+      },
+      {
+        "value": "article60",
+        "label": "60 小石潭记",
+        "isRemote": true
+      },
+      {
+        "value": "article61",
+        "label": "61 行路难·其二",
+        "isRemote": true
+      },
+      {
+        "value": "article62",
+        "label": "62 行路难·其三",
+        "isRemote": true
+      },
+      {
+        "value": "article63",
+        "label": "63 行路难·其一",
+        "isRemote": true
+      },
+      {
+        "value": "article64",
+        "label": "64 永遇乐·京口北固亭怀古",
+        "isRemote": true
+      },
+      {
+        "value": "article65",
+        "label": "65 永遇乐·落日熔金",
+        "isRemote": true
+      },
+      {
+        "value": "article66",
+        "label": "66 游侠列传",
+        "isRemote": true
+      },
+      {
+        "value": "article67",
+        "label": "67 鱼我所欲也",
+        "isRemote": true
+      },
+      {
+        "value": "article68",
+        "label": "68 渔家傲·天接云涛连晓雾",
+        "isRemote": true
+      },
+      {
+        "value": "article69",
+        "label": "69 与朱元思书",
+        "isRemote": true
+      },
+      {
+        "value": "article70",
+        "label": "70 岳阳楼记",
+        "isRemote": true
+      },
+      {
+        "value": "article71",
+        "label": "71 长恨歌",
+        "isRemote": true
+      },
+      {
+        "value": "article72",
+        "label": "72 折桂令·九日",
+        "isRemote": true
+      },
+      {
+        "value": "article73",
+        "label": "73 仲长统传序",
+        "isRemote": true
+      },
+      {
+        "value": "article74",
+        "label": "74 邹忌讽齐王纳谏",
+        "isRemote": true
+      },
+      {
+        "value": "article75",
+        "label": "75 醉翁亭记",
         "isRemote": true
       }
     ]
