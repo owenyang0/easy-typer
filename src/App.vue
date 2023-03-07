@@ -30,7 +30,7 @@
             <template slot="title"><i class="el-icon-date"></i>功能</template>
             <el-menu-item index="/kata">
               <i class="el-icon-date"></i>
-              <span slot="title">发文（F2）</span>
+              <span slot="title">发文-选择练习文本（F2）</span>
             </el-menu-item>
             <el-menu-item index="/reading">
               <i class="el-icon-document"></i>
@@ -40,14 +40,14 @@
               <i class="el-icon-aim"></i>
               <span slot="title">词库练习</span>
             </el-menu-item>
-            <el-menu-item index="/random">
+            <!-- <el-menu-item index="/random">
               <i class="el-icon-edit-outline"></i>
               <span slot="title">乱序（Ctrl+L）</span>
             </el-menu-item>
             <el-menu-item index="/next">
               <i class="el-icon-d-arrow-right"></i>
               <span slot="title">下一段（Ctrl+P）</span>
-            </el-menu-item>
+            </el-menu-item> -->
             <el-menu-item index="/setting">
               <i class="el-icon-setting"></i>
               <span slot="title">设置</span>

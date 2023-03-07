@@ -106,15 +106,15 @@ export default class Racing extends Vue {
               duration: 10000
             })
           })
-
-          const permissionName = 'clipboard-write' as PermissionName
-          navigator.permissions.query({ name: permissionName })
-            .then((permissionStatus) => {
-              console.log('clipboard permission state is ', permissionStatus.state)
-              if (permissionStatus.state === 'denied') {
-                this.$message.warning('当前浏览器复制权限被禁用，请检查设置')
-              }
-            })
+          // TODO: fireFox不支持
+          // const permissionName = 'clipboard-write' as PermissionName
+          // navigator.permissions.query({ name: permissionName })
+          //   .then((permissionStatus) => {
+          //     console.log('clipboard permission state is ', permissionStatus.state)
+          //     if (permissionStatus.state === 'denied') {
+          //       this.$message.warning('当前浏览器复制权限被禁用，请检查设置')
+          //     }
+          //   })
         })
         // this.$notify.success({
         //   message: text,
