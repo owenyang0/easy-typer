@@ -37,6 +37,8 @@
                 <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip> -->
+                <el-button size="mini" icon="el-icon-edit-outline" @click="random()">乱序(Ctrl+L)</el-button>
+                <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段(Ctrl+P)</el-button>
                 <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button>
                 <el-popover

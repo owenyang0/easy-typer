@@ -166,8 +166,8 @@ const parseArticle = (content: string, setting: SettingState): ArticleState => {
   return { title, content, identity, shortest: null }
 }
 
-const nativeContent = '1）点击『帮助』-『关于』-『快速开始』完成初始设置；2）按下F4快捷键，即刻开始载文；3）F2发文 可设定组合指标；4）CTRL+L 当前段乱序，CTRL+P 进入下一段'
-const webContent = '1）可手动载文或剪切板载文；2）F2发文 可设定组合指标；3）CTRL+L 当前段乱序，CTRL+P 进入下一段'
+const nativeContent = '1）点击『帮助』-『关于』-『快速开始』完成初始设置；2）按下F4快捷键，即刻开始载文；3）F2选择练习文本-发文，可设定击键、速度、码长等复合指标；4）CTRL+L 当前段乱序，CTRL+P 进入下一段'
+const webContent = '1）可点击『手动』载文或『粘贴Ctrl+V』自由载文；2）也可F2选择练习文本发文，能设定击键、速度、码长等复合指标；3）阅读，可导入小说开始跟打练习；4）CTRL+L当前段乱序，CTRL+P 进入下一段'
 
 const state: ArticleState = {
   title: '马上可用',
