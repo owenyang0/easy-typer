@@ -80,9 +80,12 @@ export function accuracyRank (accuracy: number) {
   return '键准新手'
 }
 
-export function fixIOSScrollIssue () {
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
-  if (!isIOS) {
+export const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+}
+
+export function fixMobileScrollIssue () {
+  if (!isMobile()) {
     return
   }
   /* eslint-disable @typescript-eslint/no-non-null-assertion */
@@ -125,8 +128,4 @@ export function fixIOSScrollIssue () {
   }
 
   racingEl!.addEventListener('focusin', handleFocusin)
-}
-
-export const isMobile = () => {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }
