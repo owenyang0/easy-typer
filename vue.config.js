@@ -35,29 +35,29 @@ module.exports = {
     assetsVersion: '26.1',
     display: 'standalone',
     themeColor: '#1c1f24',
-    msTileColor: '#1c1f24',
+    msTileColor: '#1c1f24'
     // // configure the workbox plugin
     // workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      // swSrc: 'dev/sw.js'
-      // ...other Workbox options...
-      runtimeCaching: [
-        {
-          urlPattern: '/',
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'easy-typer-custom-cache',
-            expiration: {
-              maxAgeSeconds: 86400 * 30
-            },
-            cacheableResponse: {
-              statuses: [0, 200]
-            }
-          }
-        }
-      ]
-    }
+    // workboxOptions: {
+    //   // swSrc is required in InjectManifest mode.
+    //   // swSrc: 'dev/sw.js'
+    //   // ...other Workbox options...
+    //   runtimeCaching: [
+    //     {
+    //       urlPattern: '/',
+    //       handler: 'StaleWhileRevalidate',
+    //       options: {
+    //         cacheName: 'easy-typer-custom-cache',
+    //         expiration: {
+    //           maxAgeSeconds: 86400 * 30
+    //         },
+    //         cacheableResponse: {
+    //           statuses: [0, 200]
+    //         }
+    //       }
+    //     }
+    //   ]
+    // }
   },
 
   publicPath: process.env.NODE_ENV === 'production'
