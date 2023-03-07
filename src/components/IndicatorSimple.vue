@@ -1,7 +1,7 @@
 <template>
   <div class="history-indicator">
     <el-row :gutter="10">
-      <el-col :xs="24" :sm="12" :lg="8">
+      <el-col :xs="24" :sm="12" :lg="12">
         <el-card class="box-card">
           <div class="chartCard">
             <div class="chartTop">
@@ -48,7 +48,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="12" :lg="8">
+      <el-col :xs="24" :sm="12" :lg="12">
         <el-card class="box-card">
           <div class="chartCard">
             <div class="chartTop">

@@ -113,11 +113,12 @@
         </div> -->
       </el-col>
     </el-row>
-    <el-row class="content-row">
-      <el-col :span="24">
-        <router-view />
-      </el-col>
-    </el-row>
+    <div class="content-row">
+      <router-view />
+      <!-- <el-col :span="24">
+      </el-col> -->
+    </div>
+    <div style="height: 1px;"></div>
   </div>
 </template>
 
@@ -388,6 +389,7 @@ export default class Setting extends Vue {
   .menu-row {
     overflow-x: auto;
     overflow-y: hidden;
+    /* box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%); */
   }
   .menu-col {
     min-width: 700px;
