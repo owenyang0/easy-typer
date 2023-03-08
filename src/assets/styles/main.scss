@@ -83,7 +83,7 @@ html, body {
   padding: 0;
   background-color: var(--background-color);
   color: var(--normal-color);
-  user-select: none;
+  // user-select: none;
 }
 
 #app {
@@ -317,6 +317,7 @@ html, body {
     height: calc((var(--font-size) + 2rem + 5px) * var(--article-rows));
     overflow: auto;
     font-weight: var(--font-weight);
+    user-select: none;
 
     .code {
       font-size: var(--font-size);
