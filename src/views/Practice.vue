@@ -166,11 +166,11 @@ class PracticeOption {
   /**
    * 码长范围
    */
-  codeRange = [1, 2]
+  codeRange = [2, 2]
   /**
    * 词语长度范围
    */
-  phraseRange = [2, 10]
+  phraseRange = [1, 10]
   /**
    * 词条位置范围
    */

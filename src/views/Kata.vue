@@ -74,7 +74,7 @@
             :value="criteriaSpeed"
             :min="0"
             :max="500"
-            :step="30"
+            :step="20"
             :disabled="isCriteriaDisabled"
             @change="handleSpeedChange"
             class="form-field"
