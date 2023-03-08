@@ -14,7 +14,7 @@ const routes = [
   '/download'
 ]
 
-const version = '(34)'
+const version = '(35)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 
@@ -32,7 +32,7 @@ module.exports = {
       msTileImage: 'img/icons/msapplication-icon-144x144.png'
     },
     appleMobileWebAppCapable: 'yes',
-    assetsVersion: '34',
+    assetsVersion: '35',
     display: 'standalone',
     themeColor: '#1c1f24',
     msTileColor: '#1c1f24'

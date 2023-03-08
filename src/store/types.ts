@@ -255,7 +255,7 @@ export class KataState {
   /**
    * 指标校验-速度
    */
-  criteriaSpeed = 30;
+  criteriaSpeed = 40;
   /**
    * 指标校验-键准
    */
