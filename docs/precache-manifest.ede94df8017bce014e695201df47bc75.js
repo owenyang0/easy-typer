@@ -140,6 +140,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/codingsSingleRaw.txt"
   },
   {
+    "revision": "25dfa8e5e6b84931b81916ca9361b0b4",
+    "url": "/static/kata/articleSet0-01.json"
+  },
+  {
     "revision": "5e36dc520cb325c9ae03618f8506ac52",
     "url": "/static/kata/articleSet1-01.json"
   },
@@ -156,7 +160,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet1-04.json"
   },
   {
-    "revision": "ebd5c16613ef8c75254cd24157e5be46",
+    "revision": "272d580ff083ed1cfa38fec6b56522c4",
     "url": "/static/kata/articleSet1-05.json"
   },
   {
@@ -256,7 +260,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet2-04.json"
   },
   {
-    "revision": "6889bae7cfcab2c8d7ec871c0b531253",
+    "revision": "99bad486ee3b95a5c61309b9ed37ff4c",
     "url": "/static/kata/articleSet2-05.json"
   },
   {
@@ -540,7 +544,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet4-25.json"
   },
   {
-    "revision": "37fec16cf339e399ac22928f0c189d07",
+    "revision": "800982cba6c8eae5e87cbed28a8812cc",
     "url": "/static/kata/options.json"
   },
   {
