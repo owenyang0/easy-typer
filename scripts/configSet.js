@@ -1,3 +1,7 @@
+const set0 = [
+  '01 徐事.txt'
+]
+
 const set1 = [
   '01 阿房宫赋.txt',
   '02 爱莲说.txt',
@@ -112,5 +116,5 @@ const set4 = [
 ]
 
 module.exports = {
-  set1, set2, set3, set4
+  set0, set1, set2, set3, set4
 }
