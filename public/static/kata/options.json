@@ -48,6 +48,17 @@
     ]
   },
   {
+    "value": "articleSet0",
+    "label": "文集0",
+    "children": [
+      {
+        "value": "articleSet0-01",
+        "label": "01 徐事",
+        "isRemote": true
+      }
+    ]
+  },
+  {
     "value": "articleSet1",
     "label": "文集1",
     "children": [

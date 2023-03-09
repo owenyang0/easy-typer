@@ -1,11 +1,11 @@
 const File = require('./File')
 const config = require('./configSet')
 
-const { set1, set2, set3, set4 } = config
+const { set0, set1, set2, set3, set4 } = config
 
 // TODO:
-const txtList = set1
-const dirName = 'articleSet1'
+const txtList = set0
+const dirName = 'articleSet0'
 
 const options = []
 const promises = txtList.map(name => {
