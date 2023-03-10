@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3427ab4c5a634eb519400755680d0e7c",
+    "revision": "29e5530a8f693ec44167a20528539c40",
     "url": "/app.html"
   },
   {
@@ -8,27 +8,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baidu_verify_codeva-27b8eJ5KJd.html"
   },
   {
-    "revision": "6342fc1eead52155c28e",
-    "url": "/css/about.97d75575.css"
+    "revision": "9abc7a694216f39cc024",
+    "url": "/css/about.b9568892.css"
   },
   {
-    "revision": "e2b45c3b51edaf7fd927",
-    "url": "/css/app.f9e82679.css"
+    "revision": "44871b6b318e7d25deee",
+    "url": "/css/app.2a0aec48.css"
   },
   {
     "revision": "1fd9b39eb2b3b6161a77",
     "url": "/css/chunk-vendors.cc5f3adf.css"
   },
   {
-    "revision": "c3cba435089a92813bc0",
-    "url": "/css/kata.26971da1.css"
+    "revision": "82b2e698c055102d2689",
+    "url": "/css/kata.122ec7f8.css"
   },
   {
     "revision": "2c36d09b837250e4ae60",
     "url": "/css/practice.691b3b29.css"
   },
   {
-    "revision": "951383cc90624c14991a",
+    "revision": "4c957d48435bcf5e8a38",
     "url": "/css/setting.ff2f260c.css"
   },
   {
@@ -84,8 +84,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/ui@2x.png"
   },
   {
-    "revision": "6342fc1eead52155c28e",
-    "url": "/js/about.3b9e973e.js"
+    "revision": "9abc7a694216f39cc024",
+    "url": "/js/about.1b9b550b.js"
   },
   {
     "revision": "1e867c2af607dc83291e",
@@ -96,36 +96,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "e2b45c3b51edaf7fd927",
-    "url": "/js/app.fa95a8a1.js"
+    "revision": "44871b6b318e7d25deee",
+    "url": "/js/app.388bba03.js"
   },
   {
-    "revision": "b4393950cc69d0857cf1",
-    "url": "/js/changelog.4a6fbb80.js"
+    "revision": "8c9ab8b2bb8eb3ecb940",
+    "url": "/js/changelog.17a7616f.js"
   },
   {
     "revision": "1fd9b39eb2b3b6161a77",
     "url": "/js/chunk-vendors.d61a65de.js"
   },
   {
-    "revision": "eea1536bada352e6cf46",
-    "url": "/js/help.82ebc1a0.js"
+    "revision": "60d2674c8a7a6b482a3f",
+    "url": "/js/help.05d91391.js"
   },
   {
-    "revision": "c3cba435089a92813bc0",
-    "url": "/js/kata.c7a92bad.js"
+    "revision": "82b2e698c055102d2689",
+    "url": "/js/kata.c41a2f86.js"
   },
   {
     "revision": "2c36d09b837250e4ae60",
     "url": "/js/practice.6a1ac486.js"
   },
   {
-    "revision": "951383cc90624c14991a",
-    "url": "/js/setting.0894be79.js"
+    "revision": "4c957d48435bcf5e8a38",
+    "url": "/js/setting.5c403169.js"
   },
   {
-    "revision": "7b616f10a7bd75c64500",
-    "url": "/js/summary.96d5ec8c.js"
+    "revision": "d38f182c416126069ad5",
+    "url": "/js/summary.0dbe4c87.js"
   },
   {
     "revision": "4956be72e79253714a896744f1c6549f",
@@ -142,6 +142,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "25dfa8e5e6b84931b81916ca9361b0b4",
     "url": "/static/kata/articleSet0-01.json"
+  },
+  {
+    "revision": "ae581cce1c00470158e631bf68b9772c",
+    "url": "/static/kata/articleSet0-02.json"
+  },
+  {
+    "revision": "bee1a5ec2337d74480cacf04992ea5fd",
+    "url": "/static/kata/articleSet0-03.json"
   },
   {
     "revision": "5e36dc520cb325c9ae03618f8506ac52",
@@ -164,7 +172,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet1-05.json"
   },
   {
-    "revision": "c3bc9ef8bd2be9933aa2b1a4e001f5b2",
+    "revision": "2037dfc72fa99f056e74b8d42c4d34c9",
     "url": "/static/kata/articleSet1-06.json"
   },
   {
@@ -188,7 +196,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet1-11.json"
   },
   {
-    "revision": "18d61433089ea01a96108ad4a27e11be",
+    "revision": "c0621769fa57d382c6361c823a19ad68",
     "url": "/static/kata/articleSet1-12.json"
   },
   {
@@ -544,7 +552,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet4-25.json"
   },
   {
-    "revision": "800982cba6c8eae5e87cbed28a8812cc",
+    "revision": "e97c2ce2ccaf2b033ef6b2009b3e09b5",
     "url": "/static/kata/options.json"
   },
   {
