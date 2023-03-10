@@ -5,7 +5,7 @@
       <el-row class="record-chart">
         <el-card>
           <div id="record-chart"></div>
-          </el-card>
+        </el-card>
       </el-row>
       <Achievements />
     </el-container>

@@ -143,7 +143,6 @@ const replaceContent = (input: string, setting = {
     })
   }
 
-  console.log(content, input)
   return content
 }
 
@@ -265,7 +264,6 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
           i = path[i]
         }
 
-        // console.log('Shortest codes: ', codes)
         this.dispatch('racing/setIdealKeys', codes)
       }
     })
