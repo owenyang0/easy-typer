@@ -1,5 +1,5 @@
 <template>
-  <div class="markdown-body" v-html="html"></div>
+  <div class="page-content pro-module-bd markdown-body" v-html="html"></div>
 </template>
 
 <script lang="ts">

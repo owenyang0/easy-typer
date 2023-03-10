@@ -1,5 +1,5 @@
 <template>
-  <div class="page-kata pro-module">
+  <div class="page-content page-kata pro-module">
     <div class="pro-module-hd clearfix">
       <h2>发文：{{dialogTitle}}</h2>
     </div>
@@ -382,19 +382,6 @@ export default class Home extends Vue {
 </script>
 
 <style lang="scss">
-.page-kata {
-  margin: 20px;
-  .form-field {
-    width: 120px;
-  }
-  .form-field-mini {
-    width: 60px;
-  }
-
-  .el-button {
-    margin-bottom: 10px;
-  }
-}
 .form-content {
   margin-top: 20px;
 }

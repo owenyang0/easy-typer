@@ -1,5 +1,5 @@
 <template>
-  <div id="summary">
+  <div id="summary" class="page-summary">
     <el-row>
       <el-col :span="24">
         <el-card>
@@ -7,7 +7,7 @@
         </el-card>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
+    <el-row :gutter="10">
       <el-col :span="8">
         <el-card>
           <div id="balance-chart"></div>

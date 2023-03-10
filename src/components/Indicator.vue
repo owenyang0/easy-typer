@@ -1,5 +1,5 @@
 <template>
-  <el-aside width="200px" class="indicator-container" v-show="showSidebar">
+  <el-aside width="210px" class="indicator-container" v-show="showSidebar">
     <div class="indicator">
       <!-- <el-card class="time" shadow="never">
         <el-progress type="dashboard" :percentage="percentage" :width="100" :status="progressStatus"/>

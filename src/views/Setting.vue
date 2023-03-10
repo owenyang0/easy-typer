@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-form ref="settingForm" :model="form" :rules="rules" label-suffix=":" label-width="14rem">
+  <div class="page-content pro-module">
+    <el-form ref="settingForm" :model="form" :rules="rules" label-suffix=":" label-width="14rem" class="pro-module-bd">
       <el-tabs v-model="activeTab" tab-position="left">
         <el-tab-pane label="基本设置" name="basic">
           <el-form-item label="自动重新开始">

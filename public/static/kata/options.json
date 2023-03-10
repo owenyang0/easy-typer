@@ -55,6 +55,16 @@
         "value": "articleSet0-01",
         "label": "01 徐事",
         "isRemote": true
+      },
+      {
+        "value": "articleSet0-02",
+        "label": "02 一个人住的第三年",
+        "isRemote": true
+      },
+      {
+        "value": "articleSet0-03",
+        "label": "03 阑尾",
+        "isRemote": true
       }
     ]
   },
