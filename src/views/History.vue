@@ -1,5 +1,5 @@
 <template>
-  <div class="history-page">
+  <div class="page-history">
     <el-container direction="vertical">
       <IndicatorSimple />
       <el-row class="record-chart">
@@ -197,9 +197,3 @@ export default class History extends Vue {
   }
 }
 </script>
-
-<style lang="scss">
-  .history-page {
-    padding: 20px;
-  }
-</style>

@@ -8,8 +8,8 @@
       @compositionstart.native="compositionStart"
       @compositionupdate.native="compositionUpdate"
       @compositionend.native="compositionEnd"
-      :disabled="status !== 'typing' && status !== 'init'"
-      placeholder="在这里输入赛文..."
+      :disabled="isDisabled"
+      :placeholder="placeholderText"
       v-model="input">
     </el-input>
   </div>
@@ -71,6 +71,14 @@ export default class Racing extends Vue {
    * 最后一次键入的文字
    */
   private last = ''
+
+  get isDisabled (): boolean {
+    return this.status !== 'typing' && this.status !== 'init'
+  }
+
+  get placeholderText (): string {
+    return this.isDisabled ? '请先载入练习文本...' : '在这里输入赛文...'
+  }
 
   @Watch('status')
   statusUpdate (status: string) {

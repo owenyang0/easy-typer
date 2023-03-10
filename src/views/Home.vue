@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="home" class="page-content page-home no-bg">
     <el-container>
       <Indicator/>
       <el-main id="home-main" :style="styles">
@@ -37,8 +37,12 @@
                 <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip> -->
-                <el-button size="mini" icon="el-icon-edit-outline" @click="random()">乱序(Ctrl+L)</el-button>
-                <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段(Ctrl+P)</el-button>
+                <el-tooltip content="乱序(Ctrl+L)" placement="top">
+                  <el-button size="mini" icon="el-icon-edit-outline" @click="random()">乱序</el-button>
+                </el-tooltip>
+                <el-tooltip content="下一段(Ctrl+P)" placement="top">
+                  <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段</el-button>
+                </el-tooltip>
                 <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button>
                 <el-popover
@@ -129,7 +133,7 @@
               <Racing ref="racing" />
             </el-col>
           </el-row>
-          <el-row style="margin-top: 5px;">
+          <el-row style="margin-top: 20px;">
             <el-col :span="24">
               <Achievements />
             </el-col>

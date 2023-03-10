@@ -1,5 +1,5 @@
 <template>
-  <div class="page-kata pro-module">
+  <div class="page-content page-reading pro-module">
     <div class="pro-module-hd clearfix">
       <h2>阅读：上传书籍 即可跟打阅读</h2>
     </div>
