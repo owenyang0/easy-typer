@@ -243,7 +243,7 @@ html, body {
     text-align: left;
     font-size: 1.2rem;
     // height: 150px;
-    height: 60px;
+    max-height: 90px;
     div {
       margin: .5rem auto 0 auto;
       &:first-child {

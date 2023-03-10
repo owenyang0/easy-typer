@@ -126,6 +126,27 @@ const parseIdentity = (content: string): string => {
   return content.replace(/-+第(\d+)段.*/, '$1')
 }
 
+const replaceContent = (input: string, setting = {
+  replaceSpace: false,
+  replaceSymbol: false
+}) => {
+  let content = input
+  if (setting.replaceSpace) {
+    // 替换空白
+    content = content.replace(/\s/gm, '')
+  }
+
+  if (setting.replaceSymbol) {
+    // 替换符号
+    symbolsRegs.forEach(conf => {
+      content = content.replace(conf.reg, conf.replacement)
+    })
+  }
+
+  console.log(content, input)
+  return content
+}
+
 const parseArticle = (content: string, setting: SettingState): ArticleState => {
   let title = '未知'
   let identity = '1'
@@ -151,17 +172,7 @@ const parseArticle = (content: string, setting: SettingState): ArticleState => {
     }
   }
 
-  if (setting.replaceSpace) {
-    // 替换空白
-    content = content.replace(/\s/gm, '')
-  }
-
-  if (setting.replaceSymbol) {
-    // 替换符号
-    symbolsRegs.forEach(conf => {
-      content = content.replace(conf.reg, conf.replacement)
-    })
-  }
+  content = replaceContent(content, setting)
 
   return { title, content, identity, shortest: null }
 }
@@ -200,11 +211,13 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
     this.dispatch('article/loadArticle', article)
   },
 
-  loadMatch (context, match: Match): void {
+  loadMatch ({ rootState }, match: Match): void {
     const { title, number, content } = match
+    const { setting } = rootState
+    const newContent = replaceContent(content, setting)
     const article = {
       title,
-      content,
+      content: newContent,
       identity: number,
       shortest: null
     }
