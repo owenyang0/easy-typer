@@ -443,7 +443,9 @@ html, body {
 .indicator-horizontal {
   display: none;
 }
-
+.indicator-container {
+  user-select: none;
+}
 @media only screen and (max-width: 680px) {
   // #home .el-container {
   //   flex-direction: column;
