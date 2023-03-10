@@ -137,8 +137,6 @@ export default class Indicator extends Vue {
 
 <style lang="scss">
 .history-indicator {
-  margin-bottom: 10px;
-
   .box-card {
     margin-bottom: 10px;
   }

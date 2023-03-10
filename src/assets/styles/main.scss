@@ -120,7 +120,7 @@ html, body {
 
   .el-menu.el-menu--horizontal {
     border: none;
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
   }
 }
@@ -174,9 +174,9 @@ html, body {
   }
 }
 
-.history-page {
+.page-history {
   .record-chart {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   #record-chart {
     width: 100%;
@@ -242,7 +242,6 @@ html, body {
   .code-hint {
     text-align: left;
     font-size: 1.2rem;
-    // height: 150px;
     height: 90px;
     div {
       margin: .5rem auto 0 auto;
