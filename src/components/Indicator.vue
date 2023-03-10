@@ -109,9 +109,9 @@
         </div>
       </el-card>
       <el-card class="contribute" shadow="never">
-        <p><a class="e-github-link" href="https://github.com/owenyang0/easy-typer" target="_blank">喜欢，点个赞</a></p>
-        <p><i class="el-icon-info"/> <a href="https://github.com/owenyang0/easy-typer/issues" target="_blank">有问题，提个Issue</a></p>
-        <p><a href="https://beian.miit.gov.cn/" target="_blank" class="slide">蜀ICP备2023002101号-1</a></p>
+        <p><a class="e-github-link" href="https://github.com/owenyang0/easy-typer" target="_blank">喜欢！点个赞</a></p>
+        <p><i class="el-icon-info"/> <a href="/about">{{ versionText }}</a></p>
+        <p><i class="el-icon-location"/> <a href="https://beian.miit.gov.cn/" target="_blank" class="slide">蜀ICP备2023002101号-1</a></p>
       </el-card>
       <el-drawer
         :title="drawer.title"
@@ -129,7 +129,7 @@
 import { initColorMode } from '@/store/util/common'
 import { keyboard } from '@/store/util/keyboard'
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { namespace } from 'vuex-class'
+import { Getter, namespace, State } from 'vuex-class'
 
 const racing = namespace('racing')
 const setting = namespace('setting')
@@ -137,6 +137,12 @@ const summary = namespace('summary')
 
 @Component
 export default class Indicator extends Vue {
+  @Getter('version')
+  private version!: string
+
+  @State('appVersion')
+  private appVersion!: string
+
   @racing.State('status')
   private status!: string
 
@@ -265,6 +271,10 @@ export default class Indicator extends Vue {
 
   get progressStatus (): string | null {
     return this.status === 'finished' ? 'success' : null
+  }
+
+  get versionText (): string {
+    return this.appVersion ? `版本 ${this.version}` : `木易跟打器 ${this.version}`
   }
 
   @Watch('hint')
