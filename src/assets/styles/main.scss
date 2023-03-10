@@ -470,7 +470,7 @@ html, body {
 
 
 .pro-module {
-  border-radius: 3px;
+  border-radius: 4px;
   // border: 1px solid var(--level3-border-color);
 }
 
@@ -649,6 +649,7 @@ $speed-levels: (
 
 .page-content {
   margin: 10px;
+  border-radius: 4px;
   background-color: var(--text-background-color);
 
   &.no-bg {
