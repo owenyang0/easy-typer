@@ -152,6 +152,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet0-03.json"
   },
   {
+    "revision": "85c8c1db26a20528cad6f291c0c989b1",
+    "url": "/static/kata/articleSet0-04.json"
+  },
+  {
+    "revision": "f9537b08297140729961e253fccf4674",
+    "url": "/static/kata/articleSet0-05.json"
+  },
+  {
     "revision": "5e36dc520cb325c9ae03618f8506ac52",
     "url": "/static/kata/articleSet1-01.json"
   },
@@ -236,11 +244,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet1-21.json"
   },
   {
-    "revision": "8a62a863789ba6ed8ab0d480108bd32d",
+    "revision": "a30cc2502ef320cc1b55b60cfca44046",
     "url": "/static/kata/articleSet1-22.json"
   },
   {
-    "revision": "a118254d257d37dc5555c9d78663d2c8",
+    "revision": "aa003c1cc3298a32e757ff45187c2bab",
     "url": "/static/kata/articleSet1-23.json"
   },
   {
@@ -252,7 +260,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet1-25.json"
   },
   {
-    "revision": "00e196f1f732a9f8a14279e054bdf2c6",
+    "revision": "064595af990d1e427e8bfbe187c79663",
     "url": "/static/kata/articleSet2-01.json"
   },
   {
@@ -284,7 +292,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet2-08.json"
   },
   {
-    "revision": "754b477f32898cb049b3ba396b01ad9e",
+    "revision": "003bcdd4454074990650b3136eddab74",
     "url": "/static/kata/articleSet2-09.json"
   },
   {
@@ -296,7 +304,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet2-11.json"
   },
   {
-    "revision": "113d0a174d7f7993caaca222650ee503",
+    "revision": "6243b5b341f8810d487f1cd16e7b3488",
     "url": "/static/kata/articleSet2-12.json"
   },
   {
@@ -552,7 +560,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet4-25.json"
   },
   {
-    "revision": "e97c2ce2ccaf2b033ef6b2009b3e09b5",
+    "revision": "8c69acabad48949d132643e20d99d24e",
     "url": "/static/kata/options.json"
   },
   {
