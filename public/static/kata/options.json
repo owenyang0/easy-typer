@@ -65,6 +65,16 @@
         "value": "articleSet0-03",
         "label": "03 阑尾",
         "isRemote": true
+      },
+      {
+        "value": "articleSet0-04",
+        "label": "04 一只特立独行的猪",
+        "isRemote": true
+      },
+      {
+        "value": "articleSet0-05",
+        "label": "05 我是哪一种女权主义者",
+        "isRemote": true
       }
     ]
   },
