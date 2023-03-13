@@ -260,6 +260,9 @@ export default class Indicator extends Vue {
   @article.Action('loadMatch')
   private loadMatch!: Function
 
+  @article.State('identity')
+  private identity!: string
+
   private tempCloak = false
 
   private tempHint = false
@@ -342,6 +345,11 @@ export default class Indicator extends Vue {
       .then(res => res.json())
       .then(ret => {
         if (ret.code === 0) {
+          const id = ret.data.id
+          if (id === this.identity) {
+            this.$message.warning('您点得太快啦，等会再试啦~')
+            return
+          }
           const match = {
             title: `《${ret.data.title}》- ${ret.data.author}`,
             content: ret.data.content,
@@ -361,6 +369,11 @@ export default class Indicator extends Vue {
       .then(res => res.json())
       .then(ret => {
         if (ret.code === 0) {
+          const id = ret.data.id
+          if (id === this.identity) {
+            this.$message.warning('您点得太快啦，等会再试啦~')
+            return
+          }
           const match = {
             title: `《${ret.data.title}》- ${ret.data.author}`,
             content: ret.data.content,
