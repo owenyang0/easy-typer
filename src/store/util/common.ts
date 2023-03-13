@@ -129,3 +129,5 @@ export function fixMobileScrollIssue () {
 
   racingEl!.addEventListener('focusin', handleFocusin)
 }
+
+export const replaceTextSpace = (content = '') => content.replace(/[\n\r\s]/g, '')

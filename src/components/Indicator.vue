@@ -131,7 +131,7 @@
 </template>
 
 <script lang="ts">
-import { initColorMode } from '@/store/util/common'
+import { initColorMode, replaceTextSpace } from '@/store/util/common'
 import { keyboard } from '@/store/util/keyboard'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Getter, namespace, State } from 'vuex-class'
@@ -352,7 +352,7 @@ export default class Indicator extends Vue {
           }
           const match = {
             title: `《${ret.data.title}》- ${ret.data.author}`,
-            content: ret.data.content,
+            content: replaceTextSpace(ret.data.content),
             number: ret.data.id
           }
           this.loadMatch(match)
@@ -376,7 +376,7 @@ export default class Indicator extends Vue {
           }
           const match = {
             title: `《${ret.data.title}》- ${ret.data.author}`,
-            content: ret.data.content,
+            content: replaceTextSpace(ret.data.content),
             number: ret.data.id
           }
           this.loadMatch(match)
