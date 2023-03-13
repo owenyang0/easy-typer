@@ -39,6 +39,11 @@
         </div>
       </el-card>
       <el-card shadow="never">
+        <div class="indicator-action">
+          <el-button size="mini" @click="handleRandomReading">随机阅读</el-button>
+          <el-button size="mini" @click="handleTodayReading" type="primary">每日一文</el-button>
+        </div>
+        <el-divider />
         <div class="key-value">
           <span>今日错/对</span>
           <span>{{ todayErrorWords | numberWithCommas}}/{{ (todayWords - todayErrorWords) | numberWithCommas }}</span>
@@ -134,6 +139,7 @@ import { Getter, namespace, State } from 'vuex-class'
 const racing = namespace('racing')
 const setting = namespace('setting')
 const summary = namespace('summary')
+const article = namespace('article')
 
 @Component
 export default class Indicator extends Vue {
@@ -251,6 +257,9 @@ export default class Indicator extends Vue {
   @summary.Getter('totalDays')
   private totalDays!: number
 
+  @article.Action('loadMatch')
+  private loadMatch!: Function
+
   private tempCloak = false
 
   private tempHint = false
@@ -328,6 +337,44 @@ export default class Indicator extends Vue {
     this.drawerVisiable = true
   }
 
+  handleRandomReading () {
+    fetch('/api/r/articles/random')
+      .then(res => res.json())
+      .then(ret => {
+        if (ret.code === 0) {
+          const match = {
+            title: `《${ret.data.title}》- ${ret.data.author}`,
+            content: ret.data.content,
+            number: ret.data.id
+          }
+          this.loadMatch(match)
+        } else {
+          this.$message.warning(`获取文章失败：${ret.msg}`)
+        }
+      }).catch(err => {
+        this.$message.warning(`获取文章失败：${err.message}`)
+      })
+  }
+
+  handleTodayReading () {
+    fetch('/api/r/articles/today')
+      .then(res => res.json())
+      .then(ret => {
+        if (ret.code === 0) {
+          const match = {
+            title: `《${ret.data.title}》- ${ret.data.author}`,
+            content: ret.data.content,
+            number: ret.data.id
+          }
+          this.loadMatch(match)
+        } else {
+          this.$message.warning(`获取文章失败：${ret.msg}`)
+        }
+      }).catch(err => {
+        this.$message.warning(`获取文章失败：${err.message}`)
+      })
+  }
+
   created () {
     this.cloakChange(this.cloak)
     this.hintChange(this.hint)
@@ -338,3 +385,13 @@ export default class Indicator extends Vue {
   }
 }
 </script>
+
+<style>
+  .indicator-action {
+    width: 170px;
+    margin-left: -5px;
+  }
+  .indicator-action .el-button--mini {
+    padding: 7px 12px;
+  }
+</style>
