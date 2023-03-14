@@ -75,6 +75,16 @@
         "value": "articleSet0-05",
         "label": "05 我是哪一种女权主义者",
         "isRemote": true
+      },
+      {
+        "value": "articleSet0-06",
+        "label": "06 猫",
+        "isRemote": true
+      },
+      {
+        "value": "articleSet0-07",
+        "label": "07 思维的乐趣",
+        "isRemote": true
       }
     ]
   },
