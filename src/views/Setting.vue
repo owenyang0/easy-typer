@@ -28,6 +28,9 @@
           <el-form-item label="未打文字颜色">
             <el-color-picker v-model="form.pending"></el-color-picker>
           </el-form-item>
+          <el-form-item label="未打文字颜色[暗黑模式]">
+            <el-color-picker v-model="form.darkPending"></el-color-picker>
+          </el-form-item>
           <el-form-item label="已打文字颜色">
             <el-color-picker v-model="form.typed"></el-color-picker>
           </el-form-item>

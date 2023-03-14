@@ -32,9 +32,13 @@
   --input-rows: 2;
   --dark-typed: #909399;
   --dark-correct: #3d444f;
+  --dark-pending: #909399;
 
   #article-main {
     .article {
+      .pending {
+        color: var(--dark-pending);
+      }
       .correct {
         color: var(--dark-typed);
         background-color: var(--dark-correct);

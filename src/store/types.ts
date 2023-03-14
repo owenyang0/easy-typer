@@ -362,6 +362,7 @@ export interface InterfaceStyle {
    * 未打文字颜色
    */
   '--pending': string;
+  '--dark-pending': string;
   /**
    * 已打文字颜色
    */
@@ -467,6 +468,7 @@ export class SettingState {
    * 未打文字颜色
    */
   pending = '#606266'
+  darkPending = '#909399'
   /**
    * 已打文字颜色
    */
