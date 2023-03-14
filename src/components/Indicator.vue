@@ -43,6 +43,9 @@
           <el-button size="mini" @click="handleRandomReading">随机阅读</el-button>
           <el-button size="mini" @click="handleTodayReading" type="primary">每日一文</el-button>
         </div>
+        <div style="margin-top: 22px;">
+          <el-button @click="handleReadingClick" size="mini" type="text">每日一读，沉浸经典</el-button>
+        </div>
         <el-divider />
         <div class="key-value">
           <span>今日错/对</span>
@@ -386,6 +389,10 @@ export default class Indicator extends Vue {
       }).catch(err => {
         this.$message.warning(`获取文章失败：${err.message}`)
       })
+  }
+
+  handleReadingClick () {
+    window.open('http://reading.owenyang.top/', '_blank')
   }
 
   created () {
