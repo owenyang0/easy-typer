@@ -404,6 +404,7 @@ export default class Indicator extends Vue {
     width: 170px;
     margin-left: -5px;
   }
+  .dark .indicator-action .el-button--mini,
   .indicator-action .el-button--mini {
     padding: 7px 12px;
   }
