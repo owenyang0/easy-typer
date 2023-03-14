@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "edc0a081b55edf1901ec4d74b088d173",
+    "revision": "e71343a3e8ba9a60ec0de8356f36364c",
     "url": "/app.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.fa8f98a0.css"
   },
   {
-    "revision": "8ef8af998e632ef506c1",
-    "url": "/css/app.ebcd4cd5.css"
+    "revision": "8817e46e8c54fcca3dc5",
+    "url": "/css/app.87d22e73.css"
   },
   {
     "revision": "1fd9b39eb2b3b6161a77",
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/practice.691b3b29.css"
   },
   {
-    "revision": "4c957d48435bcf5e8a38",
+    "revision": "960a3736fb24212ad466",
     "url": "/css/setting.ff2f260c.css"
   },
   {
@@ -96,8 +96,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about~summary.d5e7c452.js"
   },
   {
-    "revision": "8ef8af998e632ef506c1",
-    "url": "/js/app.3af7266a.js"
+    "revision": "8817e46e8c54fcca3dc5",
+    "url": "/js/app.81499782.js"
   },
   {
     "revision": "dc07b238dfb8de090704",
@@ -120,8 +120,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/practice.6a1ac486.js"
   },
   {
-    "revision": "4c957d48435bcf5e8a38",
-    "url": "/js/setting.5c403169.js"
+    "revision": "960a3736fb24212ad466",
+    "url": "/js/setting.b8ea16dd.js"
   },
   {
     "revision": "d38f182c416126069ad5",
@@ -158,6 +158,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f9537b08297140729961e253fccf4674",
     "url": "/static/kata/articleSet0-05.json"
+  },
+  {
+    "revision": "075073aa7d96bdd2a5d82a8b3757bae3",
+    "url": "/static/kata/articleSet0-06.json"
+  },
+  {
+    "revision": "6f05faf410d7b20cb7c1c91ea532f86a",
+    "url": "/static/kata/articleSet0-07.json"
   },
   {
     "revision": "5e36dc520cb325c9ae03618f8506ac52",
@@ -560,7 +568,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/kata/articleSet4-25.json"
   },
   {
-    "revision": "8c69acabad48949d132643e20d99d24e",
+    "revision": "856c8ece29aef298beb03e4dd255a11a",
     "url": "/static/kata/options.json"
   },
   {
