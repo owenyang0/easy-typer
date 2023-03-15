@@ -32,7 +32,7 @@
                     >正确字数<span class="trendText">{{ (todayWords - todayErrorWords) | numberWithCommas }}</span></span
                   ><span class="down"><i class="el-icon-check"></i>(正确率{{ todayCorrectRatio }}%)</span>
                 </div>
-                <div class="trendItem" title="">
+                <div class="trendItem">
                   <span
                     >错误字数<span class="trendText">{{ todayErrorWords | numberWithCommas}}</span></span
                   ><span class="up"><i class="el-icon-close"></i></span>
@@ -41,8 +41,8 @@
             </div>
             <div class="footer">
               <div class="field">
-                <span class="label">连续跟打天数</span
-                ><span class="number">{{ consecutiveDays }}</span>
+                <span class="label">连续跟打天数</span><span class="number">{{ consecutiveDays }}</span>
+                <span class="label" style="margin-left: 20px;">跟打时长</span><span class="number">{{ todayDurationTime }}</span>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
                     >正确字数<span class="trendText">{{ (totalWords - totalErrorWords) | numberWithCommas }}</span></span
                   ><span class="down"><i class="el-icon-check"></i>(正确率{{ totalCorrectRatio }}%)</span>
                 </div>
-                <div class="trendItem" title="">
+                <div class="trendItem">
                   <span
                     >错误字数<span class="trendText">{{ totalErrorWords | numberWithCommas }}</span></span
                   ><span class="up"><i class="el-icon-close"></i></span>
@@ -90,6 +90,7 @@
               <div class="field">
                 <span class="label">跟打总天数</span><span class="number">{{ totalDays }}</span>
                 <span class="label" style="margin-left: 20px;">日均跟打</span><span class="number">{{ totalDays ? (totalWords / totalDays).toFixed(2) : '-' }} 字</span>
+                <span class="label" style="margin-left: 20px;">跟打总时长</span><span class="number">{{ totalDurationTime }}</span>
               </div>
             </div>
           </div>
@@ -100,10 +101,12 @@
 </template>
 
 <script lang="ts">
+import { formatDuration } from '@/store/util/common'
 import { Component, Vue } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 
 const summary = namespace('summary')
+const record = namespace('record')
 
 @Component
 export default class Indicator extends Vue {
@@ -124,6 +127,20 @@ export default class Indicator extends Vue {
 
   @summary.Getter('totalDays')
   private totalDays!: number
+
+  @record.State('todayDuration')
+  private todayDuration!: number
+
+  @record.State('totalDuration')
+  private totalDuration!: number
+
+  get totalDurationTime (): string {
+    return formatDuration(this.totalDuration)
+  }
+
+  get todayDurationTime (): string {
+    return formatDuration(this.todayDuration)
+  }
 
   get todayCorrectRatio (): string {
     return this.todayWords ? (((this.todayWords - this.todayErrorWords) / this.todayWords) * 100).toFixed(2) : '-'

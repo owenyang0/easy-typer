@@ -312,6 +312,14 @@ export class RecordState {
    * 总条数
    */
   total = 0;
+  /**
+   * 总时长
+   */
+  totalDuration = 0;
+  /**
+   * 今日时长
+   */
+  todayDuration = 0;
 }
 
 export class QuickTypingState {
@@ -530,7 +538,7 @@ export class SettingState {
   /**
    * 提示选项
    */
-  hintOptions = ['code']
+  hintOptions = ['select', 'code']
   /**
    * 禁用单字提示
    */

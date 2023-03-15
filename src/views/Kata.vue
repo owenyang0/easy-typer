@@ -32,7 +32,7 @@
             size="small"
             v-model="formContent.paragraphSize"
             :min="1"
-            :step="5"
+            :step="paragraphSizeStep"
             class="form-field"
           ></el-input-number>
           <el-input v-else value="动态" size="small" disabled class="form-field-mini" />
@@ -198,6 +198,11 @@ export default class Home extends Vue {
     return this.articleText.indexOf('\n') !== -1 ? 2 : 1
   }
 
+  get paragraphSizeStep (): number {
+    const isSingleMode = ['tiger', 'word'].indexOf(this.formContent.contentName[0]) !== -1
+    return isSingleMode ? 5 : 100
+  }
+
   private articleText = ''
   // private articleText = contentList.word001.content
 
@@ -298,7 +303,7 @@ export default class Home extends Vue {
     if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
       this.formContent.paragraphSize = this.formContent.paragraphSize > 100 ? 10 : this.formContent.paragraphSize
     } else {
-      this.formContent.paragraphSize = Math.min(200, articleText.length)
+      this.formContent.paragraphSize = Math.min(500, articleText.length)
     }
 
     if (this.currentTextType === 2) {
