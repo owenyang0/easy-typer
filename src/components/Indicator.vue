@@ -392,7 +392,7 @@ export default class Indicator extends Vue {
   }
 
   handleReadingClick () {
-    window.open('http://reading.owenyang.top/', '_blank')
+    window.open('http://yuedu.owenyang.top/', '_blank')
   }
 
   created () {
