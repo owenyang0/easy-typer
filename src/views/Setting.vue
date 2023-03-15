@@ -55,9 +55,13 @@
               :show-file-list="false"
               :on-change="loadCodings">
               <i class="el-icon-upload"></i>
-              <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-              <div class="el-upload__tip" slot="tip">文本格式文件，UTF8编码，多多格式，即`字  编码`，每行一条记录</div>
-              <div class="el-upload__tip" slot="tip">点击更新默认编码提示：
+              <div class="el-upload__text">将码表文件拖到此处，或<em>点击上传</em></div>
+              <div class="el-upload__tip" slot="tip">
+                <div>0. 支持任意码表：虎码、86五笔、091五笔、小鹤等等</div>
+                <div>1. 文本格式文件，UTF8编码多多格式，即 `字  编码`，每行一条记录</div>
+                <div>2. 码表按 <strong class="tidiv-extra">『字母顺序』</strong> 排列，否则选重计算会有问题</div>
+              </div>
+              <div class="el-upload__tip" slot="tip">3. 点击更新默认编码提示：
                 <!-- <el-button-group> -->
                 <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字』</el-button>
                 <!-- </el-button-group> -->
