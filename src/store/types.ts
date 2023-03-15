@@ -442,7 +442,7 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = '"LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif'
+  fontFamily = '"LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun'
 
   /**
    * 字号

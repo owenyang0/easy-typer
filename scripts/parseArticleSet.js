@@ -4,8 +4,8 @@ const config = require('./configSet')
 const { set0, set1, set2, set3, set4 } = config
 
 // TODO:
-const txtList = set0
-const dirName = 'articleSet0'
+const txtList = set2
+const dirName = 'articleSet2'
 
 const options = []
 const promises = txtList.map(name => {

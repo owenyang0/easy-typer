@@ -49,7 +49,7 @@
   },
   {
     "value": "articleSet0",
-    "label": "文集0",
+    "label": "入门必打",
     "children": [
       {
         "value": "articleSet0-01",
@@ -85,12 +85,17 @@
         "value": "articleSet0-07",
         "label": "07 思维的乐趣",
         "isRemote": true
+      },
+      {
+        "value": "articleSet0-08",
+        "label": "08 沉默的大多数",
+        "isRemote": true
       }
     ]
   },
   {
     "value": "articleSet1",
-    "label": "文集1",
+    "label": "精选名篇4-1",
     "children": [
       {
         "value": "articleSet1-01",
@@ -221,7 +226,7 @@
   },
   {
     "value": "articleSet2",
-    "label": "文集2",
+    "label": "精选名篇4-2",
     "children": [
       {
         "value": "articleSet2-01",
@@ -352,7 +357,7 @@
   },
   {
     "value": "articleSet3",
-    "label": "文集3",
+    "label": "精选名篇4-3",
     "children": [
       {
         "value": "articleSet3-01",
@@ -483,7 +488,7 @@
   },
   {
     "value": "articleSet4",
-    "label": "文集4",
+    "label": "精选名篇4-4",
     "children": [
       {
         "value": "articleSet4-01",
