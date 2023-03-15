@@ -131,3 +131,21 @@ export function fixMobileScrollIssue () {
 }
 
 export const replaceTextSpace = (content = '') => content.replace(/[\n\r\s]/g, '')
+
+export const formatDuration = (milliseconds: number) => {
+  const seconds = Math.floor(milliseconds / 1000)
+  const days = Math.floor(seconds / 86400)
+  const hours = Math.floor((seconds % 86400) / 3600)
+  const minutes = Math.floor(((seconds % 86400) % 3600) / 60)
+  const secs = Math.floor(((seconds % 86400) % 3600) % 60)
+
+  if (days > 0) {
+    return `${days}天${hours}时${minutes}分${secs}秒`
+  } else if (hours > 0) {
+    return `${hours}时${minutes}分${secs}秒`
+  } else if (minutes > 0) {
+    return `${minutes}分${secs}秒`
+  } else {
+    return `${secs}秒`
+  }
+}
