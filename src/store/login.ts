@@ -1,4 +1,4 @@
-import xcapi from '@/api/xc.cool'
+import eapi from '@/api/easyTyper'
 import { ActionTree, Module, MutationTree } from 'vuex'
 import { QuickTypingState, LoginState } from './types'
 
@@ -24,7 +24,7 @@ const mutations: MutationTree<LoginState> = {
 const actions: ActionTree<LoginState, QuickTypingState> = {
   login ({ commit }, data) {
     if (data) {
-      xcapi.updateToken(data.token)
+      eapi.updateToken(data.token)
       commit('login', data)
     }
   },

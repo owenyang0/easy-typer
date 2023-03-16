@@ -170,7 +170,7 @@ class PracticeOption {
   /**
    * 词语长度范围
    */
-  phraseRange = [1, 10]
+  phraseRange = [2, 10]
   /**
    * 词条位置范围
    */

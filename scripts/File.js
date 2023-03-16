@@ -5,9 +5,9 @@ const fs = require('fs')
 const ABSPATH = path.dirname(require.main.filename)
 
 class Files {
-  static read(path, encoding = 'utf8') {
+  static read(finalPath, encoding = 'utf8') {
     return new Promise((resolve, reject) => {
-      let readStream = fs.createReadStream(ABSPATH + path, encoding)
+      let readStream = fs.createReadStream(path.join(ABSPATH, finalPath), encoding)
       let data = ''
 
       readStream

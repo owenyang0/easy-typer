@@ -122,7 +122,7 @@ const verify = (content: string, sign: string): boolean => {
   return content.length === parseInt(count) && sha1Hmac(`${content}-${id}`) === matched[3]
 }
 
-export const xcapi = {
+export const eapi = {
   updateToken,
   login,
   logout,
@@ -132,4 +132,4 @@ export const xcapi = {
   matches
 }
 
-export default xcapi
+export default eapi

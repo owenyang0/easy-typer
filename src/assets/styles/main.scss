@@ -352,7 +352,9 @@ html, body {
         color: var(--hint);
         letter-spacing: 1px;
         border-top: 1px solid var(--hint);
-        padding-top: 2px;
+        padding: 2px 5px 0;
+        position: relative;
+        left: -0.5rem;
       }
 
       span:last-child {
