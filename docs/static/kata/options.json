@@ -90,6 +90,11 @@
         "value": "articleSet0-08",
         "label": "08 沉默的大多数",
         "isRemote": true
+      },
+      {
+        "value": "articleSet0-09",
+        "label": "09 清欢",
+        "isRemote": true
       }
     ]
   },
