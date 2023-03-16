@@ -12,7 +12,6 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 /* Color
 -------------------------- */
 /// color|1|Brand Color|0
-// $--color-primary: #0f0f13;
 // $--color-primary: #cc7700;
 $--color-primary: #ff804b;
 /// color|1|Background Color|4
@@ -1162,6 +1161,9 @@ $--svg-monochrome-grey: #DCDDE0 !default;
 
   .el-table .el-table__cell {
     padding: 8px 0;
+  }
+  .el-upload__tip .tip-extra {
+    color: $--color-primary;
   }
 }
 
