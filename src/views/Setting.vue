@@ -64,6 +64,7 @@
               <div class="el-upload__tip" slot="tip">3. 点击更新默认编码提示：
                 <!-- <el-button-group> -->
                 <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字』</el-button>
+                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('xh')">『小鹤词提』</el-button>
                 <!-- </el-button-group> -->
               </div>
             </el-upload>
@@ -216,6 +217,8 @@ import db from '../store/util/Database'
 import { SettingState } from '../store/types'
 import { Action, namespace } from 'vuex-class'
 import { Form, Loading, Table } from 'element-ui'
+import aes from 'crypto-js/aes'
+import encUTF8 from 'crypto-js/enc-utf8'
 import punctuations from '../store/util/punctuation'
 
 interface KeyValue {
@@ -435,26 +438,46 @@ export default class Setting extends Vue {
   handleCodingDownload (type: string) {
     console.log('coding type: ', type)
     this.isCodingLoading = true
+    const typeText = type === 'xh' ? '『小鹤词提』' : '『虎码单字』'
+
+    const saveCodings = (content: string) => {
+      const trie = parseTrieNodeByCodinds(content)
+      // 将中文标点加入词库
+      for (const [key, value] of punctuations) {
+        trie.put(key, value, -1)
+      }
+      // 将同一个字的多个编码排序
+      trie.sort()
+
+      return db.configs.put(trie.root, 'codings').then(() => {
+        this.updateCodings(trie.root)
+        this.$notify({
+          title: '编码提示加载成功',
+          message: `${typeText}编码提示加载成功`,
+          type: 'success'
+        })
+        this.isCodingLoading = false
+      })
+    }
+
+    if (type === 'xh') {
+      fetch('/static/codingsXH.txt')
+        .then(res => res.text())
+        .then(ret => {
+          const bytes = aes.decrypt(ret, 'U2FsdGVkX19wPZQjUTQ0')
+          const originalContent = bytes.toString(encUTF8)
+          return saveCodings(originalContent)
+        }).catch((err) => {
+          console.log(err)
+          this.isCodingLoading = false
+        })
+      return
+    }
+
     fetch('/static/codings.txt')
       .then(res => res.text())
       .then(ret => {
-        const trie = parseTrieNodeByCodinds(ret)
-        // 将中文标点加入词库
-        for (const [key, value] of punctuations) {
-          trie.put(key, value, -1)
-        }
-        // 将同一个字的多个编码排序
-        trie.sort()
-
-        db.configs.put(trie.root, 'codings').then(() => {
-          this.updateCodings(trie.root)
-          this.$notify({
-            title: '编码提示加载成功',
-            message: '『虎码单字』编码提示加载成功',
-            type: 'success'
-          })
-          this.isCodingLoading = false
-        })
+        return saveCodings(ret)
       }).catch(() => {
         this.isCodingLoading = false
       })

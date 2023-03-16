@@ -1,4 +1,4 @@
-import { xcapi, Match } from '@/api/xc.cool'
+import { eapi, Match } from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { ArticleState, Coding, QuickTypingState, SettingState, Word } from './types'
 import { shuffleText, isNative } from './util/common'
@@ -165,7 +165,7 @@ const parseArticle = (content: string, setting: SettingState): ArticleState => {
         content = lines.slice(1, totalLines - 1).join('')
       }
 
-      if (!xcapi.verify(content, sign)) {
+      if (!eapi.verify(content, sign)) {
         throw Error('赛文被篡改，请重新载文')
       }
     }

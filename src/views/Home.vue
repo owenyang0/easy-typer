@@ -159,7 +159,7 @@ import Article from '@/components/Article.vue'
 import Racing from '@/components/Racing.vue'
 import Achievements from '@/components/Achievements.vue'
 import { Action, namespace, State } from 'vuex-class'
-import xcapi from '@/api/xc.cool'
+import eapi from '@/api/easyTyper'
 import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
 import { statusMapIcon, statusMapText, statusMapType } from '../store/util/constants'
@@ -293,7 +293,7 @@ export default class Home extends Vue {
   @Watch('authenticated')
   authChange (authenticated: boolean) {
     if (authenticated) {
-      xcapi.groups().then((data) => {
+      eapi.groups().then((data) => {
         if (data) {
           this.groups = data.map((v) => {
             return { value: v.guid, label: v.name }
@@ -485,7 +485,7 @@ export default class Home extends Vue {
       return
     }
 
-    xcapi.matches(this.group).then(
+    eapi.matches(this.group).then(
       (match) => {
         if (!match) {
           return

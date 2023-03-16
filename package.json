@@ -17,7 +17,9 @@
   },
   "main": "electron/main.js",
   "dependencies": {
+    "@types/crypto-js": "^4.1.1",
     "applescript": "^1.0.0",
+    "crypto-js": "^4.1.1",
     "dayjs": "^1.11.7"
   },
   "devDependencies": {

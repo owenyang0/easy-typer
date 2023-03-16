@@ -98,5 +98,14 @@ module.exports = {
       headless: true,
       onlyProduction: true
     }
+  },
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'https://typer.owenyang.top/',
+        ws: true,
+        changeOrigin: true
+      }
+    }
   }
 }

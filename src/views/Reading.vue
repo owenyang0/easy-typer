@@ -143,7 +143,7 @@ import { BookModel, KataState } from '@/store/types'
 import { KataArticle } from '@/store/kata'
 import { noop } from 'vue-class-component/lib/util'
 import { Loading } from 'element-ui'
-import xcapi from '@/api/xc.cool'
+import eapi from '@/api/easyTyper'
 import db from '@/store/util/Database'
 
 const article = namespace('article')
@@ -252,7 +252,7 @@ export default class Reading extends Vue {
       const title = file.raw.name.replace('.txt', '')
       const totalWords = result.length
       const input = `${title}-${totalWords}`
-      const id = xcapi.sha1Hmac(input)
+      const id = eapi.sha1Hmac(input)
 
       db.bookShelf.get(id).then(ret => {
         if (ret) {

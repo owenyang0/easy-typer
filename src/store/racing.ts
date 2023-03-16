@@ -1,4 +1,4 @@
-import xcapi from '@/api/xc.cool'
+import eapi from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { Achievement, QuickTypingState, RacingState, Word } from './types'
 import { accuracyRank, isMobile, speedRank } from './util/common'
@@ -186,7 +186,7 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
     const { identity } = article
     const { typeSpeed, hitSpeed, codeLength } = getters
     const input = `${identity}-${typeSpeed}-${hitSpeed}-${codeLength}`
-    return xcapi.sha1Hmac(input)
+    return eapi.sha1Hmac(input)
   },
 
   // 编码提示

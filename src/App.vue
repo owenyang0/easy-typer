@@ -128,7 +128,7 @@ import { parseTrieNodeByCodinds, TrieNode } from './store/util/TrieTree'
 import db from './store/util/Database'
 import { Action, Mutation, namespace } from 'vuex-class'
 import { LoginUser, LooseObject } from './store/types'
-import xcapi from './api/xc.cool'
+import eapi from './api/easyTyper'
 import { Route } from 'vue-router'
 import punctuations from './store/util/punctuation'
 
@@ -270,7 +270,7 @@ export default class Setting extends Vue {
   }
 
   doLogin () {
-    xcapi.login(this.auth).then(data => {
+    eapi.login(this.auth).then(data => {
       const { token, user } = data
       localStorage.token = token
       localStorage.user = JSON.stringify(user)
@@ -283,7 +283,7 @@ export default class Setting extends Vue {
   }
 
   doLogout () {
-    xcapi.logout().then(() => {
+    eapi.logout().then(() => {
       this.logout()
       this.$message.success('注销成功')
     }, error => {
