@@ -122,6 +122,17 @@ const verify = (content: string, sign: string): boolean => {
   return content.length === parseInt(count) && sha1Hmac(`${content}-${id}`) === matched[3]
 }
 
+const getTodayNews = () => {
+  return fetch('/api/r/news/today')
+    .then(res => res.json())
+    .then(ret => {
+      if (ret.code === 0) {
+        return ret.data
+      }
+      throw Error(ret.msg)
+    })
+}
+
 export const eapi = {
   updateToken,
   login,
@@ -129,7 +140,8 @@ export const eapi = {
   sha1Hmac,
   verify,
   groups,
-  matches
+  matches,
+  getTodayNews
 }
 
 export default eapi

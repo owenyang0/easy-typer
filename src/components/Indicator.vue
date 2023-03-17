@@ -40,10 +40,11 @@
       </el-card>
       <el-card shadow="never">
         <div class="indicator-action">
-          <el-button size="mini" @click="handleRandomReading">随机阅读</el-button>
+          <el-button size="mini" @click="handleRandomReading">随机跟打</el-button>
           <el-button size="mini" @click="handleTodayReading" type="primary">每日一文</el-button>
+          <el-button size="mini" @click="handleTodayNews">每日新闻</el-button>
         </div>
-        <div style="margin-top: 22px;">
+        <div style="margin-top: 12px;">
           <el-button @click="handleReadingClick" size="mini" type="text">每日一读，沉浸经典</el-button>
         </div>
         <el-divider />
@@ -138,11 +139,15 @@ import { initColorMode, replaceTextSpace } from '@/store/util/common'
 import { keyboard } from '@/store/util/keyboard'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Getter, namespace, State } from 'vuex-class'
+import eapi from '@/api/easyTyper'
+import { KataArticle } from '@/store/kata'
+import { KataState } from '@/store/types'
 
 const racing = namespace('racing')
 const setting = namespace('setting')
 const summary = namespace('summary')
 const article = namespace('article')
+const kata = namespace('kata')
 
 @Component
 export default class Indicator extends Vue {
@@ -265,6 +270,12 @@ export default class Indicator extends Vue {
 
   @article.State('identity')
   private identity!: string
+
+  @kata.Action('loadArticle')
+  private loadArticle!: Function
+
+  @kata.Getter('nextParagraph')
+  private nextParagraph!: KataArticle
 
   private tempCloak = false
 
@@ -391,6 +402,29 @@ export default class Indicator extends Vue {
       })
   }
 
+  handleTodayNews () {
+    eapi.getTodayNews().then(data => {
+      const id = data.id
+      if (id === this.identity) {
+        this.$message.warning('您点得太快啦，等会再试啦~')
+        return
+      }
+
+      const article: Partial<KataState> = {
+        articleTitle: `《${data.title}》`,
+        articleText: data.contentList.join('\n'),
+        textType: 2,
+        currentParagraphNo: 1,
+        paragraphSize: data.contentList.length
+      }
+
+      this.loadArticle(article)
+      this.loadMatch(this.nextParagraph)
+    }).catch(err => {
+      this.$message.warning(`${err.message}`)
+    })
+  }
+
   handleReadingClick () {
     window.open('http://yuedu.owenyang.top/', '_blank')
   }
@@ -406,10 +440,18 @@ export default class Indicator extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
   .indicator-action {
     width: 170px;
     margin-left: -5px;
+
+    .el-button {
+      margin-bottom: 10px;
+    }
+
+    .el-button + .el-button:nth-child(odd) {
+      margin-left: 0;
+    }
   }
   .dark .indicator-action .el-button--mini,
   .indicator-action .el-button--mini {
