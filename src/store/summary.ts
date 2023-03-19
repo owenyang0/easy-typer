@@ -2,6 +2,7 @@
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { QuickTypingState, SummaryState } from './types'
 import db from './util/Database'
+import { Message } from 'element-ui'
 
 const state = new SummaryState()
 
@@ -36,6 +37,7 @@ const mutations: MutationTree<SummaryState> = {
 
   loaded: (state, payload: SummaryState) => {
     Object.assign(state, payload)
+    state.loaded = true
   },
 
   saveDate: (state) => {
@@ -69,9 +71,17 @@ const actions: ActionTree<SummaryState, QuickTypingState> = {
   },
 
   saveWordCount: ({ commit, state }) => {
+    if (!state.loaded) {
+      console.log('历史数据未正确加载，请刷新再试')
+      Message.warning({
+        message: '历史数据未正确加载，请刷新再试'
+      })
+      return
+    }
     const data = {}
     // Object.assign(data, state, { saved: '2021/4/22', date: 22 })
     Object.assign(data, state)
+    delete data.loaded
     db.summary.put(data, 'wordCount')
     commit('saveDate')
   }

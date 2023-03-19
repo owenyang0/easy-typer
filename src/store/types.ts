@@ -209,6 +209,10 @@ export class SummaryState {
    * 累计打字天数
    */
   totalDays = 0;
+  /**
+   * 跟打历史已加载？
+   */
+  loaded = false;
 }
 
 export class KataState {
