@@ -329,30 +329,32 @@ export default class Setting extends Vue {
         console.log('Trie tree loaded')
         // this.init()
       } else {
-        // 首次默认加载虎码表
-        console.log('initial codings')
-        fetch('/static/codings.txt')
-          .then(res => res.text())
-          .then(ret => {
-            const trie = parseTrieNodeByCodinds(ret)
-            // 将中文标点加入词库
-            for (const [key, value] of punctuations) {
-              trie.put(key, value, -1)
-            }
-            // 将同一个字的多个编码排序
-            trie.sort()
+        setTimeout(() => {
+          // 首次默认加载虎码表
+          console.log('initial codings')
+          fetch('/static/codings.txt')
+            .then(res => res.text())
+            .then(ret => {
+              const trie = parseTrieNodeByCodinds(ret)
+              // 将中文标点加入词库
+              for (const [key, value] of punctuations) {
+                trie.put(key, value, -1)
+              }
+              // 将同一个字的多个编码排序
+              trie.sort()
 
-            db.configs.put(trie.root, 'codings').then(() => {
-              this.updateCodings(trie.root)
-              this.$notify({
-                title: '编码提示加载成功',
-                message: '默认『虎码』编码提示加载成功，如需其他编码提示请在 ”功能“-”设置“-”码表设置“ 更新即可',
-                type: 'success',
-                duration: 8000
-              })
+              db.configs.put(trie.root, 'codings').then(() => {
+                this.updateCodings(trie.root)
+                this.$notify({
+                  title: '编码提示加载成功',
+                  message: '默认『虎码』编码提示加载成功，如需其他编码提示请在 ”功能“-”设置“-”码表设置“ 更新即可',
+                  type: 'success',
+                  duration: 8000
+                })
               // this.init()
+              })
             })
-          })
+        }, 1000)
       }
     })
     // 读取按键统计信息

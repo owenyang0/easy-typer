@@ -20,7 +20,8 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 import { fixMobileScrollIssue } from '@/store/util/common'
-import { TextareaHTMLAttributes } from 'vue/types/jsx'
+import { ElNotificationOptions } from 'element-ui/types/notification'
+import dayjs from 'dayjs'
 
 const functionCodes = ['Backspace', 'Enter', 'Control', 'Alt', 'Meta', 'Shift', 'CapsLock']
 
@@ -105,16 +106,21 @@ export default class Racing extends Vue {
             window.electronAPI.setGrade('typing finished!')
           }
         }, () => {
-          this.$notify.warning('你的浏览器不支持自动复制，需要手动操作')
+          this.$message.warning('你的浏览器不支持自动复制，请手动操作！')
 
+          const timestamp = localStorage.getItem('clipboard_err_tip_ts')
+          if (timestamp && dayjs(+timestamp).isSame(dayjs(), 'day')) {
+            return
+          }
           this.$nextTick(() => {
             this.$notify({
               type: 'info',
-              title: '请点击文本手动复制',
-              message: text,
-              duration: 10000
-            })
+              title: '你的浏览器不支持自动复制！',
+              message: '『推荐』使用谷歌(PC全平台)、Safari(iOS/Mac)、Edge(安卓)等现代浏览器；『不建议』直接在QQ、微信等程序中直接打开！',
+              duration: 3000
+            } as ElNotificationOptions)
           })
+          localStorage.setItem('clipboard_err_tip_ts', `${Date.now()}`)
           // TODO: fireFox不支持
           // const permissionName = 'clipboard-write' as PermissionName
           // navigator.permissions.query({ name: permissionName })
@@ -125,10 +131,6 @@ export default class Racing extends Vue {
           //     }
           //   })
         })
-        // this.$notify.success({
-        //   message: text,
-        //   position: 'bottom-right'
-        // } as ElNotificationOptions)
         break
       }
     }
