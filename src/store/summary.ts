@@ -78,7 +78,11 @@ const actions: ActionTree<SummaryState, QuickTypingState> = {
       })
       return
     }
-    const data = {}
+    const data = {
+      loaded: false
+    } as {
+      loaded?: boolean;
+    }
     // Object.assign(data, state, { saved: '2021/4/22', date: 22 })
     Object.assign(data, state)
     delete data.loaded
