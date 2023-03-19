@@ -11,6 +11,9 @@ jobs:
       uses: actions/checkout@master
       with:
         persist-credentials: false
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
     - name: Install and Build
       run: |
         yarn
