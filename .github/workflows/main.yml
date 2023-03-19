@@ -1,17 +1,20 @@
-name: Tencent CI
-
+name: Deploy easy typer
 on:
   push:
     branches:
-    - domain
-
+      - main
 jobs:
-  deploy:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        persist-credentials: false
+    - name: Install and Build
+      run: |
+        yarn
+        yarn build 
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
