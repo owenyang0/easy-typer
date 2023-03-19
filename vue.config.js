@@ -14,7 +14,7 @@ const routes = [
   '/download'
 ]
 
-const version = '(43)'
+const version = '(44)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 

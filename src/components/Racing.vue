@@ -20,6 +20,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import Clipboard from '@/store/util/Clipboard'
 import { fixMobileScrollIssue } from '@/store/util/common'
+import { TextareaHTMLAttributes } from 'vue/types/jsx'
 
 const functionCodes = ['Backspace', 'Enter', 'Control', 'Alt', 'Meta', 'Shift', 'CapsLock']
 
@@ -190,7 +191,9 @@ export default class Racing extends Vue {
    * 让输入框获取焦点
    */
   focus () {
-    (this.$refs.textarea as HTMLElement).focus()
+    const textLength = (this.$refs.textarea as HTMLTextAreaElement).textLength
+    ;((this.$refs.textarea as Vue).$refs.textarea as HTMLTextAreaElement).setSelectionRange(textLength, textLength)
+    ;(this.$refs.textarea as HTMLElement).focus()
   }
 }
 </script>
