@@ -38,8 +38,19 @@
           <span v-for="coding in word.codings" :key="coding.code">{{ coding.code + getSelectChar(coding.index, coding.length) }}</span>
         </div>
       </el-card>
-      <el-card shadow="never">
+      <el-card shadow="never" class="card-gradient">
         <div class="indicator-action">
+          <el-button size="mini" @click="handleRandomReading" type="success" plain>随机文章</el-button>
+          <el-button size="mini" @click="handleTodayReading" type="success" plain>每日一文</el-button>
+          <el-button size="mini" @click="handleTodayNews" type="primary" plain>每日新闻</el-button>
+          <el-button size="mini" disabled plain>敬请期待</el-button>
+          <div style="margin-top: 12px;">
+          <el-button @click="handleReadingClick" size="mini" type="text">每日一读，沉浸经典</el-button>
+        </div>
+        </div>
+      </el-card>
+      <el-card shadow="never">
+        <!-- <div class="indicator-action">
           <el-button size="mini" @click="handleRandomReading">随机文章</el-button>
           <el-button size="mini" @click="handleTodayReading" type="primary">每日一文</el-button>
           <el-button size="mini" @click="handleTodayNews">每日新闻</el-button>
@@ -47,7 +58,7 @@
         <div style="margin-top: 12px;">
           <el-button @click="handleReadingClick" size="mini" type="text">每日一读，沉浸经典</el-button>
         </div>
-        <el-divider />
+        <el-divider /> -->
         <div class="key-value">
           <span>今日错/对</span>
           <span>{{ todayErrorWords | numberWithCommas}}/{{ (todayWords - todayErrorWords) | numberWithCommas }}</span>
@@ -408,4 +419,8 @@ export default class Indicator extends Vue {
   .indicator-action .el-button--mini {
     padding: 7px 12px;
   }
+
+  // .el-card.card-gradient {
+  // background: linear-gradient(134deg, #c3478f, #6a4cb9ed);
+  // }
 </style>
