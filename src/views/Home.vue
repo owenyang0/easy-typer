@@ -33,7 +33,7 @@
                 <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
-                <!-- <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button> -->
+                <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
                 <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip> -->
