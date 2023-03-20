@@ -588,8 +588,12 @@ $speed-levels: (
     margin-bottom: 5px;
   }
   .dropdown-operation {
-    vertical-align: bottom;
-    margin-left: 10px;
+    float: left;
+    
+    .el-button:first-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
 
