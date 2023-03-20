@@ -95,6 +95,11 @@
         "value": "articleSet0-09",
         "label": "09 清欢",
         "isRemote": true
+      },
+      {
+        "value": "articleSet0-10",
+        "label": "10 光之四书",
+        "isRemote": true
       }
     ]
   },

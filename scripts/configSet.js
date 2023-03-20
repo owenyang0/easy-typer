@@ -7,7 +7,8 @@ const set0 = [
   '06 猫.txt',
   '07 思维的乐趣.txt',
   '08 沉默的大多数.txt',
-  '09 清欢.txt'
+  '09 清欢.txt',
+  '10 光之四书.txt'
 ]
 
 const set1 = [
