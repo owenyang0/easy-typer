@@ -300,7 +300,7 @@ export default class Home extends Vue {
   }
 
   get triggerMethod (): string {
-    return isMobile() ? 'click' : 'click'
+    return isMobile() ? 'click' : 'hover'
   }
 
   get triggerIcon (): string {
