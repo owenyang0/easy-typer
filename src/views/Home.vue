@@ -43,7 +43,26 @@
                 <!-- <el-tooltip content="下一段(Ctrl+P)" placement="top">
                   <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段</el-button>
                 </el-tooltip> -->
-                <el-popover
+                <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
+                <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
+                  :trigger="triggerMethod"
+                  hide-on-click
+                  class="dropdown-operation"
+                  @command="handleCommand"
+                  :show-timeout="0">
+                  <i :class="triggerIcon"></i><span>{{ triggerText }}</span>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item icon="el-icon-document" command="loadText">手动载文</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
+                    <!-- <el-dropdown-item icon="el-icon-tickets" command="todayArticle" divided>每日一文</el-dropdown-item> -->
+                    <!-- <el-dropdown-item icon="el-icon-s-data" command="todayNews">今日新闻</el-dropdown-item> -->
+                  </el-dropdown-menu>
+                </el-dropdown>
+                <!-- <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button> -->
+              </el-button-group>
+              <el-popover
                   ref="popoverStyle"
                   placement="bottom"
                   width="300"
@@ -115,25 +134,6 @@
                     </el-row>
                   </div>
                 </el-popover>
-                <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
-                <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
-                  :trigger="triggerMethod"
-                  hide-on-click
-                  class="dropdown-operation"
-                  @command="handleCommand"
-                  :show-timeout="0">
-                  <i :class="triggerIcon"></i><span>{{ triggerText }}</span>
-                  <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item icon="el-icon-document" command="loadText">手动载文</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
-                    <!-- <el-dropdown-item icon="el-icon-tickets" command="todayArticle" divided>每日一文</el-dropdown-item> -->
-                    <!-- <el-dropdown-item icon="el-icon-s-data" command="todayNews">今日新闻</el-dropdown-item> -->
-                  </el-dropdown-menu>
-                </el-dropdown>
-                <!-- <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button> -->
-              </el-button-group>
             </el-col>
           </el-row>
           <el-divider class="mini"/>
