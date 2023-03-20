@@ -441,6 +441,7 @@ export default class Indicator extends Vue {
 </script>
 
 <style lang="scss">
+  .dark .indicator-action,
   .indicator-action {
     width: 170px;
     margin-left: -5px;

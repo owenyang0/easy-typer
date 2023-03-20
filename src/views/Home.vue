@@ -27,24 +27,22 @@
                 <el-tooltip :content="indicatorTooltipText" placement="top">
                   <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real" style="width: 220px;">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
                 </el-tooltip>
-                <el-tooltip content="手动载文" placement="top">
+                <!-- <el-tooltip content="手动载文" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>
-                </el-tooltip>
+                </el-tooltip> -->
                 <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
-                <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
+                <!-- <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button> -->
                 <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip> -->
-                <el-tooltip content="乱序(Ctrl+L)" placement="top">
+                <!-- <el-tooltip content="乱序(Ctrl+L)" placement="top">
                   <el-button size="mini" icon="el-icon-edit-outline" @click="random()">乱序</el-button>
-                </el-tooltip>
-                <el-tooltip content="下一段(Ctrl+P)" placement="top">
+                </el-tooltip> -->
+                <!-- <el-tooltip content="下一段(Ctrl+P)" placement="top">
                   <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段</el-button>
-                </el-tooltip>
-                <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
-                <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button>
+                </el-tooltip> -->
                 <el-popover
                   ref="popoverStyle"
                   placement="bottom"
@@ -117,7 +115,25 @@
                     </el-row>
                   </div>
                 </el-popover>
+                <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
+                <!-- <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button> -->
               </el-button-group>
+              <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
+                :trigger="triggerMethod"
+                hide-on-click
+                class="dropdown-operation"
+                @command="handleCommand"
+                :show-timeout="0">
+                <i :class="triggerIcon"></i><span>{{ triggerText }}</span>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item icon="el-icon-document" command="loadText">手动载文</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
+                    <!-- <el-dropdown-item icon="el-icon-tickets" command="todayArticle" divided>每日一文</el-dropdown-item> -->
+                    <!-- <el-dropdown-item icon="el-icon-s-data" command="todayNews">今日新闻</el-dropdown-item> -->
+                  </el-dropdown-menu>
+                </el-dropdown>
             </el-col>
           </el-row>
           <el-divider class="mini"/>
@@ -163,6 +179,7 @@ import eapi from '@/api/easyTyper'
 import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
 import { statusMapIcon, statusMapText, statusMapType } from '../store/util/constants'
+import { isMobile } from '@/store/util/common'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -282,6 +299,10 @@ export default class Home extends Vue {
     return `点击${this.showSidebar ? '隐藏' : '展示'}侧边栏`
   }
 
+  get triggerMethod (): string {
+    return isMobile() ? 'click' : 'click'
+  }
+
   get triggerIcon (): string {
     return statusMapIcon.get(this.status) || 'el-icon-success'
   }
@@ -369,6 +390,29 @@ export default class Home extends Vue {
     if (this.hasUpdated) {
       this.saveToDB()
       this.hasUpdated = false
+    }
+  }
+
+  handleCommand (command: string) {
+    console.log(command)
+    switch (command) {
+      case 'loadText':
+        this.showLoadDialog = true
+        break
+      case 'retry':
+        this.retry()
+        break
+      case 'next':
+        this.next()
+        break
+      case 'random':
+        this.random()
+        break
+      // case 'todayArticle':
+      //   this.random()
+      //   break
+      default:
+        break
     }
   }
 

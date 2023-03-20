@@ -587,6 +587,10 @@ $speed-levels: (
   .el-button-group > .el-button {
     margin-bottom: 5px;
   }
+  .dropdown-operation {
+    vertical-align: bottom;
+    margin-left: 10px;
+  }
 }
 
 .indicator .indicator-cloak {
