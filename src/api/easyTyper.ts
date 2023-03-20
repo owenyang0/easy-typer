@@ -122,6 +122,28 @@ const verify = (content: string, sign: string): boolean => {
   return content.length === parseInt(count) && sha1Hmac(`${content}-${id}`) === matched[3]
 }
 
+const getRandomArticle = () => {
+  return fetch('/api/r/articles/random')
+    .then(res => res.json())
+    .then(ret => {
+      if (ret.code === 0) {
+        return ret.data
+      }
+      throw Error(ret.msg)
+    })
+}
+
+const getTodayArticle = () => {
+  return fetch('/api/r/articles/today')
+    .then(res => res.json())
+    .then(ret => {
+      if (ret.code === 0) {
+        return ret.data
+      }
+      throw Error(ret.msg)
+    })
+}
+
 const getTodayNews = () => {
   return fetch('/api/r/news/today')
     .then(res => res.json())
@@ -141,6 +163,8 @@ export const eapi = {
   verify,
   groups,
   matches,
+  getRandomArticle,
+  getTodayArticle,
   getTodayNews
 }
 

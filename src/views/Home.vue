@@ -56,8 +56,10 @@
                     <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
-                    <!-- <el-dropdown-item icon="el-icon-tickets" command="todayArticle" divided>每日一文</el-dropdown-item> -->
-                    <!-- <el-dropdown-item icon="el-icon-s-data" command="todayNews">今日新闻</el-dropdown-item> -->
+                    <el-dropdown-item icon="el-icon-medal" command="dailyArticle" divided>每日一文</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-tickets" command="randomArticle">随机文章</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-news" command="dailyNews">今日新闻</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-reading" command="yuedu" divided>每日一读，沉浸经典</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
                 <!-- <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button> -->
@@ -235,6 +237,15 @@ export default class Home extends Vue {
   @article.Action('random')
   private random!: Function
 
+  @article.Action('loadDailyArticle')
+  private loadDailyArticle!: Function
+
+  @article.Action('loadRandomArticle')
+  private loadRandomArticle!: Function
+
+  @article.Action('loadDailyNews')
+  private loadDailyNews!: Function
+
   @login.State('authenticated')
   private authenticated!: boolean
 
@@ -408,9 +419,18 @@ export default class Home extends Vue {
       case 'random':
         this.random()
         break
-      // case 'todayArticle':
-      //   this.random()
-      //   break
+      case 'randomArticle':
+        this.loadRandomArticle()
+        break
+      case 'dailyArticle':
+        this.loadDailyArticle()
+        break
+      case 'dailyNews':
+        this.loadDailyNews()
+        break
+      case 'yuedu':
+        window.open('https://yuedu.owenyang.top', '_blank')
+        break
       default:
         break
     }

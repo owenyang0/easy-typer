@@ -1,10 +1,11 @@
 import { eapi, Match } from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
-import { ArticleState, Coding, QuickTypingState, SettingState, Word } from './types'
-import { shuffleText, isNative } from './util/common'
+import { ArticleState, Coding, KataState, QuickTypingState, SettingState, Word } from './types'
+import { shuffleText, isNative, replaceTextSpace } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 import { symbolsRegs } from './util/constants'
+import { Message } from 'element-ui'
 
 const alphaPattern = /[a-zA-Z0-9]/
 
@@ -238,6 +239,66 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
       shortest: null
     }
     this.dispatch('article/loadArticle', article)
+  },
+
+  loadRandomArticle (): void {
+    this.dispatch('article/loadServerArticle', eapi.getRandomArticle)
+  },
+
+  loadDailyArticle (): void {
+    this.dispatch('article/loadServerArticle', eapi.getTodayArticle)
+  },
+
+  loadServerArticle ({ state }, apiFunc: Function): void {
+    apiFunc().then((data: { id: string; title: string; author: string; content: string | undefined }) => {
+      const id = data.id
+      if (id === state.identity) {
+        Message.warning({
+          message: '您点得太快了，等会再试啦~'
+        })
+        return
+      }
+
+      const match = {
+        title: `《${data.title}》- ${data.author}`,
+        content: replaceTextSpace(data.content),
+        number: data.id
+      }
+      this.dispatch('article/loadMatch', match)
+    }).catch((err: { message: string }) => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
+  },
+
+  loadDailyNews ({ state, rootGetters }): void {
+    eapi.getTodayNews().then(data => {
+      const id = data.id
+      if (id === state.identity) {
+        Message.warning({
+          message: '您点得太快了，等会再试啦~'
+        })
+        return
+      }
+
+      const article: Partial<KataState> = {
+        articleTitle: `《${data.title}》`,
+        articleText: data.contentList.join('\n'),
+        textType: 2,
+        currentParagraphNo: 1,
+        paragraphSize: data.contentList.length
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
+    }).catch(err => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
   },
 
   loadArticle ({ commit, rootState, rootGetters }, article: ArticleState) {

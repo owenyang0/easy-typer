@@ -40,7 +40,7 @@
       </el-card>
       <el-card shadow="never">
         <div class="indicator-action">
-          <el-button size="mini" @click="handleRandomReading">随机跟打</el-button>
+          <el-button size="mini" @click="handleRandomReading">随机文章</el-button>
           <el-button size="mini" @click="handleTodayReading" type="primary">每日一文</el-button>
           <el-button size="mini" @click="handleTodayNews">每日新闻</el-button>
         </div>
@@ -274,6 +274,15 @@ export default class Indicator extends Vue {
   @kata.Action('loadArticle')
   private loadArticle!: Function
 
+  @article.Action('loadDailyArticle')
+  private loadDailyArticle!: Function
+
+  @article.Action('loadRandomArticle')
+  private loadRandomArticle!: Function
+
+  @article.Action('loadDailyNews')
+  private loadDailyNews!: Function
+
   @kata.Getter('nextParagraph')
   private nextParagraph!: KataArticle
 
@@ -355,74 +364,15 @@ export default class Indicator extends Vue {
   }
 
   handleRandomReading () {
-    fetch('/api/r/articles/random')
-      .then(res => res.json())
-      .then(ret => {
-        if (ret.code === 0) {
-          const id = ret.data.id
-          if (id === this.identity) {
-            this.$message.warning('您点得太快啦，等会再试啦~')
-            return
-          }
-          const match = {
-            title: `《${ret.data.title}》- ${ret.data.author}`,
-            content: replaceTextSpace(ret.data.content),
-            number: ret.data.id
-          }
-          this.loadMatch(match)
-        } else {
-          this.$message.warning(`获取文章失败：${ret.msg}`)
-        }
-      }).catch(err => {
-        this.$message.warning(`获取文章失败：${err.message}`)
-      })
+    this.loadRandomArticle()
   }
 
   handleTodayReading () {
-    fetch('/api/r/articles/today')
-      .then(res => res.json())
-      .then(ret => {
-        if (ret.code === 0) {
-          const id = ret.data.id
-          if (id === this.identity) {
-            this.$message.warning('您点得太快啦，等会再试啦~')
-            return
-          }
-          const match = {
-            title: `《${ret.data.title}》- ${ret.data.author}`,
-            content: replaceTextSpace(ret.data.content),
-            number: ret.data.id
-          }
-          this.loadMatch(match)
-        } else {
-          this.$message.warning(`获取文章失败：${ret.msg}`)
-        }
-      }).catch(err => {
-        this.$message.warning(`获取文章失败：${err.message}`)
-      })
+    this.loadDailyArticle()
   }
 
   handleTodayNews () {
-    eapi.getTodayNews().then(data => {
-      const id = data.id
-      if (id === this.identity) {
-        this.$message.warning('您点得太快啦，等会再试啦~')
-        return
-      }
-
-      const article: Partial<KataState> = {
-        articleTitle: `《${data.title}》`,
-        articleText: data.contentList.join('\n'),
-        textType: 2,
-        currentParagraphNo: 1,
-        paragraphSize: data.contentList.length
-      }
-
-      this.loadArticle(article)
-      this.loadMatch(this.nextParagraph)
-    }).catch(err => {
-      this.$message.warning(`${err.message}`)
-    })
+    this.loadDailyNews()
   }
 
   handleReadingClick () {
