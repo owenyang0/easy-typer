@@ -59,6 +59,9 @@
                     <el-dropdown-item icon="el-icon-medal" command="dailyArticle" divided>每日一文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-tickets" command="randomArticle">随机文章</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-news" command="dailyNews">今日新闻</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleFront500" divided>前500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleMiddle500">中500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleEnd500">后500 10字[乱]</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-reading" command="yuedu" divided>每日一读，沉浸经典</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
@@ -246,6 +249,15 @@ export default class Home extends Vue {
   @article.Action('loadDailyNews')
   private loadDailyNews!: Function
 
+  @article.Action('loadSingleFront500')
+  private loadSingleFront500!: Function
+
+  @article.Action('loadSingleMiddle500')
+  private loadSingleMiddle500!: Function
+
+  @article.Action('loadSingleEnd500')
+  private loadSingleEnd500!: Function
+
   @login.State('authenticated')
   private authenticated!: boolean
 
@@ -405,7 +417,6 @@ export default class Home extends Vue {
   }
 
   handleCommand (command: string) {
-    console.log(command)
     switch (command) {
       case 'loadText':
         this.showLoadDialog = true
@@ -427,6 +438,15 @@ export default class Home extends Vue {
         break
       case 'dailyNews':
         this.loadDailyNews()
+        break
+      case 'singleFront500':
+        this.loadSingleFront500()
+        break
+      case 'singleMiddle500':
+        this.loadSingleMiddle500()
+        break
+      case 'singleEnd500':
+        this.loadSingleEnd500()
         break
       case 'yuedu':
         window.open('https://yuedu.owenyang.top', '_blank')

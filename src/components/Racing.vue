@@ -167,6 +167,7 @@ export default class Racing extends Vue {
   }
 
   keydown (e: KeyboardEvent) {
+    console.log('down', e)
     if (functionCodes.includes(e.key) && this.status === 'init') {
       return
     }
@@ -180,6 +181,7 @@ export default class Racing extends Vue {
   }
 
   keyup (e: KeyboardEvent) {
+    console.log('up', e)
     if (!e.isComposing) {
       this.checkFinished(this.last)
     }

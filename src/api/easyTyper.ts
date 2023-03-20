@@ -155,6 +155,21 @@ const getTodayNews = () => {
     })
 }
 
+const getSingleFront500 = () => {
+  return fetch('/static/kata/singleFront500.json')
+    .then(res => res.json())
+}
+
+const getSingleMiddle500 = () => {
+  return fetch('/static/kata/singleMiddle500.json')
+    .then(res => res.json())
+}
+
+const getSingleEnd500 = () => {
+  return fetch('/static/kata/singleEnd500.json')
+    .then(res => res.json())
+}
+
 export const eapi = {
   updateToken,
   login,
@@ -165,7 +180,10 @@ export const eapi = {
   matches,
   getRandomArticle,
   getTodayArticle,
-  getTodayNews
+  getTodayNews,
+  getSingleFront500,
+  getSingleMiddle500,
+  getSingleEnd500
 }
 
 export default eapi

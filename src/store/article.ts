@@ -1,7 +1,7 @@
 import { eapi, Match } from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { ArticleState, Coding, KataState, QuickTypingState, SettingState, Word } from './types'
-import { shuffleText, isNative, replaceTextSpace } from './util/common'
+import { shuffleText, isNative, replaceTextSpace, shuffle } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 import { symbolsRegs } from './util/constants'
@@ -299,6 +299,38 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
         message: `${err.message}`
       })
     })
+  },
+
+  loadSingle ({ rootGetters }, apiFunc: Function): void {
+    apiFunc().then((data: { title: string; content: string }) => {
+      const article: Partial<KataState> = {
+        articleTitle: `${data.title}`,
+        articleText: shuffle(data.content.split('')).join(''),
+        currentParagraphNo: 1,
+        paragraphSize: 10
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
+    }).catch((err: { message: string }) => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
+  },
+
+  loadSingleFront500 (): void {
+    this.dispatch('article/loadSingle', eapi.getSingleFront500)
+  },
+
+  loadSingleMiddle500 (): void {
+    this.dispatch('article/loadSingle', eapi.getSingleMiddle500)
+  },
+
+  loadSingleEnd500 (): void {
+    this.dispatch('article/loadSingle', eapi.getSingleEnd500)
   },
 
   loadArticle ({ commit, rootState, rootGetters }, article: ArticleState) {
