@@ -22,6 +22,7 @@
     <div class="pagination-wrapper">
       <el-pagination
         background
+        :pager-count="5"
         layout="total, prev, pager, next"
         @current-change="handleCurrentChange"
         :total="totalAchievement">
