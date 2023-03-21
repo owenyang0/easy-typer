@@ -23,18 +23,18 @@
             <span slot="title">门户</span>
           </el-menu-item>
           <el-menu-item index="/app">
-            <i class="el-icon-medal-1"></i>
+            <i class="el-icon-odometer"></i>
             <span slot="title">跟打</span>
           </el-menu-item>
           <el-submenu index="/func">
-            <template slot="title"><i class="el-icon-date"></i>功能</template>
+            <template slot="title"><i class="el-icon-mouse"></i>功能</template>
             <el-menu-item index="/kata">
-              <i class="el-icon-date"></i>
-              <span slot="title">发文-选择练习文本（F2）</span>
+              <i class="el-icon-printer"></i>
+              <span slot="title">发文 - 选择练习文本(F2)</span>
             </el-menu-item>
             <el-menu-item index="/reading">
-              <i class="el-icon-document"></i>
-              <span slot="title">阅读</span>
+              <i class="el-icon-reading"></i>
+              <span slot="title">阅读 - 上传书籍&跟打阅读</span>
             </el-menu-item>
             <el-menu-item index="/practice">
               <i class="el-icon-aim"></i>
@@ -54,7 +54,7 @@
             </el-menu-item>
           </el-submenu>
           <el-submenu index="/stat">
-            <template slot="title"><i class="el-icon-s-data"></i>统计</template>
+            <template slot="title"><i class="el-icon-data-analysis"></i>统计</template>
             <el-menu-item index="/history">
               <i class="el-icon-data-line"></i>
               <span slot="title">跟打历史</span>
@@ -65,7 +65,7 @@
             </el-menu-item>
           </el-submenu>
           <el-submenu index="/help">
-            <template slot="title"><i class="el-icon-warning"></i>帮助</template>
+            <template slot="title"><i class="el-icon-help"></i>帮助</template>
             <el-menu-item index="/help">
               <i class="el-icon-question"></i>
               <span slot="title">使用帮助</span>
@@ -84,7 +84,7 @@
             </el-menu-item>
           </el-submenu>
           <el-menu-item index="/tiger">
-            <i class="el-icon-star-on"></i>
+            <i class="el-icon-link"></i>
             <span slot="title">虎码官网</span>
           </el-menu-item>
         </el-menu>
