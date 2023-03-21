@@ -149,3 +149,35 @@ export const formatDuration = (milliseconds: number) => {
     return `${secs}秒`
   }
 }
+
+export const splitLongText = (text: string) => {
+  const MAX_LENGTH = 1050
+  const PUNCTUATION_MARKS = ['。', '！', '？', '；']
+  const result = []
+  if (text.length <= MAX_LENGTH) {
+    result.push(text)
+    return result
+  }
+  let start = 0
+  while (start < text.length) {
+    const end = start + MAX_LENGTH
+    if (end >= text.length) {
+      result.push(text.substring(start))
+      break
+    }
+    const subtext = text.substring(start, end)
+    let lastPunctuationIndex = -1
+    for (const mark of PUNCTUATION_MARKS) {
+      const index = subtext.lastIndexOf(mark)
+      if (index !== -1 && index > lastPunctuationIndex) {
+        lastPunctuationIndex = index
+      }
+    }
+    if (lastPunctuationIndex === -1) {
+      lastPunctuationIndex = MAX_LENGTH
+    }
+    result.push(text.substring(start, start + lastPunctuationIndex + 1))
+    start += lastPunctuationIndex + 1
+  }
+  return result
+}

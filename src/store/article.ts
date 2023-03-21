@@ -1,7 +1,7 @@
 import { eapi, Match } from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { ArticleState, Coding, KataState, QuickTypingState, SettingState, Word } from './types'
-import { shuffleText, isNative, replaceTextSpace, shuffle } from './util/common'
+import { shuffleText, isNative, replaceTextSpace, shuffle, splitLongText } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 import { symbolsRegs } from './util/constants'
@@ -249,8 +249,8 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
     this.dispatch('article/loadServerArticle', eapi.getTodayArticle)
   },
 
-  loadServerArticle ({ state }, apiFunc: Function): void {
-    apiFunc().then((data: { id: string; title: string; author: string; content: string | undefined }) => {
+  loadServerArticle ({ state, rootGetters }, apiFunc: Function): void {
+    apiFunc().then((data: { id: string; title: string; author: string; content: string }) => {
       const id = data.id
       if (id === state.identity) {
         Message.warning({
@@ -259,12 +259,29 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
         return
       }
 
-      const match = {
-        title: `《${data.title}》- ${data.author}`,
-        content: replaceTextSpace(data.content),
-        number: data.id
+      const splitedTexts = splitLongText(data.content).map(replaceTextSpace)
+      if (splitedTexts.length <= 1) {
+        const match = {
+          title: `《${data.title}》- ${data.author}`,
+          content: replaceTextSpace(data.content),
+          number: data.id
+        }
+        this.dispatch('article/loadMatch', match)
+        return
       }
-      this.dispatch('article/loadMatch', match)
+
+      const article: Partial<KataState> = {
+        articleTitle: `《${data.title}》- ${data.author}(总${replaceTextSpace(data.content).length}字)`,
+        articleText: splitedTexts.join('\n'),
+        textType: 2,
+        currentParagraphNo: 1,
+        paragraphSize: splitedTexts.length
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
     }).catch((err: { message: string }) => {
       Message.warning({
         message: `${err.message}`
