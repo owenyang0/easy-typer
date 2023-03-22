@@ -194,7 +194,9 @@ export default class Racing extends Vue {
    */
   focus () {
     const textLength = (this.$refs.textarea as HTMLTextAreaElement).textLength
-    ;((this.$refs.textarea as Vue).$refs.textarea as HTMLTextAreaElement).setSelectionRange(textLength, textLength)
+    if (textLength > 0) {
+      ;((this.$refs.textarea as Vue).$refs.textarea as HTMLTextAreaElement).setSelectionRange(textLength, textLength)
+    }
     ;(this.$refs.textarea as HTMLElement).focus()
   }
 }
