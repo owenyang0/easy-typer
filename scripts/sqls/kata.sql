@@ -31,6 +31,7 @@ INSERT INTO kata_options_child (option_id, value, label, isRemote) VALUES
 (3, 'singleGrand500', '皇500 4001-4500', 1),
 (3, 'singleEmpire500', '帝500 4501-5000', 1)
 
+-- 弃用
 CREATE TABLE kata_content (
   `id` INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `child_id` INT NOT NULL,
