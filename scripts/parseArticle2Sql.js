@@ -20,7 +20,7 @@ function parsing (list, dir, optionId) {
       }
 
       const finalVal = `${dirName}-${name.split(' ')[0]}`
-      return File.create(`../public/static/kata/${finalVal}.json`, JSON.stringify(ret, null, 2)).then(data => {
+      return File.create(`/kata/${finalVal}.json`, JSON.stringify(ret, null, 2)).then(data => {
         options.push({ value: finalVal, label: title, isRemote: true, content })
       }).catch(err => {
         console.log(err)
@@ -91,7 +91,7 @@ function parsingSingle (list, filename, optionId) {
   const options = []
   const promises = list.map(l => {
     // eslint-disable-next-line no-useless-escape
-    return File.read(`../public/static/kata/${l.value}.json`).then(content => {
+    return File.read(`/kata/${l.value}.json`).then(content => {
       const json = JSON.parse(content)
 
       options.push({ value: l.value, label: json.title, isRemote: true, content: json.content })
