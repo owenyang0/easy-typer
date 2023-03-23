@@ -10,7 +10,8 @@ const set0 = [
   '09 清欢.txt',
   '10 光之四书.txt',
   '11 饿饥艺术家.txt',
-  '12 吕至元.txt'
+  '12 吕至元.txt',
+  '13 杨二喜.txt'
 ]
 
 const set1 = [

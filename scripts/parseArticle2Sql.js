@@ -20,11 +20,13 @@ function parsing (list, dir, optionId) {
       }
 
       const finalVal = `${dirName}-${name.split(' ')[0]}`
-      return File.create(`/kata/${finalVal}.json`, JSON.stringify(ret, null, 2)).then(data => {
-        options.push({ value: finalVal, label: title, isRemote: true, content })
-      }).catch(err => {
-        console.log(err)
-      })
+      options.push({ value: finalVal, label: title, isRemote: true, content })
+      return options
+      // return File.create(`/kata/${finalVal}.json`, JSON.stringify(ret, null, 2)).then(data => {
+      //   options.push({ value: finalVal, label: title, isRemote: true, content })
+      // }).catch(err => {
+      //   console.log(err)
+      // })
     })
   })
 
