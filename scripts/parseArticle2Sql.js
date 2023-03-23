@@ -31,7 +31,7 @@ function parsing (list, dir, optionId) {
   Promise.all(promises).then((ret) => {
     const retOptions = options.sort((a, b) => a.label > b.label ? 1 : -1)
 
-    const sql = retOptions.reduce((pre, curr) => pre + `(${optionId}, '${curr.value}', '${curr.label}', '${curr.content}', ${curr.isRemote ? 1 : 0}),\n`, 'INSERT INTO kata_options_child (option_id, value, label, content, isRemote) VALUES\n').replace(/,\n$/, '')
+    const sql = retOptions.reduce((pre, curr) => pre + `(${optionId}, '${curr.value}', '${curr.label}', "${curr.content}", ${curr.isRemote ? 1 : 0}),\n`, 'INSERT INTO kata_options_child (option_id, value, label, content, isRemote) VALUES\n').replace(/,\n$/, '')
     File.create(`/sqls/${dirName}.sql`, sql)
   })
 }

@@ -39,3 +39,6 @@ CREATE TABLE kata_content (
   `content` text NOT NULL,
   FOREIGN KEY (child_id) REFERENCES kata_options_child(option_id)
 );
+
+INSERT INTO kata_options_child (option_id, value, label, content, isRemote) VALUES
+(1, 'freeText', '手动输入', '手动输入', 0),
