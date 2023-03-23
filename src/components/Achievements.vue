@@ -13,6 +13,7 @@
       <el-table-column prop="contentLength" label="字数" min-width="60"/>
       <el-table-column prop="replace" label="回改" min-width="60"/>
       <el-table-column prop="error" label="错字" min-width="60"/>
+      <el-table-column prop="keys" label="键数" min-width="60"/>
       <el-table-column prop="accuracy" label="键准(%)" min-width="80"/>
       <el-table-column prop="phraseRate" label="打词(%)" min-width="80"/>
       <el-table-column prop="title" label="标题" min-width="120" show-overflow-tooltip />
@@ -21,6 +22,7 @@
     <div class="pagination-wrapper">
       <el-pagination
         background
+        :pager-count="5"
         layout="total, prev, pager, next"
         @current-change="handleCurrentChange"
         :total="totalAchievement">

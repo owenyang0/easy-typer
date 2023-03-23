@@ -25,7 +25,7 @@ export const statusMapIcon = new Map<string, string>([
 export const symbol2CH = {
   comma: [
     { reg: /,/g, replacement: '，' },
-    { reg: /\./g, replacement: '。' }
+    { reg: /[^\d+]\./g, replacement: '。' }
   ],
   questionmark: [
     { reg: /\?/g, replacement: '？' },

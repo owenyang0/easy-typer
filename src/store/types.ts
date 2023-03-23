@@ -209,6 +209,10 @@ export class SummaryState {
    * 累计打字天数
    */
   totalDays = 0;
+  /**
+   * 跟打历史已加载？
+   */
+  loaded = false;
 }
 
 export class KataState {
@@ -450,7 +454,7 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = '"LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun'
+  fontFamily = '"LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun,Simsum-ExtB,Simsun-ExtG,TH-Sung-TP2,TH-Sung-TP0'
 
   /**
    * 字号

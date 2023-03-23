@@ -1036,6 +1036,19 @@ $--svg-monochrome-grey: #DCDDE0 !default;
     border: 1px solid $--border-color-base;
   }
 
+  .el-dropdown-menu__item:not(.is-disabled):hover, .el-dropdown-menu__item:focus {
+    background-color: $--dropdown-menuItem-hover-fill;
+    color: $--dropdown-menuItem-hover-color;
+  }
+
+  .el-dropdown-menu__item--divided {
+    border-top-color: $--border-color-base;
+
+    &:before {
+      background-color: $--color-white;
+    }
+  }
+
   #app {
     .markdown-body {
       color: #c9d1d9;

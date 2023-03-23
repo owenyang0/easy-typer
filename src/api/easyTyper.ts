@@ -122,8 +122,8 @@ const verify = (content: string, sign: string): boolean => {
   return content.length === parseInt(count) && sha1Hmac(`${content}-${id}`) === matched[3]
 }
 
-const getTodayNews = () => {
-  return fetch('/api/r/news/today')
+const baseRequest = (api: string) => {
+  return fetch(api)
     .then(res => res.json())
     .then(ret => {
       if (ret.code === 0) {
@@ -131,6 +131,38 @@ const getTodayNews = () => {
       }
       throw Error(ret.msg)
     })
+}
+
+const getRandomArticle = () => {
+  return baseRequest('/api/r/articles/random')
+}
+
+const getTodayArticle = () => {
+  return baseRequest('/api/r/articles/today')
+}
+
+const getTodayNews = () => {
+  return baseRequest('/api/r/news/today')
+}
+
+const getKataList = () => {
+  return baseRequest('/api/r/kata/list')
+}
+
+const getKataOptionById = (id: number) => {
+  return baseRequest(`/api/r/kata/option/${id}`)
+}
+
+const getSingleFront500 = () => {
+  return getKataOptionById(44)
+}
+
+const getSingleMiddle500 = () => {
+  return getKataOptionById(45)
+}
+
+const getSingleEnd500 = () => {
+  return getKataOptionById(46)
 }
 
 export const eapi = {
@@ -141,7 +173,14 @@ export const eapi = {
   verify,
   groups,
   matches,
-  getTodayNews
+  getRandomArticle,
+  getTodayArticle,
+  getTodayNews,
+  getKataList,
+  getKataOptionById,
+  getSingleFront500,
+  getSingleMiddle500,
+  getSingleEnd500
 }
 
 export default eapi

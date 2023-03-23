@@ -1,10 +1,11 @@
 import { eapi, Match } from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
-import { ArticleState, Coding, QuickTypingState, SettingState, Word } from './types'
-import { shuffleText, isNative } from './util/common'
+import { ArticleState, Coding, KataState, QuickTypingState, SettingState, Word } from './types'
+import { shuffleText, isNative, replaceTextSpace, shuffle, splitLongText } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 import { symbolsRegs } from './util/constants'
+import { Message } from 'element-ui'
 
 const alphaPattern = /[a-zA-Z0-9]/
 
@@ -238,6 +239,115 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
       shortest: null
     }
     this.dispatch('article/loadArticle', article)
+  },
+
+  loadRandomArticle (): void {
+    this.dispatch('article/loadServerArticle', eapi.getRandomArticle)
+  },
+
+  loadDailyArticle (): void {
+    this.dispatch('article/loadServerArticle', eapi.getTodayArticle)
+  },
+
+  loadServerArticle ({ state, rootGetters }, apiFunc: Function): void {
+    apiFunc().then((data: { id: string; title: string; author: string; content: string }) => {
+      const id = data.id
+      if (id === state.identity) {
+        Message.warning({
+          message: '您点得太快了，等会再试啦~'
+        })
+        return
+      }
+
+      const splitedTexts = splitLongText(data.content).map(replaceTextSpace)
+      if (splitedTexts.length <= 1) {
+        const match = {
+          title: `《${data.title}》- ${data.author}`,
+          content: replaceTextSpace(data.content),
+          number: data.id
+        }
+        this.dispatch('article/loadMatch', match)
+        return
+      }
+
+      const article: Partial<KataState> = {
+        articleTitle: `《${data.title}》- ${data.author}(总${replaceTextSpace(data.content).length}字)`,
+        articleText: splitedTexts.join('\n'),
+        textType: 2,
+        currentParagraphNo: 1,
+        paragraphSize: splitedTexts.length
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
+    }).catch((err: { message: string }) => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
+  },
+
+  loadDailyNews ({ state, rootGetters }): void {
+    eapi.getTodayNews().then(data => {
+      const id = data.id
+      if (id === state.identity) {
+        Message.warning({
+          message: '您点得太快了，等会再试啦~'
+        })
+        return
+      }
+
+      const article: Partial<KataState> = {
+        articleTitle: `《${data.title}》`,
+        articleText: data.contentList.join('\n'),
+        textType: 2,
+        currentParagraphNo: 1,
+        paragraphSize: data.contentList.length
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
+    }).catch(err => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
+  },
+
+  loadSingle ({ rootGetters }, apiFunc: Function): void {
+    apiFunc().then((data: { title: string; content: string }) => {
+      const article: Partial<KataState> = {
+        articleTitle: `${data.title}`,
+        articleText: shuffle(data.content.split('')).join(''),
+        currentParagraphNo: 1,
+        paragraphSize: 10
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
+    }).catch((err: { message: string }) => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
+  },
+
+  loadSingleFront500 (): void {
+    this.dispatch('article/loadSingle', eapi.getSingleFront500)
+  },
+
+  loadSingleMiddle500 (): void {
+    this.dispatch('article/loadSingle', eapi.getSingleMiddle500)
+  },
+
+  loadSingleEnd500 (): void {
+    this.dispatch('article/loadSingle', eapi.getSingleEnd500)
   },
 
   loadArticle ({ commit, rootState, rootGetters }, article: ArticleState) {

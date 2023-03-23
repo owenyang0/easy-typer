@@ -496,6 +496,12 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
     const last = text.charAt(length - 1)
     if (punctuations.has(last)) {
       length -= 1
+    } else if (text.length >= 2) {
+      const lastTwo = text.substring(length - 2)
+
+      if (punctuations.has(lastTwo)) { // 用于处理 ——……等符号
+        length -= 2
+      }
     }
     if (length > 1) {
       commit('phrase', length)

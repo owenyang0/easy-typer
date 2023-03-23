@@ -10,7 +10,7 @@ class QuickTypingDatabase extends Dexie {
   /**
    * 汇总
    */
-  summary: Dexie.Table<LooseObject<number>, string>
+  summary: Dexie.Table<LooseObject<unknown>, string>
   /**
    * 汇总
    */

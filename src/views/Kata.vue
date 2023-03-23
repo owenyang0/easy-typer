@@ -20,6 +20,7 @@
             expand-trigger="hover"
             :options="contentOptions"
             v-model="formContent.contentName"
+            placeholder="请选择练习文本"
           >
           </el-cascader>
         </el-form-item>
@@ -122,10 +123,10 @@
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
 import { KataState } from '@/store/types'
-import { contentList, tigerCode3, tigerSimp2F500, tigerSimp2Other } from '../common/contentList'
 import { KataArticle } from '@/store/kata'
 import { shuffle, isMobile } from '@/store/util/common'
 import { noop } from 'vue-class-component/lib/util'
+import eapi from '@/api/easyTyper'
 
 const article = namespace('article')
 const kata = namespace('kata')
@@ -208,7 +209,7 @@ export default class Home extends Vue {
 
   private dialogTitle = '自由发文'
   private formContent = {
-    contentName: ['free', 'freeText'],
+    contentName: [],
     contentLength: 0,
     currentParagraphNo: 1,
     paragraphSize: isMobile() ? 5 : 10,
@@ -222,38 +223,28 @@ export default class Home extends Vue {
   //   action: 'noop'
   // }
 
-  private contentOptions: Array<{ value: string; label: string; isRemote?: boolean; children: Array<{ value: string; label: string; isRemote?: boolean }> }> = [{
-    value: 'free',
-    label: '自由',
-    children: [{
-      value: 'freeText',
-      label: '手动输入'
-    }]
-  }, {
-    value: 'tiger',
-    label: '虎码',
-    children: [{
-      value: 'tigerSimp2F500',
-      label: tigerSimp2F500.title
-    }, {
-      value: 'tigerSimp2Other',
-      label: tigerSimp2Other.title
-    }, {
-      value: 'tigerCode3',
-      label: tigerCode3.title
-    }, {
-      value: 'tigerHell4500',
-      label: '虎码要你命4500'
-    }]
-  }, {
-    value: 'word',
-    label: '单字',
-    children: []
-  }, {
-    value: 'article',
-    label: '文章',
-    children: []
+  private contentOptions: Array<{ value: string; id: number; label: string; isRemote?: boolean; children: Array<{
+id: number; value: string; label: string; isRemote?: boolean;
+}>; }> = [{
+  value: 'free',
+  label: '自由',
+  id: 1,
+  children: [{
+    id: -1,
+    value: 'freeText',
+    label: '手动输入'
   }]
+}, {
+  value: 'tiger',
+  label: '虎码',
+  id: 2,
+  children: []
+}, {
+  value: 'word',
+  label: '单字',
+  id: 3,
+  children: []
+}]
 
   @Watch('formContent.paragraphSize')
   paragraphSizeChange (size: number) {
@@ -263,7 +254,7 @@ export default class Home extends Vue {
   }
 
   @Watch('formContent.contentName')
-  contentChange (names: (keyof typeof contentList)[]) {
+  contentChange (names: string[]) {
     const rootName = names[0]
     const name = names[1]
 
@@ -276,14 +267,7 @@ export default class Home extends Vue {
     const subOption = this.contentOptions.find(o => o.value === rootName)
     const current = subOption?.children.find(s => s.value === name)
 
-    if (!current?.isRemote) {
-      this.articleText = contentList[name].content
-      this.dialogTitle = `${contentList[name].title}`
-      return
-    }
-
-    fetch(`/static/kata/${name}.json`)
-      .then(res => res.json())
+    eapi.getKataOptionById(current?.id || -1)
       .then(ret => {
         this.articleText = ret.content
         this.dialogTitle = `${ret.title}`
@@ -297,7 +281,7 @@ export default class Home extends Vue {
 
   @Watch('articleText')
   articleTextChange (articleText: string) {
-    const { contentName, contentLength, paragraphCount } = this.formContent
+    const { contentName } = this.formContent
     this.formContent.contentLength = articleText.length
 
     if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
@@ -373,8 +357,7 @@ export default class Home extends Vue {
   created () {
     this.init()
 
-    fetch('/static/kata/options.json')
-      .then(res => res.json())
+    eapi.getKataList()
       .then(options => {
         this.contentOptions = options
       })

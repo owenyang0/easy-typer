@@ -27,9 +27,9 @@
                 <el-tooltip :content="indicatorTooltipText" placement="top">
                   <el-button size="mini" icon="el-icon-caret-right" @click="toggleSidebar" class="indicator-real" style="width: 220px;">速度<span class="val">{{ typeSpeed }}</span> | 击键<span class="val">{{ hitSpeed }}</span> | 码长<span class="val">{{ codeLength }}</span></el-button>
                 </el-tooltip>
-                <el-tooltip content="手动载文" placement="top">
+                <!-- <el-tooltip content="手动载文" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>
-                </el-tooltip>
+                </el-tooltip> -->
                 <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip>
@@ -37,15 +37,37 @@
                 <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 </el-tooltip> -->
-                <el-tooltip content="乱序(Ctrl+L)" placement="top">
+                <!-- <el-tooltip content="乱序(Ctrl+L)" placement="top">
                   <el-button size="mini" icon="el-icon-edit-outline" @click="random()">乱序</el-button>
-                </el-tooltip>
-                <el-tooltip content="下一段(Ctrl+P)" placement="top">
+                </el-tooltip> -->
+                <!-- <el-tooltip content="下一段(Ctrl+P)" placement="top">
                   <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段</el-button>
-                </el-tooltip>
+                </el-tooltip> -->
                 <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
-                <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button>
-                <el-popover
+                <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
+                  :trigger="triggerMethod"
+                  hide-on-click
+                  class="dropdown-operation"
+                  @command="handleCommand"
+                  :show-timeout="0">
+                  <i :class="triggerIcon"></i><span>{{ triggerText }}</span>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item icon="el-icon-document" command="loadText">手动载文</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-medal" command="dailyArticle" divided>每日一文</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-tickets" command="randomArticle">随机文章</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-news" command="dailyNews">今日新闻</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleFront500" divided>前500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleMiddle500">中500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleEnd500">后500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-reading" command="yuedu" divided>每日一读，沉浸经典</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+                <!-- <el-button size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger">{{ triggerText }}</el-button> -->
+              </el-button-group>
+              <el-popover
                   ref="popoverStyle"
                   placement="bottom"
                   width="300"
@@ -117,7 +139,6 @@
                     </el-row>
                   </div>
                 </el-popover>
-              </el-button-group>
             </el-col>
           </el-row>
           <el-divider class="mini"/>
@@ -163,6 +184,7 @@ import eapi from '@/api/easyTyper'
 import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
 import { statusMapIcon, statusMapText, statusMapType } from '../store/util/constants'
+import { isMobile } from '@/store/util/common'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -217,6 +239,24 @@ export default class Home extends Vue {
 
   @article.Action('random')
   private random!: Function
+
+  @article.Action('loadDailyArticle')
+  private loadDailyArticle!: Function
+
+  @article.Action('loadRandomArticle')
+  private loadRandomArticle!: Function
+
+  @article.Action('loadDailyNews')
+  private loadDailyNews!: Function
+
+  @article.Action('loadSingleFront500')
+  private loadSingleFront500!: Function
+
+  @article.Action('loadSingleMiddle500')
+  private loadSingleMiddle500!: Function
+
+  @article.Action('loadSingleEnd500')
+  private loadSingleEnd500!: Function
 
   @login.State('authenticated')
   private authenticated!: boolean
@@ -280,6 +320,10 @@ export default class Home extends Vue {
 
   get indicatorTooltipText (): string {
     return `点击${this.showSidebar ? '隐藏' : '展示'}侧边栏`
+  }
+
+  get triggerMethod (): string {
+    return isMobile() ? 'click' : 'hover'
   }
 
   get triggerIcon (): string {
@@ -369,6 +413,46 @@ export default class Home extends Vue {
     if (this.hasUpdated) {
       this.saveToDB()
       this.hasUpdated = false
+    }
+  }
+
+  handleCommand (command: string) {
+    switch (command) {
+      case 'loadText':
+        this.showLoadDialog = true
+        break
+      case 'retry':
+        this.retry()
+        break
+      case 'next':
+        this.next()
+        break
+      case 'random':
+        this.random()
+        break
+      case 'randomArticle':
+        this.loadRandomArticle()
+        break
+      case 'dailyArticle':
+        this.loadDailyArticle()
+        break
+      case 'dailyNews':
+        this.loadDailyNews()
+        break
+      case 'singleFront500':
+        this.loadSingleFront500()
+        break
+      case 'singleMiddle500':
+        this.loadSingleMiddle500()
+        break
+      case 'singleEnd500':
+        this.loadSingleEnd500()
+        break
+      case 'yuedu':
+        window.open('https://yuedu.owenyang.top', '_blank')
+        break
+      default:
+        break
     }
   }
 
