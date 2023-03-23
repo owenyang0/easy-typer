@@ -172,6 +172,9 @@ export default class Setting extends Vue {
   @summary.Action('loaded')
   private wordCountLoaded!: Function
 
+  @summary.Action('init')
+  private wordCountInit!: Function
+
   @Mutation('updateAchievements')
   private updateAchievements!: Function
 
@@ -370,6 +373,9 @@ export default class Setting extends Vue {
       if (wordCount) {
         console.log('Word count loaded')
         this.wordCountLoaded(wordCount)
+      } else {
+        console.log('Word count init')
+        this.wordCountInit()
       }
     })
 

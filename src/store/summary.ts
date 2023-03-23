@@ -35,6 +35,10 @@ const mutations: MutationTree<SummaryState> = {
     state.totalErrorWords += errorWords
   },
 
+  init: (state) => {
+    state.loaded = true
+  },
+
   loaded: (state, payload: SummaryState) => {
     Object.assign(state, payload)
     state.loaded = true
@@ -46,6 +50,10 @@ const mutations: MutationTree<SummaryState> = {
 }
 
 const actions: ActionTree<SummaryState, QuickTypingState> = {
+  init: ({ commit }) => {
+    commit('init')
+  },
+
   typeWords: ({ commit, state }, { delta, errorWords }) => {
     if (delta <= 0) {
       return
