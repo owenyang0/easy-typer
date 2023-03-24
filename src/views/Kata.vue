@@ -127,6 +127,7 @@ import { KataArticle } from '@/store/kata'
 import { shuffle, isMobile } from '@/store/util/common'
 import { noop } from 'vue-class-component/lib/util'
 import eapi from '@/api/easyTyper'
+import { KataOptions } from '@/models/articleModels'
 
 const article = namespace('article')
 const kata = namespace('kata')
@@ -223,28 +224,27 @@ export default class Home extends Vue {
   //   action: 'noop'
   // }
 
-  private contentOptions: Array<{ value: string; id: number; label: string; isRemote?: boolean; children: Array<{
-id: number; value: string; label: string; isRemote?: boolean;
-}>; }> = [{
-  value: 'free',
-  label: '自由',
-  id: 1,
-  children: [{
-    id: -1,
-    value: 'freeText',
-    label: '手动输入'
+  private contentOptions: KataOptions[] = [{
+    value: 'free',
+    label: '自由',
+    id: 1,
+    children: [{
+      id: -1,
+      value: 'freeText',
+      label: '手动输入',
+      children: []
+    }]
+  }, {
+    value: 'tiger',
+    label: '虎码',
+    id: 2,
+    children: []
+  }, {
+    value: 'word',
+    label: '单字',
+    id: 3,
+    children: []
   }]
-}, {
-  value: 'tiger',
-  label: '虎码',
-  id: 2,
-  children: []
-}, {
-  value: 'word',
-  label: '单字',
-  id: 3,
-  children: []
-}]
 
   @Watch('formContent.paragraphSize')
   paragraphSizeChange (size: number) {
@@ -265,9 +265,9 @@ id: number; value: string; label: string; isRemote?: boolean;
     }
 
     const subOption = this.contentOptions.find(o => o.value === rootName)
-    const current = subOption?.children.find(s => s.value === name)
+    const current = subOption ? subOption.children.find(s => s.value === name) : null
 
-    eapi.getKataOptionById(current?.id || -1)
+    current && eapi.getKataOptionById(current?.id || -1)
       .then(ret => {
         this.articleText = ret.content
         this.dialogTitle = `${ret.title}`
