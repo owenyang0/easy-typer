@@ -98,7 +98,7 @@ export interface ArticleState {
   /**
    * 标识
    */
-  identity: string;
+  identity: string|number;
   /**
    * 文章内容
    */

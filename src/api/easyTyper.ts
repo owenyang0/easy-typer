@@ -1,8 +1,40 @@
 import * as crypto from 'crypto'
+import CryptoJS from 'crypto-js'
 import axios, { AxiosResponse } from 'axios'
+import * as uuid from 'uuid'
 import { LoginState } from '@/store/types'
+import { NewsResponse } from '@/models/articleModels'
 
-axios.defaults.baseURL = 'https://api.xc.cool/api'
+const HASH_KEY = '3198f2e6892d5bdd0630505e20acfc849a12e03c5a1da4c5c41a180c44c67eeb85ef0bc6992d9b0c3926da22ebaa55346bcd76d8556321e044530eff3d868e2636514072'
+
+const axiosInstance = axios.create({
+  baseURL: '/',
+  responseType: 'json'
+})
+axiosInstance.interceptors.request.use((config) => {
+  const { url, method } = config
+  const nonce = uuid.v4()
+  const timestamp = Math.floor(Date.now() / 1000)
+  const secret = HASH_KEY
+  const hash = CryptoJS.SHA256(`${url}:${method}:${nonce}:${timestamp}:${secret}`.toUpperCase())
+  const signature = hash.toString(CryptoJS.enc.Hex)
+  // 把签名添加到请求头中
+  config.headers['X-Etsig'] = btoa(`${signature}:${nonce}:${timestamp}`)
+  // 返回新的请求配置
+  return { ...config, url, method, headers: config.headers }
+})
+
+axiosInstance.interceptors.response.use(response => {
+  const { data } = response
+
+  if (data.code === 0) {
+    return data.data
+  } else {
+    return Promise.reject(new Error(data.msg))
+  }
+}, error => Promise.reject(error))
+
+axios.defaults.baseURL = '/'
 axios.defaults.responseType = 'json'
 axios.interceptors.response.use(response => {
   const { data } = response
@@ -74,7 +106,7 @@ const matches = (guid: string): Promise<Match> => {
   })
 }
 
-const HASH_KEY = '3198f2e6892d5bdd0630505e20acfc849a12e03c5a1da4c5c41a180c44c67eeb85ef0bc6992d9b0c3926da22ebaa55346bcd76d8556321e044530eff3d868e2636514072'
+// const HASH_KEY = '3198f2e6892d5bdd0630505e20acfc849a12e03c5a1da4c5c41a180c44c67eeb85ef0bc6992d9b0c3926da22ebaa55346bcd76d8556321e044530eff3d868e2636514072'
 const HASH_ALG = 'sha1'
 const ENCODING = 'hex'
 
@@ -141,8 +173,8 @@ const getTodayArticle = () => {
   return baseRequest('/api/r/articles/today')
 }
 
-const getTodayNews = () => {
-  return baseRequest('/api/r/news/today')
+const getTodayNews = (): Promise<NewsResponse> => {
+  return axiosInstance.get('/api/r/news/today')
 }
 
 const getKataList = () => {
