@@ -104,7 +104,11 @@
           </span>
         </div>
         <div class="key-value">
-          <span>编码提示</span>
+          <span>编码提示
+            <el-tooltip class="item" effect="dark" content="对性能有一定的要求，千字以上的长文『不建议』开启" placement="top">
+              <i class="el-icon-info"/>
+            </el-tooltip>
+          </span>
           <span>
             <el-switch v-model="tempHint" @change="toggleHint(tempHint)"/>
           </span>
