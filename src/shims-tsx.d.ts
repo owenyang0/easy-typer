@@ -37,6 +37,9 @@ declare global {
       setGrade: (val: string) => void;
       getAppVersion: any;
     };
+    etg: {
+      e: (confg: object) => string;
+    };
     __typer: {
       env: string;
     };

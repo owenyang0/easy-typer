@@ -12,16 +12,12 @@ const axiosInstance = axios.create({
   responseType: 'json'
 })
 axiosInstance.interceptors.request.use((config) => {
-  const { url, method } = config
-  const nonce = uuid.v4()
-  const timestamp = Math.floor(Date.now() / 1000)
-  const secret = HASH_KEY
-  const hash = CryptoJS.SHA256(`${url}:${method}:${nonce}:${timestamp}:${secret}`.toUpperCase())
-  const signature = hash.toString(CryptoJS.enc.Hex)
+  const signature = window.etg && window.etg.e(config)
+
   // 把签名添加到请求头中
-  config.headers['X-Etsig'] = btoa(`${signature}:${nonce}:${timestamp}`)
+  config.headers['X-Etsig'] = signature
   // 返回新的请求配置
-  return { ...config, url, method, headers: config.headers }
+  return { ...config, headers: config.headers }
 })
 
 axiosInstance.interceptors.response.use(response => {
