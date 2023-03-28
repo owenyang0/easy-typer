@@ -229,6 +229,10 @@ export class KataState {
    */
   currentParagraphNo = 1;
   /**
+   * 段号标识
+   */
+  indentity = 1;
+  /**
    * 当前跟打文本 - 可能乱序
    */
   currentContent = '';
@@ -260,6 +264,10 @@ export class KataState {
    * 指标校验-速度
    */
   criteriaSpeed = 40;
+  /**
+   * 指标校验-达标次数
+   */
+  criteriaAchieved = 1;
   /**
    * 指标校验-键准
    */

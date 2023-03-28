@@ -102,8 +102,8 @@ module.exports = {
   devServer: {
     proxy: {
       '^/api': {
-        // target: 'https://typer.owenyang.top/',
-        target: 'http://localhost:3000/',
+        target: 'https://typer.owenyang.top/',
+        // target: 'http://localhost:3000/',
         ws: true,
         changeOrigin: true
       }

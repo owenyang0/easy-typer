@@ -17,7 +17,7 @@ const getters: GetterTree<KataState, QuickTypingState> = {
   nextParagraph: (state, getters) => {
     return {
       title: `${state.articleTitle}(${state.currentParagraphNo}/${getters.paragraphCount})`,
-      number: state.currentParagraphNo,
+      number: state.currentParagraphNo + state.indentity - 1,
       content: state.currentContent
     }
   }
@@ -41,6 +41,7 @@ const mutations: MutationTree<KataState> = {
     state.articleTitle = article.articleTitle
     state.currentParagraphNo = article.currentParagraphNo
     state.paragraphSize = article.paragraphSize
+    state.indentity = article.indentity || 1
 
     if (state.textType === 2) {
       state.currentContent = state.articleText.split('\n')[article.currentParagraphNo - 1]

@@ -250,7 +250,7 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
   },
 
   loadServerArticle ({ state, rootGetters }, apiFunc: Function): void {
-    apiFunc().then((data: { id: string; title: string; author: string; content: string }) => {
+    apiFunc().then((data: { id: number; title: string; author: string; content: string }) => {
       const id = data.id
       if (id === state.identity) {
         Message.warning({
@@ -275,6 +275,7 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
         articleText: splitedTexts.join('\n'),
         textType: 2,
         currentParagraphNo: 1,
+        indentity: id,
         paragraphSize: splitedTexts.length
       }
 
@@ -304,6 +305,7 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
         articleText: data.contentList.join('\n'),
         textType: 2,
         currentParagraphNo: 1,
+        indentity: id,
         paragraphSize: data.contentList.length
       }
 
@@ -318,12 +320,14 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
     })
   },
 
-  loadSingle ({ rootGetters }, apiFunc: Function): void {
+  loadSingle ({ rootGetters }, config): void {
+    const { apiFunc, defaultIdentity = 1 } = config
     apiFunc().then((data: { title: string; content: string }) => {
       const article: Partial<KataState> = {
         articleTitle: `${data.title}`,
         articleText: shuffle(data.content.split('')).join(''),
         currentParagraphNo: 1,
+        indentity: defaultIdentity,
         paragraphSize: 10
       }
 
@@ -339,15 +343,23 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
   },
 
   loadSingleFront500 (): void {
-    this.dispatch('article/loadSingle', eapi.getSingleFront500)
+    this.dispatch('article/loadSingle', {
+      apiFunc: eapi.getSingleFront500
+    })
   },
 
   loadSingleMiddle500 (): void {
-    this.dispatch('article/loadSingle', eapi.getSingleMiddle500)
+    this.dispatch('article/loadSingle', {
+      apiFunc: eapi.getSingleMiddle500,
+      defaultIdentity: 500
+    })
   },
 
   loadSingleEnd500 (): void {
-    this.dispatch('article/loadSingle', eapi.getSingleEnd500)
+    this.dispatch('article/loadSingle', {
+      apiFunc: eapi.getSingleEnd500,
+      defaultIdentity: 1000
+    })
   },
 
   loadArticle ({ commit, rootState, rootGetters }, article: ArticleState) {
