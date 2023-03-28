@@ -28,6 +28,7 @@ const mutations: MutationTree<KataState> = {
     state.mode = 0
     state.isReading = false
     state.criteriaOpen = false
+    state.achievedCount = 0
     if (isMobile()) {
       state.criteriaHitSpeed = 0
     }
@@ -80,12 +81,19 @@ const mutations: MutationTree<KataState> = {
 
   updateTipWarning: (state, isShow: boolean) => {
     state.hasTipWarning = isShow
+  },
+
+  achievedCount: (state, count: number) => {
+    state.achievedCount = count
   }
 }
 
 const actions: ActionTree<KataState, QuickTypingState> = {
   init ({ commit }): void {
     commit('init')
+  },
+  updateAchievedCount ({ commit }, count: number): void {
+    commit('achievedCount', count)
   },
   loadArticle ({ commit }, article: KataState): void {
     commit('article', article)

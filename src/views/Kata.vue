@@ -93,6 +93,18 @@
             class="form-field"
           ></el-input-number>
         </el-form-item>
+        <el-form-item label="达标次数≥">
+          <el-input-number
+            size="small"
+            :value="criteriaAchieved"
+            :min="1"
+            :max="50"
+            :step="1"
+            :disabled="isCriteriaDisabled"
+            @change="handleAchievedChange"
+            class="form-field"
+          ></el-input-number>
+        </el-form-item>
         <el-form-item label="未达标时『或』有错字时">
           <el-select
             size="small"
@@ -154,6 +166,9 @@ export default class Home extends Vue {
 
   @kata.State('criteriaAccuracy')
   private criteriaAccuracy!: number
+
+  @kata.State('criteriaAchieved')
+  private criteriaAchieved!: number
 
   @kata.State('criteriaAction')
   private criteriaAction!: string
@@ -318,6 +333,12 @@ export default class Home extends Vue {
   handleAccuracyChange (criteriaAccuracy: number) {
     this.updateCriteria({
       criteriaAccuracy
+    })
+  }
+
+  handleAchievedChange (criteriaAchieved: number) {
+    this.updateCriteria({
+      criteriaAchieved
     })
   }
 

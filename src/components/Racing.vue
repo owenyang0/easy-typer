@@ -99,7 +99,7 @@ export default class Racing extends Vue {
         const text = this.result
         Clipboard.copy(text, () => {
           if (this.cloak) {
-            console.log('当前处于潜水状态')
+            // console.log('当前处于潜水状态')
             return
           }
           if (window.electronAPI) {

@@ -4,6 +4,7 @@ import { Achievement, QuickTypingState, RacingState, Word } from './types'
 import { accuracyRank, isMobile, speedRank } from './util/common'
 import db from './util/Database'
 import { keyboard } from './util/keyboard'
+import { Message } from 'element-ui'
 
 const statusMap = new Map<string, string>([
   ['init', '初始化'],
@@ -528,14 +529,30 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
         }
 
         if (kata.criteriaOpen) {
-          if (+getters.typeSpeed >= kata.criteriaSpeed && getters.hitSpeed >= kata.criteriaHitSpeed && getters.accuracy >= kata.criteriaAccuracy && finishState.error === 0) {
-            this.dispatch('kata/next')
-          } else {
+          const handleNotAchieved = () => {
             if (kata.criteriaAction === 'retry') {
               this.dispatch('racing/retry')
             } else if (kata.criteriaAction === 'random') {
               this.dispatch('kata/random')
             }
+          }
+          // 此次已达标
+          const isAchieved = +getters.typeSpeed >= kata.criteriaSpeed && getters.hitSpeed >= kata.criteriaHitSpeed && getters.accuracy >= kata.criteriaAccuracy && finishState.error === 0
+          if (isAchieved) {
+            const latestAchievedCount = kata.achievedCount + 1
+            if (latestAchievedCount >= kata.criteriaAchieved) {
+              this.dispatch('kata/updateAchievedCount', 0)
+              this.dispatch('kata/next')
+            } else {
+              Message.success({
+                message: `恭喜！当前段达标『${latestAchievedCount}/${kata.criteriaAchieved}』次`
+              })
+              this.dispatch('kata/updateAchievedCount', latestAchievedCount)
+
+              handleNotAchieved()
+            }
+          } else {
+            handleNotAchieved()
           }
         } else {
           this.dispatch('kata/next', true)

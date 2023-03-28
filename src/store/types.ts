@@ -269,6 +269,10 @@ export class KataState {
    */
   criteriaAchieved = 1;
   /**
+   * 当前段-已达标次数
+   */
+  achievedCount = 0;
+  /**
    * 指标校验-键准
    */
   criteriaAccuracy = 100;
