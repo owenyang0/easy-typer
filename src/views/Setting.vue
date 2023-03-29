@@ -64,6 +64,7 @@
               <div class="el-upload__tip" slot="tip">3. 点击更新默认编码提示：
                 <!-- <el-button-group> -->
                 <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字』</el-button>
+                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tigerCi')">『虎码字词-百度版』</el-button>
                 <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('xh')">『小鹤词提』</el-button>
                 <!-- </el-button-group> -->
               </div>
@@ -435,10 +436,25 @@ export default class Setting extends Vue {
     this.resetForm()
   }
 
-  handleCodingDownload (type: string) {
+  handleCodingDownload (type: 'xh' | 'tiger' | 'tigerCi') {
     console.log('coding type: ', type)
     this.isCodingLoading = true
-    const typeText = type === 'xh' ? '『小鹤词提』' : '『虎码单字』'
+    const codingsTypes = {
+      xh: {
+        title: '『小鹤词提』',
+        url: '/static/codingsXH.txt'
+      },
+      tiger: {
+        title: '『虎码单字』',
+        url: '/static/codings.txt'
+      },
+      tigerCi: {
+        title: '『虎码字词』',
+        url: '/static/codingsCi.txt'
+      }
+    }
+    const codingType = codingsTypes[type]
+    const typeText = codingType.title
 
     const saveCodings = (content: string) => {
       const trie = parseTrieNodeByCodinds(content)
@@ -461,7 +477,7 @@ export default class Setting extends Vue {
     }
 
     if (type === 'xh') {
-      fetch('/static/codingsXH.txt')
+      fetch(codingType.url)
         .then(res => res.text())
         .then(ret => {
           const bytes = aes.decrypt(ret, 'U2FsdGVkX19wPZQjUTQ0')
@@ -474,7 +490,7 @@ export default class Setting extends Vue {
       return
     }
 
-    fetch('/static/codings.txt')
+    fetch(codingType.url)
       .then(res => res.text())
       .then(ret => {
         return saveCodings(ret)
