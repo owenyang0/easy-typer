@@ -6,7 +6,8 @@ INSERT INTO kata_options (value, label) VALUES('free', '自由'),
 ('articleSet1', '必背名篇4-1'),
 ('articleSet2', '必背名篇4-2'),
 ('articleSet3', '必背名篇4-3'),
-('articleSet4', '必背名篇4-4')
+('articleSet4', '必背名篇4-4'),
+('drivingLicense1', '驾考科一')
 
 -- 插入子选项数据
 INSERT INTO kata_options_child (option_id, value, label, isRemote) VALUES

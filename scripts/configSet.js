@@ -12,7 +12,8 @@ const set0 = [
   '11 饿饥艺术家.txt',
   '12 吕至元.txt',
   '13 杨二喜.txt',
-  '14 门房的儿子.txt'
+  '14 门房的儿子.txt',
+  '15 雨夜 高架 迈巴赫.txt'
 ]
 
 const set1 = [
@@ -127,6 +128,10 @@ const set4 = [
   '25 离骚.txt'
 ]
 
+const drivingLicense1 = [
+  '01 扣分题.txt'
+]
+
 module.exports = {
-  set0, set1, set2, set3, set4
+  set0, set1, set2, set3, set4, drivingLicense1
 }
