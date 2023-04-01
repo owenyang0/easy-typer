@@ -22,3 +22,10 @@ export interface KataOption {
   title: string;
   content: string;
 }
+
+export interface HistoriesResponse {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+}

@@ -129,7 +129,8 @@ const set4 = [
 ]
 
 const drivingLicense1 = [
-  '01 扣分题.txt'
+  '01 扣分题.txt',
+  '02 罚款题.txt'
 ]
 
 module.exports = {

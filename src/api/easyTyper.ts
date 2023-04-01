@@ -1,9 +1,7 @@
 import * as crypto from 'crypto'
-import CryptoJS from 'crypto-js'
 import axios, { AxiosResponse } from 'axios'
-import * as uuid from 'uuid'
 import { LoginState } from '@/store/types'
-import { KataOption, KataOptions, NewsResponse } from '@/models/articleModels'
+import { HistoriesResponse, KataOption, KataOptions, NewsResponse } from '@/models/articleModels'
 
 const HASH_KEY = '3198f2e6892d5bdd0630505e20acfc849a12e03c5a1da4c5c41a180c44c67eeb85ef0bc6992d9b0c3926da22ebaa55346bcd76d8556321e044530eff3d868e2636514072'
 
@@ -173,6 +171,10 @@ const getTodayNews = (): Promise<NewsResponse> => {
   return axiosInstance.get('/api/r/news/today')
 }
 
+const getTodayHistories = (): Promise<HistoriesResponse[]> => {
+  return axiosInstance.get('/api/r/histories/today')
+}
+
 const getKataList = (): Promise<KataOptions[]> => {
   return axiosInstance.get('/api/r/kata/list')
 }
@@ -205,6 +207,7 @@ export const eapi = {
   getTodayArticle,
   getTodayNews,
   getKataList,
+  getTodayHistories,
   getKataOptionById,
   getSingleFront500,
   getSingleMiddle500,

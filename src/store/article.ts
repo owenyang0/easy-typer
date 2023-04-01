@@ -290,6 +290,30 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
     })
   },
 
+  loadTodayHistories ({ rootGetters }, type): void {
+    eapi.getTodayHistories().then(data => {
+      const id = data[0].id
+      const isSimple = type === 'simple'
+
+      const article: Partial<KataState> = {
+        articleTitle: `《历史上的今天${data[0].date}》`,
+        articleText: data.map(d => isSimple ? d.title : `《${d.title}》${d.description}`).join('\n'),
+        textType: 2,
+        currentParagraphNo: 1,
+        indentity: id
+      }
+
+      this.dispatch('kata/loadArticle', article)
+      const nextParagraph = rootGetters['kata/nextParagraph']
+
+      this.dispatch('article/loadMatch', nextParagraph)
+    }).catch(err => {
+      Message.warning({
+        message: `${err.message}`
+      })
+    })
+  },
+
   loadDailyNews ({ state, rootGetters }): void {
     eapi.getTodayNews().then(data => {
       const id = data.id

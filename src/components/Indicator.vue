@@ -42,8 +42,10 @@
         <div class="indicator-action">
           <el-button size="mini" @click="handleRandomReading" type="success" plain>随机文章</el-button>
           <el-button size="mini" @click="handleTodayReading" type="success" plain>每日一文</el-button>
-          <el-button size="mini" @click="handleTodayNews" type="primary" plain>每日新闻</el-button>
-          <el-button size="mini" disabled plain>敬请期待</el-button>
+          <el-button size="mini" @click="handleTodayNews" type="primary" plain>今日新闻</el-button>
+          <el-button size="mini" disabled plain>更多期待</el-button>
+          <el-button size="mini" @click="handleTodayHistory('simple')" type="primary" plain>历史上的今天</el-button>
+          <el-button size="mini" @click="handleTodayHistory('detail')" type="primary" plain>详细</el-button>
           <div style="margin-top: 12px;">
           <el-button @click="handleReadingClick" size="mini" type="text">每日一读，沉浸经典</el-button>
         </div>
@@ -298,6 +300,9 @@ export default class Indicator extends Vue {
   @article.Action('loadDailyNews')
   private loadDailyNews!: Function
 
+  @article.Action('loadTodayHistories')
+  private loadTodayHistories!: Function
+
   @kata.Getter('nextParagraph')
   private nextParagraph!: KataArticle
 
@@ -388,6 +393,10 @@ export default class Indicator extends Vue {
 
   handleTodayNews () {
     this.loadDailyNews()
+  }
+
+  handleTodayHistory (type = 'simple') {
+    this.loadTodayHistories(type)
   }
 
   handleReadingClick () {
