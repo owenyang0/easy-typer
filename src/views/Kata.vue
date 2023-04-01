@@ -225,7 +225,7 @@ export default class Home extends Vue {
 
   private dialogTitle = '自由发文'
   private formContent = {
-    contentName: [],
+    contentName: ['free', 'freeText'],
     contentLength: 0,
     currentParagraphNo: 1,
     paragraphSize: isMobile() ? 5 : 10,
