@@ -1,0 +1,7 @@
+【W→预警】LDW→车道偏离“预警”系统（Lane Departure Warning）。FCW→前方碰撞“预警”系统（Forward Collision Warning）。
+【EB→制动|刹车】EBD→电子“制动”力分配系统（Electric Brakeforce Distribution），德文缩写：EBV（少量车会用到，如：沃尔沃、奥迪A6）。EBA→电控“制动”辅助系统（Electronic Brake Assist），也称：紧急“制动”辅助系统。AEB→自动紧急“刹车”系统（Autonomous Emergency Braking），也称：自动“刹车”辅助系统。
+【CC→巡航】ACC→自适应“巡航”控制系统（Adaptive Cruise Control）。CCS→定速“巡航”系统（Cruise Control System）。
+【A→自动|自适应|随动】ALC→“自动”变道辅助系统（Auto Lane Change）。AEB→“自动”紧急刹车系统（Autonomous Emergency Braking），也称：“自动”刹车辅助系统。ACC→“自适应”巡航控制系统（Adaptive Cruise Control）。AFS→“随动”转向前照灯系统（Adaptive Front-Lighting System）。
+【T→交通】TMC→实时交通信息（Traffic Message Channel）。TSR→交通标志识别（Traffic Sign Recognition）。
+【BS→盲点】BSD→“盲点”监测系统（Blind Spot Detection）。BSA→“盲点”辅助系统（Blind Spot Assist）。
+【其他】ESP→车身电子稳定系统（Electronic Stability Program），SUV车型。GPS→全球定位系统（Global Positioning System），即：车辆导航。TSC/ASR/TRC→牵引力控制系统（Traction Control System），也称：驱动防滑系统（Acceleration Slip Regulation），TRC是丰田汽车上的牵引力控制系统缩写。
