@@ -176,3 +176,9 @@ export const splitLongText = (text: string) => {
   }
   return result
 }
+
+export const criteriaActionText = {
+  random: '乱序',
+  retry: '重打',
+  noop: '不处理'
+}

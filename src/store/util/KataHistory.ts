@@ -14,8 +14,8 @@ export type KataHistoryState = KataState & {
 }
 
 class KataHistory {
-  loadHistoryByTitle (title: string) {
-    db.configs.get(KATA_HISTORY).then((histories) => {
+  async loadHistoryByTitle (title: string) {
+    return db.configs.get(KATA_HISTORY).then((histories) => {
       const his = histories as KataState[] || []
 
       const currHis = his.find(h => h.articleTitle === title)

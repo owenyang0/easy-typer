@@ -80,6 +80,12 @@ const mutations: MutationTree<KataState> = {
     }
   },
 
+  load: (state, newState) => {
+    if (newState) {
+      Object.assign(state, newState)
+    }
+  },
+
   updateTipWarning: (state, isShow: boolean) => {
     state.hasTipWarning = isShow
   },
@@ -92,6 +98,9 @@ const mutations: MutationTree<KataState> = {
 const actions: ActionTree<KataState, QuickTypingState> = {
   init ({ commit }): void {
     commit('init')
+  },
+  load ({ commit }, newState): void {
+    commit('load', newState)
   },
   updateAchievedCount ({ commit }, count: number): void {
     commit('achievedCount', count)

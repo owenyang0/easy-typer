@@ -44,7 +44,9 @@
                   <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段</el-button>
                 </el-tooltip> -->
                 <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
-                <el-button size="mini" icon="el-icon-timer" type="primary" @click="continueKataDialog">继续发文</el-button>
+                <el-tooltip content="继续发文 - 恢复历史跟打进度" placement="top">
+                  <el-button size="mini" icon="el-icon-timer" type="primary" @click="continueKataDialog">继续发文</el-button>
+                </el-tooltip>
                 <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
                   :trigger="triggerMethod"
                   hide-on-click
@@ -165,7 +167,7 @@
       </el-main>
     </el-container>
 
-    <el-dialog :visible.sync="showKataHistoryDialog" title="继续发文 - 跟打历史记录" class="load-text">
+    <el-dialog :visible.sync="showKataHistoryDialog" title="继续发文 - 恢复历史跟打记录" class="dialog-kata">
       <el-empty v-if="historyList.length === 0" description="暂无记录"></el-empty>
       <el-timeline>
         <el-timeline-item
@@ -180,14 +182,14 @@
           <el-card class="box-card">
             <div slot="header" class="clearfix">
               <span>{{history.articleTitle}}</span>
-              <el-button style="float: right; padding: 3px 0" type="text">继续发文</el-button>
+              <el-button style="float: right; padding: 3px 0" type="text" @click="handleContinue(history.articleTitle)">继续发文</el-button>
             </div>
             <div class="kata-history-item oneline">
               <el-tag size="mini" type="primary">当前摘要</el-tag> {{ history.currentContent }}
             </div>
             <div class="kata-history-item">
               <el-row :gutter="20">
-                <el-col :span="12">
+                <el-col :span="16">
                   <el-tag v-if="history.criteriaOpen" size="mini" type="success">指标开启</el-tag>
                   <el-tag v-else size="mini" type="warning">指标关闭</el-tag>
                   进度{{ history.currentParagraphNo }}/{{ history.paragraphCount }} |
@@ -195,9 +197,9 @@
                   速度≥{{ history.criteriaSpeed }} |
                   键准≥{{ history.criteriaAccuracy }} |
                   达标次数≥{{ history.criteriaAchieved }}
-
+                  <el-tag size="mini">『否则』 {{ getCriteriaActionText(history.criteriaAction) }}</el-tag>
                 </el-col>
-                <el-col :span="12">
+                <el-col :span="8">
                   <el-progress :percentage="Math.floor((history.currentParagraphNo / history.paragraphCount) * 100)"></el-progress>
                 </el-col>
               </el-row>
@@ -231,8 +233,9 @@ import eapi from '@/api/easyTyper'
 import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
 import { statusMapIcon, statusMapText, statusMapType } from '../store/util/constants'
-import { isMobile } from '@/store/util/common'
+import { criteriaActionText, isMobile } from '@/store/util/common'
 import { kataHistory, KataHistoryState } from '@/store/util/KataHistory'
+import { KataArticle } from '@/store/kata'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -347,6 +350,12 @@ export default class Home extends Vue {
 
   @kata.Action('init')
   private init!: Function
+
+  @kata.Action('load')
+  private loadKata!: Function
+
+  @kata.Getter('nextParagraph')
+  private nextParagraph!: KataArticle
 
   @kata.Action('next')
   private next!: Function
@@ -470,6 +479,21 @@ export default class Home extends Vue {
   async continueKataDialog () {
     this.showKataHistoryDialog = true
     this.historyList = await kataHistory.loadHistoryList()
+  }
+
+  async handleContinue (title: string) {
+    const kataState = await kataHistory.loadHistoryByTitle(title)
+    this.showKataHistoryDialog = false
+
+    if (kataState) {
+      this.loadKata(kataState)
+      this.loadMatch(this.nextParagraph)
+      kataHistory.insertOrUpdateHistory(kataState)
+    }
+  }
+
+  getCriteriaActionText (action: (keyof (typeof criteriaActionText))) {
+    return criteriaActionText[action]
   }
 
   handleCommand (command: string) {
@@ -749,5 +773,10 @@ export default class Home extends Vue {
       text-overflow: ellipsis;
       overflow: hidden;
     }
+  }
+
+  .dialog-kata .el-dialog {
+    width: 90%;
+    max-width: 900px;
   }
 </style>
