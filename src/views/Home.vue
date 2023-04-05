@@ -30,9 +30,9 @@
                 <!-- <el-tooltip content="手动载文" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>
                 </el-tooltip> -->
-                <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
+                <!-- <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
-                </el-tooltip>
+                </el-tooltip> -->
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
                 <!-- <el-tooltip content="快速设置字号，字重，展示高度" placement="top">
                   <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
@@ -44,6 +44,7 @@
                   <el-button size="mini" icon="el-icon-d-arrow-right" @click="next()">下段</el-button>
                 </el-tooltip> -->
                 <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
+                <el-button size="mini" icon="el-icon-timer" type="primary" @click="continueKataDialog">继续发文</el-button>
                 <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
                   :trigger="triggerMethod"
                   hide-on-click
@@ -52,6 +53,7 @@
                   :show-timeout="0">
                   <i :class="triggerIcon"></i><span>{{ triggerText }}</span>
                   <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item icon="el-icon-document-copy" command="loadClipboard">粘贴 - 剪贴板载文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-document" command="loadText">手动载文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
@@ -163,6 +165,51 @@
       </el-main>
     </el-container>
 
+    <el-dialog :visible.sync="showKataHistoryDialog" title="继续发文 - 跟打历史记录" class="load-text">
+      <el-empty v-if="historyList.length === 0" description="暂无记录"></el-empty>
+      <el-timeline>
+        <el-timeline-item
+          v-for="history in historyList"
+          :key="history.articleTitle"
+          :icon="history.icon"
+          :type="history.type"
+          :color="history.color"
+          :size="history.size"
+          placement="top"
+          :timestamp="history.timestamp">
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>{{history.articleTitle}}</span>
+              <el-button style="float: right; padding: 3px 0" type="text">继续发文</el-button>
+            </div>
+            <div class="kata-history-item oneline">
+              <el-tag size="mini" type="primary">当前摘要</el-tag> {{ history.currentContent }}
+            </div>
+            <div class="kata-history-item">
+              <el-row :gutter="20">
+                <el-col :span="12">
+                  <el-tag v-if="history.criteriaOpen" size="mini" type="success">指标开启</el-tag>
+                  <el-tag v-else size="mini" type="warning">指标关闭</el-tag>
+                  进度{{ history.currentParagraphNo }}/{{ history.paragraphCount }} |
+                  击键≥{{ history.criteriaHitSpeed }} |
+                  速度≥{{ history.criteriaSpeed }} |
+                  键准≥{{ history.criteriaAccuracy }} |
+                  达标次数≥{{ history.criteriaAchieved }}
+
+                </el-col>
+                <el-col :span="12">
+                  <el-progress :percentage="Math.floor((history.currentParagraphNo / history.paragraphCount) * 100)"></el-progress>
+                </el-col>
+              </el-row>
+            </div>
+          </el-card>
+        </el-timeline-item>
+      </el-timeline>
+      <div slot="footer" class="dialog-footer">
+        <el-button type="primary" @click="showKataHistoryDialog = false">关 闭</el-button>
+      </div>
+    </el-dialog>
+
     <el-dialog :visible.sync="showLoadDialog" title="手动载文" class="load-text">
       <el-input type="textarea" v-model="articleText" :rows="8" placeholder="请输入内容"/>
       <div slot="footer" class="dialog-footer">
@@ -185,6 +232,7 @@ import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
 import { statusMapIcon, statusMapText, statusMapType } from '../store/util/constants'
 import { isMobile } from '@/store/util/common'
+import { kataHistory, KataHistoryState } from '@/store/util/KataHistory'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -306,6 +354,9 @@ export default class Home extends Vue {
   private groups: Array<{ value: number; label: string }> = []
   private group = ''
   private showLoadDialog = false
+
+  showKataHistoryDialog = false
+  historyList: KataHistoryState[] = []
   private articleText = ''
 
   private tempArticleRows = 4
@@ -416,10 +467,18 @@ export default class Home extends Vue {
     }
   }
 
+  async continueKataDialog () {
+    this.showKataHistoryDialog = true
+    this.historyList = await kataHistory.loadHistoryList()
+  }
+
   handleCommand (command: string) {
     switch (command) {
       case 'loadText':
         this.showLoadDialog = true
+        break
+      case 'loadClipboard':
+        this.loadFromClipboard()
         break
       case 'retry':
         this.retry()
@@ -679,6 +738,16 @@ export default class Home extends Vue {
       font-weight: 500;
       // font-size: 14px;
       color: #ff804b;
+    }
+  }
+
+  .kata-history-item {
+    margin-bottom: 18px;
+
+    &.oneline {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 </style>

@@ -3,6 +3,7 @@ import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { QuickTypingState, KataState } from './types'
 import { isMobile, shuffle } from './util/common'
 import { Message } from 'element-ui'
+import { kataHistory } from './util/KataHistory'
 
 export interface KataArticle {
   content: string;
@@ -95,8 +96,9 @@ const actions: ActionTree<KataState, QuickTypingState> = {
   updateAchievedCount ({ commit }, count: number): void {
     commit('achievedCount', count)
   },
-  loadArticle ({ commit }, article: KataState): void {
+  loadArticle ({ commit, state }, article: KataState): void {
     commit('article', article)
+    kataHistory.insertOrUpdateHistory(state)
   },
   updateCriteria ({ commit, state, getters }, criteria): void {
     if (criteria) {
@@ -117,6 +119,8 @@ const actions: ActionTree<KataState, QuickTypingState> = {
       if (mode === 1) { // 2 已结束
         commit('next')
         this.dispatch('article/loadMatch', getters.nextParagraph)
+
+        kataHistory.insertOrUpdateHistory(state)
       }
     } else if (!hideWanring) {
       commit('init')
