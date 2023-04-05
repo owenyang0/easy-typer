@@ -83,6 +83,10 @@
               <span slot="title">关于</span>
             </el-menu-item>
           </el-submenu>
+          <el-menu-item index="/buy-me-a-coffee">
+            <i class="el-icon-wallet"></i>
+            <span slot="title">捐赠</span>
+          </el-menu-item>
           <el-menu-item index="/tiger">
             <i class="el-icon-link"></i>
             <span slot="title">虎码官网</span>
@@ -396,6 +400,6 @@ export default class Setting extends Vue {
 
 <style scoped>
   .menu-col {
-    min-width: 700px;
+    min-width: 780px;
   }
 </style>

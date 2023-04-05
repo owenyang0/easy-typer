@@ -86,6 +86,14 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/History.vue')
   },
   {
+    path: '/buy-me-a-coffee',
+    name: 'Donate',
+    meta: {
+      title: '捐赠 - 木易跟打器'
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/Donate.vue')
+  },
+  {
     path: '/download',
     name: 'Download',
     meta: {
