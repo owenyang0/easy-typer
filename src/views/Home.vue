@@ -45,7 +45,7 @@
                 </el-tooltip> -->
                 <el-button size="mini" icon="el-icon-setting" v-popover:popoverStyle>样式</el-button>
                 <el-tooltip content="继续发文 - 恢复历史跟打进度" placement="top">
-                  <el-button size="mini" icon="el-icon-timer" type="primary" @click="continueKataDialog">继续发文</el-button>
+                  <el-button size="mini" icon="el-icon-timer" @click="continueKataDialog">继续发文</el-button>
                 </el-tooltip>
                 <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
                   :trigger="triggerMethod"
@@ -189,7 +189,7 @@
             </div>
             <div class="kata-history-item">
               <el-row :gutter="20">
-                <el-col :span="16">
+                <el-col :span="18">
                   <el-tag v-if="history.criteriaOpen" size="mini" type="success">指标开启</el-tag>
                   <el-tag v-else size="mini" type="warning">指标关闭</el-tag>
                   进度{{ history.currentParagraphNo }}/{{ history.paragraphCount }} |
@@ -199,7 +199,7 @@
                   达标次数≥{{ history.criteriaAchieved }}
                   <el-tag size="mini">『否则』 {{ getCriteriaActionText(history.criteriaAction) }}</el-tag>
                 </el-col>
-                <el-col :span="8">
+                <el-col :span="6">
                   <el-progress :percentage="Math.floor((history.currentParagraphNo / history.paragraphCount) * 100)"></el-progress>
                 </el-col>
               </el-row>
