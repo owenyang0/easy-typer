@@ -63,8 +63,8 @@
               </div>
               <div class="el-upload__tip" slot="tip">3. 点击更新默认编码提示：
                 <!-- <el-button-group> -->
-                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字』</el-button>
-                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tigerCi')">『虎码字词-百度版』</el-button>
+                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tiger')">『虎码单字230401』</el-button>
+                <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('tigerCi')">『虎码字词-百度版230401』</el-button>
                 <el-button type="primary" plain size="mini" icon="el-icon-download" :loading="isCodingLoading" @click="handleCodingDownload('xh')">『小鹤词提』</el-button>
                 <!-- </el-button-group> -->
               </div>
@@ -450,7 +450,7 @@ export default class Setting extends Vue {
       },
       tigerCi: {
         title: '『虎码字词』',
-        url: '/static/codingsCi.txt'
+        url: '/static/codingsCi230401.txt'
       }
     }
     const codingType = codingsTypes[type]
