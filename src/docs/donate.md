@@ -19,13 +19,12 @@
 ## 您的支持
 您的支持是我最大的动力，若有支持可通过
 **微信扫码**
-
 <img style="max-height:100px;" alt="木易收款微信" src="https://static.owenyang.top/typers/donate-qr.png">
 
-或点击链接[!https://jinshuju.net/f/hvGStp](https://jinshuju.net/f/hvGStp)留下您的名字，我们将持续进步！
+或点击**链接** <a href="https://jinshuju.net/f/hvGStp" target="_blank">https://jinshuju.net/f/hvGStp</a> 留下您的名字，我们将持续进步！
 | 姓名                            | 金额 | 备注 |
 |---------------------------------|-----------|--------|
-|    *暉              |    50    |      |
+|    *暉              |    50    |   2023-05-08   |
 |    -                     |          | |
 
 
