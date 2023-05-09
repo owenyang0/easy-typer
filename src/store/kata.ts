@@ -54,7 +54,16 @@ const mutations: MutationTree<KataState> = {
     state.mode = 1
     state.isReading = article.isReading
   },
+  prev: (state) => {
+    state.currentParagraphNo -= 1
+    const startIndex = (state.currentParagraphNo - 1) * state.paragraphSize
 
+    if (state.textType === 2) {
+      state.currentContent = state.articleText.split('\n')[state.currentParagraphNo - 1]
+    } else {
+      state.currentContent = state.articleText.slice(startIndex, startIndex + state.paragraphSize)
+    }
+  },
   next: (state) => {
     state.currentParagraphNo += 1
     const startIndex = (state.currentParagraphNo - 1) * state.paragraphSize
@@ -116,6 +125,22 @@ const actions: ActionTree<KataState, QuickTypingState> = {
   },
   updateTipWarning ({ commit }, isShow: boolean): void {
     commit('updateTipWarning', isShow)
+  },
+  prev ({ commit, state, getters }): void {
+    if (state.mode === 1) {
+      const mode = state.currentParagraphNo <= 1 ? 0 : 1
+      // commit('mode', mode)
+      // if (state.isReading) {
+      //   this.dispatch('reading/updateProgress', state.currentContent.length)
+      // }
+
+      if (mode === 1) {
+        commit('prev')
+        this.dispatch('article/loadMatch', getters.nextParagraph)
+
+        kataHistory.insertOrUpdateHistory(state)
+      }
+    }
   },
   next ({ commit, state, getters }, hideWanring = false): void {
     if (state.mode === 1) {

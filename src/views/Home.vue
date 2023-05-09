@@ -59,6 +59,7 @@
                     <el-dropdown-item icon="el-icon-document" command="loadText">手动载文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-refresh" command="retry" divided>重打(F3)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-edit-outline" command="random">乱序(Ctrl+L)</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-back" command="prev">上一段(Ctrl+U)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-medal" command="dailyArticle" divided>每日一文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-tickets" command="randomArticle">随机文章</el-dropdown-item>
@@ -357,6 +358,9 @@ export default class Home extends Vue {
   @kata.Getter('nextParagraph')
   private nextParagraph!: KataArticle
 
+  @kata.Action('prev')
+  private prev!: Function
+
   @kata.Action('next')
   private next!: Function
 
@@ -506,6 +510,9 @@ export default class Home extends Vue {
         break
       case 'retry':
         this.retry()
+        break
+      case 'prev':
+        this.prev()
         break
       case 'next':
         this.next()
@@ -720,6 +727,13 @@ export default class Home extends Vue {
       case 'F2':
         e.preventDefault()
         this.routeToKataShortcut()
+        break
+      case 'u':
+        if (ctrlKey) {
+          e.preventDefault()
+          // 上一段
+          this.prev()
+        }
         break
       case 'p':
         if (ctrlKey) {
