@@ -13,13 +13,19 @@
 * 在这里向大家表达我最诚挚的感谢，希望大家用的更好、进步更快，大家的支持是我迭代的动力！
 
 
-<img style="max-height:350px;" alt="木易收款微信" src="https://static.owenyang.top/typers/wechat.png">
-<img style="max-height:350px;" alt="木易收款支付宝" src="https://static.owenyang.top/typers/ali.png">
+<img style="max-height:200px;" alt="木易收款微信" src="https://static.owenyang.top/typers/wechat.png">
+<img style="max-height:200px;" alt="木易收款支付宝" src="https://static.owenyang.top/typers/ali.png">
 
 ## 您的支持
-您的支持是我最大的动力，若有支持请留下您的名字，我们将持续进步！
-<!-- | 姓名                            | 金额 | 备注 |
+您的支持是我最大的动力，若有支持可通过
+**微信扫码**
+
+<img style="max-height:100px;" alt="木易收款微信" src="https://static.owenyang.top/typers/donate-qr.png">
+
+或点击链接[!https://jinshuju.net/f/hvGStp](https://jinshuju.net/f/hvGStp)留下您的名字，我们将持续进步！
+| 姓名                            | 金额 | 备注 |
 |---------------------------------|-----------|--------|
-|                  |        |      |
-|                         |          | | -->
+|    *暉              |    50    |      |
+|    -                     |          | |
+
 
