@@ -699,8 +699,9 @@ export default class Home extends Vue {
     this.toggleRawSidebar(!this.showSidebar)
   }
 
-  handleShortCut (e: KeyboardEvent) {
-    switch (e.key) {
+  handleShortCut (e: KeyboardEvent): void {
+    const { key, ctrlKey } = e
+    switch (key) {
       case 'F3':
         e.preventDefault()
         // 重打
@@ -718,39 +719,41 @@ export default class Home extends Vue {
         break
       case 'F2':
         e.preventDefault()
-        if (this.hasTipWarning || this.status === 'typing') {
-          return
-        }
-        if (this.mode === 1) {
-          this.updateTipWarning(true)
-
-          this.$confirm('正在发文中，是否结束当前发文？', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
-          }).then(() => {
-            this.updateTipWarning(false)
-
-            this.$router.push('/kata').catch(noop)
-          }).catch(() => {
-            this.updateTipWarning(false)
-          })
-        } else {
-          this.$router.push('/kata').catch(noop)
-        }
+        this.routeToKataShortcut()
         break
-      case 'p': // 下一段
-        if (e.ctrlKey) {
+      case 'p':
+        if (ctrlKey) {
           e.preventDefault()
+          // 下一段
           this.next()
         }
         break
-      case 'l': // 乱序
-        if (e.ctrlKey) {
+      case 'l':
+        if (ctrlKey) {
           e.preventDefault()
+          // 乱序
           this.random()
         }
         break
+    }
+  }
+
+  routeToKataShortcut (): void {
+    if (this.hasTipWarning || this.status === 'typing') return
+    if (this.mode === 1) {
+      this.updateTipWarning(true)
+      this.$confirm('正在发文中，是否结束当前发文？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.updateTipWarning(false)
+        this.$router.push('/kata').catch(noop)
+      }).catch(() => {
+        this.updateTipWarning(false)
+      })
+    } else {
+      this.$router.push('/kata').catch(noop)
     }
   }
 }
