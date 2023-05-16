@@ -11,7 +11,8 @@ const routes = [
   '/help',
   '/about',
   '/history',
-  '/download'
+  '/download',
+  '/buy-me-a-coffee'
 ]
 
 const version = '(60)'
