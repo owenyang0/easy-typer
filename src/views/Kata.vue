@@ -297,7 +297,7 @@ export default class Home extends Vue {
   @Watch('articleText')
   articleTextChange (articleText: string) {
     const { contentName } = this.formContent
-    this.formContent.contentLength = articleText.length
+    this.formContent.contentLength = articleText.replace(/\n/g, '').length
 
     if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
       this.formContent.paragraphSize = this.formContent.paragraphSize > 100 ? 10 : this.formContent.paragraphSize
