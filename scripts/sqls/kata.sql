@@ -1,13 +1,14 @@
 -- 插入选项数据
-INSERT INTO kata_options (value, label) VALUES('free', '自由'),
-('tiger', '虎码'),
-('word', '单字'),
-('articleSet0', '入门必打'),
-('articleSet1', '必背名篇4-1'),
-('articleSet2', '必背名篇4-2'),
-('articleSet3', '必背名篇4-3'),
-('articleSet4', '必背名篇4-4'),
-('drivingLicense1', '驾考科一')
+INSERT INTO kata_options (value, label, weight) VALUES('free', '自由', 1),
+('tiger', '虎码', 2),
+('word', '单字', 3),
+('articleSet0', '入门必打', 4),
+('articleSet1', '必背名篇4-1', 6),
+('articleSet2', '必背名篇4-2', 6),
+('articleSet3', '必背名篇4-3', 7),
+('articleSet4', '必背名篇4-4', 8),
+('drivingLicense1', '驾考科一', 9),
+('articleTongyin', '同音文', 5)
 
 -- 插入子选项数据
 INSERT INTO kata_options_child (option_id, value, label, isRemote) VALUES
@@ -40,6 +41,14 @@ CREATE TABLE kata_content (
   `content` text NOT NULL,
   FOREIGN KEY (child_id) REFERENCES kata_options_child(option_id)
 );
+
+CREATE TABLE IF NOT EXISTS `kata_options` (
+  `id` int(11) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE kata_options ADD COLUMN weight int(11) DEFAULT 0 AFTER label;
 
 INSERT INTO kata_options_child (option_id, value, label, content, isRemote) VALUES
 (1, 'freeText', '手动输入', '手动输入', 0),

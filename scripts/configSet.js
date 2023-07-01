@@ -149,6 +149,27 @@ const drivingLicense1 = [
   '08 急救题.txt'
 ]
 
+const articleTongyin = [
+  '01 一副对联.txt',
+  '02 仁人忍刃.txt',
+  '03 忐贪.txt',
+  '04 比璧.txt',
+  '05 熙戏犀.txt',
+  '06 施氏食狮史.txt',
+  '07 侄治痔.txt',
+  '08 吏李立莅.txt',
+  '09 筵言.txt',
+  '10 易姨医胰.txt',
+  '11 遗镒疑医.txt',
+  '12 猬围魏.txt',
+  '13 饥鸡集矶记.txt',
+  '14 季姬击鸡记.txt',
+  '15 鹬驭鱼于污.txt',
+  '16 芝芷.txt',
+  '17 于瑜与余欲渔遇雨.txt',
+  '18 羿裔熠.txt'
+]
+
 module.exports = {
-  set0, set1, set2, set3, set4, drivingLicense1
+  set0, set1, set2, set3, set4, drivingLicense1, articleTongyin
 }
