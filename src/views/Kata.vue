@@ -302,7 +302,7 @@ export default class Home extends Vue {
     if (['tiger', 'word'].indexOf(contentName[0]) !== -1) {
       this.formContent.paragraphSize = this.formContent.paragraphSize > 100 ? 10 : this.formContent.paragraphSize
     } else {
-      this.formContent.paragraphSize = Math.min(500, articleText.length)
+      this.formContent.paragraphSize = Math.min(1000, articleText.length)
     }
 
     if (this.currentTextType === 2) {

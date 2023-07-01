@@ -262,7 +262,7 @@ export default class Reading extends Vue {
             id,
             title,
             totalWords,
-            paragraphSize: 500,
+            paragraphSize: 1000,
             currentWords: 0,
             paragraphs: Math.ceil(result.length / 10)
           }
