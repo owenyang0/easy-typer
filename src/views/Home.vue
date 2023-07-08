@@ -64,9 +64,15 @@
                     <el-dropdown-item icon="el-icon-medal" command="dailyArticle" divided>每日一文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-tickets" command="randomArticle">随机文章</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-news" command="dailyNews">今日新闻</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-trophy" command="singleFront500" divided>前500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-thumb" command="todayHistories">历史上的今天</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-warning-outline" command="singleFront500" divided disabled>与发文共享指标</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-trophy" command="singleFront500">前500 10字[乱]</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-trophy" command="singleMiddle500">中500 10字[乱]</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-trophy" command="singleEnd500">后500 10字[乱]</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-coffee" command="letters">字母 50字</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-ice-tea" command="lettersMix">字母大小写 50字</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-ice-drink" command="numbers">数字 50字</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-milk-tea" command="lettersAndNumbers">字母数字混 50字</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-reading" command="yuedu" divided>每日一读，沉浸经典</el-dropdown-item>
                   </el-dropdown-menu>
                 </el-dropdown>
@@ -300,6 +306,12 @@ export default class Home extends Vue {
 
   @article.Action('loadDailyNews')
   private loadDailyNews!: Function
+
+  @article.Action('loadTodayHistories')
+  private loadTodayHistories!: Function
+
+  @article.Action('loadLettersAndNumers')
+  private loadLettersAndNumers!: Function
 
   @article.Action('loadSingleFront500')
   private loadSingleFront500!: Function
@@ -537,6 +549,21 @@ export default class Home extends Vue {
         break
       case 'singleEnd500':
         this.loadSingleEnd500()
+        break
+      case 'todayHistories':
+        this.loadTodayHistories('simple')
+        break
+      case 'letters':
+        this.loadLettersAndNumers('letters')
+        break
+      case 'numbers':
+        this.loadLettersAndNumers('numbers')
+        break
+      case 'lettersMix':
+        this.loadLettersAndNumers('lettersMix')
+        break
+      case 'lettersAndNumbers':
+        this.loadLettersAndNumers('lettersAndNumbers')
         break
       case 'yuedu':
         window.open('https://yuedu.owenyang.top', '_blank')

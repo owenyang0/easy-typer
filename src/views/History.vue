@@ -71,7 +71,7 @@ export default class History extends Vue {
     const recordOption: ECOption = {
       title: {
         text: '跟打历史记录',
-        subtext: `有效条数${this.dates.length}/${this.total}（过滤字数小于5或码长小于1.1的数据）`,
+        subtext: `有效条数${this.dates.length}/${this.total}（过滤字数小于5或码长小于1的数据）`,
         left: 'left'
       },
       toolbox: {

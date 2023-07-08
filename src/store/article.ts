@@ -1,7 +1,7 @@
 import { eapi, Match } from '@/api/easyTyper'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { ArticleState, Coding, KataState, QuickTypingState, SettingState, Word } from './types'
-import { shuffleText, isNative, replaceTextSpace, shuffle, splitLongText } from './util/common'
+import { shuffleText, isNative, replaceTextSpace, shuffle, splitLongText, generateRandomLetters, generateRandomNumbers, generateLettersAndNumbers } from './util/common'
 import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 import { symbolsRegs } from './util/constants'
@@ -312,6 +312,65 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
         message: `${err.message}`
       })
     })
+  },
+
+  loadLettersAndNumers ({ rootGetters }, type): void {
+    let article: Partial<KataState> = {
+      articleTitle: '《字母50》',
+      articleText: generateRandomLetters(2500),
+      textType: 1,
+      currentParagraphNo: 1,
+      indentity: 400,
+      paragraphSize: 50
+    }
+
+    if (type === 'letters') {
+      article = {
+        articleTitle: '《字母50》',
+        articleText: generateRandomLetters(2500),
+        textType: 1,
+        currentParagraphNo: 1,
+        indentity: 400,
+        paragraphSize: 50
+      }
+    }
+    if (type === 'lettersMix') {
+      article = {
+        articleTitle: '《字母大小写50》',
+        articleText: generateRandomLetters(2500, true),
+        textType: 1,
+        currentParagraphNo: 1,
+        indentity: 450,
+        paragraphSize: 50
+      }
+    }
+
+    if (type === 'numbers') {
+      article = {
+        articleTitle: '《数字50》',
+        articleText: generateRandomNumbers(2500),
+        textType: 1,
+        currentParagraphNo: 1,
+        indentity: 500,
+        paragraphSize: 50
+      }
+    }
+
+    if (type === 'lettersAndNumbers') {
+      article = {
+        articleTitle: '《字母数字混50》',
+        articleText: generateLettersAndNumbers(2500),
+        textType: 1,
+        currentParagraphNo: 1,
+        indentity: 550,
+        paragraphSize: 50
+      }
+    }
+
+    this.dispatch('kata/loadArticle', article)
+    const nextParagraph = rootGetters['kata/nextParagraph']
+
+    this.dispatch('article/loadMatch', nextParagraph)
   },
 
   loadDailyNews ({ state, rootGetters }): void {

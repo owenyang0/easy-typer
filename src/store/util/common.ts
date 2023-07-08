@@ -177,6 +177,33 @@ export const splitLongText = (text: string) => {
   return result
 }
 
+export const generateRandomLetters = (length: number, withUppercase = false): string => {
+  let result = ''
+  const characters = withUppercase ? 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' : 'abcdefghijklmnopqrstuvwxyz'
+  const charactersLength = characters.length
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  }
+  return result
+}
+
+export const generateRandomNumbers = (length: number): string => {
+  const numbers = Array.from({ length: 10 }, (_, i) => i) // 生成数字范围0-9的数组
+  const result = []
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * numbers.length) // 随机选择一个数字
+    result.push(numbers[randomIndex]) // 将该数字加入结果数组
+  }
+
+  return result.join('')
+}
+
+export const generateLettersAndNumbers = (length: number): string => {
+  const half = Math.floor(length / 2)
+  return shuffleText(generateRandomLetters(half, true) + generateRandomNumbers(half))
+}
+
 export const criteriaActionText = {
   random: '乱序',
   retry: '重打',

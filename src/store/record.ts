@@ -18,7 +18,7 @@ const mutations: MutationTree<RecordState> = {
 
 const actions: ActionTree<RecordState, QuickTypingState> = {
   loaded: ({ commit }, list: Achievement[]) => {
-    const chineseRecords = list.filter(l => l.codeLength > 1.1 && l.contentLength >= 5)
+    const chineseRecords = list.filter(l => l.codeLength >= 1 && l.contentLength >= 5)
     const sum = (records: Achievement[]) => records.reduce((pre, curr) => pre + curr.usedTime, 0)
     const payload = {
       dates: chineseRecords.map(l => new Date(l.finishedTime).toLocaleString()),
