@@ -22,12 +22,14 @@
 <img style="max-height:100px;" alt="木易收款微信" src="https://static.owenyang.top/typers/donate-qr.png">
 
 或通过点击**链接** <a href="https://jinshuju.net/f/hvGStp" target="_blank">https://jinshuju.net/f/hvGStp</a> 留下您的名字，我们将持续进步！
-| 姓名                            | 金额 | 备注 |
-|---------------------------------|-----------|--------|
-|    *暉            |    50    |   2023-05-08   |
-|    **柯           |    88.88 |   2023-06-22   |
-|    *t             |   66.66  |   2023-06-22   |
-|    *酱             |   188.88  |   2023-07-01   |
-|    -                     |          | |
+
+|头像| 姓名                            | 金额 | 时间 |
+|--|---------------------------------|-----------|--------|
+| |    *暉            |    50    |   2023-05-08   |
+| |    **柯           |    88.88 |   2023-06-22   |
+| |    *t             |   66.66  |   2023-06-22   |
+| |    *酱             |   188.88  |   2023-07-01   |
+|<img style="max-height:30px;border-radius:50%;" alt="Horace Chan" src="https://static.owenyang.top/typers/horacechan.jpg"> |    Horace Chan     |   66  |   2023-08-08   |
+| |    -                     |          | |
 
 

@@ -18,3 +18,9 @@ export default class Setting extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.markdown-body table th {
+  text-align: left;
+}
+</style>

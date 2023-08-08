@@ -13,7 +13,7 @@
             :on-change="uploadBook">
             <i class="el-icon-upload"></i>
             <div class="el-upload__text">将书籍拖到此处，或<em>点击上传</em></div>
-            <div class="el-upload__tip" slot="tip">文本格式文件，UTF8编码即可（最大支持上传5本书）</div>
+            <div class="el-upload__tip" slot="tip">文本格式文件，UTF8编码即可（最大支持上传50本书）</div>
           </el-upload>
         </el-form-item>
         <el-divider />
@@ -235,8 +235,8 @@ export default class Reading extends Vue {
   }
 
   uploadBook (file: { raw: File }): void {
-    if (this.books.length >= 5) {
-      this.$message.error('最大只支持上传5本书籍')
+    if (this.books.length >= 50) {
+      this.$message.error('最大只支持上传50本书籍')
       return
     }
 
