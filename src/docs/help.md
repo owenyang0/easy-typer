@@ -26,11 +26,11 @@
 
 **1) 木易跟打器macOS版-载文演示**
 
-<video style="max-width:600px;" autoplay="autoplay" controls="controls" loop alt="木易跟打器macOS版-载文演示" src="https://s.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8macOS%E7%89%88-%E8%BD%BD%E6%96%87%E6%BC%94%E7%A4%BA.mp4" />
+<video style="max-width:600px;" autoplay="autoplay" controls="controls" loop alt="木易跟打器macOS版-载文演示" src="https://static.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8macOS%E7%89%88-%E8%BD%BD%E6%96%87%E6%BC%94%E7%A4%BA.mp4" />
 
 **2) 木易跟打器-复合指标演示**
 
-<video style="max-width:600px;" controls="controls" loop alt="木易跟打器-复合指标演示" src="https://s.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8-%E5%A4%8D%E5%90%88%E6%8C%87%E6%A0%87%E6%BC%94%E7%A4%BA.mp4" />
+<video style="max-width:600px;" controls="controls" loop alt="木易跟打器-复合指标演示" src="https://static.owenyang.top/typers/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8-%E5%A4%8D%E5%90%88%E6%8C%87%E6%A0%87%E6%BC%94%E7%A4%BA.mp4" />
 
 
 ### 2.3 载文
