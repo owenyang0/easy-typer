@@ -128,6 +128,12 @@
           </span>
         </div>
         <div class="key-value">
+          <span>关闭剪切板访问</span>
+          <span>
+            <el-switch v-model="tempOffClipboard" @change="toggleClipboard(tempOffClipboard)"/>
+          </span>
+        </div>
+        <div class="key-value">
           <span>暗黑模式</span>
           <span>
             <el-switch v-model="tempDarkMode" @change="toggleDarkMode(tempDarkMode)"/>
@@ -152,13 +158,11 @@
 </template>
 
 <script lang="ts">
-import { initColorMode, replaceTextSpace } from '@/store/util/common'
+import { initColorMode } from '@/store/util/common'
 import { keyboard } from '@/store/util/keyboard'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Getter, namespace, State } from 'vuex-class'
-import eapi from '@/api/easyTyper'
 import { KataArticle } from '@/store/kata'
-import { KataState } from '@/store/types'
 
 const racing = namespace('racing')
 const setting = namespace('setting')
@@ -246,6 +250,9 @@ export default class Indicator extends Vue {
   @setting.Getter('replaceSymbol')
   private replaceSymbol!: boolean
 
+  @setting.Getter('offClipboard')
+  private offClipboard!: boolean
+
   @setting.Getter('getSelectChar')
   private getSelectChar!: Function
 
@@ -263,6 +270,9 @@ export default class Indicator extends Vue {
 
   @setting.Mutation('toggleReplaceSymbol')
   private toggleReplaceSymbol!: Function
+
+  @setting.Mutation('toggleClipboard')
+  private toggleClipboard!: Function
 
   @summary.Getter('todayWords')
   private todayWords!: number
@@ -312,6 +322,7 @@ export default class Indicator extends Vue {
 
   private tempReplaceSpace = true
   private tempReplaceSymbol = true
+  private tempOffClipboard = false
 
   private tempDarkMode = false
 
@@ -357,6 +368,13 @@ export default class Indicator extends Vue {
   replaceSymbolChange (replaceSymbol: boolean) {
     if (this.tempReplaceSymbol !== replaceSymbol) {
       this.tempReplaceSymbol = replaceSymbol
+    }
+  }
+
+  @Watch('offClipboard')
+  offClipboardChange (offClipboard: boolean) {
+    if (this.tempOffClipboard !== offClipboard) {
+      this.tempOffClipboard = offClipboard
     }
   }
 
@@ -408,6 +426,7 @@ export default class Indicator extends Vue {
     this.hintChange(this.hint)
     this.replaceSpaceChange(this.replaceSpace)
     this.replaceSymbolChange(this.replaceSymbol)
+    this.offClipboardChange(this.offClipboard)
 
     this.tempDarkMode = localStorage.getItem('colorMode') as string === 'dark'
   }

@@ -29,6 +29,10 @@ const getters: GetterTree<SettingState, QuickTypingState> = {
     return state.replaceSymbol
   },
 
+  offClipboard (): boolean {
+    return state.offClipboard
+  },
+
   styles (): InterfaceStyle {
     const { pending, typed, correct, error, hintColor, code1, code2, code3, code4, fontFamily, fontSize, fontWeight, articleRows, inputRows, darkTyped, darkCorrect, darkPending } = state
     return {
@@ -109,6 +113,11 @@ const mutations: MutationTree<SettingState> = {
 
   toggleSidebar (state, showSidebar) {
     state.showSidebar = showSidebar
+    db.configs.put(state, 'setting')
+  },
+
+  toggleClipboard (state, offClipboard) {
+    state.offClipboard = offClipboard
     db.configs.put(state, 'setting')
   },
 

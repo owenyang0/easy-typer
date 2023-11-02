@@ -639,6 +639,10 @@ export class SettingState {
    */
   darkMode = false
   /**
+   * 关闭剪切板
+   */
+  offClipboard = false
+  /**
    * 是否展示侧边栏
    */
   showSidebar = true

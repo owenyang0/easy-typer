@@ -58,6 +58,9 @@ export default class Racing extends Vue {
   @setting.Getter('cloak')
   private cloak!: boolean
 
+  @setting.Getter('offClipboard')
+  private offClipboard!: boolean
+
   @kata.State('mode')
   private mode!: number
 
@@ -97,6 +100,9 @@ export default class Racing extends Vue {
         break
       case 'finished': {
         const text = this.result
+        if (this.offClipboard) {
+          return
+        }
         Clipboard.copy(text, () => {
           if (this.cloak) {
             // console.log('当前处于潜水状态')
