@@ -127,7 +127,13 @@
         <el-button :disabled="!hasArticleText" @click="startFullKata">发送全文</el-button>
         <el-button type="primary" :disabled="!hasArticleText" @click="startKata">发文</el-button>
       </div>
-      </div>
+    </div>
+    <div class="pro-module-bd">
+      <h3 style="margin-top: -10px;font-size: 16px;">跟打器使用手册</h3>
+      <iframe style="border: none;width: 100%;min-height: 600px;" frameborder="0" scrolling="auto"
+        @load="handleIframeLoaded" ref="iframe"
+        src="https://publish.obsidian.md/csj-obsidian/1+-+Archives/Input+Method/%E8%B7%9F%E6%89%93%E5%99%A8" />
+    </div>
 </div>
 </template>
 
@@ -384,6 +390,12 @@ export default class Home extends Vue {
       })
   }
 
+  handleIframeLoaded () {
+    const currentIframe = (this.$refs.iframe as HTMLIFrameElement)
+    const height = currentIframe.contentWindow?.document.body.scrollHeight || 600
+    currentIframe.style.height = height + 'px'
+  }
+
   destroyed () {
     // document.removeEventListener('keydown', this.handleShortCut)
   }
@@ -393,5 +405,26 @@ export default class Home extends Vue {
 <style lang="scss">
 .form-content {
   margin-top: 20px;
+}
+
+iframe::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid red;
+  border-top-color: #333;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
