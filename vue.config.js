@@ -15,7 +15,7 @@ const routes = [
   '/buy-me-a-coffee'
 ]
 
-const version = '(70)'
+const version = '(71)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 
