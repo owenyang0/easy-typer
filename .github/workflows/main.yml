@@ -48,6 +48,4 @@ jobs:
             ls ${{ secrets.REMOTE_TARGET }} -al
     - name: Push
       run: |
-         chmod +x ./.github/scripts/bark.sh
-         ./.github/scripts/bark.sh
-      shell: bash
+         curl https://api.day.app/${{ secrets.PUSH_TOKEN }}/actions:easy-typer/部署成功?icon=https://static.owenyang.top/blogs/avatar.jpg
