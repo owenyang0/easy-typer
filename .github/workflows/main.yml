@@ -35,7 +35,7 @@ jobs:
       uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --rsync-path=\"sudo rsync\""
+          ARGS: "-rlgoDzvc -i --delete --rsync-path=\"sudo rsync\""
           SOURCE: "docs/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
@@ -48,6 +48,6 @@ jobs:
             ls ${{ secrets.REMOTE_TARGET }} -al
     - name: Push
       run: |
-         chmod +x ./github/scripts/bark.sh
-         ./github/scripts/bark.sh
+         chmod +x ./.github/scripts/bark.sh
+         ./.github/scripts/bark.sh
       shell: bash
