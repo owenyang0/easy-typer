@@ -2,30 +2,47 @@ name: Deploy easy typer
 on:
   push:
     branches:
-      - main
+      - main # default branch
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
       with:
         persist-credentials: false
     - name: Setup node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
+        with:
+          node-version: 16
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+    - uses: actions/cache@v3
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
-        node-version: 16
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
     - name: Install and Build
       run: |
-        yarn
-        yarn build 
+        yarn install --frozen-lockfile
+        yarn build
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i"
+          ARGS: "-rlgoDzvc -i --rsync-path=\"sudo rsync\""
           SOURCE: "docs/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: "/dist/, .user.ini"
+          SCRIPT_BEFORE: |
+            ls ${{ secrets.REMOTE_TARGET }} -al
+          SCRIPT_AFTER: |
+            sudo chown -R www.www ${{ secrets.REMOTE_TARGET }}
+            ls ${{ secrets.REMOTE_TARGET }} -al
