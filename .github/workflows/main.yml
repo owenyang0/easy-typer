@@ -46,3 +46,8 @@ jobs:
           SCRIPT_AFTER: |
             sudo chown -R www.www ${{ secrets.REMOTE_TARGET }}
             ls ${{ secrets.REMOTE_TARGET }} -al
+    - name: Push
+      run: |
+         chmod +x ./github/scripts/bark.sh
+         ./github/scripts/bark.sh
+      shell: bash
