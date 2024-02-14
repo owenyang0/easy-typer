@@ -2,8 +2,8 @@
   <div>
     <el-table border :data="achievements.slice(0, 10)" stripe="stripe" style="width:100%;" class="achievements-table" :cell-class-name="tableCellClassName">
       <el-table-column prop="title" type="expand" label="">
-        <template slot-scope="props">
-          <el-button @click="handleCopy(props.row)" type="text" size="medium">复制</el-button> {{ generateRecord(props.row) }}
+        <template slot-scope="$props">
+          <el-button @click="handleCopy($props.row)" type="text" size="medium">复制</el-button> {{ generateRecord($props.row) }}
         </template>
       </el-table-column>
       <el-table-column prop="identity" label="段号" min-width="80"/>
@@ -13,6 +13,11 @@
       <el-table-column prop="contentLength" label="字数" min-width="60"/>
       <el-table-column prop="replace" label="回改" min-width="60"/>
       <el-table-column prop="error" label="错字" min-width="60"/>
+      <el-table-column prop="error" label="用时(s)" min-width="70">
+        <template slot-scope="$props">
+           {{ formatTime($props.row.usedTime) }}
+        </template>
+      </el-table-column>
       <el-table-column prop="keys" label="键数" min-width="60"/>
       <el-table-column prop="accuracy" label="键准(%)" min-width="80"/>
       <el-table-column prop="phraseRate" label="打词(%)" min-width="80"/>
