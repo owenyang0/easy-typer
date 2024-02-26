@@ -132,7 +132,7 @@
       <h3 style="margin-top: -10px;font-size: 16px;">跟打器使用手册</h3>
       <iframe style="border: none;width: 100%;min-height: 600px;" frameborder="0" scrolling="auto"
         @load="handleIframeLoaded" ref="iframe"
-        src="https://publish.obsidian.md/csj-obsidian/1+-+Archives/Input+Method/%E8%B7%9F%E6%89%93%E5%99%A8" />
+        src="https://tiger-code.com/docs/follower" />
     </div>
 </div>
 </template>
