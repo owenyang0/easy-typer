@@ -81,11 +81,11 @@ const mutations: MutationTree<SettingState> = {
     if (setting) {
       // 用于主动更新配置
       if (!setting.lastUpdatedTime || setting.lastUpdatedTime < state.lastUpdatedTime) {
-        // setting.fontFamily = '"LXGWWenKaiGB",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif'
-        setting.typed = '#606266'
-        setting.darkTyped = '#909399'
-        setting.correct = '#e5e5e5'
-        setting.darkCorrect = '#3d444f'
+        setting.fontFamily = '"霞鹜文楷 GB","霞鹜文楷 GB 屏幕阅读版","霞鹜文楷 GB 屏幕阅读版 常规",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif'
+        // setting.typed = '#606266'
+        // setting.darkTyped = '#909399'
+        // setting.correct = '#e5e5e5'
+        // setting.darkCorrect = '#3d444f'
       }
       Object.assign(state, setting, {
         lastUpdatedTime: Date.now()

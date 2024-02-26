@@ -466,7 +466,7 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = '"LXGWWenKaiGB","LXGW WenKai GB Screen R",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun,Simsum-ExtB,Simsun-ExtG,TH-Sung-TP2,TH-Sung-TP0'
+  fontFamily = '"霞鹜文楷 GB","霞鹜文楷 GB 屏幕阅读版","霞鹜文楷 GB 屏幕阅读版 常规",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun,Simsum-ExtB,Simsun-ExtG,TH-Sung-TP2,TH-Sung-TP0'
 
   /**
    * 字号
@@ -649,7 +649,7 @@ export class SettingState {
   /**
    * 上次配置更新时间
    */
-  lastUpdatedTime = 1677989604546
+  lastUpdatedTime = 1708914220000
 }
 
 export interface LoginUser {
