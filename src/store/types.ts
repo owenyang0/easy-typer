@@ -466,8 +466,8 @@ export class SettingState {
   /**
    * 字体
    */
-  fontFamily = '"霞鹜文楷 GB","霞鹜文楷 GB 屏幕阅读版","霞鹜文楷 GB 屏幕阅读版 常规",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun,Simsum-ExtB,Simsun-ExtG,TH-Sung-TP2,TH-Sung-TP0'
-
+  // fontFamily = '"霞鹜文楷 GB","霞鹜文楷 GB 屏幕阅读版","霞鹜文楷 GB 屏幕阅读版 常规",-apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei",sans-serif,SimSun,Simsum-ExtB,Simsun-ExtG,TH-Sung-TP2,TH-Sung-TP0'
+  fontFamily = ''
   /**
    * 字号
    */
