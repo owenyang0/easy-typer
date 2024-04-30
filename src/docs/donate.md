@@ -31,6 +31,8 @@
 | |    *酱             |   188.88  |   2023-07-01   |
 |<img style="max-height:30px;border-radius:50%;" alt="Horace Chan" src="https://static.owenyang.top/typers/horacechan.jpg"> |    Horace Chan     |   66  |   2023-08-08   |
 | |    R*i 吼!资瓷                     |   50       | 2023-12-21 |
+| |    范*喵                    |   88.88       | 2024-04-30 |
+| |    *璐                   |   20       | 2024-04-30 |
 | |    -                     |          | |
 
 
