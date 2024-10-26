@@ -13,6 +13,7 @@ const routes = [
   '/history',
   '/download',
   '/buy-me-a-coffee',
+  '/portal',
   '/portal/blog/',
   '/portal/blog/easy-typer-macos-vs-web-app/',
   '/portal/blog/easy-typer-working-in-macos-platform/',
