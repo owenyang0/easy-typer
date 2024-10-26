@@ -48,4 +48,4 @@ jobs:
             ls ${{ secrets.REMOTE_TARGET }} -al
     - name: Push
       run: |
-         curl https://api.day.app/${{ secrets.PUSH_TOKEN }}/actions:easy-typer/部署成功?icon=https://static.owenyang.top/blogs/avatar.jpg
+         curl https://api.day.app/${{ secrets.PUSH_TOKEN }}/typer.owenyang.top/✅部署成功?icon=https://static.owenyang.top/blogs/avatar.jpg
