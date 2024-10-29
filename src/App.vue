@@ -78,6 +78,10 @@
               <i class="el-icon-download"></i>
               <span slot="title">程序下载</span>
             </el-menu-item>
+            <el-menu-item index="/easy-typer-faq">
+              <i class="el-icon-s-opportunity"></i>
+              <span slot="title">常见问题FAQ</span>
+            </el-menu-item>
             <el-menu-item index="/about">
               <i class="el-icon-warning"></i>
               <span slot="title">关于</span>
@@ -255,6 +259,11 @@ export default class Setting extends Vue {
 
     if (key === '/tiger') {
       window.open('https://tiger-code.com/', '_blank')
+      return
+    }
+
+    if (key === '/easy-typer-faq') {
+      location.href = 'https://blog.owenyang.top/easy-typer-faq'
       return
     }
 
