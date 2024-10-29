@@ -80,7 +80,7 @@
             </el-menu-item>
             <el-menu-item index="/easy-typer-faq">
               <i class="el-icon-s-opportunity"></i>
-              <span slot="title">常见问题FAQ</span>
+              <span slot="title">常见问题FAQ与反馈</span>
             </el-menu-item>
             <el-menu-item index="/about">
               <i class="el-icon-warning"></i>
