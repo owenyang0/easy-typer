@@ -89,7 +89,7 @@
           </el-submenu>
           <el-menu-item index="/buy-me-a-coffee">
             <i class="el-icon-wallet"></i>
-            <span slot="title">捐赠</span>
+            <span slot="title">支持赞助</span>
           </el-menu-item>
           <el-menu-item index="/tiger">
             <i class="el-icon-link"></i>
@@ -264,6 +264,11 @@ export default class Setting extends Vue {
 
     if (key === '/easy-typer-faq') {
       location.href = 'https://blog.owenyang.top/easy-typer-faq'
+      return
+    }
+
+    if (key === '/buy-me-a-coffee') {
+      location.href = 'https://blog.owenyang.top/buy-me-a-coffee'
       return
     }
 
