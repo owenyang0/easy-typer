@@ -414,6 +414,6 @@ export default class Setting extends Vue {
 
 <style scoped>
   .menu-col {
-    min-width: 780px;
+    min-width: 810px;
   }
 </style>
