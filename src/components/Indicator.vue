@@ -142,8 +142,9 @@
       </el-card>
       <el-card class="contribute" shadow="never">
         <p><a class="e-github-link" href="https://github.com/owenyang0/easy-typer" target="_blank">喜欢！点个赞</a></p>
+        <p><i class="el-icon-s-promotion"/> <span id="busuanzi_container_site_pv">访问量 <span id="busuanzi_value_site_pv">1</span>次</span></p>
         <p><i class="el-icon-info"/> <a href="/changelog">{{ versionText }}</a></p>
-        <p><i class="el-icon-user-solid"/> <a href="https://owenyang.top" target="_blank">关于木易某某</a></p>
+        <p><i class="el-icon-user-solid"/> <a href="https://blog.owenyang.top" target="_blank">关于木易某某</a></p>
         <p><i class="el-icon-location"/> <a href="https://beian.miit.gov.cn" target="_blank" class="slide">蜀ICP备2023002101号-1</a></p>
       </el-card>
       <el-drawer
