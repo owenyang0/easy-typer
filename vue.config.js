@@ -11,7 +11,10 @@ const routes = [
   '/help',
   '/about',
   '/history',
-  '/download',
+  '/download'
+]
+
+const sitemapRoutes = routes.concat([
   '/buy-me-a-coffee',
   '/portal',
   '/portal/blog/',
@@ -27,7 +30,7 @@ const routes = [
   '/portal/docs/get-started/changelog/',
   '/portal/docs/guides/download/',
   '/portal/docs/intro/'
-]
+])
 
 const version = '(73)'
 process.env.VUE_APP_VERSION = require('./package.json').version
@@ -94,7 +97,7 @@ module.exports = {
     config.plugin('sitemap').use(sitemapPlugin, [
       {
         base: 'https://typer.owenyang.top',
-        paths: routes,
+        paths: sitemapRoutes,
         options: {
           filename: 'sitemap.xml',
           lastMod: true,
