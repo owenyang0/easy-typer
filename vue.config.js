@@ -17,19 +17,11 @@ const routes = [
 const sitemapRoutes = routes.concat([
   '/buy-me-a-coffee',
   '/portal',
-  '/portal/blog/',
-  '/portal/blog/easy-typer-macos-vs-web-app/',
-  '/portal/blog/easy-typer-working-in-macos-platform/',
-  '/portal/blog/tags/',
-  '/portal/blog/tags/mac%E8%B7%9F%E6%89%93%E5%99%A8/',
-  '/portal/blog/tags/qq%E8%B7%9F%E6%89%93%E5%99%A8/',
-  '/portal/blog/tags/%E6%9C%A8%E6%98%93%E8%B7%9F%E6%89%93%E5%99%A8/',
-  '/portal/blog/tags/%E8%B7%9F%E6%89%93%E5%99%A8/',
-  '/portal/docs/changelog/',
-  '/portal/docs/get-started/about/',
-  '/portal/docs/get-started/changelog/',
-  '/portal/docs/guides/download/',
-  '/portal/docs/intro/'
+  '/portal/blog',
+  '/portal/docs/get-started',
+  '/portal/docs/changelog',
+  '/portal/docs/download',
+  '/portal/docs/intro'
 ])
 
 const version = '(73)'
