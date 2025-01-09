@@ -4314,6 +4314,7 @@
 疟	abj
 蹩	fhpu
 莓	lek
+胛	vsj
 谌	szh
 岬	vsj
 囤	rfs
@@ -4933,7 +4934,6 @@
 潍	kiu
 讴	snb
 砒	mvvb
-胛	vsj
 呔	dmi
 薏	lxh
 谲	sit
@@ -10324,6 +10324,8 @@
 𡗗	aid
 𤆵	cmb
 𫟷	zil
+𮹝	ttt
+𮹝	tttl
 𰙤	fsfs
 々	xid
 〇	dkk
@@ -10638,6 +10640,7 @@
 侁	jqpe
 侂	jxt
 侂	jxtr
+侖	jl
 侘	jwtr
 侜	jio
 侴	jagp
@@ -10737,6 +10740,8 @@
 冫	wbb
 冮	wug
 冴	wly
+冸	whu
+冸	whus
 凊	wavy
 凓	wve
 凓	wvem
@@ -10963,6 +10968,7 @@
 囮	rjvb
 囯	rnw
 囷	rxh
+囸	rfsi
 圀	rhl
 圀	rhlf
 圂	rjs
@@ -11269,6 +11275,7 @@
 崌	vccg
 崐	vov
 崐	vovv
+崑	vovv
 崒	vzjn
 崚	vghh
 崟	vzj
@@ -11870,6 +11877,7 @@
 汫	kqj
 汭	kmj
 汭	kmjr
+汱	kmq
 沄	kby
 沇	kkp
 沇	kkpe
@@ -13528,6 +13536,7 @@
 龁	lea
 龁	leai
 龂	ltj
+龘	tttl
 龵	us
 鿃	qmj
 鿃	qmjj
@@ -14161,8 +14170,6 @@
 𮳺	qnm
 𮷛	yyyc
 𮸽	cccf
-𮹝	ttt
-𮹝	tttl
 𰁸	jybj
 𰂎	javy
 𰃷	wjzj
@@ -15017,6 +15024,7 @@
 雒	suig
 胲	vkhy
 胛	vsjy
+岬	vsjs
 羖	grsy
 蛭	cyic
 饤	qads
@@ -15088,6 +15096,8 @@
 茑	lxnc
 炆	cvwh
 熿	cnhh
+汱	kmqs
+匜	neyk
 微	wvfo
 赢	fdvo
 徽	wvfi
@@ -16463,7 +16473,6 @@
 侒	jwbn
 侓	jbv
 侕	jle
-侖	jl
 侙	jpug
 侚	jnor
 侞	jbd
@@ -16792,8 +16801,6 @@
 冩	wpnc
 冪	wlor
 冭	mwb
-冸	whu
-冸	whus
 冹	wnri
 冺	wdm
 冾	wjd
@@ -17464,7 +17471,6 @@
 図	rwbi
 囶	rhg
 囶	rhgt
-囸	rfsi
 囻	rdm
 囼	rkdk
 圁	rsy
@@ -18442,7 +18448,6 @@
 崍	vejj
 崏	vbo
 崏	vbor
-崑	vovv
 崓	vrcg
 崕	vxgg
 崘	vjl
@@ -20978,7 +20983,6 @@
 汬	qks
 汮	knwb
 汯	knks
-汱	kmq
 汳	kxr
 汳	kxry
 汵	kjae
@@ -29925,7 +29929,6 @@
 龕	jdtl
 龖	ttl
 龗	tddt
-龘	tttl
 龞	fhwg
 龡	jdde
 龣	jddk

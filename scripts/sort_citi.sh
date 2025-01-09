@@ -19,5 +19,5 @@ fi
 # 使用sort命令对文件进行排序，-k2指定按照第二列排序，-o指定输出文件
 sort -k2 "$input_file" -o "$output_file" -s
 
-# ./sort_citi.sh ./codings/single.txt ../public/static/codings24.04.10.txt
-# ./sort_citi.sh ./codings/words.txt ../public/static/codingsCi24.04.10.txt
+# ./sort_citi.sh ./codings/single.txt ../public/static/codings2025.01.09.txt
+# ./sort_citi.sh ./codings/words.txt ../public/static/codingsCi2025.01.09.txt
