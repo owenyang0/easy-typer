@@ -30,7 +30,7 @@
                 <!-- <el-tooltip content="手动载文" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="showLoadDialog = true">手动</el-button>
                 </el-tooltip> -->
-                <!-- <el-tooltip content="剪贴板载文，可复制包含“段号+标题”的整段文本" placement="top">
+                <!-- <el-tooltip content="剪贴板载文，可复制包含"段号+标题"的整段文本" placement="top">
                   <el-button size="mini" icon="el-icon-document" @click="loadFromClipboard">粘贴</el-button>
                 </el-tooltip> -->
                 <el-button size="mini" icon="el-icon-refresh" @click="retry">重打(F3)</el-button>
@@ -63,7 +63,9 @@
                     <el-dropdown-item icon="el-icon-right" command="next">下一段(Ctrl+P)</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-medal" command="dailyArticle" divided>每日一文</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-tickets" command="randomArticle">随机文章</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-news" command="dailyNews">今日新闻</el-dropdown-item>
+                    <template v-for="type in wikiTypeMap">
+                      <el-dropdown-item :key="type.title" icon="el-icon-news" :command="`wikis:${type.type}`">{{type.title}}</el-dropdown-item>
+                    </template>
                     <el-dropdown-item icon="el-icon-thumb" command="todayHistories">历史上的今天</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-warning-outline" command="singleFront500" divided disabled>与发文共享指标</el-dropdown-item>
                     <el-dropdown-item icon="el-icon-trophy" command="singleFront500">前500 10字[乱]</el-dropdown-item>
@@ -243,6 +245,7 @@ import { statusMapIcon, statusMapText, statusMapType } from '../store/util/const
 import { criteriaActionText, isMobile } from '@/store/util/common'
 import { kataHistory, KataHistoryState } from '@/store/util/KataHistory'
 import { KataArticle } from '@/store/kata'
+import { wikiTypeMap } from '@/api/constant'
 
 const article = namespace('article')
 const racing = namespace('racing')
@@ -304,8 +307,8 @@ export default class Home extends Vue {
   @article.Action('loadRandomArticle')
   private loadRandomArticle!: Function
 
-  @article.Action('loadDailyNews')
-  private loadDailyNews!: Function
+  @article.Action('loadWikiByType')
+  private loadWikiByType!: Function
 
   @article.Action('loadTodayHistories')
   private loadTodayHistories!: Function
@@ -378,7 +381,7 @@ export default class Home extends Vue {
 
   private groups: Array<{ value: number; label: string }> = []
   private group = ''
-  private showLoadDialog = false
+  showLoadDialog = false
 
   showKataHistoryDialog = false
   historyList: KataHistoryState[] = []
@@ -389,6 +392,26 @@ export default class Home extends Vue {
   private tempFontSize = 2.4
   private tempFontWeight = 400
   private hasUpdated = false
+  private wikiTypeMap = wikiTypeMap
+
+  commandHandlers: { [key: string]: () => any } = {
+    loadClipboard: () => this.loadFromClipboard(),
+    retry: () => this.retry(),
+    prev: () => this.prev(),
+    next: () => this.next(),
+    random: () => this.random(),
+    randomArticle: () => this.loadRandomArticle(),
+    dailyArticle: () => this.loadDailyArticle(),
+    singleFront500: () => this.loadSingleFront500(),
+    singleMiddle500: () => this.loadSingleMiddle500(),
+    singleEnd500: () => this.loadSingleEnd500(),
+    todayHistories: () => this.loadTodayHistories('simple'),
+    letters: () => this.loadLettersAndNumers('letters'),
+    numbers: () => this.loadLettersAndNumers('numbers'),
+    lettersMix: () => this.loadLettersAndNumers('lettersMix'),
+    lettersAndNumbers: () => this.loadLettersAndNumers('lettersAndNumbers'),
+    yuedu: () => window.open('https://yuedu.owenyang.top', '_blank')
+  }
 
   get triggerText (): string {
     return statusMapText.get(this.status) || '暂停(Esc)'
@@ -512,64 +535,21 @@ export default class Home extends Vue {
     return criteriaActionText[action]
   }
 
-  handleCommand (command: string) {
-    switch (command) {
-      case 'loadText':
-        this.showLoadDialog = true
-        break
-      case 'loadClipboard':
-        this.loadFromClipboard()
-        break
-      case 'retry':
-        this.retry()
-        break
-      case 'prev':
-        this.prev()
-        break
-      case 'next':
-        this.next()
-        break
-      case 'random':
-        this.random()
-        break
-      case 'randomArticle':
-        this.loadRandomArticle()
-        break
-      case 'dailyArticle':
-        this.loadDailyArticle()
-        break
-      case 'dailyNews':
-        this.loadDailyNews()
-        break
-      case 'singleFront500':
-        this.loadSingleFront500()
-        break
-      case 'singleMiddle500':
-        this.loadSingleMiddle500()
-        break
-      case 'singleEnd500':
-        this.loadSingleEnd500()
-        break
-      case 'todayHistories':
-        this.loadTodayHistories('simple')
-        break
-      case 'letters':
-        this.loadLettersAndNumers('letters')
-        break
-      case 'numbers':
-        this.loadLettersAndNumers('numbers')
-        break
-      case 'lettersMix':
-        this.loadLettersAndNumers('lettersMix')
-        break
-      case 'lettersAndNumbers':
-        this.loadLettersAndNumers('lettersAndNumbers')
-        break
-      case 'yuedu':
-        window.open('https://yuedu.owenyang.top', '_blank')
-        break
-      default:
-        break
+  handleCommand (command: string): void {
+    if (command.startsWith('wikis:')) {
+      const type = command.split(':')[1]
+      this.loadWikiByType(type)
+      return
+    }
+
+    if (command === 'loadText') {
+      this.showLoadDialog = true
+      return
+    }
+
+    const handler = this.commandHandlers[command]
+    if (handler) {
+      handler()
     }
   }
 
