@@ -6,6 +6,7 @@ import { Edge, Graph, ShortestPath } from './util/Graph'
 import { TrieNode } from './util/TrieTree'
 import { symbolsRegs } from './util/constants'
 import { Message } from 'element-ui'
+import { wikiTypes } from '@/api/constant'
 
 const alphaPattern = /[a-zA-Z0-9]/
 
@@ -373,8 +374,8 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
     this.dispatch('article/loadMatch', nextParagraph)
   },
 
-  loadDailyNews ({ state, rootGetters }): void {
-    eapi.getTodayNews().then(data => {
+  loadWikiByType ({ state, rootGetters }, type: keyof typeof wikiTypes): void {
+    eapi.getWikiByType(type).then(data => {
       const id = data.id
       if (id === state.identity) {
         Message.warning({
@@ -384,7 +385,7 @@ const actions: ActionTree<ArticleState, QuickTypingState> = {
       }
 
       const article: Partial<KataState> = {
-        articleTitle: `《${data.title}》`,
+        articleTitle: `${data.title}`,
         articleText: data.contentList.join('\n'),
         textType: 2,
         currentParagraphNo: 1,

@@ -42,8 +42,9 @@
         <div class="indicator-action">
           <el-button size="mini" @click="handleRandomReading" type="success" plain>随机文章</el-button>
           <el-button size="mini" @click="handleTodayReading" type="success" plain>每日一文</el-button>
-          <!-- <el-button size="mini" @click="handleTodayNews" type="primary" plain>今日新闻</el-button> -->
-          <!-- <el-button size="mini" disabled plain>更多期待</el-button> -->
+          <template v-for="type in wikiTypeMap">
+            <el-button :key="type.title" size="mini" @click="handleWikis(type.type)" :type="type.buttonStyle" plain>{{type.title}}</el-button>
+          </template>
           <el-button size="mini" @click="handleTodayHistory('simple')" type="primary" plain>历史上的今天</el-button>
           <el-button size="mini" @click="handleTodayHistory('detail')" type="primary" plain>详细</el-button>
           <div style="margin-top: 12px;">
@@ -165,6 +166,7 @@ import { keyboard } from '@/store/util/keyboard'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Getter, namespace, State } from 'vuex-class'
 import { KataArticle } from '@/store/kata'
+import { wikiTypeMap, wikiTypes } from '@/api/constant'
 
 const racing = namespace('racing')
 const setting = namespace('setting')
@@ -309,8 +311,8 @@ export default class Indicator extends Vue {
   @article.Action('loadRandomArticle')
   private loadRandomArticle!: Function
 
-  @article.Action('loadDailyNews')
-  private loadDailyNews!: Function
+  @article.Action('loadWikiByType')
+  private loadWikiByType!: Function
 
   @article.Action('loadTodayHistories')
   private loadTodayHistories!: Function
@@ -329,6 +331,8 @@ export default class Indicator extends Vue {
   private tempDarkMode = false
 
   private drawerVisiable = false
+
+  private wikiTypeMap = wikiTypeMap
 
   private drawer = { title: '', text: '' }
 
@@ -411,8 +415,13 @@ export default class Indicator extends Vue {
     this.loadDailyArticle()
   }
 
-  handleTodayNews () {
-    this.loadDailyNews()
+  handleWikis (type: keyof typeof wikiTypes) {
+    const isValid = Object.keys(wikiTypes).includes(type)
+    if (!isValid) {
+      return
+    }
+
+    this.loadWikiByType(type)
   }
 
   handleTodayHistory (type = 'simple') {

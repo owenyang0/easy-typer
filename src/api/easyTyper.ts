@@ -2,6 +2,7 @@ import * as crypto from 'crypto'
 import axios, { AxiosResponse } from 'axios'
 import { LoginState } from '@/store/types'
 import { HistoriesResponse, KataOption, KataOptions, NewsResponse } from '@/models/articleModels'
+import { wikiTypeMap, wikiTypes } from './constant'
 
 const HASH_KEY = '3198f2e6892d5bdd0630505e20acfc849a12e03c5a1da4c5c41a180c44c67eeb85ef0bc6992d9b0c3926da22ebaa55346bcd76d8556321e044530eff3d868e2636514072'
 
@@ -167,8 +168,8 @@ const getTodayArticle = (): Promise<NewsResponse> => {
   return axiosInstance.get('/api/r/articles/today')
 }
 
-const getTodayNews = (): Promise<NewsResponse> => {
-  return axiosInstance.get('/api/r/news/today')
+const getWikiByType = (type: keyof typeof wikiTypes): Promise<NewsResponse> => {
+  return axiosInstance.get(wikiTypeMap[type].api)
 }
 
 const getTodayHistories = (): Promise<HistoriesResponse[]> => {
@@ -205,7 +206,7 @@ export const eapi = {
   matches,
   getRandomArticle,
   getTodayArticle,
-  getTodayNews,
+  getWikiByType,
   getKataList,
   getTodayHistories,
   getKataOptionById,
