@@ -7,8 +7,9 @@ INSERT INTO kata_options (value, label, weight) VALUES('free', '自由', 1),
 ('articleSet2', '必背名篇4-2', 6),
 ('articleSet3', '必背名篇4-3', 7),
 ('articleSet4', '必背名篇4-4', 8),
-('drivingLicense1', '驾考科一', 9),
-('articleTongyin', '同音文', 5)
+('drivingLicense1', '驾考科一', 15),
+('articleTongyin', '同音文', 5),
+('yuansuzhouqibiao', '元素周期表', 9)
 
 -- 插入子选项数据
 INSERT INTO kata_options_child (option_id, value, label, isRemote) VALUES

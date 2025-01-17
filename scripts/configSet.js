@@ -169,7 +169,10 @@ const articleTongyin = [
   '17 于瑜与余欲渔遇雨.txt',
   '18 羿裔熠.txt'
 ]
+const yuansuzhouqibiao = [
+  '氢氦锂铍硼.txt'
+]
 
 module.exports = {
-  set0, set1, set2, set3, set4, drivingLicense1, articleTongyin
+  set0, set1, set2, set3, set4, drivingLicense1, articleTongyin,yuansuzhouqibiao
 }

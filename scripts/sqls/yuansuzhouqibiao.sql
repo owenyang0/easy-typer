@@ -1,0 +1,13 @@
+INSERT INTO kata_options_child (option_id, value, label, content, isRemote) VALUES
+(12, 'yuansuzhouqibiao-氢氦锂铍硼.txt', '氢氦锂铍硼', "氢氦锂铍硼碳氮氧氟氖
+钠镁铝硅磷硫氯氩钾钙
+钪钛钒铬锰铁钴镍铜锌
+镓锗砷硒溴氪铷锶钇锆
+铌钼锝钌铑钯银镉铟锡
+锑碲碘氙铯钡镧铈镨钕
+钷钐铕钆铽镝钬铒铥镱
+镥铪钽钨铼锇铱铂金汞
+铊铅铋钋砹氡钫镭锕钍
+镤铀镎钚镅锔锫锎锿镄
+钔锘铹𬬻𬭊𬭳𬭛𬭶鿏𫟼
+𬬭鿔鿭𫓧镆𫟷鿬鿫", 1)

@@ -1,7 +1,7 @@
 const File = require('./File')
 const config = require('./configSet')
 
-const { set0, set1, set2, set3, set4, drivingLicense1, articleTongyin } = config
+const { set0, set1, set2, set3, set4, drivingLicense1, articleTongyin, yuansuzhouqibiao } = config
 
 // TODO:
 
@@ -45,6 +45,7 @@ parsing(set3, 'articleSet3', 7)
 parsing(set4, 'articleSet4', 8)
 parsing(drivingLicense1, 'drivingLicense1', 9)
 parsing(articleTongyin, 'articleTongyin', 11)
+parsing(yuansuzhouqibiao, 'yuansuzhouqibiao', 12)
 
 // 单字
 const options = [{
