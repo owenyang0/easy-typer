@@ -297,16 +297,16 @@ const getters: GetterTree<RacingState, QuickTypingState> = {
     const keys = new Set(options)
     const result: Array<string> = []
     statistics.forEach((value, key) => {
-      if (key === 'firstTry') {
+      if (keys.has(key) && key === 'firstTry') {
         return state.retry <= 1 && result.push(`[首打${speedRank(getters.typeSpeed)}]`)
       }
-      if (key === 'accuracyTip') {
+      if (keys.has(key) && key === 'accuracyTip') {
         return getters.accuracy >= 90 && result.push(`[${accuracyRank(getters.accuracy)}]`)
       }
-      if (key === 'noCodings') {
+      if (keys.has(key) && key === 'noCodings') {
         return !setting.hint && result.push(value)
       }
-      if (key === 'errPenaltyTip') {
+      if (keys.has(key) && key === 'errPenaltyTip') {
         return state.error >= 1 && result.push(value)
       }
 
