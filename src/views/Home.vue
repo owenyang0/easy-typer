@@ -47,7 +47,7 @@
                 <el-tooltip content="继续发文 - 恢复历史跟打进度" placement="top">
                   <el-button size="mini" icon="el-icon-timer" @click="continueKataDialog">继续发文</el-button>
                 </el-tooltip>
-                <el-tooltip content="分享当前文章" placement="top">
+                <el-tooltip content="分享当前文章 (Ctrl+C)" placement="top">
                   <el-button size="mini" icon="el-icon-share" @click="shareArticle">分享文章</el-button>
                 </el-tooltip>
                 <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
