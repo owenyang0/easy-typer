@@ -804,6 +804,13 @@ export default class Home extends Vue {
           this.random()
         }
         break
+      case 'c':
+        if (ctrlKey) {
+          e.preventDefault()
+          // 快速分享
+          this.shareArticle()
+        }
+        break
     }
   }
 
