@@ -47,6 +47,9 @@
                 <el-tooltip content="继续发文 - 恢复历史跟打进度" placement="top">
                   <el-button size="mini" icon="el-icon-timer" @click="continueKataDialog">继续发文</el-button>
                 </el-tooltip>
+                <el-tooltip content="分享当前文章" placement="top">
+                  <el-button size="mini" icon="el-icon-share" @click="shareArticle">分享文章</el-button>
+                </el-tooltip>
                 <el-dropdown size="mini" :icon="triggerIcon" :type="triggerType" @click="trigger" split-button
                   :trigger="triggerMethod"
                   hide-on-click
@@ -238,6 +241,7 @@ import Article from '@/components/Article.vue'
 import Racing from '@/components/Racing.vue'
 import Achievements from '@/components/Achievements.vue'
 import { Action, namespace, State } from 'vuex-class'
+import { Loading } from 'element-ui'
 import eapi from '@/api/easyTyper'
 import { InterfaceStyle } from '@/store/types'
 import { noop } from 'vue-class-component/lib/util'
@@ -325,6 +329,15 @@ export default class Home extends Vue {
   @article.Action('loadSingleEnd500')
   private loadSingleEnd500!: Function
 
+  @article.State('title')
+  private articleTitle!: string
+
+  @article.State('content')
+  private articleContent!: string
+
+  @article.State('identity')
+  private articleIdentity!: string | number
+
   @login.State('authenticated')
   private authenticated!: boolean
 
@@ -394,7 +407,7 @@ export default class Home extends Vue {
   private hasUpdated = false
   private wikiTypeMap = wikiTypeMap
 
-  commandHandlers: { [key: string]: () => any } = {
+  commandHandlers: { [key: string]: () => void } = {
     loadClipboard: () => this.loadFromClipboard(),
     retry: () => this.retry(),
     prev: () => this.prev(),
@@ -565,7 +578,7 @@ export default class Home extends Vue {
     document.addEventListener('keydown', this.handleShortCut)
 
     window.electronAPI &&
-      window.electronAPI.handlePaste((evt: any, val: any) => {
+      window.electronAPI.handlePaste((evt: Event, val: string) => {
         if (!this.appVersion) {
           this.setAppVersion('0.2.4') // 上一版本号
         }
@@ -693,6 +706,41 @@ export default class Home extends Vue {
     }).catch(() => {
       console.log('cancel')
     })
+  }
+
+  async shareArticle () {
+    try {
+      if (!this.articleContent) {
+        this.$message.warning('当前没有文章内容可以分享')
+        return
+      }
+
+      // Show a simple loading message instead of full-screen overlay
+      const loadingMessage = this.$message({
+        message: '正在准备分享内容...',
+        iconClass: 'el-icon-loading',
+        duration: 0
+      })
+
+      // Generate share text with current article content
+      const hash = eapi.sha1Hmac(`${this.articleContent}-${this.articleIdentity}`)
+      const signature = `-----第${this.articleIdentity}段-共${this.articleContent.length}字-哈希${hash}--易跟打web发文`
+      const articleText = `${this.articleTitle || '未知标题'}\n${this.articleContent}\n${signature}`
+
+      // Copy to clipboard
+      const textarea = document.createElement('textarea')
+      textarea.value = articleText
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+
+      // Close the loading message and show success
+      loadingMessage.close()
+      this.$message.success('文章已复制到剪贴板，可以粘贴分享了！')
+    } catch (error) {
+      this.$message.error('分享文章失败：' + (error as Error).message)
+    }
   }
 
   trigger () {
