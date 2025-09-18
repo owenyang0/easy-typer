@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { ActionTree, GetterTree, Module, MutationTree } from 'vuex'
 import { BookModel, QuickTypingState, ReadingState } from './types'
 import db from './util/Database'
+import eapi from '@/api/easyTyper'
 
 const state = new ReadingState()
 
@@ -82,6 +83,24 @@ const actions: ActionTree<ReadingState, QuickTypingState> = {
 
     db.bookShelf.delete(id)
     db.bookShelf.put(books, 'books')
+  },
+
+  async shareArticle ({ state }, id: string): Promise<string> {
+    const book = state.books.find(book => book.id === id)
+    if (!book) {
+      throw new Error('书籍不存在')
+    }
+
+    const bookData = await db.bookShelf.get(id) as BookModel & { content?: string }
+    if (!bookData || !bookData.content) {
+      throw new Error('书籍内容不存在')
+    }
+
+    const content = bookData.content
+    const hash = eapi.sha1Hmac(`${content}-${book.id}`)
+    const signature = `-----第${book.id}段-${content.length}Z-${hash}V--xc.sw`
+
+    return `${book.title}\n${content}\n${signature}`
   }
 }
 
