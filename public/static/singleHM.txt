@@ -321,7 +321,6 @@
 銺	agzj
 敌	ah
 来	ahb
-麺	ahb
 魐	ahbc
 㾾	ahbc
 麺	ahbm
@@ -1458,7 +1457,7 @@
 娛	bda
 娯	bdah
 娛	bdam
-犟	bdc
+强	bdc
 强	bdcc
 犟	bdcq
 勥	bdcs
@@ -3814,7 +3813,6 @@
 屙	ctz
 屙	ctzk
 还	cu
-燋	cuc
 还	cuc
 迉	cuc
 燋	cuch
@@ -4266,7 +4264,6 @@
 嚠	dbzp
 虽	dc
 吥	dcb
-啖	dcc
 虽	dcc
 蟁	dccc
 㗵	dcce
@@ -4446,7 +4443,7 @@
 㗧	deyi
 㘄	deyl
 号	df
-饕	dfa
+号	dfa
 号	dfae
 甹	dfae
 㙱	dfag
@@ -4681,6 +4678,7 @@
 咿	djbt
 哙	djby
 呌	djd
+哈	djd
 噞	djdj
 哈	djdk
 啽	djdl
@@ -6872,7 +6870,6 @@
 橖	ese
 橖	esem
 㯎	esem
-樘	esg
 格	esg
 樘	esgt
 𰻝	esi
@@ -7450,7 +7447,6 @@
 丈	fbi
 祗	fbid
 骶	fbid
-禒	fbj
 互	fbj
 禒	fbjs
 禄	fbk
@@ -7650,7 +7646,7 @@
 祥	fgy
 䄣	fgyo
 忘	fh
-嫳	fhb
+亊	fhb
 䯡	fhbc
 彆	fhbg
 嫳	fhbn
@@ -7708,7 +7704,6 @@
 禉	fhyy
 鐅	fhz
 鐅	fhzj
-禘	fi
 一	fi
 禨	fii
 䯖	fiig
@@ -8385,7 +8380,6 @@
 䅽	gcrx
 䡰	gcry
 鏧	gcrz
-堀	gcs
 声	gcs
 堀	gcsm
 郝	gct
@@ -8946,7 +8940,6 @@
 䯩	gmb
 塽	gmbb
 羠	gmbg
-坰	gmd
 美	gmd
 䯨	gmd
 坰	gmdk
@@ -9338,7 +9331,6 @@
 䡨	guy
 䡨	guyc
 死	gv
-㙘	gvb
 死	gvb
 㙘	gvbn
 垜	gve
@@ -10464,7 +10456,7 @@
 惿	hot
 惱	hotb
 惿	hots
-導	hou
+道	hou
 道	houc
 噵	houd
 導	houk
@@ -10564,7 +10556,7 @@
 愢	hqhx
 恅	hql
 兾	hqlh
-冁	hqn
+单	hqn
 单	hqns
 郸	hqnt
 冁	hqnt
@@ -10613,7 +10605,7 @@
 癹	hrs
 怿	hru
 怿	hrus
-甑	hry
+曾	hry
 𢐷	hryb
 朆	hrye
 㣒	hrye
@@ -11266,7 +11258,6 @@
 线	ifp
 䑢	ifpe
 线	ifpg
-缰	ifq
 组	ifq
 組	ifq
 缰	ifqf
@@ -11985,7 +11976,7 @@
 絡	isg
 孧	ish
 孧	ishi
-纞	isi
+为	isi
 䊼	isi
 为	isid
 纞	isih
@@ -12435,7 +12426,6 @@
 縴	iziq
 舷	iziy
 絃	iziy
-缪	izj
 即	izj
 䋮	izj
 缪	izje
@@ -13390,7 +13380,6 @@
 傁	jpgr
 垡	jpgt
 垈	jpgt
-仞	jpi
 代	jpi
 仞	jpid
 仭	jpid
@@ -14299,7 +14288,6 @@
 沫	kfem
 濔	kff
 濔	kffb
-沔	kfg
 滑	kfg
 沔	kfga
 潎	kfh
@@ -14468,7 +14456,7 @@
 洴	khl
 洴	khlc
 渆	khlp
-浂	khm
+渕	khm
 浂	khmd
 渕	khmp
 溌	khmp
@@ -17851,6 +17839,7 @@
 鴯	lxn
 䲼	lxn
 茑	lxnc
+鸸	lxne
 蔁	lxns
 萫	lxo
 萯	lxob
@@ -18152,7 +18141,6 @@
 夽	mby
 砾	mbyx
 独	mc
-扊	mcc
 独	mcc
 扊	mcch
 礯	mcci
@@ -18474,7 +18462,6 @@
 扁	mic
 狦	mic
 㹪	mic
-碚	mid
 太	mid
 䂖	mid
 碚	midk
@@ -18724,7 +18711,6 @@
 夿	mmb
 磢	mmbb
 㹫	mmbg
-扃	mmd
 央	mmd
 夶	mmd
 㚐	mmd
@@ -19488,7 +19474,6 @@
 珓	nabi
 駮	nabi
 玎	nad
-玚	nae
 成	nae
 乵	nae
 玌	nae
@@ -21030,7 +21015,6 @@
 晈	oab
 晈	oabi
 賋	oabi
-旸	oae
 电	oae
 臫	oae
 旸	oaes
@@ -22156,7 +22140,7 @@
 䊥	pba
 䊥	pbaa
 粥	pbb
-學	pbb
+嶨	pbb
 𢐫	pbba
 燢	pbbc
 嚳	pbbd
@@ -23114,7 +23098,7 @@
 踂	pqae
 糙	pqd
 糙	pqdu
-踝	pqe
+粿	pqe
 踝	pqem
 粿	pqem
 踍	pqh
@@ -24393,7 +24377,7 @@
 殾	qors
 聅	qos
 䀢	qos
-斱	qot
+都	qot
 都	qote
 斱	qotj
 睼	qots
@@ -25097,7 +25081,6 @@
 囨	rcb
 蜚	rcc
 簩	rccs
-幞	rcg
 固	rcg
 䇢	rcg
 㡤	rcgh
@@ -27193,7 +27176,6 @@
 此	sv
 謠	sva
 謠	svaf
-姕	svb
 此	svb
 䚰	svb
 姕	svbn
@@ -29661,7 +29643,7 @@
 搹	ung
 拵	ungh
 撗	unh
-扚	uni
+的	uni
 的	unid
 扚	unid
 抉	unj
@@ -30808,7 +30790,6 @@
 肺	vfr
 肺	vfrj
 㼼	vfrw
-肫	vfs
 䏡	vfs
 票	vfs
 肫	vfsc
@@ -32111,7 +32092,7 @@
 臚	vzq
 臚	vzqa
 㠠	vzqa
-膻	vzr
+服	vzr
 膻	vzrf
 氊	vzrf
 㠧	vzrf
@@ -32160,7 +32141,6 @@
 凑	waim
 䲠	waio
 鰆	waio
-鳉	wal
 宍	wal
 鳉	walk
 㝱	wall
@@ -32961,7 +32941,7 @@
 宴	wobn
 㝰	woe
 㝰	woel
-鰑	wof
+得	wof
 鰑	wofe
 鿩	woff
 䱇	wofi
@@ -33258,7 +33238,6 @@
 宅	wtr
 宅	wtrq
 魠	wtrq
-鳓	wts
 定	wts
 鳓	wtsl
 鰳	wtsl
@@ -33819,7 +33798,7 @@
 麎	xfc
 稏	xfcy
 䅉	xfcy
-逅	xfd
+后	xfd
 垕	xfdg
 后	xfdk
 㢐	xfdk
