@@ -1,0 +1,18 @@
+README.md
+  h_e24c70755a7186 20-22
+src/docs/changelog.md
+  h_e24c70755a7186 11-14
+vue.config.js
+  h_e24c70755a7186 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "034270f894f8035cd980d04375983bb25f872317",
+  "prompts": {},
+  "humans": {
+    "h_e24c70755a7186": {
+      "author": "yangsong13 <yangsong13@meituan.com>"
+    }
+  }
+}
