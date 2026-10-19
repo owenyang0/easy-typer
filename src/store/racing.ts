@@ -336,6 +336,7 @@ const mutations: MutationTree<RacingState> = {
   },
 
   finish (state, payload): void {
+    if (state.status === 'finished') return
     state.error = payload.error
     state.status = 'finished'
     state.time += Date.now() - state.start
@@ -510,6 +511,12 @@ const actions: ActionTree<RacingState, QuickTypingState> = {
   },
 
   checkFinished ({ commit, state, rootState, getters }, last) {
+    // 输入法提交候选时，Chromium(152+) 会对同一次按键派发两次 keyup（key="Process" 与真实按键，
+    // isComposing 均为 false），checkFinished 因此被调用两次：第二次 finish 时 state.start 已被
+    // 第一次置 0，state.time += Date.now() - 0 会把用时加上约 1.79e12 毫秒，
+    // typeSpeed 变成 "0.00"，成绩既不显示也不入库（Edge/Chrome 复现，Firefox/夸克正常）
+    if (state.status === 'finished') return
+
     const { article, setting, kata } = rootState
     const { input } = state
 
