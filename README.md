@@ -17,6 +17,9 @@
 - 或通过QQ群联系我：**木易跟打器** `787343469`
 - 有能力，提个[PR](https://github.com/owenyang0/easy-typer/pulls)
 
+### 感谢所有贡献者
+[![Contributors](https://contrib.rocks/image?repo=owenyang0/easy-typer)](https://github.com/owenyang0/easy-typer/graphs/contributors)
+
 ## 二、声明
 
 1. 本程序系私人用途，非商业产品，即不提供相应的服务

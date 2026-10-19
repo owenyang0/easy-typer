@@ -8,6 +8,10 @@
 - [] 发文至QQ群
 - [] Windows平台支持
 
+## [0.3.1(74)] - 2026-10-19
+- [Fixed] 修复行尾字符输入时的跳动- #40 @fcxxxz
+- [Fixed] 修复 Chromium 152 下输入法重复 keyup 导致成绩恒为 0.00、不入库 @r3n4ive
+
 ## [0.3.0(73)] - 2024-02-26
 - [Added] 移除默认字体文件，若需可从网盘下载安装：<a href="http://huma.ysepan.com/" target="_blank">其他资源-虎码必装字体</a>
 - [Enhanced] 发文说明引用官网使用文档

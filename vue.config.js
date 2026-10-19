@@ -24,7 +24,7 @@ const sitemapRoutes = routes.concat([
   '/portal/docs/intro'
 ])
 
-const version = '(73)'
+const version = '(74)'
 process.env.VUE_APP_VERSION = require('./package.json').version
 process.env.VUE_APP_WEB_VERSION = version
 
