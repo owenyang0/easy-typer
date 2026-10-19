@@ -2,6 +2,7 @@
   <div :class="style">
     <span>{{ word.text }}</span>
     <label v-if="hasHint">{{ hintText }}</label>
+    <wbr v-if="breakOpportunity" class="word-break-opportunity">
   </div>
 </template>
 
@@ -16,6 +17,9 @@ const setting = namespace('setting')
 export default class Words extends Vue {
   @Prop({ type: Word, required: true })
   readonly word!: Word
+
+  @Prop({ type: Boolean, default: true })
+  readonly breakOpportunity!: boolean
 
   @setting.State('hint')
   private hint!: boolean

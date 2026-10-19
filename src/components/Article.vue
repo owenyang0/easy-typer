@@ -1,7 +1,12 @@
 <template>
   <div id="article-main">
     <el-row ref="board" :class="articleStyle">
-      <Words v-for="word in words" :key="word.id" :word="word"/>
+      <Words
+        v-for="word in words"
+        :key="word.id"
+        :word="word"
+        :break-opportunity="isInlineMode"
+      />
     </el-row>
     <el-divider class="article-info" content-position="right">
       <span>第{{ identity }}段</span>
@@ -65,6 +70,10 @@ export default class Article extends Vue {
       mode = 'grid'
     }
     return ['article', mode]
+  }
+
+  get isInlineMode (): boolean {
+    return this.articleStyle.indexOf('inline') >= 0
   }
 
   get selectHint (): boolean {
